@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternsExamples", "PatternsExamples\PatternsExamples.csproj", "{4CF2C59B-6279-4509-82FE-6512A3B288F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternsExamplesTests", "PatternsExamplesTests\PatternsExamplesTests.csproj", "{51F5B4FC-7D90-46C9-91F5-99B08AB1622A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CF2C59B-6279-4509-82FE-6512A3B288F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF2C59B-6279-4509-82FE-6512A3B288F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF2C59B-6279-4509-82FE-6512A3B288F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF2C59B-6279-4509-82FE-6512A3B288F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51F5B4FC-7D90-46C9-91F5-99B08AB1622A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F5B4FC-7D90-46C9-91F5-99B08AB1622A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F5B4FC-7D90-46C9-91F5-99B08AB1622A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F5B4FC-7D90-46C9-91F5-99B08AB1622A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal
