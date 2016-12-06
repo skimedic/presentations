@@ -1,0 +1,188 @@
+﻿<Window x:Class="WPF.Samples.Validation.Views.ValidationSample" 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="ValidationSample" Height="350" Width="400">
+	<Window.Resources>
+		<Style TargetType="{x:Type TextBox}">
+			<Style.Triggers>
+				<Trigger Property="Validation.HasError" Value="true">
+					<Trigger.EnterActions>
+						<BeginStoryboard>
+							<Storyboard>
+								<ColorAnimationUsingKeyFrames
+										Storyboard.TargetProperty="(TextBox.Background).(SolidColorBrush.Color)"
+										Duration="0:0:2">
+									<LinearColorKeyFrame Value="Pink" />
+								</ColorAnimationUsingKeyFrames>
+								<ColorAnimationUsingKeyFrames
+										Storyboard.TargetProperty="(TextBox.Foreground).(SolidColorBrush.Color)"
+										Duration="0:0:2">
+									<LinearColorKeyFrame Value="Red" />
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+						</BeginStoryboard>
+					</Trigger.EnterActions>
+					<Trigger.ExitActions>
+						<BeginStoryboard>
+							<Storyboard>
+								<ColorAnimationUsingKeyFrames
+										Storyboard.TargetProperty="(TextBox.Background).(SolidColorBrush.Color)"
+										Duration="0:0:.5">
+									<LinearColorKeyFrame Value="White" />
+								</ColorAnimationUsingKeyFrames>
+								<ColorAnimationUsingKeyFrames
+										Storyboard.TargetProperty="(TextBox.Foreground).(SolidColorBrush.Color)"
+										Duration="0:0:.5">
+									<LinearColorKeyFrame Value="Black" />
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>
+						</BeginStoryboard>
+					</Trigger.ExitActions>
+				</Trigger>
+			</Style.Triggers>
+			<Setter Property="Validation.ErrorTemplate">
+				<Setter.Value>
+					<ControlTemplate>
+						<DockPanel x:Name="ErrorTemplateDockPanel"
+								LastChildFill="True"
+								Height="{Binding ElementName=controlWithError, Path=ActualHeight}"
+								Width="{Binding ElementName=controlWithError, Path=ActualWidth}"
+								ToolTip="{Binding ElementName=controlWithError,Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+							<TextBlock Name="ErrorAsterisk"
+									DockPanel.Dock="Right" Foreground="Red"
+									Opacity="0" FontSize="14pt"
+									Margin="-15,0,0,0" FontWeight="Bold"
+									Text="*" />
+							<Border Opacity="0" Name="ErrorBorder"
+									BorderBrush="Red" BorderThickness="1">
+								<AdornedElementPlaceholder
+										Name="controlWithError" />
+							</Border>
+						</DockPanel>
+						<ControlTemplate.Triggers>
+							<Trigger SourceName="ErrorTemplateDockPanel"
+									Property="IsVisible" Value="True">
+								<Trigger.EnterActions>
+									<BeginStoryboard>
+										<Storyboard>
+											<DoubleAnimationUsingKeyFrames
+													Storyboard.TargetName="ErrorBorder"
+													Storyboard.TargetProperty="(Border.Opacity)">
+												<EasingDoubleKeyFrame
+														KeyTime="0" Value="0" />
+												<EasingDoubleKeyFrame
+														KeyTime="0:0:1"
+														Value="1" />
+											</DoubleAnimationUsingKeyFrames>
+											<DoubleAnimationUsingKeyFrames
+													Storyboard.TargetProperty="(UIElement.Opacity)"
+													Storyboard.TargetName="ErrorAsterisk">
+												<EasingDoubleKeyFrame
+														KeyTime="0" Value="0" />
+												<EasingDoubleKeyFrame
+														KeyTime="0:0:1"
+														Value="1" />
+											</DoubleAnimationUsingKeyFrames>
+										</Storyboard>
+									</BeginStoryboard>
+								</Trigger.EnterActions>
+								<Trigger.ExitActions>
+									<BeginStoryboard>
+										<Storyboard>
+											<DoubleAnimationUsingKeyFrames
+													Storyboard.TargetProperty="(Border.Opacity)"
+													Storyboard.TargetName="ErrorBorder">
+												<EasingDoubleKeyFrame
+														KeyTime="0" Value="0" />
+												<EasingDoubleKeyFrame
+														KeyTime="0:0:1"
+														Value="1" />
+											</DoubleAnimationUsingKeyFrames>
+											<DoubleAnimationUsingKeyFrames
+													Storyboard.TargetProperty="(UIElement.Opacity)"
+													Storyboard.TargetName="ErrorAsterisk">
+												<EasingDoubleKeyFrame
+														KeyTime="0" Value="0" />
+												<EasingDoubleKeyFrame
+														KeyTime="0:0:1"
+														Value="1" />
+											</DoubleAnimationUsingKeyFrames>
+										</Storyboard>
+									</BeginStoryboard>
+								</Trigger.ExitActions>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<!--<Style TargetType="{x:Type TextBox}">
+			 --><!--x:Key="myErrorTemplate" TargetType="Control"--><!-- 
+			<Style.Triggers>
+				<Trigger Property="Validation.HasError" Value="true">
+					<Setter Property="Background" Value="Pink" />
+					<Setter Property="Foreground" Value="Black" />
+				</Trigger>
+			</Style.Triggers>
+			<Setter Property="Validation.ErrorTemplate">
+				<Setter.Value>
+					<ControlTemplate>
+						<DockPanel LastChildFill="True" 
+								   ToolTip="{Binding ElementName=controlWithError,
+							Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+							<TextBlock DockPanel.Dock="Right" Foreground="Red" FontSize="14pt" 
+									   Margin="-15,0,0,0" FontWeight="Bold">*</TextBlock>
+							<Border BorderBrush="Red" BorderThickness="1">
+								<AdornedElementPlaceholder Name="controlWithError" />
+							</Border>
+						</DockPanel>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>-->
+		<!--<Style TargetType="TextBox" BasedOn="{StaticResource myErrorTemplate}" />
+		<Style TargetType="CheckBox" BasedOn="{StaticResource myErrorTemplate}" />
+		<Style TargetType="ComboBox" BasedOn="{StaticResource myErrorTemplate}" />-->
+	</Window.Resources>
+	<Grid Grid.IsSharedSizeScope="True" Margin="6">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" MinHeight="26" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" MinHeight="6" />
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Height="Auto">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Row="0" Grid.Column="0" Margin="0,0,1,0" HorizontalAlignment="Right">ProductList:</Label>
+			<ComboBox Name="ProductSelector" Grid.Row="0" Grid.Column="1" Margin="2,1,2,1" ItemsSource="{Binding Path=Products}" DisplayMemberPath="ModelName" />
+		</Grid>
+		<Grid Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" SharedSizeGroup="Label" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Label Grid.Row="0" Grid.Column="0" Margin="0,0,1,0" HorizontalAlignment="Right">ModelName:</Label>
+			<TextBox Grid.Row="0" Grid.Column="1" Margin="1,1,1,1" HorizontalAlignment="Stretch" Text="{Binding ElementName=ProductSelector, Path=SelectedItem.ModelName, ValidatesOnExceptions=true, ValidatesOnNotifyDataErrors=true, ValidatesOnDataErrors = true}" />
+			<Label Grid.Row="1" Grid.Column="0" Margin="0,0,1,0" HorizontalAlignment="Right">SKU:</Label>
+			<TextBox Grid.Row="1" Grid.Column="1" Margin="1,1,1,1" HorizontalAlignment="Stretch" Text="{Binding ElementName=ProductSelector, Path=SelectedItem.SKU, ValidatesOnExceptions=true, ValidatesOnNotifyDataErrors=true, ValidatesOnDataErrors = true}" />
+			<Label Grid.Row="2" Grid.Column="0" Margin="0,0,1,0" HorizontalAlignment="Right">Price:</Label>
+			<TextBox Grid.Row="2" Grid.Column="1" Margin="1,1,1,1" HorizontalAlignment="Stretch" Text="{Binding ElementName=ProductSelector, Path=SelectedItem.Price, ValidatesOnExceptions=true, ValidatesOnNotifyDataErrors=true, ValidatesOnDataErrors = true}" />
+			<Label Grid.Row="3" Grid.Column="0" Margin="0,0,1,0" HorizontalAlignment="Right">Inventory:</Label>
+			<TextBox Grid.Row="3" Grid.Column="1" Margin="1,1,1,1" HorizontalAlignment="Stretch" Text="{Binding ElementName=ProductSelector, Path=SelectedItem.Inventory, ValidatesOnExceptions=true, ValidatesOnNotifyDataErrors=true, ValidatesOnDataErrors = true}" />
+			<Label Grid.Row="4" Grid.Column="0" Margin="0,0,1,0" HorizontalAlignment="Right">SalePrice:</Label>
+			<TextBox Grid.Row="4" Grid.Column="1" Margin="1,1,1,1" HorizontalAlignment="Stretch" Text="{Binding ElementName=ProductSelector, Path=SelectedItem.SalePrice, ValidatesOnExceptions=true, ValidatesOnNotifyDataErrors=true, ValidatesOnDataErrors = true}" />
+			<Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
+				Inventory > 0, Sale if Inventory > 50
+			</Label>
+		</Grid>
+		<StackPanel Grid.Row="2" Orientation="Horizontal" Margin="3,3,3,0" Height="0" VerticalAlignment="Top"></StackPanel>
+	</Grid>
+</Window>

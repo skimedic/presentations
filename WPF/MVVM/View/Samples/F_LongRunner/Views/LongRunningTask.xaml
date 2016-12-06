@@ -1,0 +1,42 @@
+﻿<Window x:Class="WPF.Samples.F_LongRunner.Views.LongRunningTask" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:Helpers="clr-namespace:WPF.Helpers" 
+        xmlns:Converters="clr-namespace:WPF.Samples.F_LongRunner.Converters" 
+        Title="LongRunningTask" Height="200" Width="350">
+
+    <Window.Resources>
+        <Converters:LoginMultiConverter x:Key="LoginMultiConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="User Name:" HorizontalContentAlignment="Right" />
+        <TextBox Grid.Row="0" Grid.Column="1" Padding="3,0,3,0" Name="txtUserName" Text="{Binding Path=UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Password:" HorizontalContentAlignment="Right" />
+        <PasswordBox Grid.Row="1" Grid.Column="1" Name="txtPassword" Helpers:PasswordBoxAssistant.BindPassword="true" Helpers:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <!--http://blog.functionalfun.net/2008/06/wpf-passwordbox-and-data-binding.html -->
+        <!--http://www.tanguay.info/web/index.php?pg=codeExamples&id=220 -->
+        <Button Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Padding="5" Content="Log In" Command="{Binding Path=LoginCmd}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource LoginMultiConverter}" UpdateSourceTrigger="LostFocus">
+                    <MultiBinding.Bindings>
+                        <Binding Path="UserName" />
+                        <Binding Path="Password" />
+                        <Binding ElementName="pgLogin" />
+                    </MultiBinding.Bindings>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+        <ProgressBar Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Top" Padding="10" Name="pgLogin" Height="20" />
+    </Grid>
+</Window>

@@ -1,0 +1,12 @@
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\bin\Debug\AutoLotDAL.dll.config
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\bin\Debug\AutoLotDAL.dll
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\bin\Debug\AutoLotDAL.pdb
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\bin\Debug\EntityFramework.dll
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\bin\Debug\EntityFramework.xml
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\obj\Debug\AutoLotDAL.Migrations.InitialCreate.resources
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\obj\Debug\AutoLotDAL.Migrations.TimeStamps.resources
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\obj\Debug\AutoLotDAL.csproj.GenerateResource.Cache
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\obj\Debug\AutoLotDAL.dll
+C:\Users\Philip\OneDrive\Book\Troelsen\Chapters\C#_6\Chapter30\Chapter30CodeSamples\MVVMFinal\AutoLotDAL\obj\Debug\AutoLotDAL.pdb

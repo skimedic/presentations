@@ -1,0 +1,21 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:swi="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+        xmlns:WPF_Samples_E_Behaviors_ViewModels="clr-namespace:WPF.Samples.E_Behaviors.ViewModels" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Name="window" x:Class="WPF.Samples.E_Behaviors.Views.Behaviors" Title="Behaviors" Height="250" Width="350">
+	<Window.Resources>
+		<WPF_Samples_E_Behaviors_ViewModels:BehaviorsViewModel x:Key="BehaviorsViewModelDataSource" d:IsDataSource="True" />
+	</Window.Resources>
+	<Grid DataContext="{Binding Source={StaticResource BehaviorsViewModelDataSource}}">
+		<DataGrid x:Name="dataGrid" ItemsSource="{Binding Products}" AutoGenerateColumns="False">
+			<swi:Interaction.Triggers>
+				<swi:EventTrigger EventName="MouseLeftButtonUp">
+					<swi:InvokeCommandAction Command="{Binding GridClickedCommand}" CommandParameter="{Binding ElementName=dataGrid, Path=CurrentItem}" />
+				</swi:EventTrigger>
+			</swi:Interaction.Triggers>
+			<DataGrid.Columns>
+				<DataGridTextColumn Binding="{Binding SKU}" Header="SKU" Width="Auto" />
+				<DataGridTextColumn Binding="{Binding ModelName}" Header="Model Name" Width="*" />
+			</DataGrid.Columns>
+		</DataGrid>
+	</Grid>
+</Window>

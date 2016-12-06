@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "View\WPF.csproj", "{3B452695-00BC-4B2D-98AD-9253ADE4257B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTests", "WPFTests\WPFTests.csproj", "{AF4D784F-C140-47BA-BB20-A79DDFD40D88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licenses", "Licenses", "{A7CF2707-CA4B-4626-A5F2-6042C7A62D2C}"
+	ProjectSection(SolutionItems) = preProject
+		License.txt = License.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{75BE9DD4-9DD3-4D7B-960A-60F19AB9A749}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B452695-00BC-4B2D-98AD-9253ADE4257B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B452695-00BC-4B2D-98AD-9253ADE4257B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B452695-00BC-4B2D-98AD-9253ADE4257B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B452695-00BC-4B2D-98AD-9253ADE4257B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF4D784F-C140-47BA-BB20-A79DDFD40D88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF4D784F-C140-47BA-BB20-A79DDFD40D88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF4D784F-C140-47BA-BB20-A79DDFD40D88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF4D784F-C140-47BA-BB20-A79DDFD40D88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

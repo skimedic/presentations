@@ -1,0 +1,19 @@
+﻿<Window x:Class="WPF.Samples.A_Launcher.Views.Launcher" 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		xmlns:ViewModels="clr-namespace:WPF.Samples.A_Launcher.ViewModels" 
+		Title="Launcher" 
+		Height="200" 
+		Width="300">
+	<Window.Resources>
+	</Window.Resources>
+	<Grid>
+		<StackPanel>
+			<Button Name="cmdChangeNotificationSample" Content="Change Notification" Command="{Binding Path=LaunchCmd}" CommandParameter="{x:Static ViewModels:ApplicationWindowsEnum.ChangeNotificationSample}" />
+			<Button Name="cmdValidationSample" Content="Validation" Command="{Binding Path=LaunchCmd}" CommandParameter="{x:Static ViewModels:ApplicationWindowsEnum.ValidationSample}" />
+			<Button Name="cmdCommandsSamples" Content="Commands" Command="{Binding Path=LaunchCmd}" CommandParameter="{x:Static ViewModels:ApplicationWindowsEnum.CommandsSample}" />
+			<Button Name="cmdBehaviors" Content="Behaviors" Command="{Binding Path=LaunchCmd}" CommandParameter="{x:Static ViewModels:ApplicationWindowsEnum.BehaviorSample}" />
+			<Button Name="cmdLongRunner" Content="Long Running Task" Command="{Binding Path=LaunchCmd}" CommandParameter="{x:Static ViewModels:ApplicationWindowsEnum.LongRunningTasksSample}" />
+		</StackPanel>
+	</Grid>
+</Window>
