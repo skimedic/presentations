@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPFDemo.A_Layouts.DockPanelExample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DockPanelExample" Height="200" Width="200">
+	<DockPanel  Name="dockPanel1" LastChildFill="True">
+		<Button DockPanel.Dock="Top" >First</Button>
+		<Button DockPanel.Dock="Left">Second</Button>
+		<Button DockPanel.Dock="Right">Third</Button>
+		<Button DockPanel.Dock="Bottom" >Fourth</Button>
+		<Button DockPanel.Dock="Bottom" >Fifth</Button>
+		<Button Name="button5">Last</Button>
+	</DockPanel>
+
+</Window>

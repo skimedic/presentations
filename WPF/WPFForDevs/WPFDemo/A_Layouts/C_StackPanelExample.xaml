@@ -1,0 +1,25 @@
+﻿<Window
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="WPFDemo.A_Layouts.StackPanelExample"
+		Title="StackPanelExample" Height="300" Width="300">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,100.32,0">
+            <RadioButton Name="rbHorizontal" Content="Horizontal" Margin="10,0,40,0" Click="RadioButtonClicked" />
+            <RadioButton Name="rbVertical" Content="Vertical" IsChecked="True" Click="RadioButtonClicked" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Name="MyStackPanel" Orientation="Vertical" Grid.ColumnSpan="2" Margin="0,0,100.32,0" >
+            <Button x:Name="button1a" Content="Button1"/>
+            <Button x:Name="button2a" Content="Button2"/>
+            <Label Content="A Label"/>
+            <Button x:Name="button4a" HorizontalAlignment="Stretch" Content="Button4"/>
+            <Button x:Name="button3a" Content="Button3"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,49 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        x:Class="WPFDemo.A_Layouts.Gradients" Title="Gradient Samples" Height="460" Width="566">
+	<Grid UseLayoutRounding="True">
+		<Grid.Background>
+			<LinearGradientBrush>
+				<LinearGradientBrush.GradientStops>
+					<GradientStop Offset="0.00" Color="Red" />
+					<GradientStop Offset="0.50" Color="Indigo" />
+					<GradientStop Offset="1.00" Color="Violet" />
+				</LinearGradientBrush.GradientStops>
+			</LinearGradientBrush>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<TextBox Name="txtQuestion" Grid.Row="0" Margin="41,27,49,18" Foreground="{x:Static SystemColors.ActiveCaptionBrush}" FontFamily="Verdana" TextWrapping="Wrap" FontSize="24">
+			<TextBox.Background>
+				<RadialGradientBrush SpreadMethod="Reflect">
+					<RadialGradientBrush.RelativeTransform>
+						<TransformGroup>
+							<ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.22" ScaleY="1.22" />
+							<SkewTransform AngleX="0" AngleY="0" CenterX="0.5" CenterY="0.5" />
+							<RotateTransform Angle="0" CenterX="0.5" CenterY="0.5" />
+							<TranslateTransform X="-0.304" Y="0.311" />
+						</TransformGroup>
+					</RadialGradientBrush.RelativeTransform>
+					<GradientStop Color="#FF000000" Offset="0" />
+					<GradientStop Color="#FFEE0CDE" Offset="0.303" />
+					<GradientStop Color="#FF370CEE" Offset="0.553" />
+					<GradientStop Color="#FF26EE0C" Offset="0.721" />
+					<GradientStop Color="#FFFF3300" Offset="0.865" />
+				</RadialGradientBrush>
+			</TextBox.Background>
+		</TextBox>
+		<TextBox Name="txtAnswer" Grid.Row="2" Margin="41,20,49,28" FontSize="24" FontFamily="Verdana" RenderTransformOrigin="0.502,0.496" Text="[Watch it appear here.]">
+			<TextBox.Background>
+				<LinearGradientBrush EndPoint="0.9,-0.176" StartPoint="0.715,0.381" SpreadMethod="Reflect">
+					<GradientStop Color="#FFF406EE" Offset="0" />
+					<GradientStop Color="#FFF70A42" Offset="0.986" />
+					<GradientStop Color="#FF8988F9" Offset="0.553" />
+				</LinearGradientBrush>
+			</TextBox.Background>
+		</TextBox>
+		<Button HorizontalAlignment="Left" Margin="40,8,0,6" Name="cmdAsk" Grid.Row="1" FontFamily="Verdana" Click="cmdAsk_Click" VerticalAlignment="Center" Padding="4">Move the Text</Button>
+	</Grid>
+</Window>

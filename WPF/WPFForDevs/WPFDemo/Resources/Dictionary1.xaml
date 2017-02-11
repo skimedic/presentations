@@ -1,0 +1,5 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="Button" BasedOn="{StaticResource BigFontButton}">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+</ResourceDictionary>

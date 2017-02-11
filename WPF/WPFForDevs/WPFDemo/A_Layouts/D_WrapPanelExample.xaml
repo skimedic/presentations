@@ -1,0 +1,23 @@
+﻿<Window x:Class="WPFDemo.A_Layouts.WrapPanelExample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WrapPanelExample" Height="300" Width="300">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<StackPanel Orientation="Horizontal">
+			<RadioButton Name="rbHorizontal" Content="Horizontal" Margin="10,0,40,0" IsChecked="True" Click="RadioButtonClicked" />
+			<RadioButton Name="rbVertical" Content="Vertical" Click="RadioButtonClicked" />
+		</StackPanel>
+		<WrapPanel Name="MyWrapPanel" Grid.Row="1" >
+			<Button x:Name="button1a" Content="Button1"/>
+			<Button x:Name="button2a" Content="Button2"/>
+			<Label Content="A Label"/>
+			<Button x:Name="button4a" Content="Button4"/>
+			<Button x:Name="button3a" Content="Button3"/>
+		</WrapPanel>
+	</Grid>
+</Window>

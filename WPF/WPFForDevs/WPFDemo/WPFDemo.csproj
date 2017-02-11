@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C74A1F8-6D11-44E2-ADCF-E0E8A7D11954}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WPFDemo</RootNamespace>
+    <AssemblyName>WPFDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="A_Layouts\A_Gradients.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="A_Layouts\B_BorderExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="A_Layouts\L_CanvasExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="A_Layouts\E_DockPanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="A_Layouts\I_DataEntryForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="A_Layouts\H_BasicGridForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="A_Layouts\K_SharedSizeGroupsForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="A_Layouts\F_SpecializedContainers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="A_Layouts\C_StackPanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="A_Layouts\D_WrapPanelExample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="A_Layouts\J_NestedLayouts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="A_Layouts\_Launcher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="B_Commands\Views\CommandsSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="C_CustomDictionaries\Dictionaries.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="D_Behaviors\Views\Behaviors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="D_Behaviors\Views\WatermarkSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="E_DataBinding\Views\A_ElementBinding.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="E_DataBinding\Views\B_BasicGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="E_DataBinding\Views\C_CheckedLists.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="E_DataBinding\Views\D_TreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="E_DataBinding\Views\E_CollectionBinding.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="E_DataBinding\Views\F_DataTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="E_DataBinding\Views\G1_LinkedDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="E_DataBinding\Views\G_MasterDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="E_DataBinding\Views\_Launcher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="A_Layouts\M_SelectorExamples.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_StartUp\Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="A_Layouts\A_Gradients.xaml.cs">
+      <DependentUpon>A_Gradients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\B_BorderExample.xaml.cs">
+      <DependentUpon>B_BorderExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\L_CanvasExample.xaml.cs">
+      <DependentUpon>L_CanvasExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\E_DockPanelExample.xaml.cs">
+      <DependentUpon>E_DockPanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\I_DataEntryForm.xaml.cs">
+      <DependentUpon>I_DataEntryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\H_BasicGridForm.xaml.cs">
+      <DependentUpon>H_BasicGridForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\K_SharedSizeGroupsForm.xaml.cs">
+      <DependentUpon>K_SharedSizeGroupsForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\F_SpecializedContainers.xaml.cs">
+      <DependentUpon>F_SpecializedContainers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\C_StackPanelExample.xaml.cs">
+      <DependentUpon>C_StackPanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\D_WrapPanelExample.xaml.cs">
+      <DependentUpon>D_WrapPanelExample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\J_NestedLayouts.xaml.cs">
+      <DependentUpon>J_NestedLayouts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\_Launcher.xaml.cs">
+      <DependentUpon>_Launcher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="B_Commands\Commands\AnotherCommand.cs" />
+    <Compile Include="B_Commands\Commands\DoSomethingCommand.cs" />
+    <Compile Include="B_Commands\Helpers\IMessager.cs" />
+    <Compile Include="B_Commands\Helpers\UIMessager.cs" />
+    <Compile Include="B_Commands\ViewModels\CommandViewModel.cs" />
+    <Compile Include="B_Commands\Views\CommandsSample.xaml.cs">
+      <DependentUpon>CommandsSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="C_CustomDictionaries\Dictionaries.xaml.cs">
+      <DependentUpon>Dictionaries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="D_Behaviors\ViewModels\BehaviorsViewModel.cs" />
+    <Compile Include="D_Behaviors\ViewModels\GridClickedCommand.cs" />
+    <Compile Include="D_Behaviors\Views\Behaviors.xaml.cs">
+      <DependentUpon>Behaviors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="D_Behaviors\WatermarkTextBehavior.cs" />
+    <Compile Include="D_Behaviors\Views\WatermarkSample.xaml.cs">
+      <DependentUpon>WatermarkSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="E_DataBinding\Commands\AddNewProductCommand.cs" />
+    <Compile Include="E_DataBinding\Commands\CloseCommand.cs" />
+    <Compile Include="E_DataBinding\Commands\DeleteCommand.cs" />
+    <Compile Include="E_DataBinding\Commands\LinkedFormCommand.cs" />
+    <Compile Include="E_DataBinding\Commands\SaveCommand.cs" />
+    <Compile Include="E_DataBinding\Commands\UpdatePriceCommand.cs" />
+    <Compile Include="E_DataBinding\Helpers\AddNewProductConverter.cs" />
+    <Compile Include="E_DataBinding\Helpers\AddNewProductParameter.cs" />
+    <Compile Include="E_DataBinding\Helpers\BooleanReverserConverter.cs" />
+    <Compile Include="E_DataBinding\Helpers\CloseCommandConverter.cs" />
+    <Compile Include="E_DataBinding\Helpers\CloseCommandParameter.cs" />
+    <Compile Include="E_DataBinding\Helpers\CurrencyConverter.cs" />
+    <Compile Include="E_DataBinding\Helpers\PositivePriceValidationRule.cs" />
+    <Compile Include="E_DataBinding\Helpers\PriceToBackgroundConverter.cs" />
+    <Compile Include="E_DataBinding\Helpers\ProductListDisplayConverter.cs" />
+    <Compile Include="E_DataBinding\Helpers\StockValueConverter.cs" />
+    <Compile Include="E_DataBinding\Validators\PriceValidator.cs" />
+    <Compile Include="E_DataBinding\ViewModels\D1_LinkedDetailViewModel.cs" />
+    <Compile Include="E_DataBinding\ViewModels\D_MasterDetailVewModel.cs" />
+    <Compile Include="E_DataBinding\Views\A_ElementBinding.xaml.cs">
+      <DependentUpon>A_ElementBinding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="E_DataBinding\Views\B_BasicGridView.xaml.cs">
+      <DependentUpon>B_BasicGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="E_DataBinding\Views\C_CheckedLists.xaml.cs">
+      <DependentUpon>C_CheckedLists.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="E_DataBinding\Views\D_TreeView.xaml.cs">
+      <DependentUpon>D_TreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="E_DataBinding\Views\E_CollectionBinding.xaml.cs">
+      <DependentUpon>E_CollectionBinding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="E_DataBinding\Views\F_DataTemplates.xaml.cs">
+      <DependentUpon>F_DataTemplates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="E_DataBinding\Views\G1_LinkedDetail.xaml.cs">
+      <DependentUpon>G1_LinkedDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="E_DataBinding\Views\G_MasterDetail.xaml.cs">
+      <DependentUpon>G_MasterDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="E_DataBinding\Views\_Launcher.xaml.cs">
+      <DependentUpon>_Launcher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A_Layouts\M_SelectorExamples.xaml.cs">
+      <DependentUpon>M_SelectorExamples.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_StartUp\Commands\SamplesCommand.cs" />
+    <Compile Include="_StartUp\Commands\ExitCommand.cs" />
+    <Compile Include="_BaseClasses\CommandBase.cs" />
+    <Compile Include="_StartUp\ViewModel\StartUpFormViewModel.cs" />
+    <Compile Include="_StartUp\Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Assets\grinn_barrett.jpg" />
+    <Content Include="C_CustomDictionaries\Words.lex">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SampleData\SampleData.csproj">
+      <Project>{D0FC9A24-DB95-4117-B4DA-4CF7154262D1}</Project>
+      <Name>SampleData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

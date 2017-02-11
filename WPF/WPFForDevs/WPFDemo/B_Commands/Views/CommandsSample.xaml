@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPFDemo.B_Commands.Views.CommandsSample" 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        Title="CommandsSample" Height="125" Width="250">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<CheckBox Grid.Column="0" Grid.Row="0" Name="chkCommandEnabled" Content="Enable Commands" HorizontalAlignment="Center" Margin="10" IsChecked="False"
+            ></CheckBox>
+		<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+			<Button Name="cmdDoSomething" Content="Click Me" 
+                    Command="{Binding Path=DoSomethingCmd}" 
+                    CommandParameter="{Binding ElementName=chkCommandEnabled,Path=IsChecked}" HorizontalAlignment="Left" Width="Auto" Margin="5,2,5,2"></Button>
+			<Button Name="cmdDoSomethingElse" Content="Click Me Also" Command="{Binding Path=DoSomethingElseCmd}" CommandParameter="{Binding ElementName=chkCommandEnabled,Path=IsChecked}" HorizontalAlignment="Left" Width="Auto" Margin="5,2,5,2"></Button>
+		</StackPanel>
+	</Grid>
+
+</Window>

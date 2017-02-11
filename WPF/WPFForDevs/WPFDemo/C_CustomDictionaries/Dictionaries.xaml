@@ -1,0 +1,15 @@
+﻿<Window x:Class="WPFDemo.C_CustomDictionaries.Dictionaries" 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		xmlns:sys="clr-namespace:System;assembly=system" 
+		Title="Dictionaries" Height="300" Width="300">
+	<Grid UseLayoutRounding="True">
+		<TextBox SpellCheck.IsEnabled="True" TextWrapping="Wrap" Text="Supercalifragilisticexpialidocious. Subversively stay in touch with this miniaturized wireless communications device. Speak into the pointy end and listen with the other end! Voice-activated dialing makes calling for backup a breeze. Excellent for undercover work at schools, rest homes, and most corporate headquarters. Comes in assorted colors.">
+			<SpellCheck.CustomDictionaries>
+				<sys:Uri>
+					pack://application:,,,/C_CustomDictionaries/Words.lex
+				</sys:Uri>
+			</SpellCheck.CustomDictionaries>
+		</TextBox>
+	</Grid>
+</Window>

@@ -1,0 +1,47 @@
+Enable-Migrations -ContextTypeName DAL.EF.FirstContext -MigrationsDirectory EF\Migrations\First -ProjectName DAL
+
+add-migration Initial -ConfigurationTypeName DAL.EF.Migrations.First.Configuration -ProjectName DAL  [-Force] [-IgnoreChanges]
+
+update-database -targetmigration Initial -configurationtypename DAL.EF.Migrations.First.Configuration -projectname DAL -verbose
+
+This resets all migrations:
+update-database -targetmigration $InitialDatabase$ -configurationtypename DAL.EF.Migrations.First.Configuration -projectname DAL -verbose
+
+--------------------------------------------------------------------------
+Conventions
+
+Enable-Migrations -ContextTypeName DAL.EF.ConventionsContext -MigrationsDirectory EF\Migrations\Conventions -ProjectName DAL
+//comment out DbSet<SampleEntity> Samples
+
+add-migration Initial -configurationtypename DAL.EF.Migrations.Conventions.Configuration -projectname "DAL" -startupprojectname DAL -ignorechanges
+
+update-database -TargetMigration Initial -configurationtypename DAL.EF.Migrations.Conventions.Configuration  -projectname "DAL" -startupprojectname DAL -verbose
+
+//uncomment DbSet<SampleEntity> Samples, rebuild solution
+
+add-migration Finale -configurationtypename DAL.EF.Migrations.Conventions.Configuration -projectname "DAL" -startupprojectname DAL -force
+
+update-database -TargetMigration Finale -configurationtypename DAL.EF.Migrations.Conventions.Configuration  -projectname "DAL" -startupprojectname DAL -verbose
+
+--------------------------------------------------------------------------
+Annotations
+
+enable-migrations -contexttypename DAL.EF.AnnotationsContext -startupprojectname DAL -projectname "DAL"  -migrationsdirectory EF\Migrations\Annotations
+
+add-migration Initial -configurationtypename DAL.EF.Migrations.Annotations.Configuration -projectname DAL -force
+
+update-database -targetmigration Initial -configurationtypename DAL.EF.Migrations.Annotations.Configuration -projectname DAL -verbose
+
+--------------------------------------------------------------------------
+Store Tables
+
+//comment out maptostoredprocs and widgets
+enable-migrations -contexttypename DAL.EF.StoreContext -startupprojectname DAL -projectname "DAL"  -migrationsdirectory EF\Migrations\Store
+
+add-migration Initial -configurationtypename DAL.EF.Migrations.Store.Configuration -projectname "DAL" -startupprojectname DAL -force
+
+update-database -TargetMigration Initial -configurationtypename DAL.EF.Migrations.Store.Configuration  -projectname "DAL" -startupprojectname DAL -verbose
+
+add-migration UseSprocs -configurationtypename DAL.EF.Migrations.Store.Configuration -projectname "DAL" -startupprojectname DAL -force 
+
+update-database -TargetMigration UseSprocs -configurationtypename DAL.EF.Migrations.Store.Configuration  -projectname "DAL" -startupprojectname DAL -verbose

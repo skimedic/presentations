@@ -1,0 +1,11 @@
+﻿<Window
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		x:Class="WPFDemo.A_Layouts.BorderExample"
+		Title="Border" Height="300" Width="300">
+	<Border Background="Aqua" CornerRadius="45" BorderBrush="BlueViolet">
+		<Grid>
+
+		</Grid>
+	</Border>
+</Window>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="WPFDemo.E_DataBinding.Views.A_ElementBinding" 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+				Title="ElementBinding" Height="338" Width="424.229">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="35" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Slider HorizontalAlignment="Stretch" Name="FontSlider" Maximum="50" Height="35" SmallChange="1" Minimum="1" Value="12" Interval="1" Margin="3" TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" />
+		<ListBox Margin="3" Grid.Row="2" Name="lstColors" Height="Auto">
+			<ListBoxItem Tag="Blue" IsSelected="True">Blue</ListBoxItem>
+			<ListBoxItem Tag="Red">Red</ListBoxItem>
+			<ListBoxItem Tag="LightBlue">Light Blue</ListBoxItem>
+		</ListBox>
+		<StackPanel Grid.Row="1" Orientation="Horizontal"  ButtonBase.Click="StackPanel_Click">
+			<Button Margin="5" Padding="3" Tag="10">Set to Small</Button>
+			<Button Margin="5" Padding="3" Tag="20">Set to Normal</Button>
+			<Button Margin="5" Padding="3" Tag="30">Set to Large</Button>
+		</StackPanel>
+		<TextBox Grid.Row="3" Name="textBox1" HorizontalAlignment="Stretch">Sample Text</TextBox>
+		<Label Grid.Row="4" Name="label1" 
+			   Content="{Binding ElementName=textBox1,Path=Text,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+			   FontSize="{Binding ElementName=FontSlider,Path=Value,Mode=TwoWay}" 
+			   Foreground="{Binding ElementName=lstColors,Path=SelectedItem.Tag,Mode=TwoWay}"></Label>
+		<!--UpdateSourceTrigger=PropertyChanged|LostFocus|Explicit|Default-->
+		<!--BindingMode=OneWay|TwoWay|OneTime|OneWayToSource|Default-->
+		<!--Binding in this manner only works to set dependency properties-->
+	</Grid>
+</Window>

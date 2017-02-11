@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0-*",
+  //"buildOptions": {
+  //  "preserveCompilationContext": true,
+  //  //set this to true to run migrations
+  //  "emitEntryPoint": true
+  //},
+  //"runtimeOptions": {
+  //  "gcServer": true
+  //},
+  "dependencies": {
+    "Microsoft.EntityFrameworkCore.Design": {
+      "version": "1.0.0-preview2-final",
+      "type": "build"
+    },
+    "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final",
+    "NETStandard.Library": "1.6.0",
+    "System.Linq.Queryable": "4.0.1",
+    "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.0.1",
+    "Microsoft.EntityFrameworkCore": "1.0.1",
+    "Microsoft.EntityFrameworkCore.Relational": "1.0.1",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
+    "Microsoft.NETCore.App": "1.0.1",
+    "Microsoft.AspNetCore.Mvc.Core": "1.0.1"
+  },
+  "tools": {
+    "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final"
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dnxcore50"
+      ]
+    }
+  },
+  "packOptions": {
+    "summary": "Data access layer.",
+    "owners": [ "Phil Japikse" ],
+    "releaseNotes": "Moved everything to Core RTM",
+    "requireLicenseAcceptance": false
+  }
+}

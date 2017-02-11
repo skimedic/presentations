@@ -1,0 +1,57 @@
+﻿<Window x:Class="WPFDemo.A_Layouts.SpecializedContainers" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="SpecializedContainers" Height="300" Width="300">
+	<TabControl TabStripPlacement="Left">
+		<TabItem Header="Scrolling" IsSelected="False">
+			<ScrollViewer Name="scrollViewer1" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+				<TextBox TextAlignment="Justify" Name="richTextBox1" ClipToBounds="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top" TextWrapping="Wrap">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur consequat metus vitae est. Duis quis metus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque scelerisque. Nam feugiat diam in odio. Nullam iaculis. Sed elementum enim. Nullam sollicitudin. Aliquam neque. Vestibulum lobortis nibh et sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Vivamus vitae est. Nulla accumsan dui a ipsum. Sed sollicitudin blandit eros. Morbi magna orci, auctor ut, bibendum nec, lobortis vel, dolor. Nullam sem pede, dignissim non, scelerisque nec, euismod sit amet, lorem. Donec ac erat non ipsum pellentesque nonummy. Sed et augue scelerisque purus mattis rutrum. Vestibulum pharetra condimentum nibh.
+					Duis fringilla lobortis erat. Aliquam fringilla euismod nulla. Phasellus eleifend. Maecenas semper, lorem non consectetuer dictum, neque erat pellentesque nunc, ac tempor risus lacus et nisl. Cras ut dolor. Nullam eget justo sed eros euismod ullamcorper. Sed tellus dui, porta et, egestas blandit, commodo quis, mauris. Phasellus nibh quam, rutrum sed, fringilla ut, dictum eu, pede. Sed tincidunt ante vel augue. Vestibulum vel dui. Proin risus libero, fringilla a, mattis sit amet, pulvinar at, erat.
+					Donec nisl orci, feugiat non, posuere quis, dignissim a, nunc. Donec pretium orci quis orci porttitor auctor. Nam eros. Nullam cursus nisl eget nulla. Praesent justo. Proin nonummy nisl sit amet odio. Vivamus erat orci, congue sed, congue id, ultrices quis, nunc. Sed vestibulum odio non magna sodales sollicitudin. Integer lacus mauris, convallis in, suscipit sed, hendrerit eget, lacus. Curabitur magna felis, interdum vitae, varius non, elementum elementum, lacus. Curabitur lacus. Vivamus varius consequat tellus. Vestibulum pede ante, dictum quis, iaculis ac, sodales nec, dui. Sed mi neque, commodo eu, imperdiet ac, sodales eu, tellus.
+					Curabitur id erat sit amet ipsum vestibulum porta. Sed a dolor. Nulla facilisi. Duis eu mauris. Donec mollis, lectus at lobortis imperdiet, purus ligula mattis dui, ac egestas quam magna et elit. Aenean interdum. Etiam ultrices dui sed nunc fermentum posuere. Phasellus ipsum augue, iaculis vel, adipiscing eget, consequat sit amet, mauris. Cras eu urna eget ligula accumsan pretium. Sed at metus eu magna dignissim vestibulum. Nam id leo in eros fermentum dapibus. Aliquam erat volutpat. Nulla sed nisi. Ut egestas pede in erat. Praesent tincidunt arcu ac purus. Proin leo lacus, tristique ac, sodales sit amet, ornare non, risus. Donec facilisis tellus eu risus. Nunc arcu. Phasellus vulputate mauris vel erat. Donec a tortor.
+					Duis egestas suscipit lorem. In ac nulla. Morbi gravida. Phasellus consectetuer nisl sed justo. Nam faucibus, nulla et auctor dapibus, nulla nunc luctus arcu, a varius ante massa vel nunc. Curabitur condimentum erat at eros convallis consectetuer. Donec fermentum ligula ac justo. Praesent semper purus nec erat. Quisque nibh nulla, consequat vitae, aliquet a, varius ac, sapien. Vivamus interdum sollicitudin nisl. Nulla vel lacus nec nibh condimentum ornare. Praesent at velit ac lacus vulputate posuere. Phasellus diam. Pellentesque dignissim. Etiam euismod faucibus magna. Donec id dui. Suspendisse lorem mi, lacinia nec, dapibus sed, consequat id, mi.
+				</TextBox>
+			</ScrollViewer>
+		</TabItem>
+		<TabItem Header="Group Box" IsSelected="False">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				<GroupBox Header="Group Box One" Padding="5">
+					<StackPanel VerticalAlignment="Top" Height="Auto">
+						<RadioButton Margin="3">One</RadioButton>
+						<RadioButton Margin="3">Two</RadioButton>
+						<RadioButton Margin="3">Three</RadioButton>
+						<Button Margin="3">Save</Button>
+					</StackPanel>
+				</GroupBox>
+				<GroupBox Grid.Row="1" Header="Group Box Two">
+					<StackPanel VerticalAlignment="Top" Height="Auto">
+						<RadioButton Margin="3">A</RadioButton>
+						<RadioButton Margin="3">B</RadioButton>
+						<RadioButton Margin="3">C</RadioButton>
+					</StackPanel>
+				</GroupBox>
+			</Grid>
+		</TabItem>
+		<TabItem Header="Expander" IsSelected="True">
+			<StackPanel>
+				<Expander Margin="5" Padding="5" Header="Region One">
+					<Button Padding="3">Hidden Button One</Button>
+				</Expander>
+				<Expander Margin="5" Padding="5" Header="Region Two" IsExpanded="True">
+					<TextBox TextWrapping="Wrap" Height="100" VerticalScrollBarVisibility="Auto">
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur consequat metus vitae est. Duis quis metus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque scelerisque. Nam feugiat diam in odio. Nullam iaculis. Sed elementum enim. Nullam sollicitudin. Aliquam neque. Vestibulum lobortis nibh et sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Vivamus vitae est. Nulla accumsan dui a ipsum. Sed sollicitudin blandit eros. Morbi magna orci, auctor ut, bibendum nec, lobortis vel, dolor. Nullam sem pede, dignissim non, scelerisque nec, euismod sit amet, lorem. Donec ac erat non ipsum pellentesque nonummy. Sed et augue scelerisque purus mattis rutrum. Vestibulum pharetra condimentum nibh.
+						Duis fringilla lobortis erat. Aliquam fringilla euismod nulla. Phasellus eleifend. Maecenas semper, lorem non consectetuer dictum, neque erat pellentesque nunc, ac tempor risus lacus et nisl. Cras ut dolor. Nullam eget justo sed eros euismod ullamcorper. Sed tellus dui, porta et, egestas blandit, commodo quis, mauris. Phasellus nibh quam, rutrum sed, fringilla ut, dictum eu, pede. Sed tincidunt ante vel augue. Vestibulum vel dui. Proin risus libero, fringilla a, mattis sit amet, pulvinar at, erat.
+						Donec nisl orci, feugiat non, posuere quis, dignissim a, nunc. Donec pretium orci quis orci porttitor auctor. Nam eros. Nullam cursus nisl eget nulla. Praesent justo. Proin nonummy nisl sit amet odio. Vivamus erat orci, congue sed, congue id, ultrices quis, nunc. Sed vestibulum odio non magna sodales sollicitudin. Integer lacus mauris, convallis in, suscipit sed, hendrerit eget, lacus. Curabitur magna felis, interdum vitae, varius non, elementum elementum, lacus. Curabitur lacus. Vivamus varius consequat tellus. Vestibulum pede ante, dictum quis, iaculis ac, sodales nec, dui. Sed mi neque, commodo eu, imperdiet ac, sodales eu, tellus.
+						Curabitur id erat sit amet ipsum vestibulum porta. Sed a dolor. Nulla facilisi. Duis eu mauris. Donec mollis, lectus at lobortis imperdiet, purus ligula mattis dui, ac egestas quam magna et elit. Aenean interdum. Etiam ultrices dui sed nunc fermentum posuere. Phasellus ipsum augue, iaculis vel, adipiscing eget, consequat sit amet, mauris. Cras eu urna eget ligula accumsan pretium. Sed at metus eu magna dignissim vestibulum. Nam id leo in eros fermentum dapibus. Aliquam erat volutpat. Nulla sed nisi. Ut egestas pede in erat. Praesent tincidunt arcu ac purus. Proin leo lacus, tristique ac, sodales sit amet, ornare non, risus. Donec facilisis tellus eu risus. Nunc arcu. Phasellus vulputate mauris vel erat. Donec a tortor.
+						Duis egestas suscipit lorem. In ac nulla. Morbi gravida. Phasellus consectetuer nisl sed justo. Nam faucibus, nulla et auctor dapibus, nulla nunc luctus arcu, a varius ante massa vel nunc. Curabitur condimentum erat at eros convallis consectetuer. Donec fermentum ligula ac justo. Praesent semper purus nec erat. Quisque nibh nulla, consequat vitae, aliquet a, varius ac, sapien. Vivamus interdum sollicitudin nisl. Nulla vel lacus nec nibh condimentum ornare. Praesent at velit ac lacus vulputate posuere. Phasellus diam. Pellentesque dignissim. Etiam euismod faucibus magna. Donec id dui. Suspendisse lorem mi, lacinia nec, dapibus sed, consequat id, mi.
+					</TextBox>
+				</Expander>
+				<Expander Margin="5" Padding="5" Header="Region Three">
+					<Button Padding="3">Hidden Button Two</Button>
+				</Expander>
+			</StackPanel>
+		</TabItem>
+	</TabControl>
+</Window>

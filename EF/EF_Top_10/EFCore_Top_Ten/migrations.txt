@@ -1,0 +1,34 @@
+Directory: 
+cd src\EFCore_Top_Ten
+dotnet ef migrations add First -o EF\Migrations\First -c EFCore_Top_Ten.EF.FirstContext
+dotnet ef database update First -c EFCore_Top_Ten.EF.FirstContext
+
+--revert
+dotnet ef database update '0' -c EFCore_Top_Ten.EF.FirstContext
+dotnet ef migrations remove -c EFCore_Top_Ten.EF.FirstContext
+
+--------------------------------------------------------------------------
+Conventions
+
+//comment out DbSet<SampleEntity> Samples
+dotnet ef migrations add Initial -o EF\Migrations\Conventions -c EFCore_Top_Ten.EF.ConventionsContext
+//Delete the up and down code
+dotnet ef database update Initial -c EFCore_Top_Ten.EF.ConventionsContext
+
+//uncomment DbSet<SampleEntity> Samples, rebuild solution
+dotnet ef migrations add Final -o EF\Migrations\Conventions -c EFCore_Top_Ten.EF.ConventionsContext
+dotnet ef database update Final -c EFCore_Top_Ten.EF.ConventionsContext
+
+--------------------------------------------------------------------------
+Annotations
+
+dotnet ef migrations add Initial -o EF\Migrations\Annotations -c EFCore_Top_Ten.EF.AnnotationsContext
+dotnet ef database update Initial -c EFCore_Top_Ten.EF.AnnotationsContext
+
+--------------------------------------------------------------------------
+Store Tables
+dotnet ef migrations add StoreContext_Initial -o EF\Migrations\Store -c EFCore_Top_Ten.EF.StoreContext
+dotnet ef database update StoreContext_Initial -c EFCore_Top_Ten.EF.StoreContext
+//uncomment default schema
+dotnet ef migrations add StoreContext_Schema -o EF\Migrations\Store -c EFCore_Top_Ten.EF.StoreContext
+dotnet ef database update StoreContext_Schema -c EFCore_Top_Ten.EF.StoreContext

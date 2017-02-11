@@ -1,0 +1,10 @@
+﻿<Window x:Class="WPFDemo.A_Layouts.CanvasExample"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CanvasExample" Height="300" Width="300">
+     <Canvas>
+		<Button Content="Button" Canvas.Left="80" Canvas.Top="42" Width="75"/>
+		<Button Content="Button" Canvas.Left="63" Canvas.Top="214" Width="75"/>
+		<Label Content="Label" Canvas.Left="155" Canvas.Top="121"/>
+	</Canvas>
+</Window>

@@ -1,0 +1,53 @@
+﻿<Window x:Class="WPFDemo.E_DataBinding.Views.E_CollectionBinding" 
+				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+				Title="Observable Collections" Height="300" Width="394">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+		</Grid.RowDefinitions>
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<ListBox Name="lstProducts" Margin="5" DisplayMemberPath="ModelName"></ListBox>
+			<StackPanel Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal" Margin="5,2,5,10">
+				<Button Margin="2,0,0,0" Padding="2" Click="cmdGetProducts_Click">Get Products</Button>
+				<Button Margin="2,0,0,0" Padding="2" Click="cmdDeleteProduct_Click">Delete Selected</Button>
+			</StackPanel>
+		</Grid>
+
+		<GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" ResizeBehavior="PreviousAndNext" Height="2" Margin="0,0,0,2"></GridSplitter>
+		<Border Grid.Row="2" Padding="7" Margin="7" Background="LightSteelBlue">
+			<Grid DataContext="{Binding ElementName=lstProducts, Path=SelectedItem}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="*"></RowDefinition>
+				</Grid.RowDefinitions>
+
+				<TextBlock Margin="7">Model Number:</TextBlock>
+				<TextBox Margin="5" Grid.Column="1" Text="{Binding Path=ModelNumber}"></TextBox>
+				<TextBlock Margin="7" Grid.Row="1">Model Name:</TextBlock>
+				<TextBox Margin="5" Grid.Row="1" Grid.Column="1" Text="{Binding Path=ModelName,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+				<TextBlock Margin="7" Grid.Row="2">Unit Cost:</TextBlock>
+				<TextBox Margin="5" Grid.Row="2" Grid.Column="1" Text="{Binding Path=UnitCost}"></TextBox>
+				<TextBlock Margin="7,7,7,0" Grid.Row="3">Description:</TextBlock>
+				<TextBox Margin="7" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Text="{Binding Path=Description}"></TextBox>
+
+
+			</Grid>
+		</Border>
+	</Grid>
+</Window>

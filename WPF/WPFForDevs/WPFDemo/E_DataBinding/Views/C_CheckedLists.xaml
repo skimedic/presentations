@@ -1,0 +1,53 @@
+﻿<Window x:Class="WPFDemo.E_DataBinding.Views.CheckedLists" 
+				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="CheckedLists" Height="300" Width="300">
+	<Window.Resources>
+		<Style x:Key="RadioButtonListStyle" TargetType="{x:Type ListBox}">
+			<Setter Property="ItemContainerStyle">
+				<Setter.Value>
+					<Style TargetType="{x:Type ListBoxItem}">
+						<Setter Property="Margin" Value="2" />
+						<Setter Property="Template">
+							<Setter.Value>
+								<ControlTemplate TargetType="{x:Type ListBoxItem}">
+									<RadioButton Focusable="False" IsChecked="{Binding Path=IsSelected, Mode=TwoWay, 
+										RelativeSource={RelativeSource TemplatedParent} }">
+										<ContentPresenter></ContentPresenter>
+									</RadioButton>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+					</Style>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="CheckBoxListStyle" TargetType="{x:Type ListBox}">
+			<Setter Property="SelectionMode" Value="Multiple"></Setter>
+			<Setter Property="ItemContainerStyle">
+				<Setter.Value>
+					<Style TargetType="{x:Type ListBoxItem}">
+						<Setter Property="Margin" Value="2" />
+						<Setter Property="Template">
+							<Setter.Value>
+								<ControlTemplate TargetType="{x:Type ListBoxItem}">
+									<CheckBox Focusable="False" IsChecked="{Binding Path=IsSelected, Mode=TwoWay, 
+										RelativeSource={RelativeSource TemplatedParent} }">
+										<ContentPresenter></ContentPresenter>
+									</CheckBox>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+					</Style>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<ListBox Grid.Row="0" Style="{StaticResource RadioButtonListStyle}" Name="lstProductsRB" DisplayMemberPath="ModelName" Grid.RowSpan="1" />
+		<ListBox Grid.Row="1" Style="{StaticResource CheckBoxListStyle}" Name="lstProductsCheck" DisplayMemberPath="ModelName" Grid.RowSpan="1" />
+	</Grid>
+</Window>

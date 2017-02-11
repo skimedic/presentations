@@ -1,0 +1,22 @@
+﻿<Window x:Class="WPFDemo.E_DataBinding.Views.TreeView" 
+				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+				Title="TreeView" Height="300" Width="300">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<TreeView Grid.Row="0" Name="treeOrders" Margin="5">
+			<TreeView.ItemTemplate>
+				<HierarchicalDataTemplate ItemsSource="{Binding Path=ProductList}">
+					<TextBlock Text="{Binding Path=CategoryName}" Padding="2" />
+					<HierarchicalDataTemplate.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Path=ModelName}" Padding="2" />
+						</DataTemplate>
+					</HierarchicalDataTemplate.ItemTemplate>
+				</HierarchicalDataTemplate>
+			</TreeView.ItemTemplate>
+		</TreeView>
+	</Grid>
+</Window>

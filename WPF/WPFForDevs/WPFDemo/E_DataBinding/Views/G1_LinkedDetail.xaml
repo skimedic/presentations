@@ -1,0 +1,374 @@
+﻿<Window
+    x:Class="WPFDemo.E_DataBinding.Views.G1_LinkedDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Helpers="clr-namespace:WPFDemo.E_DataBinding.Helpers"
+    Title="Linked Detail"
+    Height="396"
+    Width="579">
+    <Window.Resources>
+        <Helpers:PriceToBackgroundConverter
+            x:Key="PriceBackgroundConverter"
+            DefaultBrush="{x:Null}"
+            HighlightBrush="Orange"
+            MinimumPriceToHighLight="50" />
+        <Helpers:StockValueConverter
+            x:Key="StockConverter" />
+        <Helpers:CloseCommandConverter
+            x:Key="CloseCommandConverter" />
+        <Style
+            TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger
+                    Property="Validation.HasError"
+                    Value="true">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(TextBox.Background).(SolidColorBrush.Color)"
+                                    Duration="0:0:2">
+                                    <LinearColorKeyFrame
+                                        Value="Pink" />
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(TextBox.Foreground).(SolidColorBrush.Color)"
+                                    Duration="0:0:2">
+                                    <LinearColorKeyFrame
+                                        Value="Red" />
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(TextBox.Background).(SolidColorBrush.Color)"
+                                    Duration="0:0:.5">
+                                    <LinearColorKeyFrame
+                                        Value="White" />
+                                </ColorAnimationUsingKeyFrames>
+                                <ColorAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(TextBox.Foreground).(SolidColorBrush.Color)"
+                                    Duration="0:0:.5">
+                                    <LinearColorKeyFrame
+                                        Value="Black" />
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+            <Setter
+                Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel
+                            x:Name="ErrorTemplateDockPanel"
+                            LastChildFill="True"
+                            Height="{Binding ElementName=controlWithError, Path=ActualHeight}"
+                            Width="{Binding ElementName=controlWithError, Path=ActualWidth}"
+                            ToolTip="{Binding ElementName=controlWithError,Path=AdornedElement.(Validation.Errors)[0].ErrorContent}">
+                            <TextBlock
+                                Name="ErrorAsterisk"
+                                DockPanel.Dock="Right"
+                                Foreground="Red"
+                                Opacity="0"
+                                FontSize="14pt"
+                                Margin="-15,0,0,0"
+                                FontWeight="Bold"
+                                Text="*" />
+                            <Border
+                                Opacity="0"
+                                Name="ErrorBorder"
+                                BorderBrush="Red"
+                                BorderThickness="1">
+                                <AdornedElementPlaceholder
+                                    Name="controlWithError" />
+                            </Border>
+                        </DockPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger
+                                Property="IsVisible"
+                                Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(Border.Opacity)"
+                                                Storyboard.TargetName="ErrorBorder">
+                                                <EasingDoubleKeyFrame
+                                                    KeyTime="0"
+                                                    Value="0" />
+                                                <EasingDoubleKeyFrame
+                                                    KeyTime="0:0:1"
+                                                    Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                Storyboard.TargetName="ErrorAsterisk">
+                                                <EasingDoubleKeyFrame
+                                                    KeyTime="0"
+                                                    Value="0" />
+                                                <EasingDoubleKeyFrame
+                                                    KeyTime="0:0:1"
+                                                    Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(Border.Opacity)"
+                                                Storyboard.TargetName="ErrorBorder">
+                                                <EasingDoubleKeyFrame
+                                                    KeyTime="0"
+                                                    Value="0" />
+                                                <EasingDoubleKeyFrame
+                                                    KeyTime="0:0:1"
+                                                    Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames
+                                                Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                Storyboard.TargetName="ErrorAsterisk">
+                                                <EasingDoubleKeyFrame
+                                                    KeyTime="0"
+                                                    Value="0" />
+                                                <EasingDoubleKeyFrame
+                                                    KeyTime="0:0:1"
+                                                    Value="1" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!-- This could be done with 1 grid, but wanted to demonstrate shared size groups-->
+    <Grid
+        Name="MainGrid"
+        Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="*" />
+            <RowDefinition
+                Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid
+            Name="GridProductDetails"
+            DataContext="{Binding Path=Product,ValidatesOnNotifyDataErrors=False}"
+            Grid.Row="0"
+            Height="Auto"
+            VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="Auto"
+                    SharedSizeGroup="Label"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="Auto"></RowDefinition>
+                <RowDefinition
+                    Height="Auto"></RowDefinition>
+                <RowDefinition
+                    Height="Auto"></RowDefinition>
+                <RowDefinition
+                    Height="Auto"></RowDefinition>
+                <RowDefinition
+                    Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!-- Margin = Left Top Right Bottom (CSS is Top Right Bottom Left)-->
+            <Label
+                Margin="3">Model Number:</Label>
+            <TextBox
+                Margin="3"
+                Grid.Column="1">
+                <TextBox.Text>
+                    <Binding
+                        Path="ModelNumber"
+                        UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <!-- Default method for showing Exceptions thrown in Setters (ValidatesOnExceptions is shortcut) -->
+                            <ExceptionValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label
+                Margin="3"
+                Grid.Row="1">Model Name:</Label>
+            <TextBox
+                Margin="3"
+                Grid.Row="1"
+                Grid.Column="1">
+                <TextBox.Text>
+                    <Binding
+                        Path="ModelName"
+                        UpdateSourceTrigger="PropertyChanged"
+                        ValidatesOnDataErrors="True">
+                        <!-- Displays Errors for IDataErrorInfo  (ValidatesOnDataErrors is shortcut)
+                        <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                        </Binding.ValidationRules> -->
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <Label
+                Margin="3"
+                Grid.Row="2">Unit Cost:</Label>
+            <Grid
+                Grid.Row="2"
+                Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox
+                    Margin="3"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="100"
+                    Background="{Binding Path=UnitCost,Converter={StaticResource PriceBackgroundConverter}}">
+                    <TextBox.Text>
+                        <!-- NotifyOnValidationError raises the Validation.Error event (it bubbles)-->
+                        <Binding
+                            Path="UnitCost"
+                            UpdateSourceTrigger="PropertyChanged"
+                            ValidatesOnDataErrors="True"
+                            NotifyOnValidationError="True">
+                            <Binding.Converter>
+                                <Helpers:CurrencyConverter />
+                            </Binding.Converter>
+                            <!-- This intercepts and blocks update to underlying POCO-->
+                            <Binding.ValidationRules>
+                                <Helpers:PositivePriceValidationRule
+                                    MaxPrice="999.99" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Label
+                    Margin="3,3,3,0"
+                    Grid.Column="1">Inventory:</Label>
+                <TextBox
+                    Margin="3"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Width="100">
+                    <TextBox.Text>
+                        <Binding
+                            Path="UnitsInStock"
+                            UpdateSourceTrigger="PropertyChanged"
+                            ValidatesOnDataErrors="True" />
+                    </TextBox.Text>
+                </TextBox>
+                <Label
+                    Margin="3,3,3,0"
+                    Grid.Column="3">Stock Value:</Label>
+                <TextBox
+                    Margin="3,3,3,0"
+                    Grid.Row="0"
+                    Grid.Column="4"
+                    Width="75"
+                    IsReadOnly="True">
+                    <TextBox.Text>
+                        <MultiBinding
+                            Converter="{StaticResource StockConverter}">
+                            <Binding
+                                Path="UnitCost" />
+                            <Binding
+                                Path="UnitsInStock" />
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+            </Grid>
+            <Label
+                Margin="3,3,3,0"
+                Grid.Row="3">Description:</Label>
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="{Binding Path=UnitCost, StringFormat=The Cost is {0:C}}"></TextBox>
+            <StackPanel
+                Grid.Column="0"
+                Grid.Row="3"
+                HorizontalAlignment="Stretch"
+                FlowDirection="RightToLeft"
+                Grid.ColumnSpan="2"
+                Orientation="Horizontal"
+                Height="Auto"></StackPanel>
+            <TextBox
+                Margin="7"
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                TextWrapping="Wrap"
+                Text="{Binding Path=Description,UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"></TextBox>
+        </Grid>
+        <Grid
+            Grid.Row="1"
+            Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                FlowDirection="LeftToRight"
+                Orientation="Horizontal"
+                Height="Auto"></StackPanel>
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                FlowDirection="RightToLeft"
+                Orientation="Horizontal"
+                Height="Auto">
+                <Button
+                    Name="cmdClose"
+                    Content="_Close"
+                    Command="{Binding Path=Close}"
+                    Margin="3,3,3,3"
+                    Padding="3">
+                    <Button.CommandParameter>
+                        <MultiBinding
+                            Converter="{StaticResource CloseCommandConverter}">
+                            <MultiBinding.Bindings>
+                                <Binding
+                                    RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type Window}}" />
+                                <Binding
+                                    Path="Product"
+                                    ValidatesOnNotifyDataErrors="False" />
+                            </MultiBinding.Bindings>
+                        </MultiBinding>
+                    </Button.CommandParameter>
+                </Button>
+                <Button
+                    Name="cmdSave"
+                    Content="_Save"
+                    Command="{Binding Path=Save}"
+                    CommandParameter="{Binding Path=Product, ValidatesOnNotifyDataErrors=False}"
+                    Margin="3,3,3,3"
+                    Padding="3" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

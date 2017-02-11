@@ -1,0 +1,23 @@
+﻿<Window x:Class="WPFDemo.E_DataBinding.Views.BasicGridView" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		xmlns:Helpers="clr-namespace:WPFDemo.E_DataBinding.Helpers" 
+        Title="Basic Grid View" Height="300" Width="506">
+    <Window.Resources>
+		<Helpers:CurrencyConverter x:Key="CurrencyConverter" />
+	</Window.Resources>
+	<Grid HorizontalAlignment="Stretch">
+		<ListView Margin="5" Name="lstProducts">
+			<ListView.View>
+				<GridView>
+					<GridView.Columns>
+						<GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=ModelName}" />
+						<GridViewColumn Header="Model" DisplayMemberBinding="{Binding Path=ModelNumber}" />
+						<GridViewColumn Header="Price" DisplayMemberBinding="{Binding Path=UnitCost,Converter={StaticResource CurrencyConverter}}" />
+						<GridViewColumn Header="Price" DisplayMemberBinding="{Binding Path=UnitCost,StringFormat={}{0:C}}" />
+					</GridView.Columns>
+				</GridView>
+			</ListView.View>
+		</ListView>
+	</Grid>
+</Window>
