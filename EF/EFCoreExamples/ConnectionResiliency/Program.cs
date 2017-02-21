@@ -26,7 +26,7 @@ namespace ConnectionResiliency
                 }
                 catch (RetryLimitExceededException ex)
                 {
-                    //A concurrency error occurred
+                    //A retry limit error occurred
                     //Should handle intelligently
                     Console.WriteLine($"Retry limit exceeded! {ex.Message}");
                 }
@@ -38,7 +38,7 @@ namespace ConnectionResiliency
                 }
             }
             Console.WriteLine("Press any key to continue");
-            Console.ReadLine();
+            Console.ReadKey();
         }
         private static void SetupDatabase()
         {

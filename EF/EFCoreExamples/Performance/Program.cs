@@ -19,7 +19,8 @@ namespace Performance
             RunAddAndSaveChangesTest();
             RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
-            Console.ReadLine();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
         }
         private static void ResetAndWarmup()
         {

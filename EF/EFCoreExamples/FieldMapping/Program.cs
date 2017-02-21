@@ -26,7 +26,7 @@ namespace FieldMapping
                     Console.WriteLine($"{b.Name} ({b.GetUrl()})");
                 }
                 Console.WriteLine("Press any key to continue");
-                Console.ReadLine();
+                Console.ReadKey();
             }
         }
 
