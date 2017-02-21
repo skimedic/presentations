@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionResiliency", "Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concurrency", "Concurrency\Concurrency.csproj", "{7D77815B-5F56-41B3-9311-4A27D96B50E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batching", "Batching\Batching.csproj", "{2470AF4B-734E-4D71-9843-74545D46AFB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{7D77815B-5F56-41B3-9311-4A27D96B50E4}.Release|x64.Build.0 = Release|x64
 		{7D77815B-5F56-41B3-9311-4A27D96B50E4}.Release|x86.ActiveCfg = Release|x86
 		{7D77815B-5F56-41B3-9311-4A27D96B50E4}.Release|x86.Build.0 = Release|x86
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Debug|x64.ActiveCfg = Debug|x64
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Debug|x64.Build.0 = Debug|x64
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Debug|x86.ActiveCfg = Debug|x86
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Debug|x86.Build.0 = Debug|x86
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Release|x64.ActiveCfg = Release|x64
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Release|x64.Build.0 = Release|x64
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Release|x86.ActiveCfg = Release|x86
+		{2470AF4B-734E-4D71-9843-74545D46AFB3}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
