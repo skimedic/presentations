@@ -38,10 +38,11 @@ namespace DAL.Models
 
         [DefaultValue(0),Display(Name="Units in Stock")]
         public int UnitsInStock { get; set; }
-        public int? ProductPhotoId { get;set; }
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+
+        public int? ProductPhotoId { get; set; }
         public virtual ProductPhoto Image { get;set; }
     }
 }

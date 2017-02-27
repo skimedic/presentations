@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Performance", "Performance\Performance.csproj", "{FE585078-A9D2-40B1-9826-3D31282E6506}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1_Performance", "Performance\1_Performance.csproj", "{FE585078-A9D2-40B1-9826-3D31282E6506}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FieldMapping", "FieldMapping\FieldMapping.csproj", "{53F797EF-D203-4314-8A90-B8811D354CFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_FieldMapping", "FieldMapping\3_FieldMapping.csproj", "{53F797EF-D203-4314-8A90-B8811D354CFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionResiliency", "ConnectionResiliency\ConnectionResiliency.csproj", "{705EA0A2-62F1-4BE7-A47D-5978598293B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concurrency", "Concurrency\Concurrency.csproj", "{7D77815B-5F56-41B3-9311-4A27D96B50E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batching", "Batching\Batching.csproj", "{2470AF4B-734E-4D71-9843-74545D46AFB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2_Batching", "Batching\2_Batching.csproj", "{2470AF4B-734E-4D71-9843-74545D46AFB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
