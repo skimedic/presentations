@@ -10,6 +10,7 @@ namespace ComputedColumns.Models
     public class Order : EntityBase
     {
         public int CustomerId { get; set; }
+        //Commented out for first migration - need to create tables, add UDF, then add columns
         [Display(Name = "Total")]
         public decimal? OrderTotal { get; set; }
         [DataType(DataType.Date)]
