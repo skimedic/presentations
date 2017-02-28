@@ -10,22 +10,26 @@ namespace ConnectionResiliency.Context
 
         public BloggingContext()
         {
-
         }
+
         public BloggingContext(DbContextOptions options) : base(options)
         {
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.ConnectionResiliency;Trusted_Connection=True;";
+            var connectionString =
+                @"Server=(localdb)\mssqllocaldb;Database=Demo.ConnectionResiliency;Trusted_Connection=True;";
             // EnablesRetryOnFailure adds default SqlServerRetryingExecutionStrategy
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer(connectionString);
-                //optionsBuilder.UseSqlServer(connectionString,options => options.EnableRetryOnFailure());
+                //optionsBuilder.UseSqlServer(connectionString, options
+                //    => options.EnableRetryOnFailure());
                 optionsBuilder.UseSqlServer(connectionString,
-                    o => o.ExecutionStrategy(c => new CustomExecutionStrategy(c, 5, new TimeSpan(0, 0, 0, 0, 30))));
+                    o => o.ExecutionStrategy(
+                        c => new CustomExecutionStrategy(
+                            c, 5, new TimeSpan(0, 0, 0, 0, 30))));
             }
         }
 

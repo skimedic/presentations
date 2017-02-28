@@ -18,42 +18,34 @@ namespace Concurrency
                 var blog = new Blog {Name = "Skimedic's Blog", Url = "http://skimedic.com"};
                 db.Add(blog);
                 db.SaveChanges();
-            }
-            var context1 = new BloggingContext();
-            var blog1 = context1.Blogs.First();
-            //Create a new context to simulate different user - could also use SQL Command
-            var context2 = new BloggingContext();
-            var blog2 = context2.Blogs.First();
-            PrintTimeStamp(blog1, 1);
-            PrintTimeStamp(blog2, 2);
-            blog1.Name = ".NET Musings";
-            context1.SaveChanges();
-            Console.WriteLine("After save:");
-            PrintTimeStamp(blog1,1);
-            blog2.Url = "foo";
-            try
-            {
-                context2.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                Console.WriteLine(ex.Message);
-                var entryEntity = ex.Entries[0];
-                var databaseValues = entryEntity.GetDatabaseValues();
-                Console.WriteLine("------------------------------------------");
-                PrintProperties(entryEntity, databaseValues);
-                Console.WriteLine("------------------------------------------");
-                var modifiedEntries = entryEntity.Properties.Where(e => e.IsModified);
-                Console.WriteLine("Modified Properties");
-                foreach (var itm in modifiedEntries)
+                //change values outside of current context
+                db.Database.ExecuteSqlCommand($"Update dbo.blogs set name='Foo' where {nameof(Blog.BlogId)} = {blog.BlogId}");
+                blog.Name = "Bar";
+                try
                 {
-                    Console.WriteLine($"{itm.Metadata.Name},");
+                    db.SaveChanges();
                 }
-                Console.WriteLine("------------------------------------------");
-                Console.WriteLine("Reloaded Properties");
-                entryEntity.Reload();
-                PrintProperties(entryEntity,null);
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    var entryEntity = ex.Entries[0];
+                    var databaseValues = entryEntity.GetDatabaseValues();
+                    Console.WriteLine("------------------------------------------");
+                    PrintProperties(entryEntity, databaseValues);
+                    Console.WriteLine("------------------------------------------");
+                    var modifiedEntries = entryEntity.Properties.Where(e => e.IsModified);
+                    Console.WriteLine("Modified Properties");
+                    foreach (var itm in modifiedEntries)
+                    {
+                        Console.WriteLine($"{itm.Metadata.Name},");
+                    }
+                    Console.WriteLine("------------------------------------------");
+                    Console.WriteLine("Reloaded Properties");
+                    entryEntity.Reload();
+                    PrintProperties(entryEntity, null);
+                }
             }
+            //PrintTimeStamp(blog1,1);
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
@@ -73,13 +65,19 @@ namespace Concurrency
             string fieldName)
         {
             Console.WriteLine($"Field Name:{fieldName}");
-            Console.WriteLine($"Current:  {entryEntity.CurrentValues[fieldName]}");
-            Console.WriteLine($"Original: {entryEntity.OriginalValues[fieldName]}");
+            Console.Write(reloadedValues != null 
+                ? "Current | Original | Database:" 
+                : "Current | Original:");
+            Console.Write($"{ entryEntity.CurrentValues[fieldName]}");
+            Console.Write($" | {entryEntity.OriginalValues[fieldName]}");
             if (reloadedValues != null)
             {
-                Console.WriteLine($"Database: {reloadedValues[fieldName]}");
+                Console.WriteLine($" | {reloadedValues[fieldName]}");
             }
-
+            else
+            {
+                Console.WriteLine("");
+            }
         }
         private static void PrintTimeStamp(Blog blog, int counter)
         {

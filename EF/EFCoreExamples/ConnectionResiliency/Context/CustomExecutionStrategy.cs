@@ -10,7 +10,8 @@ namespace ConnectionResiliency.Context
         {
         }
 
-        public CustomExecutionStrategy(ExecutionStrategyContext context, int maxRetryCount, TimeSpan maxRetryDelay) : base(context, maxRetryCount, maxRetryDelay)
+        public CustomExecutionStrategy(ExecutionStrategyContext context, int maxRetryCount, TimeSpan maxRetryDelay) 
+            : base(context, maxRetryCount, maxRetryDelay)
         {
         }
 
