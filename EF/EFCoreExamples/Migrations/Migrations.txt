@@ -1,0 +1,15 @@
+﻿cd .\Migrations
+dotnet ef -h | --help
+
+dotnet ef migrations add [name] -o|--output-dir -c | --context 
+dotnet ef migrations add Initial -o EF\Migrations -c Migrations.Context.BloggingContext
+
+dotnet ef migrations script <from> <to> -o | --output <file> -i | -idempotent -c | --context
+
+dotnet ef database update [null | migration | '0'] -c | --context
+dotnet ef database update Initial -c Migrations.Context.BloggingContext
+
+dotnet ef migrations add Posts
+dotnet ef database update
+
+dotnet ef migrations add SQL

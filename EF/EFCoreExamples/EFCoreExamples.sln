@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6_MixedEvaluation", "MixedE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7_FromSQL", "FromSQL\7_FromSQL.csproj", "{AA918D05-B594-412C-9F52-6492623153FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations", "Migrations\Migrations.csproj", "{BDF122CC-A7E6-49CE-9E30-734BF32AD8FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8_Migrations", "Migrations\8_Migrations.csproj", "{BDF122CC-A7E6-49CE-9E30-734BF32AD8FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputedColumns", "ComputedColumns\ComputedColumns.csproj", "{E7194098-14EB-41F5-9739-6CE72A604247}"
 EndProject
