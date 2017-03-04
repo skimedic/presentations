@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using FromSQL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -7,6 +8,7 @@ namespace FromSQL.Context
     public class BloggingContext : DbContext
     {
         public DbSet<Blog> Blogs { get; set; }
+        [NotMapped]
         public DbSet<ShortBlog> ShortBlogs { get; set; }
         public BloggingContext()
         {
