@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 
 namespace FieldMapping.Models
@@ -6,10 +7,26 @@ namespace FieldMapping.Models
     {
         //this will be used by EF when constituting an instance
         private string _url;
-
+        private string _name;
         public int BlogId { get; set; }
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (_name == value)
+                {
+                    return;
+                }
+                _name = value;
+                PropertyChanged();
+            }
+        }
 
+        public void PropertyChanged()
+        {
+            Console.WriteLine("Property Changed");
+        }
         public string GetUrl()
         {
             return _url;

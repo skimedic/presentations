@@ -14,9 +14,21 @@ namespace ComputedColumns
         {
             SetupDatabase();
             DisplayOrderAndDetails();
+            UpdateRecords();
+            DisplayOrderAndDetails();
             Console.WriteLine("---------------------------------");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
+        }
+
+        private static void UpdateRecords()
+        {
+            using (var db = new StoreContext())
+            {
+                var orderDetails = db.OrderDetails.ToList();
+                orderDetails.ForEach(x => x.Quantity++);
+                db.SaveChanges();
+            }
         }
 
         private static void DisplayOrderAndDetails()

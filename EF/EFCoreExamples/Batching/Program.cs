@@ -16,27 +16,12 @@ namespace Batching
             RunQueries(options);
 
             //Run with custom batching
+            //optionsBuilder.UseSqlServer(connectionString,options => options.MaxBatchSize(1));
             var optionsWithCustomBatching = CreateOptions(true);
             SetupDatabase(optionsWithCustomBatching);
             RunQueries(optionsWithCustomBatching);
         }
 
-        private static DbContextOptions<BloggingContext> CreateOptions(bool useCustomBatching)
-        {
-            var optionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.Batching;Trusted_Connection=True;";
-
-            if (useCustomBatching)
-            {
-                optionsBuilder.UseSqlServer(connectionString,
-                    options => options.MaxBatchSize(1));
-            }
-            else
-            {
-                optionsBuilder.UseSqlServer(connectionString);
-            }
-            return optionsBuilder.Options;
-        }
         private static void RunQueries(DbContextOptions<BloggingContext> options)
         {
             using (var db = new BloggingContext(options))
@@ -64,6 +49,21 @@ namespace Batching
                     throw;
                 }
             }
+        }
+        private static DbContextOptions<BloggingContext> CreateOptions(bool useCustomBatching)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.Batching;Trusted_Connection=True;";
+
+            if (useCustomBatching)
+            {
+                optionsBuilder.UseSqlServer(connectionString, options => options.MaxBatchSize(1));
+            }
+            else
+            {
+                optionsBuilder.UseSqlServer(connectionString);
+            }
+            return optionsBuilder.Options;
         }
 
         private static void SetupDatabase(DbContextOptions<BloggingContext> options)

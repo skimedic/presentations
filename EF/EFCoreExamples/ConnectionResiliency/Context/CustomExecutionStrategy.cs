@@ -17,6 +17,7 @@ namespace ConnectionResiliency.Context
 
         protected override bool ShouldRetryOn(Exception exception)
         {
+            //Add in the specific exceptions that warrant a retry
             return true;
         }
     }

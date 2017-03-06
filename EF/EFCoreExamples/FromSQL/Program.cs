@@ -24,7 +24,7 @@ namespace FromSQL
                 Console.WriteLine("-----------------------------");
                 Console.WriteLine("Get data for non table model");
                 IEnumerable<ShortBlog> shortBlogs = db.ShortBlogs.FromSql("SELECT * FROM dbo.Blogs")
-                    .OrderBy(b => b.Url);
+                    .OrderBy(b => b.Url).ToList();
                 foreach (var itm in shortBlogs)
                 {
                     Console.WriteLine($"{itm.Url}");

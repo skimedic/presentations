@@ -11,12 +11,8 @@ namespace ConnectionResiliency
         static void Main(string[] args)
         {
             SetupDatabase();
-            var contextOptionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
-            var connectionString =
-                @"Server=(localdb)\mssqllocaldb;Database=SpyStore;user id=foo;password=bar;MultipleActiveResultSets=true;";
-            contextOptionsBuilder.UseSqlServer(connectionString,
-                o => o.ExecutionStrategy(c => new CustomExecutionStrategy(c, 5, new TimeSpan(0, 0, 0, 0, 30))));
-            using (var db = new BloggingContext(contextOptionsBuilder.Options))
+            BloggingContext db = SetUpContext();
+            using (db)
             {
                 var blog = new Blog { Name = "Skimedic's Blog", Url = "http://skimedic.com" };
                 db.Add(blog);
@@ -40,6 +36,17 @@ namespace ConnectionResiliency
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
+
+        private static BloggingContext SetUpContext()
+        {
+            var contextOptionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
+            var connectionString =
+                @"Server=(localdb)\mssqllocaldb;Database=SpyStore;user id=foo;password=bar;MultipleActiveResultSets=true;";
+            contextOptionsBuilder.UseSqlServer(connectionString,
+                o => o.ExecutionStrategy(c => new CustomExecutionStrategy(c, 5, new TimeSpan(0, 0, 0, 0, 30))));
+            return new BloggingContext(contextOptionsBuilder.Options);
+        }
+
         private static void SetupDatabase()
         {
             using (var db = new BloggingContext())

@@ -22,22 +22,9 @@ namespace Performance
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
-        private static void ResetAndWarmup()
-        {
-            using (var db = new AdventureWorksContext())
-            {
-                db.Database.ExecuteSqlCommand(@"DELETE FROM Production.ProductCategory WHERE Name LIKE 'Test %'");
-                db.Customers.FirstOrDefault();
-            }
-
-            using (var db = new EFCore.Context.AdventureWorksContext())
-            {
-                db.Customers.FirstOrDefault();
-            }
-        }
         private static void RunToListTest()
         {
-            Console.WriteLine("Query ToList");
+            Console.WriteLine("Query 19K ToList");
             RunTest(
                 ef6Test: () =>
                 {
@@ -89,7 +76,7 @@ namespace Performance
 
         private static void RunAddAndSaveChangesTest()
         {
-            Console.WriteLine("Add & SaveChanges");
+            Console.WriteLine("Add 1K & SaveChanges");
             RunTest(
                 () =>
                 {
@@ -117,7 +104,7 @@ namespace Performance
 
         private static void RunAddAndSaveChangesOptimizedTest()
         {
-            Console.WriteLine("Add & SaveChanges (EF6 Optimized)");
+            Console.WriteLine("Add 1K & SaveChanges (EF6 Optimized)");
             RunTest(
                 () =>
                 {
@@ -168,6 +155,19 @@ namespace Performance
                 var result = (ef6 - efCore) / (double)ef6;
                 Console.WriteLine($"  - Improvement: {result.ToString("P0")}");
                 Console.WriteLine();
+            }
+        }
+        private static void ResetAndWarmup()
+        {
+            using (var db = new AdventureWorksContext())
+            {
+                db.Database.ExecuteSqlCommand(@"DELETE FROM Production.ProductCategory WHERE Name LIKE 'Test %'");
+                db.Customers.FirstOrDefault();
+            }
+
+            using (var db = new EFCore.Context.AdventureWorksContext())
+            {
+                db.Customers.FirstOrDefault();
             }
         }
 
