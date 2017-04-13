@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Recipe.Dal.Models.Category">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Projects\Recipe.Core\Recipe.Dal\Models\Category.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="RecipeCategories" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Recipe.Dal.Models.Direction">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAAAAgAAAAAAAIAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>C:\Projects\Recipe.Core\Recipe.Dal\Models\Direction.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Recipe" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Recipe.Dal.Models.Ingredient">
+    <Position X="9.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBABAAAAgAAAAAAAAAAAAAAAABAAAEAAACAAAAAA=</HashCode>
+      <FileName>C:\Projects\Recipe.Core\Recipe.Dal\Models\Ingredient.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Recipe" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Recipe.Dal.Models.Recipe">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAFACAAAAACBAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>C:\Projects\Recipe.Core\Recipe.Dal\Models\Recipe.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Directions" />
+      <Property Name="Ingredients" />
+      <Property Name="RecipeCategories" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Recipe.Dal.Models.RecipeCategory">
+    <Position X="3.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAAACAA=</HashCode>
+      <FileName>C:\Projects\Recipe.Core\Recipe.Dal\Models\RecipeCategory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Category" />
+      <Property Name="Recipe" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
