@@ -15,10 +15,10 @@ namespace Performance
         {
             ResetAndWarmup();
 
-            //RunToListTest();
+            RunToListTest();
             RunComplexQueryTest();
-            //RunAddAndSaveChangesTest();
-            //RunAddAndSaveChangesOptimizedTest();
+            RunAddAndSaveChangesTest();
+            RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
@@ -180,11 +180,11 @@ namespace Performance
             {
                 Console.WriteLine($" Iteration {iteration}");
 
-                //stopwatch.Restart();
-                //ef6Test();
-                //stopwatch.Stop();
-                //var ef6 = stopwatch.ElapsedMilliseconds;
-                //Console.WriteLine($"  - EF6.x:      {ef6.ToString().PadLeft(4)}ms");
+                stopwatch.Restart();
+                ef6Test();
+                stopwatch.Stop();
+                var ef6 = stopwatch.ElapsedMilliseconds;
+                Console.WriteLine($"  - EF6.x:      {ef6.ToString().PadLeft(4)}ms");
 
                 stopwatch.Restart();
                 ef7Test();
@@ -192,9 +192,9 @@ namespace Performance
                 var efCore = stopwatch.ElapsedMilliseconds;
                 Console.WriteLine($"  - EF Core:    {efCore.ToString().PadLeft(4)}ms");
 
-                //var result = (ef6 - efCore) / (double) ef6;
-                //Console.WriteLine($"  - Improvement: {result.ToString("P0")}");
-                //Console.WriteLine();
+                var result = (ef6 - efCore) / (double)ef6;
+                Console.WriteLine($"  - Improvement: {result.ToString("P0")}");
+                Console.WriteLine();
                 return;
             }
         }
