@@ -1,0 +1,20 @@
+﻿@model IList<ProductAndCategoryBase>
+@{
+    ViewData["Title"] = ViewBag.Title;
+}
+
+<div class="jumbotron">
+@if (ViewBag.Featured != true)
+{
+    <a asp-controller="Products" asp-action="Featured" class="btn btn-info btn-lg">View Featured Products &raquo;</a>
+}
+</div>
+<h3>@ViewBag.Header</h3>
+
+<div class="row">
+    @for (int x=0;x<Model.Count;x++)
+    {
+            var item = Model[x];
+            @Html.DisplayFor(model => item)
+    }
+</div>

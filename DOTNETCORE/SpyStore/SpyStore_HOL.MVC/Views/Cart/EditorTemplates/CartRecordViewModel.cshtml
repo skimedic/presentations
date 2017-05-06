@@ -1,0 +1,31 @@
+﻿@model CartRecordViewModel
+<form asp-controller="Cart" asp-action="Update"
+      asp-route-customerId="@Model.CustomerId" asp-route-id="@Model.Id" 
+      id="updateCartForm" method="post"
+      data-ajax="true" data-ajax-mode="REPLACE-WITH" data-ajax-update="#row_@Model.Id"
+      data-ajax-method="POST" data-ajax-success="success" data-ajax-failure="error" data-ajax-complete="complete">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <span asp-validation-for="Quantity" class="text-danger"></span>
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="CustomerId" />
+    <input type="hidden" asp-for="CategoryName" />
+    <input type="hidden" asp-for="Description" />
+    <input type="hidden" asp-for="UnitsInStock" />
+    <input type="hidden" asp-for="ModelName" />
+    <input type="hidden" asp-for="ModelNumber" />
+    <input type="hidden" asp-for="ProductId" />
+    <input type="hidden" asp-for="LineItemTotal" />
+    <input type="hidden" name="@nameof(Model.TimeStampString)" id="@nameof(Model.TimeStampString)" value="@Model.TimeStampString" />
+    <input type="hidden" name="@nameof(Model.LineItemTotal)" id="@nameof(Model.LineItemTotal)" value="@Model.LineItemTotal" />
+    <input type="hidden" asp-for="CurrentPrice" />
+    <input type="hidden" asp-for="ProductImage" />
+    <input type="hidden" asp-for="ProductImageLarge" />
+    <input type="hidden" asp-for="ProductImageThumb" />
+    <input asp-for="Quantity" />
+    <button class="btn btn-link btn-sm">Update</button>
+</form>
+<form asp-controller="Cart" asp-action="Delete" asp-route-customerId="@Model.CustomerId" asp-route-id="@Model.Id" id="deleteCartForm" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="TimeStamp" />
+    <button class="btn btn-link btn-sm">Remove</button>
+</form>

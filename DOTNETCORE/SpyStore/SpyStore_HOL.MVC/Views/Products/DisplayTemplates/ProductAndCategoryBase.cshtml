@@ -1,0 +1,25 @@
+﻿@model ProductAndCategoryBase
+<div class="col-xs-6 col-sm-4 col-md-3">
+    <div>
+        <img src="@Url.Content($"~/images/{Model.ProductImage}")" />
+        <div>@Html.DisplayFor(x => x.CurrentPrice)</div>
+        <div>
+            <h5><a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id">@Html.DisplayFor(x => x.ModelName)</a></h5>
+        </div>
+        <div>
+            <span class="text-muted">Model Number:</span> @Html.DisplayFor(x => x.ModelNumber)
+        </div>
+        @if (ViewBag.ShowCategory)
+        {
+            <a asp-controller="Products"
+               asp-action="ProductList"
+               asp-route-id="@Model.CategoryId">@Model.CategoryName</a><br/>
+        }
+        <a asp-controller="Cart"
+           asp-action="AddToCart"
+           asp-route-customerId="@ViewBag.CustomerId"
+           asp-route-productId="@Model.Id"
+           asp-route-cameFromProducts="true"
+           class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>Add To Cart</a>
+    </div>
+</div>

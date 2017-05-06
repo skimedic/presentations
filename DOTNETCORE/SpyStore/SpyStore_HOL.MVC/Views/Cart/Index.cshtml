@@ -1,0 +1,79 @@
+﻿@model CartViewModel
+@{
+    ViewData["Title"] = "Index";
+    var cartTotal = 0M;
+}
+<h3>@ViewBag.Header</h3>
+<div >
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 70%;">Product</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Quantity</th>
+                <th class="text-right">Available</th>
+                <th class="text-right">Total</th>
+            </tr>
+        </thead>
+        @for (var x = 0; x < Model.CartRecords.Count; x++)
+        {
+            var item = Model.CartRecords[x];
+            cartTotal += item.LineItemTotal;
+            @Html.Partial("Update", item)
+        }
+        <tfoot>
+            <tr>
+                <th></th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th><span id="CartTotal">@Html.FormatValue(cartTotal, "{0:C2}")</span></th>
+            </tr>
+
+        </tfoot>
+    </table>
+    @*<form asp-controller="Cart" asp-action="Buy" asp-route-cutomerId="@ViewBag.CustomerId">
+        <input type="hidden" asp-for="@Model.Customer.Id" />
+        <input type="hidden" asp-for="@Model.Customer.FullName" />
+        <input type="hidden" asp-for="@Model.Customer.EmailAddress" />
+        <input type="hidden" asp-for="@Model.Customer.Password" value="FillerData" />
+        <input type="hidden" asp-for="@Model.Customer.TimeStamp" />
+        <div class="pull-right">
+            <button class="btn btn-primary">Checkout</button>
+        </div>
+    </form>*@
+</div>
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script language="javascript" type="text/javascript">
+        function success(data, textStatus, jqXHR) {
+            "use strict";
+            updateCartPrice();
+        }
+        function error(jqXhr, textStatus, errorThrown) {
+            "use strict";
+            alert('An error occurred: Please reload the page and try again.');
+        }
+        function complete(jqXhr, textStatus) {
+            "use strict";
+            //updateCartPrice();
+        }
+        function getSum(total, num) {
+            "use strict";
+            return total + Math.round(num.innerText * 100)/100;
+        }
+        function updateCartPrice() {
+            "use strict";
+            var list = $('span[id^="rawTotal"]');
+            var total = $.makeArray(list).reduce(getSum, 0);
+            $('#CartTotal')[0].innerText = '$' + parseFloat(total).toFixed(2).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+        }
+
+        $(function () {
+            //updateCartPrice();
+        });
+    </script>
+}

@@ -1,0 +1,28 @@
+@model AddToCartViewModel
+
+@{
+    ViewData["Title"] = @ViewBag.Title;
+}
+<h3>@ViewBag.Header</h3>
+<form method="post"
+      asp-controller="Cart"
+      asp-action="AddToCart"
+      asp-route-customerId="@ViewBag.CustomerId"
+      asp-route-productId="@Model.Id">
+    @Html.EditorForModel()
+</form>
+
+@{
+    if (ViewBag.CameFromProducts != null && ViewBag.CameFromProducts)
+    {
+        <div>
+            <a onclick="window.history.go(-1); return false;">Back to List</a>
+        </div>
+    }
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
