@@ -31,9 +31,11 @@ namespace SpyStore_HOL.MVC
             // Add framework services.
             services.AddMvc();
             services.AddSingleton(_ => Configuration);
-            services.AddDbContext<StoreContext>(
-                options => options.UseSqlServer(
-                    Configuration.GetConnectionString("SpyStore")));
+            services.AddDbContext<StoreContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("SpyStore"),
+                    sqlOptions => sqlOptions.EnableRetryOnFailure());
+            });
             services.AddScoped<ICategoryRepo, CategoryRepo>();
             services.AddScoped<IProductRepo, ProductRepo>();
             services.AddScoped<ICustomerRepo, CustomerRepo>();
