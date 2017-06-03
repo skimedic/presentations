@@ -237,3 +237,4 @@ C:\GitHub\presentations\Patterns\PatternsExamplesTests\obj\Debug\PatternsExample
 C:\GitHub\presentations\Patterns\PatternsExamplesTests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\GitHub\presentations\Patterns\PatternsExamplesTests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\GitHub\presentations\Patterns\PatternsExamplesTests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\GitHub\presentations\Patterns\PatternsExamplesTests\bin\Debug\PatternsExamples.dll.config
