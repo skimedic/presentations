@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Xunit;
 
-namespace UnitTestingExamples.xUnitTests
+namespace XUnitTestProject.A_Basics
 {
     public class D_Exceptions
     {
@@ -22,7 +17,7 @@ namespace UnitTestingExamples.xUnitTests
         public void ShouldRecordAnException()
         {
             //Better follows AAA syntax
-            var ex = Record.Exception(() => ThrowAnError());
+            Exception ex = Record.Exception(() => ThrowAnError());
             Assert.Equal(_customMessage, ex.Message);
         }
 
