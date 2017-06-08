@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  coremvcsample:
+    image: coremvcsample
+    build:
+      context: ./CoreMVCSample
+      dockerfile: Dockerfile

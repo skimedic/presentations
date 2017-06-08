@@ -1,0 +1,43 @@
+version: '2'
+
+services:
+  api:
+    image: kcdc/api:dev
+    container_name: kcdc_api
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - "db"
+    environment:
+      ASPNETCORE_URLS: http://*:5000/
+      ASPNETCORE_ENVIRONMENT: Development
+      DOTNET_USE_POLLING_FILE_WATCHER: 1
+    volumes:
+      - .:/app
+    entrypoint: dotnet watch run
+    networks: 
+      - kcdc-network
+    restart: always
+  db:
+    image: postgres
+    container_name: kcdc_db
+    environment:
+      POSTGRES_DB: kcdc
+      POSTGRES_PASSWORD: docker
+      POSTGRES_USER: kcdc_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    networks:
+      kcdc-network:
+        aliases: 
+          - postgres
+    restart: always
+
+networks:
+  kcdc-network:
+    driver: bridge
+    

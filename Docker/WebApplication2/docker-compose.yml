@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  webapplication2:
+    image: webapplication2
+    build:
+      context: ./WebApplication2
+      dockerfile: Dockerfile
