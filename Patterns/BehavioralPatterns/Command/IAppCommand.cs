@@ -8,10 +8,13 @@
 // ==============================
 #endregion
 
+using System.Text;
+
 namespace BehavioralPatterns.Command
 {
     public interface IAppCommand
     {
+        StringBuilder Sb { get; set; }
         void Execute(string text);
         void UnExecute();
     }

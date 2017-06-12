@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternsExamples", "PatternsExamples\PatternsExamples.csproj", "{4CF2C59B-6279-4509-82FE-6512A3B288F9}"
 EndProject
@@ -17,6 +17,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Structural", "Structural\Structural.csproj", "{926E952C-89EB-48BD-8262-736D70F1F0FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creational", "Creational\Creational.csproj", "{D8CAF1CD-170E-413E-8FF8-99C64DAD2B0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehavioralPatternsTests", "BehavioralPatternsTests\BehavioralPatternsTests.csproj", "{33073EC0-D81D-4C5F-86DB-402F99B41CFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{D8CAF1CD-170E-413E-8FF8-99C64DAD2B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8CAF1CD-170E-413E-8FF8-99C64DAD2B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8CAF1CD-170E-413E-8FF8-99C64DAD2B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33073EC0-D81D-4C5F-86DB-402F99B41CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33073EC0-D81D-4C5F-86DB-402F99B41CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33073EC0-D81D-4C5F-86DB-402F99B41CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33073EC0-D81D-4C5F-86DB-402F99B41CFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

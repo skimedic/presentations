@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command\AddNumbersCommand.cs" />
+    <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Command\Controller.cs" />
     <Compile Include="Command\IAppCommand.cs" />
     <Compile Include="Command\AddTextCommand.cs" />

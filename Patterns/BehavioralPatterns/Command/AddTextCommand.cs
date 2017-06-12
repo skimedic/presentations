@@ -13,26 +13,23 @@ using System.Text;
 
 namespace BehavioralPatterns.Command
 {
-    public class AddTextCommand : IAppCommand
+    public class AddTextCommand : BaseCommand
     {
-        private readonly StringBuilder _sb;
-        private readonly List<string> _entries = new List<string>();
-        public AddTextCommand(StringBuilder sb)
+        //These methods do the same thing is this example, but are for 
+        //demonstration purposes.  Real code would do different actions on execution
+        public override void Execute(string textToAdd)
         {
-            _sb = sb;
+            Sb.Append(textToAdd);
+            Entries.Add(textToAdd);
         }
 
-        public void Execute(string textToAdd)
-        {
-            _sb.Append(textToAdd);
-            _entries.Add(textToAdd);
-        }
-
-        public void UnExecute()
+        public override void UnExecute()
         {
             //Should add error checking here
-            _sb.Remove(_sb.Length, _entries[_entries.Count - 1].Length);
-            _entries.RemoveAt(_entries.Count-1);
+            var entryLength = Entries[Entries.Count - 1].Length;
+            var totalLength = Sb.Length;
+            Sb.Remove(totalLength-entryLength, entryLength);
+            Entries.RemoveAt(Entries.Count-1);
         }
     }
 }
