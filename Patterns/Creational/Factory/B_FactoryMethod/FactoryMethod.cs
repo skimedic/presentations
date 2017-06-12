@@ -8,6 +8,7 @@
 // ==============================
 #endregion
 
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using Creational.Factory.A_SimpleFactory;
 
@@ -16,23 +17,39 @@ namespace Creational.Factory.B_FactoryMethod
 
     public abstract class PizzaStore
     {
-        public IPizza OrderPizza(PizzaType type)
+        public IPizza OrderPizza(IList<string> ingredients)
         {
-            IPizza pizza = CreatePizza(type);
+            IPizza pizza = CreatePizza(ingredients);
             pizza.Bake();
             pizza.Cut();
             pizza.Box();
             return pizza;
         }
-        public abstract IPizza CreatePizza(PizzaType type);
+        public abstract IPizza CreatePizza(IList<string> ingredients);
     }
 
     public class NewYorkPizzaStore : PizzaStore
     {
-        public override IPizza CreatePizza(PizzaType type)
+        public override IPizza CreatePizza(IList<string> ingredients)
         {
-            //Specific NYP implementation - perhaps a simple factory here?
-            return new CheesePizza();
+            //This is tied to a specific pizza implementation
+            return new NewYorkPizza(ingredients);
+        }
+    }
+    public class ChicagoPizzaStore : PizzaStore
+    {
+        public override IPizza CreatePizza(IList<string> ingredients)
+        {
+            //This is tied to a specific pizza implementation
+            return new ChicagoPizza(ingredients);
+        }
+    }
+    public class CaliforniaPizzaStore : PizzaStore
+    {
+        public override IPizza CreatePizza(IList<string> ingredients)
+        {
+            //This is tied to a specific pizza implementation
+            return new CaliforniaPizza(ingredients);
         }
     }
 

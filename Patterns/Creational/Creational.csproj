@@ -46,6 +46,7 @@
     <Compile Include="Factory\A_SimpleFactory\SimpleFactory.cs" />
     <Compile Include="Factory\B_FactoryMethod\FactoryMethod.cs" />
     <Compile Include="Factory\C_AbstractFactory\PizzaFactory.cs" />
+    <Compile Include="Factory\C_AbstractFactory\PizzaStoreWithAbstractFactory.cs" />
     <Compile Include="Factory\DoughType.cs" />
     <Compile Include="Factory\IPizza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

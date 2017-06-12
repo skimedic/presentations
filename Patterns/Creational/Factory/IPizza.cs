@@ -15,9 +15,9 @@ namespace Creational.Factory
 
     public abstract class Pizza : IPizza
     {
-        protected Pizza()
+        protected Pizza(IList<string> ingredients)
         {
-            Toppings = new List<string>();
+            Toppings = ingredients;
         }
         public IList<string> Toppings { get; }
         public DoughType Dough { get; set; }
@@ -27,20 +27,33 @@ namespace Creational.Factory
         public abstract void Cut();
         public abstract void Box();
     }
-    public class CheesePizza : Pizza
+    public class NewYorkPizza : Pizza
     {
+        public NewYorkPizza(IList<string> ingredients):base(ingredients)
+        {
+            Dough = DoughType.Thin;
+        }
+
         public override void Bake() { }
         public override void Cut() { }
         public override void Box() { }
     }
-    public class SausagePizza : Pizza
+    public class ChicagoPizza : Pizza
     {
+        public ChicagoPizza(IList<string> ingredients) : base(ingredients)
+        {
+            Dough = DoughType.Pan;
+        }
         public override void Bake() { }
         public override void Cut() { }
         public override void Box() { }
     }
-    public class PepperoniPizza : Pizza
+    public class CaliforniaPizza : Pizza
     {
+        public CaliforniaPizza(IList<string> ingredients) : base(ingredients)
+        {
+            Dough = DoughType.None;
+        }
         public override void Bake() { }
         public override void Cut() { }
         public override void Box() { }

@@ -9,28 +9,29 @@
 #endregion
 
 
+using System.Collections.Generic;
+
 namespace Creational.Factory.A_SimpleFactory
 {
     public enum PizzaType
     {
-        Cheese,
-        Pepperoni,
-        Sausage,
-        UnKnown
+        NewYork,
+        Chicago,
+        California
     }
 
     public static class PizzaFactory
     {
-        public static IPizza CreatePizza(PizzaType type)
+        public static IPizza CreatePizza(PizzaType type, IList<string> ingredients)
         {
             switch (type)
             {
-                case PizzaType.Cheese:
-                    return new CheesePizza();
-                case PizzaType.Sausage:
-                    return new SausagePizza();
-                case PizzaType.Pepperoni:
-                    return new PepperoniPizza();
+                case PizzaType.NewYork:
+                    return new NewYorkPizza(ingredients);
+                case PizzaType.Chicago:
+                    return new ChicagoPizza(ingredients);
+                case PizzaType.California:
+                    return new CaliforniaPizza(ingredients);
                 default:
                     return null;
             }
