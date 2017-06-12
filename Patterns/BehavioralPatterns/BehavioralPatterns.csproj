@@ -45,6 +45,10 @@
     <Compile Include="Command\Controller.cs" />
     <Compile Include="Command\IAppCommand.cs" />
     <Compile Include="Command\AddTextCommand.cs" />
+    <Compile Include="Memento\ChangeCustomerCommand.cs" />
+    <Compile Include="Memento\IDbCommand.cs" />
+    <Compile Include="Memento\MementoForCustomerEntity.cs" />
+    <Compile Include="Memento\Customer.cs" />
     <Compile Include="Observer\A_FromScratch\GameResult.cs" />
     <Compile Include="Observer\A_FromScratch\ICustomObserver.cs" />
     <Compile Include="Observer\A1_WeakReferences\ISubjectWeakReferences.cs" />

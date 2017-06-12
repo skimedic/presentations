@@ -28,9 +28,9 @@ namespace BehavioralPatterns.Command
             _entries.Add(textToAdd);
         }
 
-
         public void UnExecute()
         {
+            //Should add error checking here
             _sb.Remove(_sb.Length, _entries[_entries.Count - 1].Length);
             _entries.RemoveAt(_entries.Count-1);
         }

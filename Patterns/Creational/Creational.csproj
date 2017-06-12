@@ -50,6 +50,7 @@
     <Compile Include="Factory\DoughType.cs" />
     <Compile Include="Factory\IPizza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototype\MonsterPrototype.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

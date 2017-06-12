@@ -11,16 +11,14 @@ namespace BehavioralPatterns.Command
         {
             _sb = sb;
         }
-
         public void Execute(string text)
         {
             _sb.Append(text);
             _entries.Add(text);
         }
-
-
         public void UnExecute()
         {
+            //Should add error checking here
             _sb.Remove(_sb.Length, _entries[_entries.Count - 1].Length);
             _entries.RemoveAt(_entries.Count-1);
         }
