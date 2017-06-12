@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PatternsExamples</RootNamespace>
     <AssemblyName>PatternsExamples</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -87,11 +87,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C_Behavioral\Commands\IDemoCommand.cs" />
-    <Compile Include="C_Behavioral\Commands\ILight.cs" />
-    <Compile Include="C_Behavioral\Commands\Light.cs" />
-    <Compile Include="C_Behavioral\Commands\LightCommand.cs" />
-    <Compile Include="C_Behavioral\Commands\Controller.cs" />
+    <Compile Include="C_Behavioral\Command\IDemoCommand.cs" />
+    <Compile Include="C_Behavioral\Command\ILight.cs" />
+    <Compile Include="C_Behavioral\Command\Light.cs" />
+    <Compile Include="C_Behavioral\Command\LightCommand.cs" />
+    <Compile Include="C_Behavioral\Command\Controller.cs" />
     <Compile Include="C_Behavioral\Strategy\Hero.cs" />
     <Compile Include="C_Behavioral\Strategy\IHero.cs" />
     <Compile Include="C_Behavioral\Strategy\SuperPowers.cs" />
