@@ -15,7 +15,7 @@ namespace BehavioralPatterns.Observer.A_FromScratch
 
     public class SportsAggregator : ISubject
     {
-        private readonly List<ICustomObserver> _observers = new List<ICustomObserver>();
+        internal readonly List<ICustomObserver> Observers = new List<ICustomObserver>();
 
         public void AddGameResult(GameResult result)
         {
@@ -23,17 +23,17 @@ namespace BehavioralPatterns.Observer.A_FromScratch
         }
         public void RegisterObserver(ICustomObserver customObserver)
         {
-            _observers.Add(customObserver);
+            Observers.Add(customObserver);
         }
 
         public void UnregisterObserver(ICustomObserver customObserver)
         {
-            _observers.Remove(customObserver);
+            Observers.Remove(customObserver);
         }
 
         public void NotifyObservers(GameResult result)
         {
-            _observers.ForEach(x=>x.Update(result));
+            Observers.ForEach(x=>x.Update(result));
         }
     }
 

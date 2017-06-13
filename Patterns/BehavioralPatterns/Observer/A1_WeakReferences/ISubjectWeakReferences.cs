@@ -15,7 +15,7 @@ namespace BehavioralPatterns.Observer.A1_WeakReferences
 
     public class SportsAggregatorWeakReferences : ISubjectWeakReferences
     {
-        private readonly List<WeakReference<ICustomObserver>> _observers = 
+        internal readonly List<WeakReference<ICustomObserver>> Observers = 
             new List<WeakReference<ICustomObserver>>();
 
         public void AddGameResult(GameResult result)
@@ -24,23 +24,42 @@ namespace BehavioralPatterns.Observer.A1_WeakReferences
         }
         public void UnregisterObserver(WeakReference<ICustomObserver> observer)
         {
-            _observers.Remove(observer);
+            Observers.Remove(observer);
         }
 
-        WeakReference<ICustomObserver> ISubjectWeakReferences.RegisterObserver(ICustomObserver customObserver)
+        public WeakReference<ICustomObserver> RegisterObserver(ICustomObserver customObserver)
         {
             var weakReference = new WeakReference<ICustomObserver>(customObserver);
-            _observers.Add(weakReference);
+            Observers.Add(weakReference);
             return weakReference;
         }
 
         public void NotifyObservers(GameResult result)
         {
-            _observers.ForEach(x =>
+            foreach (var itm in Observers.ToArray())
             {
-                x.TryGetTarget(out ICustomObserver obs);
-                obs?.Update(result);
-            });
+                itm.TryGetTarget(out ICustomObserver obs);
+                if (obs == null)
+                {
+                    UnregisterObserver(itm);
+                }
+                else
+                {
+                    obs.Update(result);
+                }
+            }
+            //Observers.ForEach(x =>
+            //{
+            //    x.TryGetTarget(out ICustomObserver obs);
+            //    if (obs == null)
+            //    {
+            //        UnregisterObserver(x);
+            //    }
+            //    else
+            //    {
+            //        obs.Update(result);
+            //    }
+            //});
         }
     }
 

@@ -16,27 +16,27 @@ namespace BehavioralPatterns.Memento
 {
     public class ChangeCustomerCommand : IDbCommand
     {
-        private Customer _customer;
+        public Customer Customer { get; private set; }
 
         //NOTE: This example will potentially use a LOT of memory!
         private readonly List<MementoForCustomerEntity> _mementos = 
             new List<MementoForCustomerEntity>();
         public ChangeCustomerCommand(Customer customer)
         {
-            _customer = customer;
+            Customer = customer;
         }
 
         public void Execute(string newName)
         {
-            _mementos.Add(new MementoForCustomerEntity(_customer));
-            _customer.Name = newName;
+            _mementos.Add(new MementoForCustomerEntity(Customer));
+            Customer.Name = newName;
         }
 
 
         public void UnExecute()
         {
             //Should add error checking here
-            _customer = (_mementos[_mementos.Count - 1].GetCustomer());
+            Customer = (_mementos[_mementos.Count - 1].GetCustomer());
             _mementos.RemoveAt(_mementos.Count-1);
         }
     }

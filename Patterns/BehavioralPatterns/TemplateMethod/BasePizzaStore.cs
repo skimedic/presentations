@@ -6,7 +6,7 @@
     public abstract class BasePizzaStore
     {
         protected IPizza PizzaForDelivery;
-        public IPizza CreatePizzaForDelivery(IPizza pizza)
+        public IPizza CreatePizzaForDelivery()
         {
             TakeOrder();
             ProcessPayment();
@@ -20,12 +20,12 @@
         public abstract void MakePizza();
         public abstract void CookPizza();
 
-        private void ProcessPayment()
+        internal void ProcessPayment()
         {
             //Processes the customers payment
         }
 
-        private void DeliverPizza()
+        internal void DeliverPizza()
         {
             //delivers pizza to the customer
         }

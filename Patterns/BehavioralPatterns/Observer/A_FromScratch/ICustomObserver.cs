@@ -14,7 +14,7 @@ namespace BehavioralPatterns.Observer.A_FromScratch
         {
             Results.Add(result);
         }
-        public List<GameResult> Results { get; set; }
+        public List<GameResult> Results { get; set; } = new List<GameResult>();
     }
     public class RadioStation : ICustomObserver
     {
@@ -22,7 +22,7 @@ namespace BehavioralPatterns.Observer.A_FromScratch
         {
             Results.Add(result);
         }
-        public List<GameResult> Results { get; set; }
+        public List<GameResult> Results { get; set; } = new List<GameResult>();
     }
 
 }

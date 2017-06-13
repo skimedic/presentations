@@ -17,42 +17,47 @@ namespace BehavioralPatternsTests.Command
     public class CommandTests
     {
         [Fact]
-        public void ShouldAddNumberssText()
+        public void ShouldAddNumbersAsText()
         {
             var controller = new Controller();
             IAppCommand addNumbersCommand = new AddNumbersCommand();
             var addCommandReference = controller.AddCommand(addNumbersCommand);
-            controller.GetCommandAt(addCommandReference).Execute("1234");
-            Assert.Equal("1234",controller.GetBuiltString());
+            var expected = "1234";
+            controller.GetCommandAt(addCommandReference).Execute(expected);
+            Assert.Equal(expected,controller.GetBuiltString());
         }
         [Fact]
         public void ShouldUndoNumbersAsText()
         {
             var controller = new Controller();
             var addCommandReference = controller.AddCommand(new AddTextCommand());
-            controller.GetCommandAt(addCommandReference).Execute("1234");
+            var expected = "1234";
+            controller.GetCommandAt(addCommandReference).Execute(expected);
             controller.GetCommandAt(addCommandReference).Execute("5678");
             controller.GetCommandAt(addCommandReference).UnExecute();
-            Assert.Equal("1234", controller.GetBuiltString());
+            Assert.Equal(expected, controller.GetBuiltString());
         }
         [Fact]
         public void ShouldAddText()
         {
             var controller = new Controller();
             var addCommandReference = controller.AddCommand(new AddTextCommand());
-            controller.GetCommandAt(addCommandReference).Execute("abc");
-            controller.GetCommandAt(addCommandReference).Execute("abc");
-            Assert.Equal("abcabc",controller.GetBuiltString());
+            var text1 = "abc";
+            controller.GetCommandAt(addCommandReference).Execute(text1);
+            var text2 = "def";
+            controller.GetCommandAt(addCommandReference).Execute(text2);
+            Assert.Equal($"{text1}{text2}",controller.GetBuiltString());
         }
         [Fact]
         public void ShouldUndoText()
         {
             var controller = new Controller();
             var addCommandReference = controller.AddCommand(new AddTextCommand());
-            controller.GetCommandAt(addCommandReference).Execute("abc");
-            controller.GetCommandAt(addCommandReference).Execute("abc");
+            var expected = "abc";
+            controller.GetCommandAt(addCommandReference).Execute(expected);
+            controller.GetCommandAt(addCommandReference).Execute("def");
             controller.GetCommandAt(addCommandReference).UnExecute();
-            Assert.Equal("abc",controller.GetBuiltString());
+            Assert.Equal(expected,controller.GetBuiltString());
         }
     }
 }
