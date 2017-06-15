@@ -14,13 +14,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{F7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehavioralPatterns", "BehavioralPatterns\BehavioralPatterns.csproj", "{AA4E4E5C-D589-4960-A40E-D30CD570FEFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Structural", "Structural\Structural.csproj", "{926E952C-89EB-48BD-8262-736D70F1F0FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructuralPatterns", "Structural\StructuralPatterns.csproj", "{926E952C-89EB-48BD-8262-736D70F1F0FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationalPatterns", "Creational\CreationalPatterns.csproj", "{D8CAF1CD-170E-413E-8FF8-99C64DAD2B0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehavioralPatternsTests", "BehavioralPatternsTests\BehavioralPatternsTests.csproj", "{33073EC0-D81D-4C5F-86DB-402F99B41CFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationalPatternsTests", "CreationalPatternsTests\CreationalPatternsTests.csproj", "{477BD09B-82ED-463B-871B-52292BD6300C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructuralPatternsTests", "StructuralPatternsTests\StructuralPatternsTests.csproj", "{2B12C4E5-665F-4D50-8705-373A17179015}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{477BD09B-82ED-463B-871B-52292BD6300C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{477BD09B-82ED-463B-871B-52292BD6300C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{477BD09B-82ED-463B-871B-52292BD6300C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B12C4E5-665F-4D50-8705-373A17179015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B12C4E5-665F-4D50-8705-373A17179015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B12C4E5-665F-4D50-8705-373A17179015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B12C4E5-665F-4D50-8705-373A17179015}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

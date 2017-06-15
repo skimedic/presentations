@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{477BD09B-82ED-463B-871B-52292BD6300C}</ProjectGuid>
+    <ProjectGuid>{2B12C4E5-665F-4D50-8705-373A17179015}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CreationalPatternsTests</RootNamespace>
-    <AssemblyName>CreationalPatternsTests</AssemblyName>
+    <RootNamespace>StructuralPatternsTests</RootNamespace>
+    <AssemblyName>StructuralPatternsTests</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -61,27 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factory\B_FactoryMethod\FactoryMethodTests.cs" />
-    <Compile Include="Factory\C_AbstractFactory\AbstractFactoryTests.cs" />
-    <Compile Include="Factory\A_SimpleFactory\SimpleFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Prototype\PrototypeTests.cs" />
-    <Compile Include="Singleton\SingletonTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Creational\CreationalPatterns.csproj">
-      <Project>{D8CAF1CD-170E-413E-8FF8-99C64DAD2B0E}</Project>
-      <Name>CreationalPatterns</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

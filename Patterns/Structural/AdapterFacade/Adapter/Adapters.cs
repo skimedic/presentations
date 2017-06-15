@@ -10,7 +10,7 @@
 
 using System;
 
-namespace Structural.AdapterFacade.Adapter
+namespace StructuralPatterns.AdapterFacade.Adapter
 {
     public class MooseAdapter : ICharacter
     {

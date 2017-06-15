@@ -6,7 +6,7 @@
 // See License.txt for more information
 // ==============================
 
-namespace Structural.C_Decorator
+namespace StructuralPatterns.Decorator
 {
     public class AttackCar : ICar
     {

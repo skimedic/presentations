@@ -8,7 +8,7 @@
 // ==============================
 #endregion
 
-namespace Structural.AdapterFacade.Facade
+namespace StructuralPatterns.AdapterFacade.Facade
 {
     public class Overdone : IOverdone
     {

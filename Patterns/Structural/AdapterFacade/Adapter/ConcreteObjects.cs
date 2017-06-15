@@ -8,7 +8,7 @@
 // ==============================
 #endregion
 
-namespace Structural.AdapterFacade.Adapter
+namespace StructuralPatterns.AdapterFacade.Adapter
 {
     public class Moose : IMoose
     {

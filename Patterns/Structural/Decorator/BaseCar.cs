@@ -8,7 +8,7 @@
 // ==============================
 #endregion
 
-namespace Structural.C_Decorator
+namespace StructuralPatterns.Decorator
 {
     public class BaseCar : ICar
     {

@@ -6,7 +6,7 @@
 // See License.txt for more information
 // ==============================
 
-namespace Structural.AdapterFacade.Facade
+namespace StructuralPatterns.AdapterFacade.Facade
 {
     public interface IOverdone
     {
