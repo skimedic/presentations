@@ -9,10 +9,8 @@
 #endregion
 
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using Creational.Factory.A_SimpleFactory;
 
-namespace Creational.Factory.B_FactoryMethod
+namespace CreationalPatterns.Factory.B_FactoryMethod
 {
 
     public abstract class PizzaStore

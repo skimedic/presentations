@@ -13,6 +13,7 @@ namespace SpyStore_HOL.MVC
 {
     public class Startup
     {
+        private IHostingEnvironment _env;
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -21,6 +22,7 @@ namespace SpyStore_HOL.MVC
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+            _env = env;
         }
 
         public IConfigurationRoot Configuration { get; }

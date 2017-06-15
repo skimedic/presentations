@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Creational.Factory
+namespace CreationalPatterns.Factory
 {
     public interface IPizza
     {

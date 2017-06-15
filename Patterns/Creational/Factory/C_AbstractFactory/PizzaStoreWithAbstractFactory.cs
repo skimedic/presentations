@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Creational.Factory.C_AbstractFactory
+namespace CreationalPatterns.Factory.C_AbstractFactory
 {
     public abstract class PizzaStoreWithAbstractFactory
     {

@@ -1,4 +1,4 @@
-﻿namespace Creational.Prototype
+﻿namespace CreationalPatterns.Prototype
 {
     public abstract class MonsterPrototype
     {
@@ -19,7 +19,7 @@
 
     public class FlyingMonster : MonsterPrototype
     {
-        public FlyingMonster(bool canFly, bool canSwim, bool hasMagic) : 
+        public FlyingMonster(bool canFly = true, bool canSwim = false, bool hasMagic = false) : 
             base(canFly, canSwim, hasMagic)
         {
         }

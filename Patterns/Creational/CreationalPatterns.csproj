@@ -7,8 +7,8 @@
     <ProjectGuid>{D8CAF1CD-170E-413E-8FF8-99C64DAD2B0E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Creational</RootNamespace>
-    <AssemblyName>Creational</AssemblyName>
+    <RootNamespace>CreationalPatterns</RootNamespace>
+    <AssemblyName>CreationalPatterns</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A_Singleton\MySingletonClass.cs" />
-    <Compile Include="A_Singleton\SingletonSealed.cs" />
-    <Compile Include="Factory\A_SimpleFactory\SimpleFactory.cs" />
-    <Compile Include="Factory\B_FactoryMethod\FactoryMethod.cs" />
+    <Compile Include="Factory\A_SimpleFactory\SimplePizzaFactory.cs" />
+    <Compile Include="Factory\B_FactoryMethod\PizzaStore.cs" />
+    <Compile Include="Singleton\MySingletonClass.cs" />
+    <Compile Include="Singleton\SingletonSealed.cs" />
     <Compile Include="Factory\C_AbstractFactory\PizzaFactory.cs" />
     <Compile Include="Factory\C_AbstractFactory\PizzaStoreWithAbstractFactory.cs" />
     <Compile Include="Factory\DoughType.cs" />

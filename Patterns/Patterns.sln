@@ -16,9 +16,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehavioralPatterns", "Behav
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Structural", "Structural\Structural.csproj", "{926E952C-89EB-48BD-8262-736D70F1F0FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creational", "Creational\Creational.csproj", "{D8CAF1CD-170E-413E-8FF8-99C64DAD2B0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationalPatterns", "Creational\CreationalPatterns.csproj", "{D8CAF1CD-170E-413E-8FF8-99C64DAD2B0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehavioralPatternsTests", "BehavioralPatternsTests\BehavioralPatternsTests.csproj", "{33073EC0-D81D-4C5F-86DB-402F99B41CFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationalPatternsTests", "CreationalPatternsTests\CreationalPatternsTests.csproj", "{477BD09B-82ED-463B-871B-52292BD6300C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 		{33073EC0-D81D-4C5F-86DB-402F99B41CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33073EC0-D81D-4C5F-86DB-402F99B41CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33073EC0-D81D-4C5F-86DB-402F99B41CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477BD09B-82ED-463B-871B-52292BD6300C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477BD09B-82ED-463B-871B-52292BD6300C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477BD09B-82ED-463B-871B-52292BD6300C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477BD09B-82ED-463B-871B-52292BD6300C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿namespace Creational.Factory
+﻿namespace CreationalPatterns.Factory
 {
     public enum DoughType
     {

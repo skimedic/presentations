@@ -11,7 +11,7 @@
 
 using System.Collections.Generic;
 
-namespace Creational.Factory.A_SimpleFactory
+namespace CreationalPatterns.Factory.A_SimpleFactory
 {
     public enum PizzaType
     {
@@ -20,7 +20,7 @@ namespace Creational.Factory.A_SimpleFactory
         California
     }
 
-    public static class PizzaFactory
+    public static class SimplePizzaFactory
     {
         public static IPizza CreatePizza(PizzaType type, IList<string> ingredients)
         {

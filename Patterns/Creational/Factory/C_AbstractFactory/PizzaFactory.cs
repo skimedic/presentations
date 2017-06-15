@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace Creational.Factory.C_AbstractFactory
+namespace CreationalPatterns.Factory.C_AbstractFactory
 {
     public interface IPizzaFactory
     {

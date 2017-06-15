@@ -10,7 +10,7 @@
 
 using System;
 
-namespace Creational.A_Singleton
+namespace CreationalPatterns.Singleton
 {
     /*
     This approach ensures that only one instance is created and only when the instance is needed.
