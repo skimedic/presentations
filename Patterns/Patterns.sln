@@ -7,11 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternsExamples", "Pattern
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternsExamplesTests", "PatternsExamplesTests\PatternsExamplesTests.csproj", "{51F5B4FC-7D90-46C9-91F5-99B08AB1622A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{F7DAB30B-5027-4BB6-876F-355940F47104}"
-	ProjectSection(SolutionItems) = preProject
-		Behavioral.txt = Behavioral.txt
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehavioralPatterns", "BehavioralPatterns\BehavioralPatterns.csproj", "{AA4E4E5C-D589-4960-A40E-D30CD570FEFE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructuralPatterns", "Structural\StructuralPatterns.csproj", "{926E952C-89EB-48BD-8262-736D70F1F0FB}"

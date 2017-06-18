@@ -61,11 +61,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdapterFacade\Adapter\AdapterTests.cs" />
+    <Compile Include="AdapterFacade\Facade\FacadeTests.cs" />
+    <Compile Include="Decorator\DecoratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Structural\StructuralPatterns.csproj">
+      <Project>{926E952C-89EB-48BD-8262-736D70F1F0FB}</Project>
+      <Name>StructuralPatterns</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
