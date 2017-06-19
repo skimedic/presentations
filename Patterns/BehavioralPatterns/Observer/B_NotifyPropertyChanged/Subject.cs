@@ -1,4 +1,11 @@
-﻿using System.ComponentModel;
+﻿// Copyright Information
+// =============================
+// BehavioralPatterns - Subject.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using BehavioralPatterns.Annotations;
 

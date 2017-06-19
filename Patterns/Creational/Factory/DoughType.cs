@@ -1,4 +1,11 @@
-﻿namespace CreationalPatterns.Factory
+﻿// Copyright Information
+// =============================
+// CreationalPatterns - DoughType.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+namespace CreationalPatterns.Factory
 {
     public enum DoughType
     {

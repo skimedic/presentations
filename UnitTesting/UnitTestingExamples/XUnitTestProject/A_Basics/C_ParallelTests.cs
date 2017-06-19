@@ -1,4 +1,11 @@
-﻿using System.Threading;
+﻿// Copyright Information
+// =============================
+// XUnitTestProject - C_ParallelTests.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+using System.Threading;
 using Xunit;
 
 namespace XUnitTestProject.A_Basics

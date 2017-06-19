@@ -3,6 +3,15 @@ using System.Text;
 
 namespace BehavioralPatterns.Command
 {
+    //Note: It's bad form to have more than one item in a file, but we make concessions
+    //for teaching purposes
+    public interface IAppCommand
+    {
+        StringBuilder Sb { get; set; }
+        void Execute(string text);
+        void UnExecute();
+    }
+
     public abstract class BaseCommand : IAppCommand
     {
         public StringBuilder Sb { get; set; }

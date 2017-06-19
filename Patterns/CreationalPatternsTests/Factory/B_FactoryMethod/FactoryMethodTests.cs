@@ -1,4 +1,11 @@
-﻿using System.Collections.Generic;
+﻿// Copyright Information
+// =============================
+// CreationalPatternsTests - FactoryMethodTests.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+using System.Collections.Generic;
 using CreationalPatterns.Factory;
 using CreationalPatterns.Factory.A_SimpleFactory;
 using CreationalPatterns.Factory.B_FactoryMethod;

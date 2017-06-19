@@ -1,4 +1,11 @@
-﻿using System.Collections.Generic;
+﻿// Copyright Information
+// =============================
+// CreationalPatterns - IPizza.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+using System.Collections.Generic;
 
 namespace CreationalPatterns.Factory
 {

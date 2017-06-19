@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿// Copyright Information
+// =============================
+// XUnitTestProject - B_Theories.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+using System.Collections;
 using System.Collections.Generic;
 using Xunit;
 

@@ -8130,15 +8130,15 @@
             </summary>
         </member>
         <member name="M:NUnit.Framework.Internal.TestFilter.Pass(NUnit.Framework.Interfaces.ITest)">
-            <summary>
-            Determine if a particular test passes the filter criteria. The default 
-            implementation checks the test itself, its parents and any descendants.
+             <summary>
+             Determine if a particular test passes the filter criteria. The default
+             implementation checks the test itself, its parents and any descendants.
             
-            Derived classes may override this method or any of the Match methods
-            to change the behavior of the filter.
-            </summary>
-            <param name="test">The test to which the filter is applied</param>
-            <returns>True if the test passes the filter, otherwise false</returns>
+             Derived classes may override this method or any of the Match methods
+             to change the behavior of the filter.
+             </summary>
+             <param name="test">The test to which the filter is applied</param>
+             <returns>True if the test passes the filter, otherwise false</returns>
         </member>
         <member name="M:NUnit.Framework.Internal.TestFilter.IsExplicitMatch(NUnit.Framework.Interfaces.ITest)">
             <summary>

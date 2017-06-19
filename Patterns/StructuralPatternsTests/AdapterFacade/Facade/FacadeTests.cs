@@ -1,12 +1,10 @@
-#region copyright
 // Copyright Information
-// ==============================
-// PatternsExamplesTests - B_FacadeTests.cs
+// =============================
+// StructuralPatternsTests - FacadeTests.cs
 // All samples copyright Philip Japikse 
-// http://www.skimedic.com 2016/11/08
+// http://www.skimedic.com 19/06/2017
 // See License.txt for more information
-// ==============================
-#endregion
+// =============================
 using Xunit;
 
 namespace PatternsExamplesTests.B_StructuralTests

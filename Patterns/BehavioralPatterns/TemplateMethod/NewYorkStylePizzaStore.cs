@@ -1,4 +1,11 @@
-﻿namespace BehavioralPatterns.TemplateMethod
+﻿// Copyright Information
+// =============================
+// BehavioralPatterns - NewYorkStylePizzaStore.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+namespace BehavioralPatterns.TemplateMethod
 {
     public class NewYorkStylePizzaStore : BasePizzaStore
     {

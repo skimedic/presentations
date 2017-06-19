@@ -1,4 +1,11 @@
-﻿using Xunit;
+﻿// Copyright Information
+// =============================
+// XUnitTestProject - A_FirstExample.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+using Xunit;
 
 namespace XUnitTestProject.A_Basics
 {
@@ -16,7 +23,7 @@ namespace XUnitTestProject.A_Basics
         {
             Assert.Equal(expected,addend1+addend2);
         }
-        [Fact(DisplayName = "Custom Display Name", Skip = "bar")]
+        [Fact(DisplayName = "Ignored Test - Custom Display Name", Skip="this can be anything")]
         public void ThisIsIgnored()
         {
 

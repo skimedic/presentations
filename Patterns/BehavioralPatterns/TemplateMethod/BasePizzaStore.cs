@@ -1,4 +1,11 @@
-﻿namespace BehavioralPatterns.TemplateMethod
+﻿// Copyright Information
+// =============================
+// BehavioralPatterns - BasePizzaStore.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+namespace BehavioralPatterns.TemplateMethod
 {
     //Example of the Template Pattern in .NET
     //TextReader sr = new StreamReader("Foo");

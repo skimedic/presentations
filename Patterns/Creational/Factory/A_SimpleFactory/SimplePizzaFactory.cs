@@ -1,14 +1,10 @@
-﻿#region copyright
-// Copyright Information
-// ==============================
-// PatternsExamples - SimpleFactory.cs
+﻿// Copyright Information
+// =============================
+// CreationalPatterns - SimplePizzaFactory.cs
 // All samples copyright Philip Japikse 
-// http://www.skimedic.com 2016/11/08
+// http://www.skimedic.com 19/06/2017
 // See License.txt for more information
-// ==============================
-#endregion
-
-
+// =============================
 using System.Collections.Generic;
 
 namespace CreationalPatterns.Factory.A_SimpleFactory

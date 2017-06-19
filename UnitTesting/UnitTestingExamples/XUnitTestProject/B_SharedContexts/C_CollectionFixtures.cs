@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Copyright Information
+// =============================
+// XUnitTestProject - C_CollectionFixtures.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;

@@ -1,3 +1,10 @@
+// Copyright Information
+// =============================
+// BehavioralPatterns - Observer.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
 using System.ComponentModel;
 
 namespace BehavioralPatterns.Observer.B_NotifyPropertyChanged

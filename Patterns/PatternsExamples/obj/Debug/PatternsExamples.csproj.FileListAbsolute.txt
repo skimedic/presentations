@@ -198,3 +198,5 @@ C:\GitHub\presentations\Patterns\PatternsExamples\obj\Debug\PatternsExamples.pdb
 C:\GitHub\presentations\Patterns\PatternsExamples\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\GitHub\presentations\Patterns\PatternsExamples\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\GitHub\presentations\Patterns\PatternsExamples\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\GitHub\presentations\Patterns\PatternsExamples\bin\Debug\nunit.framework.dll
+C:\GitHub\presentations\Patterns\PatternsExamples\bin\Debug\nunit.framework.xml

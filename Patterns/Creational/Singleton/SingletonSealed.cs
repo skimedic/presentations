@@ -1,3 +1,10 @@
+// Copyright Information
+// =============================
+// CreationalPatterns - SingletonSealed.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
 namespace CreationalPatterns.Singleton
 {
     public sealed class SingletonSealed
