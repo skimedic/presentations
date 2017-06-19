@@ -102,12 +102,6 @@
     <Compile Include="B_StructuralTests\C_DecoratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PatternsExamples\PatternsExamples.csproj">
-      <Project>{4CF2C59B-6279-4509-82FE-6512A3B288F9}</Project>
-      <Name>PatternsExamples</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
