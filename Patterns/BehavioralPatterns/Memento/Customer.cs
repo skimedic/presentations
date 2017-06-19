@@ -1,4 +1,11 @@
-﻿namespace BehavioralPatterns.Memento
+﻿// Copyright Information
+// =============================
+// BehavioralPatterns - Customer.cs
+// All samples copyright Philip Japikse 
+// http://www.skimedic.com 19/06/2017
+// See License.txt for more information
+// =============================
+namespace BehavioralPatterns.Memento
 {
     public class Customer
     {
