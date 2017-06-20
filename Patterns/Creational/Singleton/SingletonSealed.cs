@@ -20,8 +20,8 @@ namespace CreationalPatterns.Singleton
      When your application must delay the instantiation, use a non-default constructor 
      or perform other tasks before the instantiation, and work in a multithreaded environment, 
      you need a different solution.
-     Cases do exist, however, in which you cannot rely on the common language runtime 
-     to ensure thread safety, as in the Static Initialization example.
+     Cases do exist, however, in which you cannot rely on the common language 
+     runtime to ensure thread safety, as in the Static Initialization example.
      https://msdn.microsoft.com/en-us/library/ff650316.aspx?f=255&MSPPError=-2147217396
 */
 }

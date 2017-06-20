@@ -22,7 +22,7 @@ namespace BehavioralPatterns.TemplateMethod
 
         public override void CookPizza()
         {
-            //cook the thin crust pizza in a wood fired oved
+            //cook the thin crust pizza in a wood fired oven
             //operates on PizzaForDelivery
         }
     }

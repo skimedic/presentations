@@ -5,6 +5,8 @@
 // http://www.skimedic.com 19/06/2017
 // See License.txt for more information
 // =============================
+
+using System.Text;
 using BehavioralPatterns.Command;
 using Xunit;
 

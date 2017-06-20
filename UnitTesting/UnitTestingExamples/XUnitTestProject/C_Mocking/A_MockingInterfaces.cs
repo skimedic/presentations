@@ -27,7 +27,7 @@ namespace XUnitTestProject.C_Mocking
             var cust2 = sut.GetCustomer(12);
             Assert.Equal(cust.Id, cust2.Id);
             Assert.Equal(cust.Name, cust2.Name);
-            mock.Verify(foo => foo.Find(12));
+            mock.Verify(foo => foo.Find(13));
         }
     }
 }

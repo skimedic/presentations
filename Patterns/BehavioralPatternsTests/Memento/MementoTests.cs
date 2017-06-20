@@ -32,6 +32,7 @@ namespace BehavioralPatternsTests.Memento
             cmd.Execute(newName);
             cmd.UnExecute();
             Assert.Equal(originalName,cmd.Customer.Name);
+            Assert.Equal(5,cmd.Customer.Id);
         }
     }
 }

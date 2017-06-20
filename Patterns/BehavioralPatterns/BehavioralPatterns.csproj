@@ -68,6 +68,8 @@
     <Compile Include="TemplateMethod\NewYorkStylePizzaStore.cs" />
     <Compile Include="TemplateMethod\BasePizzaStore.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Observer\D_PubSub\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

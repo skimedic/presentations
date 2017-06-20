@@ -24,8 +24,8 @@ namespace CreationalPatterns.Singleton
     public sealed class MySingletonClass : IDisposable
 	{
 		private bool _disposed;
-		//the volatile keyword ensures that the instantiation is complete before it can be accessed
-        //further helping with thread safety.
+        //the volatile keyword ensures that the instantiation is complete 
+        //before it can be accessed further helping with thread safety.
 		private static volatile MySingletonClass _instance;
 		private static readonly object _syncLock = new object();
 		private MySingletonClass()

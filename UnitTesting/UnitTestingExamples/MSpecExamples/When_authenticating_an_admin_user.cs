@@ -50,6 +50,8 @@ namespace MSpecExamples
             _token.Password.ShouldNotBeNull();
         };
 
+        It should_do_the_kessel_run_in_twelve_parsecs;
+
         static SampleService _subject;
         static SampleToken _token;
     }
