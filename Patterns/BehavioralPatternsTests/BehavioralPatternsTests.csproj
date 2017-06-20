@@ -73,9 +73,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Observer\C_Framework\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BehavioralPatterns\BehavioralPatterns.csproj">
       <Project>{aa4e4e5c-d589-4960-a40e-d30cd570fefe}</Project>

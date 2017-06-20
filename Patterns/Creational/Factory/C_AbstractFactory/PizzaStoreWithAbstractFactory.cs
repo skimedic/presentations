@@ -2,7 +2,7 @@
 // =============================
 // CreationalPatterns - PizzaStoreWithAbstractFactory.cs
 // All samples copyright Philip Japikse 
-// http://www.skimedic.com 19/06/2017
+// http://www.skimedic.com 20/06/2017
 // See License.txt for more information
 // =============================
 using System.Collections.Generic;
@@ -28,11 +28,13 @@ namespace CreationalPatterns.Factory.C_AbstractFactory
         }
     }
 
-    public class NewYorkPizzaStoreWithAbstractFactory : PizzaStoreWithAbstractFactory
+    public class NewYorkPizzaStoreWithAbstractFactory : 
+        PizzaStoreWithAbstractFactory
     {
         public NewYorkPizzaStoreWithAbstractFactory() : 
             this(new NewYorkPizzaFactory()) { }
-        public NewYorkPizzaStoreWithAbstractFactory(IPizzaFactory pizzaFactory) : 
+        public NewYorkPizzaStoreWithAbstractFactory(
+            IPizzaFactory pizzaFactory) : 
             base(pizzaFactory) { }
 
     }

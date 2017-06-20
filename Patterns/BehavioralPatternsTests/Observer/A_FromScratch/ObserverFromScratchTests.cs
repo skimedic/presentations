@@ -2,14 +2,10 @@
 // =============================
 // BehavioralPatternsTests - ObserverFromScratchTests.cs
 // All samples copyright Philip Japikse 
-// http://www.skimedic.com 19/06/2017
+// http://www.skimedic.com 20/06/2017
 // See License.txt for more information
 // =============================
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BehavioralPatterns.Observer.A_FromScratch;
 using Xunit;
 

@@ -48,11 +48,13 @@
     <Compile Include="AdapterFacade\Facade\Confusing.cs" />
     <Compile Include="AdapterFacade\Facade\Facade.cs" />
     <Compile Include="AdapterFacade\Facade\Overdone.cs" />
-    <Compile Include="Decorator\ArmoredCar.cs" />
-    <Compile Include="Decorator\AttackCar.cs" />
-    <Compile Include="Decorator\BaseCar.cs" />
-    <Compile Include="Decorator\ICar.cs" />
-    <Compile Include="Decorator\RaceCar.cs" />
+    <Compile Include="Decorator\CarExample\ArmoredCar.cs" />
+    <Compile Include="Decorator\CarExample\AttackCar.cs" />
+    <Compile Include="Decorator\CarExample\BaseCar.cs" />
+    <Compile Include="Decorator\CoffeeExample\BaseCoffee.cs" />
+    <Compile Include="Decorator\CoffeeExample\EspressoShotDecoator.cs" />
+    <Compile Include="Decorator\CarExample\ICar.cs" />
+    <Compile Include="Decorator\CarExample\RaceCar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

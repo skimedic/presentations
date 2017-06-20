@@ -2,20 +2,22 @@
 // =============================
 // StructuralPatterns - Facade.cs
 // All samples copyright Philip Japikse 
-// http://www.skimedic.com 19/06/2017
+// http://www.skimedic.com 20/06/2017
 // See License.txt for more information
 // =============================
 namespace StructuralPatterns.AdapterFacade.Facade
 {
     public interface IBetterAPI
     {
-        int AddThreeNumbers(int firstParam, int secondParam, int thirdParam);
+        int AddThreeNumbers(int firstParam, int secondParam, 
+            int thirdParam);
 
         int AddThenMultiply(int addend1, int factor);
 
         int AddThenMultiply(int addend1, int addend2, int factor);
 
-        int AddThenMultiply(int addend1, int addend2, int addend3, int factor);
+        int AddThenMultiply(int addend1, int addend2, int addend3, 
+            int factor);
     }
 
     public class BetterAPI : IBetterAPI
@@ -36,7 +38,8 @@ namespace StructuralPatterns.AdapterFacade.Facade
             _overdone = overdone;
         }
 
-        public int AddThreeNumbers(int firstParam, int secondParam, int thirdParam) => 
+        public int AddThreeNumbers(int firstParam, int secondParam, 
+            int thirdParam) => 
             _confusing.Execute(firstParam, secondParam, thirdParam);
 
         public int AddThenMultiply(int addend1, int factor) => 

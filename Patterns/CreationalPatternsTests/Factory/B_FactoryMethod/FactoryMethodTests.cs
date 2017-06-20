@@ -2,7 +2,7 @@
 // =============================
 // CreationalPatternsTests - FactoryMethodTests.cs
 // All samples copyright Philip Japikse 
-// http://www.skimedic.com 19/06/2017
+// http://www.skimedic.com 20/06/2017
 // See License.txt for more information
 // =============================
 using System.Collections.Generic;
@@ -19,7 +19,8 @@ namespace CreationalPatternsTests.Factory.B_FactoryMethod
         [Fact]
         public void ShouldCreateSpecificPizza()
         {
-            var sut = new NewYorkPizzaStore().OrderPizza(new List<string>());
+            var sut = new NewYorkPizzaStore()
+                .OrderPizza(new List<string>());
             Assert.NotNull(sut as NewYorkPizza);
         }
 

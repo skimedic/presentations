@@ -2,10 +2,10 @@
 // =============================
 // StructuralPatterns - ICar.cs
 // All samples copyright Philip Japikse 
-// http://www.skimedic.com 19/06/2017
+// http://www.skimedic.com 20/06/2017
 // See License.txt for more information
 // =============================
-namespace StructuralPatterns.Decorator
+namespace StructuralPatterns.Decorator.CarExample
 {
     public interface ICar
     {
@@ -14,7 +14,5 @@ namespace StructuralPatterns.Decorator
         int Attack();
 
         int Defend();
-        //TODO: Add This
-        //string CarType { get; set; }
     }
 }
