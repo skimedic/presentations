@@ -108,6 +108,3 @@ namespace CreationalPatterns.Singleton
 	}
 }
 
-// The following example demonstrates how to create
-// a resource class that implements the IDisposable interface
-// and the IDisposable.Dispose method.

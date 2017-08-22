@@ -16,7 +16,7 @@ namespace StructuralPatterns.Decorator.CoffeeExample
         public EspressoShotDecorator(ICoffee decoratedCoffee)
         {
             _decoratedCoffee = decoratedCoffee;
-            Cost += .55M;
+            Cost = decoratedCoffee.Cost + .55M;
             decoratedCoffee.Ingredients.ForEach(x=>Ingredients.Add(x));
             Ingredients.Add("Espresso");
         }
