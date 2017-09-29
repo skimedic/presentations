@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Performance")]
+[assembly: AssemblyTitle("PerformanceEf6")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Performance")]
+[assembly: AssemblyProduct("PerformanceEf6")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a2907418-d0a6-4cc0-b688-5a4c9134223e")]
+[assembly: Guid("bb3befc5-9a69-4c8d-a570-31df9ab1a44d")]
 
 // Version information for an assembly consists of the following four values:
 //

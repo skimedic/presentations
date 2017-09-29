@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Data.Entity;
+using PerformanceEfCore.EFCore;
 
 namespace Performance
 {
@@ -14,7 +11,6 @@ namespace Performance
         static void Main(string[] args)
         {
             ResetAndWarmup();
-
             RunToListTest();
             RunComplexQueryTest();
             RunAddAndSaveChangesTest();
@@ -30,14 +26,14 @@ namespace Performance
             RunTest(
                 ef6Test: () =>
                 {
-                    using (var db = new EF6.Context.AdventureWorksContext())
+                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
                     {
                         db.Customers.ToList();
                     }
                 },
                 ef7Test: () =>
                 {
-                    using (var db = new EFCore.Context.AdventureWorksContext())
+                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
                     {
                         db.Customers.ToList();
                     }
@@ -61,19 +57,20 @@ namespace Performance
             RunTest(
                 ef6Test: () =>
                 {
-                    using (var db = new EF6.Context.AdventureWorksContext())
+                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
                     {
                         var l = db.Products
                             .Include(x => x.TransactionHistories)
                             .Include(x => x.ProductSubcategory)
                             .Include(x => x.ProductSubcategory.ProductCategory)
                             .Include(x => x.ProductReviews)
-                            .Select(x => new
+                            .Select(x => new PerformanceEf6.EF6.ModelForTesting()
                             {
+                                ProductId = x.ProductID,
                                 Class = x.Class,
-                                ModifiedDate = x.TransactionHistories.Select(th => th.ModifiedDate),
+                                ModifiedDate = x.TransactionHistories.Select(th => th.ModifiedDate).FirstOrDefault(),
                                 CategoryName = x.ProductSubcategory.ProductCategory.Name,
-                                Email = x.ProductReviews.Select(pr => pr.EmailAddress)
+                                Email = x.ProductReviews.Select(pr => pr.EmailAddress).FirstOrDefault()
                             })
                             .Take(100).ToList();
 
@@ -88,21 +85,19 @@ namespace Performance
                 },
                 ef7Test: () =>
                 {
-                    using (var db = new EFCore.Context.AdventureWorksContext())
+                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
                     {
-                        var el = db.Product
-                            //.Include(x => x.TransactionHistory)
-                            //.Include(x => x.ProductSubcategory)
-                            //.Include(x => x.ProductSubcategory.ProductCategory)
-                            //.Include(x => x.ProductReview)
-                            .Select(x => new
-                            {
-                                Class = x.Class,
-                                ModifiedDate = x.TransactionHistory.Select(th => th.ModifiedDate),
-                                CategoryName = x.ProductSubcategory.ProductCategory.Name,
-                                Email = x.ProductReview.Select(pr => pr.EmailAddress)
-                            })
-                            .Take(100).ToList();
+                        Repo.GetComplexData(db);
+                        //var el = db.Product
+                        //    .Select(x => new ModelForTesting
+                        //    {
+                        //        ProductId = x.ProductID,
+                        //        Class = x.Class,
+                        //        ModifiedDate = x.TransactionHistory.Select(th => th.ModifiedDate).FirstOrDefault(),
+                        //        CategoryName = x.ProductSubcategory.ProductCategory.Name,
+                        //        Email = x.ProductReview.Select(pr => pr.EmailAddress).FirstOrDefault()
+                        //    })
+                        //    .Take(100).ToList();
                         //db.Customers
                         //    .Where(c => !c.AccountNumber.EndsWith("1"))
                         //    .OrderBy(c => c.AccountNumber)
@@ -120,22 +115,22 @@ namespace Performance
             RunTest(
                 () =>
                 {
-                    using (var db = new EF6.Context.AdventureWorksContext())
+                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
                     {
                         for (int i = 0; i < 1000; i++)
                         {
-                            db.ProductCategories.Add(new EF6.Models.ProductCategory {Name = $"Test {Guid.NewGuid()}"});
+                            db.ProductCategories.Add(new PerformanceEf6.EF6.Models.ProductCategory { Name = $"Test {Guid.NewGuid()}" });
                         }
                         db.SaveChanges();
                     }
                 },
                 () =>
                 {
-                    using (var db = new EFCore.Context.AdventureWorksContext())
+                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
                     {
                         for (int i = 0; i < 1000; i++)
                         {
-                            db.ProductCategories.Add(new EFCore.Models.ProductCategory {Name = $"Test {Guid.NewGuid()}"});
+                            db.ProductCategories.Add(new PerformanceEfCore.EFCore.Models.ProductCategory { Name = $"Test {Guid.NewGuid()}" });
                         }
                         db.SaveChanges();
                     }
@@ -148,13 +143,13 @@ namespace Performance
             RunTest(
                 () =>
                 {
-                    using (var db = new EF6.Context.AdventureWorksContext())
+                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
                     {
                         db.Configuration.AutoDetectChangesEnabled = false;
-                        var categories = new EF6.Models.ProductCategory[1000];
+                        var categories = new PerformanceEf6.EF6.Models.ProductCategory[1000];
                         for (int i = 0; i < 1000; i++)
                         {
-                            categories[i] = new EF6.Models.ProductCategory {Name = $"Test {Guid.NewGuid()}"};
+                            categories[i] = new PerformanceEf6.EF6.Models.ProductCategory { Name = $"Test {Guid.NewGuid()}" };
                         }
                         db.ProductCategories.AddRange(categories);
                         db.SaveChanges();
@@ -162,11 +157,11 @@ namespace Performance
                 },
                 () =>
                 {
-                    using (var db = new EFCore.Context.AdventureWorksContext())
+                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
                     {
                         for (int i = 0; i < 1000; i++)
                         {
-                            db.ProductCategories.Add(new EFCore.Models.ProductCategory {Name = $"Test {Guid.NewGuid()}"});
+                            db.ProductCategories.Add(new PerformanceEfCore.EFCore.Models.ProductCategory { Name = $"Test {Guid.NewGuid()}" });
                         }
                         db.SaveChanges();
                     }
@@ -195,19 +190,19 @@ namespace Performance
                 var result = (ef6 - efCore) / (double)ef6;
                 Console.WriteLine($"  - Improvement: {result.ToString("P0")}");
                 Console.WriteLine();
-                return;
+                //return;
             }
         }
 
         private static void ResetAndWarmup()
         {
-            using (var db = new EF6.Context.AdventureWorksContext())
+            using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
             {
                 db.Database.ExecuteSqlCommand(@"DELETE FROM Production.ProductCategory WHERE Name LIKE 'Test %'");
                 db.Customers.FirstOrDefault();
             }
 
-            using (var db = new EFCore.Context.AdventureWorksContext())
+            using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
             {
                 db.Customers.FirstOrDefault();
             }
