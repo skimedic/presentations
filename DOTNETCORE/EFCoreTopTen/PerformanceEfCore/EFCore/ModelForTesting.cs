@@ -6,14 +6,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using PerformanceEfCore.EFCore.Context;
+using PerformanceEfCore.EFCore.Models;
 
 namespace PerformanceEfCore.EFCore
 {
     public static class Repo
     {
-        public static void GetComplexData(PerformanceEfCore.EFCore.Context.AdventureWorksContext db)
+        public static Func<AdventureWorksContext, IEnumerable<ModelForTesting>> CompiledQuery =
+            EF.CompileQuery((AdventureWorksContext db) =>
+        db.Product
+            .Select(x => new ModelForTesting
+            {
+                ProductId = x.ProductID,
+                Class = x.Class,
+                ModifiedDate = x.TransactionHistory.Select(th => th.ModifiedDate).FirstOrDefault(),
+                CategoryName = x.ProductSubcategory.ProductCategory.Name,
+                Email = x.ProductReview.Select(pr => pr.EmailAddress).FirstOrDefault()
+            })
+            .Take(100));
+
+        public static List<ModelForTesting> GetComplexData(AdventureWorksContext db)
         {
-            var el = db.ModelForTestings.FromSql(@"SELECT TOP(100) [x].ProductId, [x].[Class], (
+            return db.ModelForTestings.FromSql(@"SELECT TOP(100) [x].ProductId, [x].[Class], (
     SELECT TOP(1) [th].[ModifiedDate]
     FROM [Production].[TransactionHistory] AS [th]
     WHERE [x].[ProductID] = [th].[ProductID]

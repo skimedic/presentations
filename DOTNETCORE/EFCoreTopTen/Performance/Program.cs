@@ -13,6 +13,7 @@ namespace Performance
             ResetAndWarmup();
             RunToListTest();
             RunComplexQueryTest();
+            RunComplexQueryTestCorevsCore();
             RunAddAndSaveChangesTest();
             RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
@@ -42,17 +43,6 @@ namespace Performance
 
         private static void RunComplexQueryTest()
         {
-            /*
-             *             var brownies = from r in dc.Recipes
-                           where r.Title.Contains("Brownie")
-                           select new
-                           {
-                               r.Title,
-                               Categories = r.RecipeCategories.Select(rc => rc.Category.Description),
-                               Ingredients = r.Ingredients.OrderBy(i => i.SortOrder),
-                               Directions = r.Directions.OrderBy(d => d.LineNumber).Select(d => d.Description)
-                           };
-*/
             Console.WriteLine("Query Complex");
             RunTest(
                 ef6Test: () =>
@@ -73,21 +63,12 @@ namespace Performance
                                 Email = x.ProductReviews.Select(pr => pr.EmailAddress).FirstOrDefault()
                             })
                             .Take(100).ToList();
-
-                        //db.Customers
-                        //    .Where(c => !c.AccountNumber.EndsWith("1"))
-                        //    .OrderBy(c => c.AccountNumber)
-                        //    .ThenBy(c => c.ModifiedDate)
-                        //    .Skip(100)
-                        //    .GroupBy(c => c.TerritoryID)
-                        //    .ToList();
                     }
                 },
                 ef7Test: () =>
                 {
                     using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
                     {
-                        Repo.GetComplexData(db);
                         //var el = db.Product
                         //    .Select(x => new ModelForTesting
                         //    {
@@ -98,15 +79,31 @@ namespace Performance
                         //        Email = x.ProductReview.Select(pr => pr.EmailAddress).FirstOrDefault()
                         //    })
                         //    .Take(100).ToList();
-                        //db.Customers
-                        //    .Where(c => !c.AccountNumber.EndsWith("1"))
-                        //    .OrderBy(c => c.AccountNumber)
-                        //    .ThenBy(c => c.ModifiedDate)
-                        //    .Skip(100)
-                        //    .GroupBy(c => c.TerritoryID)
-                        //    .ToList();
+                        //var el = Repo.GetComplexData(db);
+                        var el = Repo.CompiledQuery(db).ToList();
                     }
                 });
+        }
+        private static void RunComplexQueryTestCorevsCore()
+        {
+            Console.WriteLine("Query Complex Core vs Core");
+            RunTest(
+                ef6Test: () =>
+                {
+                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
+                    {
+                        var el = Repo.GetComplexData(db);
+                    }
+                },
+                ef7Test: () =>
+                {
+                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
+                    {
+                        var el = Repo.CompiledQuery(db).ToList();
+                    }
+                },
+                firstLabel:"-  FromSQL",
+                secondLabel:"- Compiled");
         }
 
         private static void RunAddAndSaveChangesTest()
@@ -168,7 +165,8 @@ namespace Performance
                 });
         }
 
-        private static void RunTest(Action ef6Test, Action ef7Test)
+        private static void RunTest(Action ef6Test, Action ef7Test, 
+            string firstLabel = "  - EF6.x", string secondLabel = "  - EF Core")
         {
             var stopwatch = new Stopwatch();
             for (int iteration = 0; iteration < 3; iteration++)
@@ -179,13 +177,13 @@ namespace Performance
                 ef6Test();
                 stopwatch.Stop();
                 var ef6 = stopwatch.ElapsedMilliseconds;
-                Console.WriteLine($"  - EF6.x:      {ef6.ToString().PadLeft(4)}ms");
+                Console.WriteLine($"{firstLabel}:      {ef6.ToString().PadLeft(4)}ms");
 
                 stopwatch.Restart();
                 ef7Test();
                 stopwatch.Stop();
                 var efCore = stopwatch.ElapsedMilliseconds;
-                Console.WriteLine($"  - EF Core:    {efCore.ToString().PadLeft(4)}ms");
+                Console.WriteLine($"{secondLabel}:    {efCore.ToString().PadLeft(4)}ms");
 
                 var result = (ef6 - efCore) / (double)ef6;
                 Console.WriteLine($"  - Improvement: {result.ToString("P0")}");
