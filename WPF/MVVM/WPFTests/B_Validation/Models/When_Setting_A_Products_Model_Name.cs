@@ -12,7 +12,6 @@
 #endregion
 
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Models;
 
 namespace WPFTests.B_Validation.Models

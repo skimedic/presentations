@@ -6,5 +6,10 @@
         {
             return addend1 + addend2;
         }
+
+        public int Subtract(int i, int i1)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -13,8 +13,8 @@
 
 using System.Globalization;
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Samples.F_LongRunner.Converters;
+using Xunit;
 
 namespace WPFTests.F_LongRunner.Converters
 {
@@ -36,8 +36,8 @@ namespace WPFTests.F_LongRunner.Converters
 
         It Should_Hold_A_Product_In_The_Returned_Type = () =>
         {
-            Assert.AreEqual(userName, _parameter.UserName);
-            Assert.AreEqual(password, _parameter.Password);
+            Assert.Equal(userName, _parameter.UserName);
+            Assert.Equal(password, _parameter.Password);
         };
 
     }

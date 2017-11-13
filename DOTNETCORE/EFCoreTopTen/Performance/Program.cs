@@ -13,7 +13,7 @@ namespace Performance
             ResetAndWarmup();
             RunToListTest();
             RunComplexQueryTest();
-            RunComplexQueryTestCorevsCore();
+            //RunComplexQueryTestCorevsCore();
             RunAddAndSaveChangesTest();
             RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
@@ -69,18 +69,10 @@ namespace Performance
                 {
                     using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
                     {
-                        //var el = db.Product
-                        //    .Select(x => new ModelForTesting
-                        //    {
-                        //        ProductId = x.ProductID,
-                        //        Class = x.Class,
-                        //        ModifiedDate = x.TransactionHistory.Select(th => th.ModifiedDate).FirstOrDefault(),
-                        //        CategoryName = x.ProductSubcategory.ProductCategory.Name,
-                        //        Email = x.ProductReview.Select(pr => pr.EmailAddress).FirstOrDefault()
-                        //    })
-                        //    .Take(100).ToList();
-                        //var el = Repo.GetComplexData(db);
-                        var el = Repo.CompiledQuery(db).ToList();
+
+
+                        var el = Repo.GetComplexData(db);
+                        //var el = Repo.CompiledQuery(db).ToList();
                     }
                 });
         }

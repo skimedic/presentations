@@ -12,11 +12,11 @@
 #endregion
 
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Helpers;
 using WPF.Samples.F_LongRunner.Commands;
 using WPF.Samples.F_LongRunner.Converters;
 using Telerik.JustMock;
+using Xunit;
 
 namespace WPFTests.F_LongRunner.Commands
 {
@@ -33,9 +33,9 @@ namespace WPFTests.F_LongRunner.Commands
 
         //Because ACTION;
 
-        It Should_Return_True_When_Parameter_Is_Login_Parameter = () => Assert.IsTrue(_command.CanExecute(new LoginParameter()));
-        It Should_Return_True_When_Parameter_Is_Not_Login_Parameter = () => Assert.IsFalse(_command.CanExecute("test"));
-        It Should_Return_True_When_Parameter_Is_Null = () => Assert.IsFalse(_command.CanExecute(null));
+        It Should_Return_True_When_Parameter_Is_Login_Parameter = () => Assert.True(_command.CanExecute(new LoginParameter()));
+        It Should_Return_True_When_Parameter_Is_Not_Login_Parameter = () => Assert.False(_command.CanExecute("test"));
+        It Should_Return_True_When_Parameter_Is_Null = () => Assert.False(_command.CanExecute(null));
         
     }
 }

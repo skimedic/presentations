@@ -13,9 +13,9 @@
 
 using System.Globalization;
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Models;
 using WPF.Samples.C_ChangeNotification.Converters;
+using Xunit;
 
 namespace WPFTests.C_ChangeNotification.Converters
 {
@@ -35,7 +35,7 @@ namespace WPFTests.C_ChangeNotification.Converters
         Because Calling_Convert = () =>
                                   _param = (ProductChangeNotificationParameter)_converter.Convert(new object[] { _product }, typeof(object), null, CultureInfo.CurrentCulture);
 
-        It Should_Hold_A_Product_In_The_Returned_Type = () => Assert.AreEqual(_product,_param.Product);
+        It Should_Hold_A_Product_In_The_Returned_Type = () => Assert.Equal(_product,_param.Product);
         
     }
 }

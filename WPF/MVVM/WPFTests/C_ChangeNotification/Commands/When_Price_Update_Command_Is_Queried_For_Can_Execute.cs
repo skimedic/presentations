@@ -12,10 +12,10 @@
 #endregion
 
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Models;
 using WPF.Samples.C_ChangeNotification.Commands;
 using WPF.Samples.C_ChangeNotification.Converters;
+using Xunit;
 
 namespace WPFTests.C_ChangeNotification.Commands
 {
@@ -27,8 +27,8 @@ namespace WPFTests.C_ChangeNotification.Commands
         {
             _command = new PriceUpdaterCommand();
         };
-        It Should_Not_Be_Able_To_Execute_If_Parameter_Is_Null = () => Assert.IsFalse(_command.CanExecute(null));
-        It Should_Not_Be_Able_To_Execute_If_No_Product_Is_Selected = () => Assert.IsFalse(_command.CanExecute(new ProductChangeNotificationParameter()));
-        It Should_Be_Able_To_Execute_If_Product_Is_Selected = () => Assert.IsTrue(_command.CanExecute(new ProductChangeNotificationParameter { Product = new Product() }));
+        It Should_Not_Be_Able_To_Execute_If_Parameter_Is_Null = () => Assert.False(_command.CanExecute(null));
+        It Should_Not_Be_Able_To_Execute_If_No_Product_Is_Selected = () => Assert.False(_command.CanExecute(new ProductChangeNotificationParameter()));
+        It Should_Be_Able_To_Execute_If_Product_Is_Selected = () => Assert.True(_command.CanExecute(new ProductChangeNotificationParameter { Product = new Product() }));
     }
 }

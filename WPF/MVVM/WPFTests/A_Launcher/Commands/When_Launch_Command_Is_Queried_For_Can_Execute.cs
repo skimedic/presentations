@@ -12,9 +12,9 @@
 #endregion
 
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Samples.A_Launcher.Commands;
 using WPF.Samples.A_Launcher.ViewModels;
+using Xunit;
 
 namespace WPFTests.A_Launcher.Commands
 {
@@ -26,7 +26,7 @@ namespace WPFTests.A_Launcher.Commands
         {
             _command = new LaunchCommand();
         };
-        It Should_Not_Be_Able_To_Execute_If_Parameter_Is_Null = () => Assert.IsFalse(_command.CanExecute(null));
-        It Should_Be_Able_To_Execute_If_Parameter_Is_Valid_Value = () => Assert.IsTrue(_command.CanExecute(ApplicationWindowsEnum.ValidationSample));
+        It Should_Not_Be_Able_To_Execute_If_Parameter_Is_Null = () => Assert.False(_command.CanExecute(null));
+        It Should_Be_Able_To_Execute_If_Parameter_Is_Valid_Value = () => Assert.True(_command.CanExecute(ApplicationWindowsEnum.ValidationSample));
     }
 }

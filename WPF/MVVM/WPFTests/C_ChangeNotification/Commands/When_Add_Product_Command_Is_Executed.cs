@@ -13,13 +13,13 @@
 
 using System.Collections.Generic;
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Helpers;
 using WPF.Models;
 using WPF.Samples.C_ChangeNotification.Commands;
 using WPF.Samples.C_ChangeNotification.Converters;
 using Telerik.JustMock;
 using Telerik.JustMock.Helpers;
+using Xunit;
 
 namespace WPFTests.C_ChangeNotification.Commands
 {
@@ -44,7 +44,7 @@ namespace WPFTests.C_ChangeNotification.Commands
         };
 
         Because Execute_Is_Called = () => _command.Execute(param);
-        It Should_Add_Another_Product = () => Assert.AreEqual(count, param.ProductList.Count);
+        It Should_Add_Another_Product = () => Assert.Equal(count, param.ProductList.Count);
         It Should_Update_The_Content_Control = () => _controlUpdater.Assert();
     }
 }

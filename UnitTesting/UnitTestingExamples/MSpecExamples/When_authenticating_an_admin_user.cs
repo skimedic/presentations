@@ -14,23 +14,6 @@ using Machine.Specifications;
 
 namespace MSpecExamples
 {
-    //It's bad form to put the tests and the SUT in the same file/project, but this code
-    //is for teaching
-    public class SampleToken
-    {
-        public string UserName { get; set; }
-
-        public string Password { get; set; }
-    }
-
-    public class SampleService
-    {
-        public SampleToken Authenticate(string userName, string password)
-        {
-            return new SampleToken { UserName = userName, Password = password };
-        }
-    }
-
     [Subject("Authentication")]
     public class When_authenticating_an_admin_user
     {
@@ -42,7 +25,7 @@ namespace MSpecExamples
             _token = _subject.Authenticate("username", "password");
         };
 
-        It Should_indicate_the_users_role = () => {
+        It Should_indicate_the_users_name = () => {
             _token.UserName.ShouldEqual("username");
         };
 

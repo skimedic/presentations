@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  spystore_v20:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8080:80"
+      - "44300:443"
+

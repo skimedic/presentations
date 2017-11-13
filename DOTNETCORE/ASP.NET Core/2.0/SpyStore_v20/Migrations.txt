@@ -1,0 +1,6 @@
+cd .\SpyStoreDAL
+
+dotnet ef database update CreateIdentitySchema
+
+dotnet ef migrations add StoreTables -o EfContext\Migrations -c SpyStoreDAL.EfContext.ApplicationDbContext
+dotnet ef database update StoreTables

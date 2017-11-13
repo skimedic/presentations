@@ -11,18 +11,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MbUnit.Framework;
+using Xunit;
 
 namespace WPFTests
 {
-    [TestFixture]
     public class Class1
     {
 
-        [Test]
+        [Fact]
         public void Test1()
         {
-            Assert.IsFalse(false);
+            Assert.False(false);
 
         }
     }

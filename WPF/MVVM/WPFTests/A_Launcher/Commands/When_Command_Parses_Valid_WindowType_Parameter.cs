@@ -12,9 +12,9 @@
 #endregion
 
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Samples.A_Launcher.Commands;
 using WPF.Samples.A_Launcher.ViewModels;
+using Xunit;
 
 namespace WPFTests.A_Launcher.Commands
 {
@@ -27,7 +27,7 @@ namespace WPFTests.A_Launcher.Commands
             _command = new LaunchCommand();
         };
         It Should_Return_Valid_Window_Enum = () => 
-            Assert.AreEqual(
+            Assert.Equal(
             ApplicationWindowsEnum.ValidationSample, 
             _command.ParseParameter(ApplicationWindowsEnum.ValidationSample));
     }

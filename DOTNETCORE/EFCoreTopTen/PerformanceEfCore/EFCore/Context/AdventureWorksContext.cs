@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 using PerformanceEfCore.EFCore.Models;
 
 namespace PerformanceEfCore.EFCore.Context
 {
     public partial class AdventureWorksContext : DbContext
     {
+        [NotMapped]
         public DbSet<ModelForTesting> ModelForTestings { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

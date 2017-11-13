@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  spystore_v20:
+    image: spystore_v20
+    build:
+      context: ./SpyStore_v20
+      dockerfile: Dockerfile

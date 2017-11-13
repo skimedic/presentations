@@ -12,11 +12,11 @@
 #endregion
 
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Helpers;
 using WPF.Samples.D_Commands.Commands;
 using Telerik.JustMock;
 using Telerik.JustMock.Helpers;
+using Xunit;
 
 namespace WPFTests.D_Commands.Commands
 {
@@ -36,10 +36,10 @@ namespace WPFTests.D_Commands.Commands
 //        Because ACTION;
 
         It Should_Return_True_When_Parameter_Is_True = () => 
-            Assert.IsTrue(_command.CanExecute(true));
+            Assert.True(_command.CanExecute(true));
         It Should_Return_False_When_Parameter_Is_Not_True = () => 
-            Assert.IsFalse(_command.CanExecute(false));
+            Assert.False(_command.CanExecute(false));
         It Should_Return_False_When_Parameter_Is_Null = () => 
-            Assert.IsFalse(_command.CanExecute(null));
+            Assert.False(_command.CanExecute(null));
     }
 }

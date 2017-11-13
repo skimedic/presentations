@@ -28,7 +28,7 @@ namespace PerformanceEfCore.EFCore
 
         public static List<ModelForTesting> GetComplexData(AdventureWorksContext db)
         {
-            return db.ModelForTestings.FromSql(@"SELECT TOP(100) [x].ProductId, [x].[Class], (
+            var rawSqlString = @"SELECT TOP(100) [x].ProductId, [x].[Class], (
     SELECT TOP(1) [th].[ModifiedDate]
     FROM [Production].[TransactionHistory] AS [th]
     WHERE [x].[ProductID] = [th].[ProductID]
@@ -40,8 +40,8 @@ namespace PerformanceEfCore.EFCore
 FROM [Production].[Product] AS [x]
 LEFT JOIN [Production].[ProductSubcategory] AS [x.ProductSubcategory] ON [x].[ProductSubcategoryID] = [x.ProductSubcategory].[ProductSubcategoryID]
 LEFT JOIN [Production].[ProductCategory] AS [x.ProductSubcategory.ProductCategory] 
-  ON [x.ProductSubcategory].[ProductCategoryID] = [x.ProductSubcategory.ProductCategory].[ProductCategoryID]").ToList();
-
+  ON [x.ProductSubcategory].[ProductCategoryID] = [x.ProductSubcategory.ProductCategory].[ProductCategoryID]";
+            return db.ModelForTestings.FromSql(rawSqlString).ToList();
         }
     }
 
@@ -53,6 +53,5 @@ LEFT JOIN [Production].[ProductCategory] AS [x.ProductSubcategory.ProductCategor
         public DateTime ModifiedDate { get; set; }
         public string CategoryName { get; set; }
         public string Email { get; set; }
-
     }
 }

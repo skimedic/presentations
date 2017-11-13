@@ -12,13 +12,13 @@
 #endregion
 
 using Machine.Specifications;
-using MbUnit.Framework;
 using WPF.Helpers;
 using WPF.Models;
 using WPF.Samples.C_ChangeNotification.Commands;
 using WPF.Samples.C_ChangeNotification.Converters;
 using Telerik.JustMock;
 using Telerik.JustMock.Helpers;
+using Xunit;
 
 namespace WPFTests.C_ChangeNotification.Commands
 {
@@ -42,7 +42,7 @@ namespace WPFTests.C_ChangeNotification.Commands
         };
 
         Because Execute_Is_Called = () => _command.Execute(param);
-        It Should_Update_The_Price_By_Ten_Percent = () => Assert.AreEqual(price*1.1M, prod.Price);
+        It Should_Update_The_Price_By_Ten_Percent = () => Assert.Equal(price*1.1M, prod.Price);
         It Should_Update_The_Content_Control = () => _controlUpdater.Assert();
     }
 }

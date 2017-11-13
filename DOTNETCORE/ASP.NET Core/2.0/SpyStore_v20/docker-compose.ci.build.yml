@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  ci-build:
+    image: microsoft/aspnetcore-build:1.0-2.0
+    volumes:
+      - .:/src
+    working_dir: /src
+    command: /bin/bash -c "dotnet restore ./SpyStore_v20.sln && dotnet publish ./SpyStore_v20.sln -c Release -o ./obj/Docker/publish"
