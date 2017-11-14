@@ -28,7 +28,7 @@ namespace BehavioralPatternsTests.Command
         public void ShouldUndoNumbersAsText()
         {
             var controller = new Controller();
-            var addCommandReference = controller.AddCommand(new AddTextCommand());
+            var addCommandReference = controller.AddCommand(new AddNumbersCommand());
             var expected = "1234";
             controller.GetCommandAt(addCommandReference).Execute(expected);
             controller.GetCommandAt(addCommandReference).Execute("5678");
