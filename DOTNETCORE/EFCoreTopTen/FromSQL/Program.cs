@@ -15,8 +15,10 @@ namespace FromSQL
             using (var db = new BloggingContext())
             {
                 Console.WriteLine("Get data from function:");
+                var param = "Snake";
                 var blogs = db.Blogs
-                    .FromSql("SELECT * FROM dbo.SearchBlogs(@p0)", "Snake")
+                    //.FromSql("SELECT * FROM dbo.SearchBlogs(@p0)", "Snake")
+                    .FromSql($"SELECT * FROM dbo.SearchBlogs({param})")
                     .OrderBy(b => b.Url);
                 foreach (var itm in blogs)
                 {

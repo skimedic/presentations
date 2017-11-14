@@ -13,7 +13,7 @@ namespace Performance
             ResetAndWarmup();
             RunToListTest();
             RunComplexQueryTest();
-            //RunComplexQueryTestCorevsCore();
+            RunComplexQueryTestCorevsCore();
             RunAddAndSaveChangesTest();
             RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
