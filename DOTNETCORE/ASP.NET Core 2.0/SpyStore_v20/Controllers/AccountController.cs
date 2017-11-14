@@ -18,7 +18,7 @@ using SpyStore_v20.Services;
 namespace SpyStore_v20.Controllers
 {
     [Authorize]
-    [RequireHttps]
+    //[RequireHttps]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
