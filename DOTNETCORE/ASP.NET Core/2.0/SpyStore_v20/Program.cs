@@ -34,7 +34,7 @@ namespace SpyStore_v20
 
             //Kestrel & IIS - No SSL
             host = CreateBaseBuilder(args)
-                //.UseCompressionAndCaching()
+                .UseCompressionAndCaching()
                 //.UseMyKeyVault()
                 //.UseAzureAppServiceLogging()
                 .Build();
