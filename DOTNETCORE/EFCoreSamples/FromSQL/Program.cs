@@ -14,6 +14,7 @@ namespace FromSQL
             SetupDatabase();
             using (var db = new BloggingContext())
             {
+                //db.Blogs.FromSql($"DELETE FROM SchemaName.{TableName}");
                 Console.WriteLine("Get data from function:");
                 var param = "Snake";
                 var blogs = db.Blogs

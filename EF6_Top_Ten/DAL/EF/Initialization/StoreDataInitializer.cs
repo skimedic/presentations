@@ -8,6 +8,7 @@
 // // ==============================
 #endregion
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace DAL.EF.Initialization
@@ -20,6 +21,7 @@ namespace DAL.EF.Initialization
             StoreData.GetAllStoreRecords().ToList().ForEach(x => context.Categories.Add(x));
 
             StoreData.GetAccounts().ToList().ForEach(x=>context.Accounts.Add(x));
+            //StoreData.GetAccounts().ToList().ForEach(x=>context.Accounts.AddOrUpdate(x));
             context.SaveChanges();
         }
 
