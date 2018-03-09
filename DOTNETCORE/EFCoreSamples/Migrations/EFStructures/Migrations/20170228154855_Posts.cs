@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Migrations.EF.Migrations
+namespace Migrations.EFStructures.Migrations
 {
     public partial class Posts : Migration
     {

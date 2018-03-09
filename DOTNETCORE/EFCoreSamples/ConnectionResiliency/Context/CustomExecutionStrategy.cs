@@ -5,13 +5,13 @@ namespace ConnectionResiliency.Context
 {
     public class CustomExecutionStrategy : ExecutionStrategy
     {
-        public CustomExecutionStrategy(ExecutionStrategyContext context) :
-            base(context, ExecutionStrategy.DefaultMaxRetryCount, ExecutionStrategy.DefaultMaxDelay)
+        public CustomExecutionStrategy(ExecutionStrategyDependencies strategy) :
+            base(strategy, ExecutionStrategy.DefaultMaxRetryCount, ExecutionStrategy.DefaultMaxDelay)
         {
         }
 
-        public CustomExecutionStrategy(ExecutionStrategyContext context, int maxRetryCount, TimeSpan maxRetryDelay) 
-            : base(context, maxRetryCount, maxRetryDelay)
+        public CustomExecutionStrategy(ExecutionStrategyDependencies strategy, int maxRetryCount, TimeSpan maxRetryDelay) 
+            : base(strategy, maxRetryCount, maxRetryDelay)
         {
         }
 

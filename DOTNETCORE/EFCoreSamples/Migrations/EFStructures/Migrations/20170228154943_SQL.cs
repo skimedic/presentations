@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Migrations.EF.Migrations
+namespace Migrations.EFStructures.Migrations
 {
     public partial class SQL : Migration
     {

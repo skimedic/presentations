@@ -1,11 +1,11 @@
-﻿using Find.Context;
-using Find.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Like.Context;
+using Like.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Find
+namespace Like
 {
     class Program
     {
@@ -14,22 +14,10 @@ namespace Find
             SetupDatabase();
             using (var db = new BloggingContext())
             {
-                var b = db.Blogs.First();
-                var b2 = db.Find<Blog>(b.BlogId);
-                var b2a = db.Blogs.Find(b.BlogId);
-                var b3 = db.Blogs.First(x => x.BlogId == b.BlogId);
-                if (b.BlogId == b2.BlogId && b.BlogId == b2a.BlogId && b.BlogId == b3.BlogId)
-                {
-                    Console.WriteLine("Found all of the blogs.");
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
-                }
-                else
-                {
-                    Console.WriteLine("Didn't find all of the blogs.");
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
-                }
+                var b = db.Blogs.Where(x=>EF.Functions.Like(x.Name,"%medic%")).First();
+                Console.WriteLine(b.Name);
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
             }
         }
 

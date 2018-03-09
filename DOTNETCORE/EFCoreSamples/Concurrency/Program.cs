@@ -20,7 +20,7 @@ namespace Concurrency
                 db.Add(blog);
                 db.SaveChanges();
                 //change values outside of current context
-                db.Database.ExecuteSqlCommand($"Update dbo.blogs set name='Foo' where {nameof(Blog.BlogId)} = {blog.BlogId}");
+                db.Database.ExecuteSqlCommand($"Update dbo.blogs set name='Foo' where BlogId = {blog.BlogId}");
                 blog.Name = "Bar";
                 try
                 {

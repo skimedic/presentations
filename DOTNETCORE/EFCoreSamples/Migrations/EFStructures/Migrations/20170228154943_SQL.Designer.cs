@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Migrations.Context;
 
-namespace Migrations.EF.Migrations
+namespace Migrations.EFStructures.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20170228153803_Initial")]
-    partial class Initial
+    [Migration("20170228154943_SQL")]
+    partial class SQL
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,32 @@ namespace Migrations.EF.Migrations
                     b.HasKey("BlogId");
 
                     b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("Migrations.Models.Post", b =>
+                {
+                    b.Property<int>("PostId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BlogId");
+
+                    b.Property<string>("Content");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("PostId");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("Migrations.Models.Post", b =>
+                {
+                    b.HasOne("Migrations.Models.Blog", "Blog")
+                        .WithMany("Posts")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

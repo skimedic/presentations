@@ -1,0 +1,6 @@
+//TODO: 
+DbCOntextPooling
+DbContextDesignTimeFactory
+Global QueryFilters
+String Interpolation
+Like Operator

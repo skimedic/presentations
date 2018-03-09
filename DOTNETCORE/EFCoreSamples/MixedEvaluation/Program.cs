@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using MixedEvaluation.Context;
 using MixedEvaluation.Models;
 
@@ -13,7 +13,7 @@ namespace MixedEvaluation
         {
             SetupDatabase();
             //Demo allowing mixed mode
-            //CreateAndRunTest(true);
+            CreateAndRunTest(true);
             //Demo prevent mix mode
             CreateAndRunTest(false);
 

@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Migrations.Context;
 
-namespace Migrations.EF.Migrations
+namespace Migrations.EFStructures.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20170228154943_SQL")]
-    partial class SQL
+    [Migration("20170228154855_Posts")]
+    partial class Posts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
