@@ -1,0 +1,11 @@
+@model AddToCartViewModel
+
+@{
+    ViewData["Title"] = @ViewBag.Title;
+}
+<h3>@ViewBag.Header</h3>
+    @Html.DisplayForModel()
+
+        <div>
+            <a onclick="window.history.go(-1); return false;">Back to List</a>
+        </div>
