@@ -8,7 +8,7 @@ namespace Migrations
     {
         static void Main(string[] args)
         {
-            var db = new BloggingContext();
+            var db = new BloggingContextFactory().CreateDbContext(new string[0]);
             Console.WriteLine("Deleting database...");
             db.Database.EnsureDeleted();
 
