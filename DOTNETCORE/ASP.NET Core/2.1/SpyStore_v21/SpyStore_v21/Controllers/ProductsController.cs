@@ -22,7 +22,7 @@ namespace SpyStore_v21.Controllers
                 });
 
         }
-        [HttpGet]
+        [HttpGet()]
         public IActionResult Featured()
         {
             ViewBag.Title = "Featured Products";

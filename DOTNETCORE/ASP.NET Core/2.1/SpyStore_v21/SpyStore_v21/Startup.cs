@@ -140,6 +140,7 @@ namespace SpyStore_v21
             app.UseRewriter(rwOptions);
             //}
 
+            //app.UseMvcWithDefaultRoute();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
