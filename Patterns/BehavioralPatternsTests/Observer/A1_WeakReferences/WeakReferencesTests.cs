@@ -49,6 +49,7 @@ namespace BehavioralPatternsTests.Observer.A1_WeakReferences
             var wr1 = subject.RegisterObserver(observer1);
             var wr2 = subject.RegisterObserver(observer2);
             observer1 = null;
+            //Demo code. don't do this in real life
             GC.Collect();
             GC.WaitForPendingFinalizers();
             var gameResult = new GameResult

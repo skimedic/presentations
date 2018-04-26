@@ -37,7 +37,6 @@ namespace CreationalPatterns.Singleton
 			get
 			{
 				if (_instance != null) return _instance;
-				//removed double lock because this is fixed in C# 6
 				lock (_syncLock)
 				{
 					if (_instance == null)

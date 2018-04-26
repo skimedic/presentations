@@ -7,6 +7,7 @@
 // =============================
 namespace StructuralPatterns.AdapterFacade.Adapter
 {
+    //TODO: IRL separate these into their own files
     public interface ICharacter
     {
         int Chase();

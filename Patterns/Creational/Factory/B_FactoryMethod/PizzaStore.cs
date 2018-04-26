@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace CreationalPatterns.Factory.B_FactoryMethod
 {
-
+    //TODO: IRL separate out
     public abstract class PizzaStore
     {
         public IPizza OrderPizza(IList<string> ingredients)
