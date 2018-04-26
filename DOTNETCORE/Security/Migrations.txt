@@ -1,0 +1,8 @@
+REM: Change to csproj directory
+
+dotnet ef migrations remove
+
+dotnet ef database update CreateIdentitySchema
+
+dotnet ef migrations add ChangedKeyToInt -o Data\Migrations -c Security.Data.ApplicationDbContext 
+dotnet ef database update ChangedKeyToInt
