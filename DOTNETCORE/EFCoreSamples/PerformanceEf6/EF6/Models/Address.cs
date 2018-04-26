@@ -6,6 +6,11 @@ using System.Data.Entity.Spatial;
 
 namespace PerformanceEf6.EF6.Models
 {
+    public class Foo
+    {
+        public int PK1 { get; set; }
+        public int PK2 { get; set; }
+    }
     [Table("Person.Address")]
     public partial class Address
     {

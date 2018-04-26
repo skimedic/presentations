@@ -32,9 +32,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		TaskList.txt = TaskList.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_Like", "Like\10_Like.csproj", "{28E019AD-7523-4538-8C3B-27E58BE339AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_Like", "Like\10_Like.csproj", "{28E019AD-7523-4538-8C3B-27E58BE339AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_GlobalQueryFilters", "GlobalQueryFilters\09_GlobalQueryFilters.csproj", "{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "09_GlobalQueryFilters", "GlobalQueryFilters\09_GlobalQueryFilters.csproj", "{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PossibleBugSample", "PossibleBugSample\PossibleBugSample.csproj", "{5F6318D3-9E76-43DA-B615-8E9AF967E21A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -214,6 +216,18 @@ Global
 		{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}.Release|x64.Build.0 = Release|Any CPU
 		{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}.Release|x86.ActiveCfg = Release|Any CPU
 		{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}.Release|x86.Build.0 = Release|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Debug|x64.Build.0 = Debug|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Debug|x86.Build.0 = Debug|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Release|x64.ActiveCfg = Release|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Release|x64.Build.0 = Release|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Release|x86.ActiveCfg = Release|Any CPU
+		{5F6318D3-9E76-43DA-B615-8E9AF967E21A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
