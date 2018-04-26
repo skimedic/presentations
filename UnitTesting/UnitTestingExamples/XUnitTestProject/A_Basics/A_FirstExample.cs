@@ -19,6 +19,8 @@ namespace XUnitTestProject.A_Basics
 
         [Theory]
         [InlineData(5,3,2)]
+        [InlineData(7,3,4)]
+        [InlineData(-1,-3,2)]
         public void FirstTheory(int expected, int addend1, int addend2)
         {
             Assert.Equal(expected,addend1+addend2);

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "XUnitAndCore": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local"
+      }
+    }
+  }
+}
