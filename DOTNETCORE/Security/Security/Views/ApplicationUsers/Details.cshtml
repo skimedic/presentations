@@ -1,4 +1,4 @@
-﻿@model Security.Models.ApplicationUser
+﻿@model ApplicationUserViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -11,92 +11,148 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayNameFor(model => model.User.UserName)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.UserName)
+            @Html.DisplayFor(model => model.User.UserName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.NormalizedUserName)
+            @Html.DisplayNameFor(model => model.User.Email)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.NormalizedUserName)
+            @Html.DisplayFor(model => model.User.Email)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.User.EmailConfirmed)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(model => model.User.EmailConfirmed)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.NormalizedEmail)
+            @Html.DisplayNameFor(model => model.User.TwoFactorEnabled)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.NormalizedEmail)
+            @Html.DisplayFor(model => model.User.TwoFactorEnabled)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.EmailConfirmed)
+            @Html.DisplayNameFor(model => model.User.LockoutEnabled)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.EmailConfirmed)
+            @Html.DisplayFor(model => model.User.LockoutEnabled)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.PasswordHash)
+            @Html.DisplayNameFor(model => model.User.AccessFailedCount)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.PasswordHash)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SecurityStamp)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SecurityStamp)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ConcurrencyStamp)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ConcurrencyStamp)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumberConfirmed)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.TwoFactorEnabled)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LockoutEnd)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LockoutEnd)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LockoutEnabled)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LockoutEnabled)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.AccessFailedCount)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.AccessFailedCount)
+            @Html.DisplayFor(model => model.User.AccessFailedCount)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.User.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+<hr />
+<h2>Roles</h2>
+<p>
+    <a asp-controller="ApplicationRoles" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Roles[0].Name)
+            </th>
+            <th>
+                User In Role?
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model.Roles)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="ApplicationRoles" asp-action="Details" asp-route-id="@role.Id">@role.Name</a>
+                </td>
+                <td>
+                    @if (Model.User.UserRoles.Select(x => x.RoleId).Contains(role.Id))
+                    {
+                        @:Yes
+                    }
+                    else
+                    {
+                        @:No
+                    }
+                </td>
+                <td>
+                    @if (Model.User.UserRoles.Select(x => x.RoleId).Contains(role.Id))
+                    {
+                        <a asp-action="RemoveRole" asp-route-roleId="@role.Id" asp-route-userId="@Model.User.Id">Remove</a>
+                    }
+                    else
+                    {
+                        <a asp-action="AddRole" asp-route-roleId="@role.Id" asp-route-userId="@Model.User.Id">Add</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<h2>Claims</h2>
+<p>
+    <a asp-controller="ApplicationUserClaims" asp-action="Create" asp-route-id="@Model.User.Id">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClaimViewModels[0].ClaimType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClaimViewModels[0].ClaimValue)
+            </th>
+            <th>
+                User Has Claim?
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model.ClaimViewModels)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => claim.ClaimType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => claim.ClaimValue)
+                </td>
+                <td>
+                    @if (Model.User.UserClaims
+                     .FirstOrDefault(x => x.ClaimType == claim.ClaimType && x.ClaimValue == claim.ClaimValue) != null)
+                    {
+                        @:Yes
+                    }
+                    else
+                    {
+                        @:No
+                    }
+                </td>
+                <td>
+                    @if (Model.User.UserClaims.Any(x => x.ClaimType == claim.ClaimType && x.ClaimValue == claim.ClaimValue))
+                    {
+                        <a asp-action="RemoveClaim" asp-route-claimType="@claim.ClaimType" asp-route-claimValue="@claim.ClaimValue" asp-route-userId="@Model.User.Id">Remove</a>
+                    }
+                    else
+                    {
+                        <a asp-action="AddClaim" asp-route-claimType="@claim.ClaimType" asp-route-claimValue="@claim.ClaimValue" asp-route-userId="@Model.User.Id">Add</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

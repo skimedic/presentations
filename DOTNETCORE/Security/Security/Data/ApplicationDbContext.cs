@@ -66,5 +66,9 @@ namespace Security.Data
         }
 
         public DbSet<Security.Models.ApplicationUser> ApplicationUser { get; set; }
+
+        public DbSet<Security.Models.ApplicationRole> ApplicationRole { get; set; }
+
+        public DbSet<Security.Models.ApplicationUserClaim> ApplicationUserClaim { get; set; }
     }
 }
