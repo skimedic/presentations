@@ -522,7 +522,7 @@ namespace Security.Controllers
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("Security"),
+                _urlEncoder.Encode("ASP.NET Core Security Examples"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }
