@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Security.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmailConfirmed)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LockoutEnd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LockoutEnabled)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccessFailedCount)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailConfirmed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TwoFactorEnabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockoutEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockoutEnabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccessFailedCount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

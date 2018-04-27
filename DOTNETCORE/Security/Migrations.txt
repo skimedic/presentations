@@ -7,3 +7,5 @@ dotnet ef database update CreateIdentitySchema
 dotnet ef migrations add ChangedKeyToInt -o Data\Migrations -c Security.Data.ApplicationDbContext 
 dotnet ef database update ChangedKeyToInt
 
+dotnet ef migrations add ExtendIdentity -o Data\Migrations -c Security.Data.ApplicationDbContext 
+dotnet ef database update ExtendIdentity
