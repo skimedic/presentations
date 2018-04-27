@@ -10,41 +10,40 @@ namespace Security.Models
 {
     public class ApplicationUserLogin : IdentityUserLogin<int>
     {
-
-    }
-
-    public class ApplicationRoleClaim : IdentityRoleClaim<int>
-    {
-
+        public ApplicationUser User { get; set; }
     }
 
     public class ApplicationUserToken : IdentityUserToken<int>
     {
-
+        public ApplicationUser User { get; set; }
     }
 
     public class ApplicationUserClaim : IdentityUserClaim<int>
     {
-
+        public ApplicationUser User { get; set; }
     }
-    // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser<int>
     {
-        //[InverseProperty(nameof(ApplicationUserRole.User))]
         public IList<ApplicationUserRole> UserRoles { get; set; }
+        public IList<ApplicationUserClaim> UserClaims { get; set; }
+        public IList<ApplicationUserToken> UserTokens { get; set; }
+        public IList<ApplicationUserLogin> UserLogins { get; set; }
     }
-    public class ApplicationRole : IdentityRole<int>
-    {
-        //[InverseProperty(nameof(ApplicationUserRole.Role))]
-        public IList<ApplicationUserRole> UserRoles { get; set; }
-    }
-
     public class ApplicationUserRole : IdentityUserRole<int>
     {
-        //[ForeignKey(nameof(ApplicationUserRole.UserId))]
         public ApplicationUser User { get; set; }
-        //[ForeignKey(nameof(ApplicationUserRole.RoleId))]
         public ApplicationRole Role { get; set; }
     }
+
+    public class ApplicationRole : IdentityRole<int>
+    {
+        public IList<ApplicationUserRole> UserRoles { get; set; }
+        public IList<ApplicationRoleClaim> RoleClaims { get; set; }
+    }
+    public class ApplicationRoleClaim : IdentityRoleClaim<int>
+    {
+        public ApplicationRole Role { get; set; }
+    }
+
 
 }

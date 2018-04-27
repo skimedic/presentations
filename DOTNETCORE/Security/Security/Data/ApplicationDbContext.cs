@@ -30,8 +30,32 @@ namespace Security.Data
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.Entity<ApplicationUser>()
+                .HasMany(e => e.UserClaims)
+                .WithOne(c => c.User)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<ApplicationUser>()
+                .HasMany(e => e.UserTokens)
+                .WithOne(c => c.User)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<ApplicationUser>()
+                .HasMany(e => e.UserLogins)
+                .WithOne(c => c.User)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder.Entity<ApplicationRole>()
                 .HasMany(e => e.UserRoles)
+                .WithOne(r => r.Role)
+                .HasForeignKey(r => r.RoleId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<ApplicationRole>()
+                .HasMany(e => e.RoleClaims)
                 .WithOne(r => r.Role)
                 .HasForeignKey(r => r.RoleId)
                 .OnDelete(DeleteBehavior.Cascade);

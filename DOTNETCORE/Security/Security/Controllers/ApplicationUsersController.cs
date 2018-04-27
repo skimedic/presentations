@@ -20,21 +20,27 @@ namespace Security.Controllers
         }
 
         // GET: ApplicationUsers
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.ApplicationUser.ToListAsync());
+            return View(_context.ApplicationUser
+                .Include(x=>x.UserRoles)
+                .Include(x=>x.UserLogins)
+                .Include(x=>x.UserClaims));
         }
 
         // GET: ApplicationUsers/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var applicationUser = await _context.ApplicationUser
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var applicationUser = _context.ApplicationUser
+                .Include(x => x.UserRoles)
+                .Include(x => x.UserLogins)
+                .Include(x => x.UserClaims)
+                .FirstOrDefault(m => m.Id == id);
             if (applicationUser == null)
             {
                 return NotFound();
