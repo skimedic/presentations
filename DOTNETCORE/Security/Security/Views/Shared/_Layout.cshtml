@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -34,6 +36,18 @@
                     <li><a asp-area="" asp-controller="ApplicationUsers" asp-action="Index">Users</a></li>
                     <li><a asp-area="" asp-controller="ApplicationRoles" asp-action="Index">Roles</a></li>
                     <li><a asp-area="" asp-controller="ApplicationUserClaims" asp-action="Index">Claims</a></li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li><a href="#">Admin</a></li>
+                    }
+                    @if (User.HasClaim("Department","IT"))
+                    {
+                        <li><a href="#">IT Claim</a></li>
+                    }
+                    @if ((await AuthorizationService.AuthorizeAsync(User, null, "ITAdmin")).Succeeded)
+                    {
+                        <li><a href="#">IT Admin Policy</a>IT Admin Policy</li>
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

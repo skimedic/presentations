@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

@@ -3,12 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security", "Security\Security.csproj", "{05A69F1F-ACF7-467B-954A-67D0FF64D1F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Security", "Security\Security.csproj", "{05A69F1F-ACF7-467B-954A-67D0FF64D1F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{7676EC1A-8713-4FE0-A909-3331E477DE38}"
 	ProjectSection(SolutionItems) = preProject
 		Migrations.txt = Migrations.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityWithIdentityServer", "SecurityWithIdentityServer\SecurityWithIdentityServer.csproj", "{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +22,10 @@ Global
 		{05A69F1F-ACF7-467B-954A-67D0FF64D1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05A69F1F-ACF7-467B-954A-67D0FF64D1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05A69F1F-ACF7-467B-954A-67D0FF64D1F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

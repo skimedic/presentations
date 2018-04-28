@@ -40,6 +40,16 @@ namespace Security
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ITAdmin", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireRole("Admin");
+                    policy.RequireClaim("Department", "IT");
+                });
+            });
+
             //ASP.NET Core Security Examples
 
             //Add Facebook Authentication
@@ -114,6 +124,20 @@ namespace Security
                 options.SlidingExpiration = true;
             });
 
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("PolicyName",
+            //        builder => builder.WithOrigins("http://www.skimedic.com"));
+            //});
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder =>
+                {
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
+                });
+            });
+
+
             services.AddMvc();
             services.Configure<MvcOptions>(options => { options.Filters.Add(new RequireHttpsAttribute()); });
         }
@@ -121,6 +145,9 @@ namespace Security
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //app.UseCors(builder => builder.WithOrigins("http://www.skimedic.com"));
+            //app.UseCors("PolicyName");
+            app.UseCors("AllowAll");
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
@@ -144,7 +171,7 @@ namespace Security
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=ApplicationUsers}/{action=Index}/{id?}");
             });
         }
     }
