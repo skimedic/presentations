@@ -43,6 +43,13 @@ namespace IdentityServerClient
 
                     options.ClientId = "MVCSample";
                     options.SaveTokens = true;
+
+                    //Add Hybrid Flow
+                    options.ClientSecret = "secret";
+                    options.ResponseType = "code id_token";
+                    options.GetClaimsFromUserInfoEndpoint = true;
+                    options.Scope.Add("myApi");
+                    options.Scope.Add("offline_access");
                 });
         }
 

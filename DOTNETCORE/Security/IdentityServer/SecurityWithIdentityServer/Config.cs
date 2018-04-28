@@ -13,9 +13,10 @@ namespace SecurityWithIdentityServer
         {
             return new List<ApiResource>
             {
-                new ApiResource("myApi","My Sample API")
+                new ApiResource("myApi", "My Sample API")
             };
         }
+
         public static IEnumerable<IdentityResource> GetIdentityResourceses()
         {
             return new List<IdentityResource>
@@ -50,7 +51,7 @@ namespace SecurityWithIdentityServer
                     },
 
                     // scopes that client has access to
-                    AllowedScopes = { "myApi" }
+                    AllowedScopes = {"myApi"}
                 },
                 // resource owner password grant client
                 new Client
@@ -62,26 +63,49 @@ namespace SecurityWithIdentityServer
                     {
                         new Secret("secret".Sha256())
                     },
-                    AllowedScopes = { "myApi" }
+                    AllowedScopes = {"myApi"}
                 },
-                new Client()
+                //Implicit Flow
+                //new Client()
+                //{
+                //    ClientId = "MVCSample",
+                //    ClientName = "MVC Sample Client",
+                //    AllowedGrantTypes = GrantTypes.Implicit,
+
+                //    RedirectUris = { "http://localhost:5002/signin-oidc" },
+                //    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+
+                //    AllowedScopes = new List<string>
+                //    {
+                //      IdentityServerConstants.StandardScopes.OpenId,
+                //      IdentityServerConstants.StandardScopes.Profile,
+                //      IdentityServerConstants.StandardScopes.Email
+                //    }
+                //},
+                //Hybrid Flow
+                new Client
                 {
                     ClientId = "MVCSample",
                     ClientName = "MVC Sample Client",
-                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
 
-                    RedirectUris = { "http://localhost:5002/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
-
-                    AllowedScopes = new List<string>
+                    ClientSecrets =
                     {
-                      IdentityServerConstants.StandardScopes.OpenId,
-                      IdentityServerConstants.StandardScopes.Profile,
-                      IdentityServerConstants.StandardScopes.Email
-                    }
+                        new Secret("secret".Sha256())
+                    },
+
+                    RedirectUris = {"http://localhost:5002/signin-oidc"},
+                    PostLogoutRedirectUris = {"http://localhost:5002/signout-callback-oidc"},
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "myApi"
+                    },
+                    AllowOfflineAccess = true
                 }
             };
         }
-
     }
 }
