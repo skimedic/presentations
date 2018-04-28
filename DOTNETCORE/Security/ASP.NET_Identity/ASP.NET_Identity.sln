@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		Migrations.txt = Migrations.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityWithIdentityServer", "SecurityWithIdentityServer\SecurityWithIdentityServer.csproj", "{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +24,18 @@ Global
 		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70B3A33-8E5E-417B-B1C7-7FFAF773CBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70B3A33-8E5E-417B-B1C7-7FFAF773CBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70B3A33-8E5E-417B-B1C7-7FFAF773CBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70B3A33-8E5E-417B-B1C7-7FFAF773CBFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FFA7A0-F609-4395-AE5B-F0E83526968C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FFA7A0-F609-4395-AE5B-F0E83526968C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FFA7A0-F609-4395-AE5B-F0E83526968C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FFA7A0-F609-4395-AE5B-F0E83526968C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{567FCF1B-A6AE-4341-8F1C-CD3E2B07122A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{567FCF1B-A6AE-4341-8F1C-CD3E2B07122A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{567FCF1B-A6AE-4341-8F1C-CD3E2B07122A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{567FCF1B-A6AE-4341-8F1C-CD3E2B07122A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

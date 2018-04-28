@@ -19,6 +19,7 @@
     "Security": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "http://localhost:56046/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -26,5 +27,3 @@
     }
   }
 }
-
-
