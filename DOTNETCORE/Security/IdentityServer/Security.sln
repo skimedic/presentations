@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApiClient", "Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerWithIdentity", "IdentityServerWithIdentity\IdentityServerWithIdentity.csproj", "{6CE32B72-BF5E-47D0-84E1-3FCDF1B43C4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptClient", "JavaScriptClient\JavaScriptClient.csproj", "{FDAFAA64-37B9-4339-AAA6-B5948F042D07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6CE32B72-BF5E-47D0-84E1-3FCDF1B43C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CE32B72-BF5E-47D0-84E1-3FCDF1B43C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CE32B72-BF5E-47D0-84E1-3FCDF1B43C4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDAFAA64-37B9-4339-AAA6-B5948F042D07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDAFAA64-37B9-4339-AAA6-B5948F042D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDAFAA64-37B9-4339-AAA6-B5948F042D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDAFAA64-37B9-4339-AAA6-B5948F042D07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
