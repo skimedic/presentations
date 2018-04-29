@@ -25,7 +25,7 @@ namespace IdentityServerClient
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            //allows sub (human) and idp to flow through
+            //allows sub (human) and idp (identity server) claims to flow through
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(options =>

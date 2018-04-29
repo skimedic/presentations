@@ -45,13 +45,6 @@ namespace IdentityServerWithIdentity
 
             services.AddMvc();
 
-            //services.Configure<IISOptions>(iis =>
-            //{
-            //    iis.AuthenticationDisplayName = "Windows";
-            //    iis.AutomaticAuthentication = false;
-            //});
-
-
             //services.AddIdentityServer()
             //    .AddDeveloperSigningCredential()
             //    //.AddInMemoryPersistedGrants()
@@ -82,12 +75,26 @@ namespace IdentityServerWithIdentity
                     options.EnableTokenCleanup = true;
                     options.TokenCleanupInterval = 30;
                 });
+            services.AddCors(options =>
+            {
+                // this defines a CORS policy called "default"
+                options.AddPolicy("default", policy =>
+                {
+                    policy.WithOrigins("http://localhost:5003")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    policy.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors("default");
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();

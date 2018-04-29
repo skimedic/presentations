@@ -112,9 +112,9 @@ namespace IdentityServerWithIdentity
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 
-                    RedirectUris =           { "http://localhost:5003/callback.html" },
-                    PostLogoutRedirectUris = { "http://localhost:5003/index.html" },
-                    AllowedCorsOrigins =     { "http://localhost:5003" },
+                    RedirectUris = {"http://localhost:5003/callback.html"},
+                    PostLogoutRedirectUris = {"http://localhost:5003/index.html"},
+                    AllowedCorsOrigins = {"http://localhost:5003"},
 
                     AllowedScopes =
                     {
@@ -122,7 +122,27 @@ namespace IdentityServerWithIdentity
                         IdentityServerConstants.StandardScopes.Profile,
                         "myApi"
                     }
-                }
+                },
+                //angular client
+                new Client
+                {
+                    ClientId = "angular-cli-client",
+                    ClientName = "Angular CLI Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = true,
+
+                    RedirectUris = {"http://localhost:4200/?callback"},
+                    PostLogoutRedirectUris = {"http://localhost:4200"},
+                    AllowedCorsOrigins = {"http://localhost:4200"},
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "myApi"
+                    }
+                },
             };
         }
     }

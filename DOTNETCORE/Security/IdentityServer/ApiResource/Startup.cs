@@ -27,12 +27,14 @@ namespace ApiClient
                 .AddAuthorization()
                 .AddJsonFormatters();
 
-            services.AddAuthentication("Bearer")
+            services
+                    //Default scheme
+                .AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication(options =>
                 {
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
-
+                    //This must be contained in the allowed scopes
                     options.ApiName = "myApi";
                 });
 
@@ -41,9 +43,16 @@ namespace ApiClient
                 // this defines a CORS policy called "default"
                 options.AddPolicy("default", policy =>
                 {
-                    policy.WithOrigins("http://localhost:5003")
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
+                    //policy.WithOrigins("http://localhost:5003")
+                    //    .AllowAnyHeader()
+                    //    .AllowAnyMethod();
+                    //policy.WithOrigins("http://localhost:4200")
+                    //    .AllowAnyHeader()
+                    //    .AllowAnyMethod();
+                    policy.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin()
+                        .AllowCredentials();
                 });
             });
         }

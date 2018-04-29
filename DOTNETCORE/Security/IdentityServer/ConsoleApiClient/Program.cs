@@ -22,16 +22,17 @@ namespace IdentityServerApiClient
             }
 
             // request token
-            //var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
-            //var tokenResponse = await tokenClient.RequestClientCredentialsAsync("myApi");
+            var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
+            var tokenResponse = await tokenClient.RequestClientCredentialsAsync("myApi");
 
             // request token resource owned
-            var tokenClient = new TokenClient(disco.TokenEndpoint, "ro.client", "secret");
-            var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("alice", "alice", "myApi");
+            //var tokenClient = new TokenClient(disco.TokenEndpoint, "ro.client", "secret");
+            //var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("alice", "alice", "myApi");
 
             if (tokenResponse.IsError)
             {
                 Console.WriteLine(tokenResponse.Error);
+                Console.ReadLine();
                 return;
             }
 
