@@ -3,17 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityWithIdentityServer", "SecurityWithIdentityServer\SecurityWithIdentityServer.csproj", "{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerMVCClient", "IdentityServerMVCClient\IdentityServerMVCClient.csproj", "{B70B3A33-8E5E-417B-B1C7-7FFAF773CBFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiResource", "ApiResource\ApiResource.csproj", "{D0FFA7A0-F609-4395-AE5B-F0E83526968C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiResource", "ApiResource\ApiResource.csproj", "{D0FFA7A0-F609-4395-AE5B-F0E83526968C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApiClient", "ConsoleApiClient\ConsoleApiClient.csproj", "{567FCF1B-A6AE-4341-8F1C-CD3E2B07122A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerWithIdentity", "IdentityServerWithIdentity\IdentityServerWithIdentity.csproj", "{6CE32B72-BF5E-47D0-84E1-3FCDF1B43C4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerWithIdentity", "IdentityServerWithIdentity\IdentityServerWithIdentity.csproj", "{6CE32B72-BF5E-47D0-84E1-3FCDF1B43C4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptClient", "JavaScriptClient\JavaScriptClient.csproj", "{FDAFAA64-37B9-4339-AAA6-B5948F042D07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JavaScriptClient", "JavaScriptClient\JavaScriptClient.csproj", "{FDAFAA64-37B9-4339-AAA6-B5948F042D07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{45BB4A30-FBD7-425C-8C49-AEF434EB838C}"
+	ProjectSection(SolutionItems) = preProject
+		Migrations.txt = Migrations.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +24,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFAB5504-46F4-4E15-AAC0-D1E6DA56F48C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B70B3A33-8E5E-417B-B1C7-7FFAF773CBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B70B3A33-8E5E-417B-B1C7-7FFAF773CBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B70B3A33-8E5E-417B-B1C7-7FFAF773CBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU

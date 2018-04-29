@@ -6,14 +6,6 @@ namespace IdentityServerWithIdentity
 {
     public class Config
     {
-        public static IEnumerable<ApiResource> GetApiResources()
-        {
-            return new List<ApiResource>
-            {
-                new ApiResource("myApi", "My Sample API")
-            };
-        }
-
         public static IEnumerable<IdentityResource> GetIdentityResources()
         {
             return new List<IdentityResource>
@@ -21,11 +13,20 @@ namespace IdentityServerWithIdentity
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
                 new IdentityResources.Email(),
+                new IdentityResources.Phone(),
                 new IdentityResource
                 {
                     Name = "Role",
-                    UserClaims = new List<string> {"Role"}
+                    UserClaims = new List<string> {"role"}
                 }
+            };
+        }
+
+        public static IEnumerable<ApiResource> GetApiResources()
+        {
+            return new List<ApiResource>
+            {
+                new ApiResource("myApi", "My Sample API")
             };
         }
 
@@ -85,6 +86,7 @@ namespace IdentityServerWithIdentity
                     ClientId = "MVCSample",
                     ClientName = "MVC Sample Client",
                     AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+                    RequireConsent = true,
 
                     ClientSecrets =
                     {
