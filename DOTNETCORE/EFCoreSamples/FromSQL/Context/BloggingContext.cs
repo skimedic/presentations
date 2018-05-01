@@ -11,6 +11,7 @@ namespace FromSQL.Context
 
         [NotMapped]
         public DbSet<ShortBlog> ShortBlogs { get; set; }
+
         public BloggingContext()
         {
         }

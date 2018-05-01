@@ -38,7 +38,7 @@ namespace Migrations.Context
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("getdate()");
 
-                //Commented out for first migration.  Add in after creating UDF
+                //TODO: Comment out for first migration.  Add in after creating UDF
                 entity.Property(e => e.OrderTotal)
                     .HasColumnType("money")
                     .HasComputedColumnSql("Store.GetOrderTotal([Id])");
