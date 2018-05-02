@@ -30,14 +30,14 @@ namespace SpyStore_v20
         {
             IWebHost host = null;
             //Default template setup
-            //host = BuildWebHost(args);
+            host = BuildWebHost(args);
 
             //Kestrel & IIS - No SSL
-            host = CreateBaseBuilder(args)
-                .UseCompressionAndCaching()
+            //host = CreateBaseBuilder(args)
+            //    .UseCompressionAndCaching()
                 //.UseMyKeyVault()
                 //.UseAzureAppServiceLogging()
-                .Build();
+            //    .Build();
 
             //Kestel - SSL
             //host = new WebHostBuilder()

@@ -62,7 +62,6 @@ namespace SpyStore_v20
             //Transient – created each time they are requested
             //Scoped – created once per request
             //Singleton – created once(use this instead of implementing singleton dp)
-
             services.AddScoped<ICategoryRepo, CategoryRepo>();
             services.AddScoped<IProductRepo, ProductRepo>();
 
@@ -72,28 +71,28 @@ namespace SpyStore_v20
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseWebSockets();
-            app.Use(async (context, next) =>
-            {
-                if (context.Request.Path == "/ws")
-                {
-                    if (context.WebSockets.IsWebSocketRequest)
-                    {
-                        WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
-                        await Echo(context, webSocket);
-                    }
-                    else
-                    {
-                        context.Response.StatusCode = 400;
-                    }
-                }
-                else
-                {
-                    await next();
-                }
+            //app.UseWebSockets();
+            //app.Use(async (context, next) =>
+            //{
+            //    if (context.Request.Path == "/ws")
+            //    {
+            //        if (context.WebSockets.IsWebSocketRequest)
+            //        {
+            //            WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
+            //            await Echo(context, webSocket);
+            //        }
+            //        else
+            //        {
+            //            context.Response.StatusCode = 400;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        await next();
+            //    }
 
-            });
-            app.UseFileServer();
+            //});
+            //app.UseFileServer();
 
             if (env.IsDevelopment())
             {
@@ -119,17 +118,17 @@ namespace SpyStore_v20
             //using (StreamReader apacheModRewriteStreamReader = File.OpenText("ApacheModRewrite.txt"))
             //using (StreamReader iisUrlRewriteStreamReader = File.OpenText("IISUrlRewrite.xml"))
             //{
-            var rwOptions = new RewriteOptions()
-                .AddRedirect("foo", "Products/Featured", 302) //status is optional, defaults to 302
-                .AddRedirect("(Products/)([^FfPp0-9].*)", "$1Featured")
-                .AddRewrite("bar", "Products/Featured", skipRemainingRules: true)
-                .Add(RedirectXmlRequests);
-            //.AddRedirectToHttps(302, 63812) //Force SSL
-            //.AddApacheModRewrite(apacheModRewriteStreamReader)
-            //.AddIISUrlRewrite(iisUrlRewriteStreamReader);
+            //var rwOptions = new RewriteOptions()
+            //    .AddRedirect("foo", "Products/Featured", 302) //status is optional, defaults to 302
+            //    .AddRedirect("(Products/)([^FfPp0-9].*)", "$1Featured")
+            //    .AddRewrite("bar", "Products/Featured", skipRemainingRules: true)
+            //    .Add(RedirectXmlRequests);
+            ////.AddRedirectToHttps(302, 63812) //Force SSL
+            ////.AddApacheModRewrite(apacheModRewriteStreamReader)
+            ////.AddIISUrlRewrite(iisUrlRewriteStreamReader);
 
-            app.UseRewriter(rwOptions);
-            //}
+            //app.UseRewriter(rwOptions);
+            ////}
 
 
             app.UseMvc(routes =>
