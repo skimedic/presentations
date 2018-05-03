@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Security.Models
 {
+    //IRL these should be separate files
+
     public class ApplicationUserLogin : IdentityUserLogin<int>
     {
         public ApplicationUser User { get; set; }

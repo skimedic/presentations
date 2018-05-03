@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Security.Data;
 using Security.Models;
+using Security.Models.AccountViewModels;
 using Security.Models.ViewModels;
 
 namespace Security.Controllers
@@ -52,6 +53,33 @@ namespace Security.Controllers
             await _userManager.RemoveFromRoleAsync(user, role.Name);
             return RedirectToAction(nameof(Details), new { id = userId });
         }
+
+        [HttpGet]
+        public IActionResult Register(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+
         public async Task<IActionResult> AddClaim(string claimType, string claimValue, int userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
