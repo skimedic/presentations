@@ -26,6 +26,12 @@ namespace IdentityServerWithIdentity
                 new IdentityResources.Profile(),
                 new IdentityResources.Email(),
                 new IdentityResources.Phone(),
+                new IdentityResource
+                {
+                    Name = "Foo",
+                    DisplayName = "Test Claim",
+                    UserClaims = new List<string>{"Foo"}
+                },
                 //new IdentityResource {
                 //    Name = "role",
                 //    DisplayName = "Role",
@@ -111,7 +117,7 @@ namespace IdentityServerWithIdentity
 
                     RedirectUris = {"http://localhost:5002/signin-oidc"},
                     PostLogoutRedirectUris = {"http://localhost:5002/signout-callback-oidc"},
-
+                    AlwaysIncludeUserClaimsInIdToken = true,
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,

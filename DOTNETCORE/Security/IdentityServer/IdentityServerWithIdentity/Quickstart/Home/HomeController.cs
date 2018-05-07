@@ -3,11 +3,13 @@
 
 
 using System.Linq;
+using System.Security.Claims;
 using IdentityServer4.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using IdentityServer4.Quickstart.UI;
 using IdentityServerWithIdentity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -53,12 +55,24 @@ namespace IdentityServer4.Quickstart.UI
                 }
             }
         }
+        internal async Task AddToClaim(string type, string value)
+        {
+            var users = _userManager.Users.ToList();
+            foreach (var u in users)
+            {
+                if ((await _userManager.GetClaimsAsync(u)).All(x => x.Type != type))
+                {
+                    await _userManager.AddClaimAsync(u, new Claim(type,value));
+                }
+            }
+        }
         public async Task<IActionResult> Index()
         {
             await CreateRole("Admin");
             await CreateRole("Clerk");
             await AddToRole("Admin");
             await AddToRole("Clerk");
+            await AddToClaim("Foo", "Bar");
 
             if (_environment.IsDevelopment())
             {

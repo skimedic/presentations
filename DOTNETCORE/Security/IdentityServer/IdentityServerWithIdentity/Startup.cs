@@ -45,9 +45,8 @@ namespace IdentityServerWithIdentity
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            //services
+            services.AddTransient<IProfileService, ProfileService>();
             //    .AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>()
-            //    .AddTransient<IProfileService, ProfileService>()
             //    .AddTransient<IAuthRepository, AuthRepository>();
 
             services.AddMvc();
