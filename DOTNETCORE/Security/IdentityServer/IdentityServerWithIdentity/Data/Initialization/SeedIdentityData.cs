@@ -20,6 +20,9 @@ namespace IdentityServerWithIdentity.Data.Initialization
 
                 var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
                 //context.Database.Migrate();
+                var clients = context.Clients.ToList();
+                context.Clients.RemoveRange(clients);
+                context.SaveChanges();
                 if (!context.Clients.Any())
                 {
                     foreach (var client in Config.GetClients())
@@ -29,6 +32,9 @@ namespace IdentityServerWithIdentity.Data.Initialization
                     context.SaveChanges();
                 }
 
+                var resources = context.IdentityResources.ToList();
+                context.IdentityResources.RemoveRange(resources);
+                context.SaveChanges();
                 if (!context.IdentityResources.Any())
                 {
                     foreach (var resource in Config.GetIdentityResources())
@@ -38,6 +44,9 @@ namespace IdentityServerWithIdentity.Data.Initialization
                     context.SaveChanges();
                 }
 
+                var apiResoruces = context.ApiResources.ToList();
+                context.ApiResources.RemoveRange(apiResoruces);
+                context.SaveChanges();
                 if (!context.ApiResources.Any())
                 {
                     foreach (var resource in Config.GetApiResources())

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace IdentityServerClient
 {
@@ -26,7 +27,7 @@ namespace IdentityServerClient
         {
             services.AddMvc();
             //allows sub (human) and idp (identity server) claims to flow through
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(options =>
                 {
@@ -50,6 +51,11 @@ namespace IdentityServerClient
                     options.GetClaimsFromUserInfoEndpoint = true;
                     options.Scope.Add("myApi");
                     options.Scope.Add("offline_access");
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        NameClaimType = "name",
+                        RoleClaimType = "Role",
+                    };
                 });
         }
 

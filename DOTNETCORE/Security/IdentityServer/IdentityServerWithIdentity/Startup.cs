@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using IdentityServer4.Services;
+using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -42,6 +44,11 @@ namespace IdentityServerWithIdentity
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+
+            //services
+            //    .AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>()
+            //    .AddTransient<IProfileService, ProfileService>()
+            //    .AddTransient<IAuthRepository, AuthRepository>();
 
             services.AddMvc();
 

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Security.Claims;
+using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Models;
 
@@ -6,6 +8,16 @@ namespace IdentityServerWithIdentity
 {
     public class Config
     {
+        private static IdentityResource rolesResource = new IdentityResource
+        {
+            Name = "roles",
+            DisplayName = "Roles",
+            Description = "Allow the service access to your user roles.",
+            UserClaims = new[] { JwtClaimTypes.Role, ClaimTypes.Role },
+            ShowInDiscoveryDocument = true,
+            Required = true,
+            Emphasize = true
+        };
         public static IEnumerable<IdentityResource> GetIdentityResources()
         {
             return new List<IdentityResource>
@@ -14,11 +26,12 @@ namespace IdentityServerWithIdentity
                 new IdentityResources.Profile(),
                 new IdentityResources.Email(),
                 new IdentityResources.Phone(),
-                new IdentityResource
-                {
-                    Name = "Role",
-                    UserClaims = new List<string> {"role"}
-                }
+                //new IdentityResource {
+                //    Name = "role",
+                //    DisplayName = "Role",
+                //    UserClaims = new List<string> {"Role"}
+                //},
+                rolesResource
             };
         }
 
@@ -27,6 +40,9 @@ namespace IdentityServerWithIdentity
             return new List<ApiResource>
             {
                 new ApiResource("myApi", "My Sample API")
+                {
+                    UserClaims = {"role"}
+                }
             };
         }
 
@@ -100,7 +116,9 @@ namespace IdentityServerWithIdentity
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "myApi"
+                        IdentityServerConstants.StandardScopes.Email,
+                        "myApi",
+                        "roles"
                     },
                     AllowOfflineAccess = true
                 },
