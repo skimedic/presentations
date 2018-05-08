@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using IdentityModel.Client;
-using Microsoft.AspNetCore.Mvc;
 using IdentityServerClient.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 
-namespace IdentityServerClient.Controllers
+namespace IdentityServerMVCClient.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,12 +19,33 @@ namespace IdentityServerClient.Controllers
             return View();
         }
 
-        [Authorize]
-        public IActionResult About()
+        [Authorize(Roles="Admin,Clerk")]
+        public async Task<IActionResult> SecureInfo()
         {
+//            var token = await HttpContext.GetTokenAsync("access_token");
+
+            //var jwtToken = new JwtSecurityToken(token);
+            //var claims = jwtToken.Claims;
+            //((ClaimsIdentity) User.Identity).AddClaims(claims);
             return View();
         }
+        //private ClaimsIdentity GetClaimsIdentity()
+        //{
+        //    var user = User;
+        //    // Here we can save some values to token.
+        //    // For example we are storing here user id and email
+        //    Claim[] claims = new[]
+        //    {
+        //        //new Claim(ClaimTypes.Name, user.Id.ToString()),
+        //        //new Claim(ClaimTypes.Email, user.Email)
+        //    };
+        //    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token");
 
+        //    // Adding roles code
+        //    // Roles property is string collection but you can modify Select code if it it's not
+        //    //claimsIdentity.AddClaims(user.Roles.Select(role => new Claim(ClaimTypes.Role, role)));
+        //    return claimsIdentity;
+        //}
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

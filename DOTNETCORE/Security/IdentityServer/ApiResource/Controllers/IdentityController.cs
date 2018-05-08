@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace ApiClient.Controllers
 {
     [Route("identity")]
-    [Authorize(Roles="Admin,Clerk")]
-    //[Authorize]
+    [Authorize(Roles="Admin")]
+    [Authorize]
     public class IdentityController : ControllerBase
     {
         [HttpGet]

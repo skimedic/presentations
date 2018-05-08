@@ -23,6 +23,26 @@ namespace IdentityServerWithIdentity.Data.Initialization
                 var clients = context.Clients.ToList();
                 context.Clients.RemoveRange(clients);
                 context.SaveChanges();
+                var rawSqlString = $"DBCC CHECKIDENT (\"dbo.Clients\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ClientCorsOrigins\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ClientGrantTypes\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ClientRedirectUris\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ClientClaims\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ClientScopes\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ClientProperties\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ClientSecrets\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ClientPostLogoutRedirectUris\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ClientIdPRestrictions\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
                 if (!context.Clients.Any())
                 {
                     foreach (var client in Config.GetClients())
@@ -35,6 +55,10 @@ namespace IdentityServerWithIdentity.Data.Initialization
                 var resources = context.IdentityResources.ToList();
                 context.IdentityResources.RemoveRange(resources);
                 context.SaveChanges();
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.IdentityResources\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.IdentityClaims\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
                 if (!context.IdentityResources.Any())
                 {
                     foreach (var resource in Config.GetIdentityResources())
@@ -47,6 +71,16 @@ namespace IdentityServerWithIdentity.Data.Initialization
                 var apiResoruces = context.ApiResources.ToList();
                 context.ApiResources.RemoveRange(apiResoruces);
                 context.SaveChanges();
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ApiResources\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ApiClaims\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ApiScopes\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ApiScopeClaims\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
+                rawSqlString = $"DBCC CHECKIDENT (\"dbo.ApiSecrets\", RESEED, 0);";
+                context.Database.ExecuteSqlCommand(rawSqlString);
                 if (!context.ApiResources.Any())
                 {
                     foreach (var resource in Config.GetApiResources())

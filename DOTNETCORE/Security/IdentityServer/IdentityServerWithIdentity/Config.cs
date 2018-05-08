@@ -10,7 +10,7 @@ namespace IdentityServerWithIdentity
     {
         private static IdentityResource rolesResource = new IdentityResource
         {
-            Name = "roles",
+            Name = "role",
             DisplayName = "Roles",
             Description = "Allow the service access to your user roles.",
             UserClaims = new[] { JwtClaimTypes.Role, ClaimTypes.Role },
@@ -28,9 +28,11 @@ namespace IdentityServerWithIdentity
                 new IdentityResources.Phone(),
                 new IdentityResource
                 {
-                    Name = "Foo",
+                    Name = "foo",
+                    Description = "Trying to get additional claims to show in the cookie",
                     DisplayName = "Test Claim",
-                    UserClaims = new List<string>{"Foo"}
+                    UserClaims = new List<string>{"Foo"},
+                    Emphasize = true
                 },
                 //new IdentityResource {
                 //    Name = "role",
@@ -47,7 +49,7 @@ namespace IdentityServerWithIdentity
             {
                 new ApiResource("myApi", "My Sample API")
                 {
-                    UserClaims = {"role"}
+                    UserClaims = {"role","foo"}
                 }
             };
         }
@@ -123,9 +125,14 @@ namespace IdentityServerWithIdentity
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
+                        //IdentityServerConstants.TokenTypes.AccessToken,
+                        //IdentityServerConstants.TokenTypes.IdentityToken,
+                        "foo",
                         "myApi",
-                        "roles"
+                        "role"
                     },
+                    AllowAccessTokensViaBrowser = true,
+                    //AlwaysSendClientClaims = true,
                     AllowOfflineAccess = true
                 },
                 // JavaScript Client

@@ -72,7 +72,7 @@ namespace IdentityServer4.Quickstart.UI
             await CreateRole("Clerk");
             await AddToRole("Admin");
             await AddToRole("Clerk");
-            await AddToClaim("Foo", "Bar");
+            await AddToClaim("foo", "Bar");
 
             if (_environment.IsDevelopment())
             {

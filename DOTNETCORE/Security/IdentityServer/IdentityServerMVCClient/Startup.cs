@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
@@ -28,7 +30,6 @@ namespace IdentityServerClient
             services.AddMvc();
             //allows sub (human) and idp (identity server) claims to flow through
             //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-
             services.AddAuthentication(options =>
                 {
                     options.DefaultScheme = "Cookies";
@@ -56,7 +57,8 @@ namespace IdentityServerClient
                         NameClaimType = "name",
                         RoleClaimType = "Role",
                     };
-                });
+                })
+                .AddJwtBearer();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,7 +74,21 @@ namespace IdentityServerClient
                 app.UseExceptionHandler("/Home/Error");
             }
 
+
             app.UseAuthentication();
+
+            app.Use((context, next) =>
+            {
+                var token = context.GetTokenAsync("access_token").GetAwaiter().GetResult();
+                if (token == null)
+                {
+                    return next();
+                }
+                var jwtToken = new JwtSecurityToken(token);
+                var claims = jwtToken.Claims;
+                ((ClaimsIdentity)context.User.Identity).AddClaims(claims);
+                return next();
+            });
 
             app.UseStaticFiles();
 
