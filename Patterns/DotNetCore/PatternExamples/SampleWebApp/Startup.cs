@@ -36,7 +36,7 @@ namespace SampleWebApp
                 Scoped: Created once per HTTP request
                 Singleton: Max of one instance per application
                 Instance: Similar to singleton, but created when Instance is called
-             */
+            */
             services.AddScoped<IRepo<Customer>, CustomerRepo>();
             services.Configure<CustomSettings>(Configuration.GetSection("CustomSettings"));
 
