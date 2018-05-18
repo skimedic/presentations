@@ -1,0 +1,10 @@
+﻿@using Microsoft.Extensions.Options
+@using SampleWebApp.InjectableTypes.Classes
+@inject IOptionsSnapshot<CustomSettings> CustomSettings
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+<h4>@CustomSettings.Value.MySetting1</h4>
+
