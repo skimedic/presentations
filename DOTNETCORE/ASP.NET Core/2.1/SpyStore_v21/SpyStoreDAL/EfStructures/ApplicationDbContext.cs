@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SpyStoreModels.Models;
 
-namespace SpyStoreDAL.EfContext
+namespace SpyStoreDAL.EfStructures
 {
     public class ApplicationDbContext : IdentityDbContext
     {

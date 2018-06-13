@@ -34,7 +34,7 @@ namespace Performance
                 },
                 ef7Test: () =>
                 {
-                    using (var db = new P
+                    using (var db = new PerformanceEfCore.EFCore.Context
                         .AdventureWorksContext())
                     {
                         db.Customers.ToList();

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using SpyStoreDAL.EfContext;
+using SpyStoreDAL.EfStructures;
 using SpyStoreModels.Models.Base;
 
 namespace SpyStoreDAL.Repos.RepoBase

@@ -432,11 +432,11 @@ namespace IdentityServerWithIdentity.Controllers
         }
 
 
-        //[HttpGet]
-        //public IActionResult AccessDenied()
-        //{
-        //    return View();
-        //}
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
 
         #region Helpers
 

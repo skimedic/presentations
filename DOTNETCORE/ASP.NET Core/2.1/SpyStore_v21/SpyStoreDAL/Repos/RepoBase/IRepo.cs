@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using SpyStoreDAL.EfContext;
+using SpyStoreDAL.EfStructures;
 using SpyStoreModels.Models.Base;
 
 namespace SpyStoreDAL.Repos.RepoBase

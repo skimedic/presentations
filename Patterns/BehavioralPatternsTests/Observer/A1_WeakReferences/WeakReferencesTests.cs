@@ -63,6 +63,10 @@ namespace BehavioralPatternsTests.Observer.A1_WeakReferences
             subject.AddGameResult(gameResult);
             //No longer need this line...
             //subject.UnregisterObserver(wr1);
+            foreach (var foo in subject.Observers)
+            {
+                foo?.TryGetTarget(out var observer);
+            }
             subject.UnregisterObserver(wr2);
             Assert.Equal(0, subject.Observers.Count);
         }

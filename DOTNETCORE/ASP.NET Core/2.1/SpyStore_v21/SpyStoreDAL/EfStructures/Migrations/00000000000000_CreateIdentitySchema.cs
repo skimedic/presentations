@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SpyStoreDAL.EfContext.Migrations
+namespace SpyStoreDAL.EfStructures.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

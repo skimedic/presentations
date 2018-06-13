@@ -16,7 +16,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Net.Http.Headers;
-using SpyStoreDAL.EfContext;
+using SpyStoreDAL.EfStructures;
 using SpyStoreDAL.Initializers;
 using SpyStoreDAL.Repos;
 using SpyStoreDAL.Repos.Interfaces;

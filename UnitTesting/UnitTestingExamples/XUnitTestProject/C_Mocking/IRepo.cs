@@ -11,6 +11,19 @@ using System.Linq.Expressions;
 
 namespace XUnitTestProject.C_Mocking
 {
+    public class FakeRepo : IRepo
+    {
+        public Customer Find(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Customer> GetSome(Expression<Func<Customer, bool>> @where)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public interface IRepo
     {
         Customer Find(int id);

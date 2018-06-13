@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 
 namespace WhatsNewInCSharp7
 {
-    //NOTE: Local functions are used for demonstation purposes, do not reflect best use cases for local functions
+    //NOTE: Local functions are used here for demonstation purposes,
+    //and do not reflect best use cases for local functions.
     public class FeaturesIn70
     {
+        //I'm not a fan of regions, but they help with teaching
         #region Local Functions
 
         public static IEnumerable<char> AlphabetSubset3(char start, char end)
@@ -24,6 +26,8 @@ namespace WhatsNewInCSharp7
             if (end <= start)
                 throw new ArgumentException($"{nameof(end)} must be greater than {nameof(start)}");
 
+            //for (var c = start; c < end; c++)
+            //    yield return c;
             return AlphabetSubsetImplementation();
 
             IEnumerable<char> AlphabetSubsetImplementation()
@@ -279,10 +283,7 @@ namespace WhatsNewInCSharp7
             Console.WriteLine($"Retrieved value: {item}");
             item = 5;
             Console.WriteLine($"Updated value: {a[position]}");
-            ref int GetArrayPosition(int[] array, int index)
-            {
-                return ref array[index];
-            }
+            ref int GetArrayPosition(int[] array, int index) => ref array[index];
         }
         #endregion
 

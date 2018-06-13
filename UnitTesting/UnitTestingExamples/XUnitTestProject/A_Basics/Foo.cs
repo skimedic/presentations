@@ -8,8 +8,10 @@ namespace XUnitTestProject.A_Basics
     public class Foo
     {
         [Theory]
-        [InlineData(2, 3, 5)]
-        //[InlineData(Int16.MaxValue, 3, 5)]
+        //[InlineData(2, 3, 5)]
+        //[InlineData(0, -3, -3)]
+        //[InlineData(int.MaxValue, -1, int.MaxValue-1)]
+        [InlineData(int.MaxValue, int.MaxValue, int.MaxValue-1)]
         public void ShouldAddTwoNumbers(int addend1, int addend2, int sum)
         {
             //Arrange
@@ -24,7 +26,7 @@ namespace XUnitTestProject.A_Basics
         public void ShouldSubtractTwoNumbers()
         {
             var cal = new Calculator();
-            var actual = cal.Subtract(5, 2);
+            //var actual = cal.Subtract(5, 2);
         }
     }
 }
