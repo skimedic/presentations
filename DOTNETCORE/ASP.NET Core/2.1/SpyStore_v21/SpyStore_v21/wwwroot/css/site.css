@@ -1,4 +1,88 @@
-﻿body {
+﻿.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eeeeee;
+}
+
+    .jumbotron h1,
+    .jumbotron .h1 {
+        color: inherit;
+    }
+
+    .jumbotron p {
+        margin-bottom: 15px;
+        font-size: 21px;
+        font-weight: 200;
+    }
+
+    .jumbotron > hr {
+        border-top-color: #d5d5d5;
+    }
+
+.container .jumbotron,
+.container-fluid .jumbotron {
+    border-radius: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.jumbotron .container {
+    max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .container .jumbotron,
+    .container-fluid .jumbotron {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .jumbotron h1,
+    .jumbotron .h1 {
+        font-size: 63px;
+    }
+}
+
+.body-content > .jumbotron {
+    background: url(../images/jumbo.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 200px;
+    margin: -15px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+    .body-content > .jumbotron .btn-lg, .body-content > .jumbotron .btn-group-lg > .btn {
+        margin-top: 100px;
+    }
+
+@media (min-width: 992px) {
+    .body-content > .jumbotron {
+        min-height: 380px;
+    }
+
+        .body-content > .jumbotron .btn-lg, .body-content > .jumbotron .btn-group-lg > .btn {
+            margin-top: 180px;
+        }
+}
+
+.body-content .top-row {
+    margin-top: 30px;
+}
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
     padding-bottom: 20px;
 }
 
@@ -26,7 +110,8 @@
 }
 
 /* Hide/rearrange for smaller screens */
-/*@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
+    /* Hide captions */
     .carousel-caption {
         display: none;
     }

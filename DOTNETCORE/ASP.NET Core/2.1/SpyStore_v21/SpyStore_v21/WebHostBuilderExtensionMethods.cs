@@ -132,9 +132,9 @@ namespace SpyStore_v21
                     builtConfig["ClientSecret"]);
             });
 
-        public static IWebHostBuilder UseAzureAppServiceLogging(this IWebHostBuilder builder) =>
-            builder.UseAzureAppServices()
-                .ConfigureLogging((context, logger) => { logger.AddAzureWebAppDiagnostics(); });
+        //public static IWebHostBuilder UseAzureAppServiceLogging(this IWebHostBuilder builder) =>
+        //    builder.UseAzureAppServices()
+        //        .ConfigureLogging((context, logger) => { logger.AddAzureWebAppDiagnostics(); });
 
         public static IWebHostBuilder UseLaunchSettingsConfig(this IWebHostBuilder builder) =>
             builder

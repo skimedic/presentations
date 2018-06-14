@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Microsoft.Extensions.Options
+@inject IOptionsSnapshot<CustomSettings> CustomSettings
+@{
+    var settings = CustomSettings.Value;
     ViewData["Title"] = "About";
 }
 <h2>@ViewData["Title"]</h2>
