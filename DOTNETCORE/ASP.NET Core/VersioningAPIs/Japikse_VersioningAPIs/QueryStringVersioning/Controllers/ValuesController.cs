@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace QueryStringVersioning.Controllers
 {
     [Route("api/[controller]")]
-   [ApiController]
+    [ApiController]
     public class ValuesController : ControllerBase
     {
         // GET api/values

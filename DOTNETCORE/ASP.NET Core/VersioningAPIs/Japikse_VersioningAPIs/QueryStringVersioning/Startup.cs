@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -34,7 +35,23 @@ namespace QueryStringVersioning
             services.AddApiVersioning(o =>
             {
                 o.AssumeDefaultVersionWhenUnspecified = true;
-                o.ReportApiVersions = true;
+                o.DefaultApiVersion = new ApiVersion(1,0);
+                //o.ReportApiVersions = true;
+                //o.ApiVersionSelector = new DefaultApiVersionSelector(o);
+                //o.ApiVersionSelector = new ConstantApiVersionSelector(new ApiVersion(1, 0));
+                //o.ApiVersionSelector = new CurrentImplementationApiVersionSelector(o);
+                //o.ApiVersionSelector = new LowestImplementedApiVersionSelector(o);
+
+                //// svc?api-version=2.0
+                //o.ApiVersionReader = new QueryStringApiVersionReader();
+                //// svc?v=2.0
+                //o.ApiVersionReader = new QueryStringApiVersionReader("v");
+
+                //// Content-Type: application/json;v=2.0
+                //o.ApiVersionReader = new MediaTypeApiVersionReader();
+                //// Content-Type: application/json;version=2.0
+                o.ApiVersionReader = new MediaTypeApiVersionReader("version");
+
             });
             services.AddSwaggerGen(
                 options =>

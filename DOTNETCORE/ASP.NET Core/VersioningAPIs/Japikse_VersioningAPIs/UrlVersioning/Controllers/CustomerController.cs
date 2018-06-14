@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace UrlVersioning.Controllers
 {
 
-    //[ApiVersion("3.0")]
-    [ApiVersion("1.1", Deprecated = true)]
+    [ApiVersion("4.0")]
+    //[ApiVersion("1.1", Deprecated = true)]
     [Route("api/v{version:apiVersion}/Customer")]
     public class CustomerController : Controller
     {
