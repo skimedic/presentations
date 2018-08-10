@@ -1,0 +1,309 @@
+<html>
+<head>
+  <title>Machine.Specifications Report</title>
+  <style type="text/css">body {
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: .9em;
+}
+
+.count {
+  color: lightgrey;
+}
+
+.failure, .notimplemented, .ignored {
+  color: red;
+  font-weight: bold;
+  display: inline;
+}
+
+.notimplemented {
+  color: orange;
+}
+
+.ignored {
+  color: gold;
+}
+
+p.exception_type {
+  color: black;
+  font-weight: bold;
+  display: inline;
+}
+
+pre.exception_message {
+  border-style: dashed;
+  border-color: #FF828D;
+  border-width: thin;
+  background-color: #FFD2CF;
+  white-space: pre-wrap; /* CSS2.1 compliant */
+  white-space: -moz-pre-wrap; /* Mozilla-based browsers */
+  white-space: o-pre-wrap; /* Opera 7+ */
+  padding: 1em;
+}
+
+hr {
+  color: lightgrey;
+  border: 1px solid lightgrey;
+  height: 1px;
+}
+
+ul.prev-next {
+  padding: 0;
+  margin: 0;
+  font-size: 2em;
+  }
+  
+.spec ul.prev-next {
+  float: right;
+  right: 30%;
+  position: absolute;
+  margin-top: -1em;
+  }
+
+ul.prev-next li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+ul.prev-next li a {
+  color: lightgrey;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 .3em;
+  border: 1px solid lightgrey;
+}
+
+ul.prev-next li.failure a {
+  border-color: red;
+}
+
+ul.prev-next li.notimplemented a {
+  border-color: orange;
+}
+
+ul.prev-next li.ignored a {
+  border-color: gold;
+}
+
+ul.prev-next li.failure a:hover {
+  background-color: red;
+  color: #fff;
+}
+
+ul.prev-next li.notimplemented a:hover {
+  background-color: orange;
+  color: #000;
+}
+
+ul.prev-next li.ignored a:hover {
+  background-color: gold;
+  color: #000;
+}
+
+ul.prev-next li.back a:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+div.supplement {
+  display: none;
+}
+  
+@media print {
+  ul.prev-next {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+  <ul class="prev-next">
+    <li class="back">
+      <a href="index.html" title="Go back to the report summary">&laquo; Back</a>
+    </li>
+    <li class="notimplemented">
+      <a href="#3">Go to first not implemented specification &dArr;</a>
+    </li>
+  </ul>
+  <h1>
+    MachineSpecTestProjectFullDotNet
+</h1>
+<h2 class="count">
+  1 concern,
+  4 contexts,
+  10 specifications
+  ,
+    <span class="notimplemented">1 not implemented spec</span>
+</h2>
+<script type="text/javascript">
+  function toggleVisibility(id, description)
+  {
+    var section = document.getElementById(id);
+    var link = document.getElementById(id + "_link");
+
+    if (section.style.display == "block")
+    {
+      section.style.display = "none";
+      link.innerHTML = "Show " + description;
+    } else
+    {
+      section.style.display = "block";
+      link.innerHTML = "Hide " + description;
+    }
+  };
+</script> 
+  
+  <hr/>
+  <hr/>
+  
+  <h2 class="concern">
+  Authentication specifications
+</h2>
+<h3 class="count">
+  4 contexts, 10 specifications
+</h3><h3 class="context">
+  When authenticating an admin user
+</h3>
+<h4 class="count">
+  3 specifications
+</h4>
+ 
+        <ul>
+          <li class="spec"><span id="1">Should indicate the users name</span>
+
+
+
+
+ 
+
+ 
+
+          </li>
+          <li class="spec"><span id="2">Should have a unique session id</span>
+
+
+
+
+ 
+
+ 
+
+          </li>
+          <li class="spec"><span id="3">Should report as not implemented</span>
+
+
+<div class="notimplemented">
+  &lArr; NOT IMPLEMENTED
+  <ul class="prev-next">
+    <li class="prev notimplemented">
+    </li>
+    <li class="next notimplemented">
+    </li>
+  </ul>
+</div>
+
+
+ 
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When authenticating an admin user
+</h3>
+<h4 class="count">
+  2 specifications
+</h4>
+ 
+        <ul>
+          <li class="spec"><span id="9">Should indicate the users name</span>
+
+
+
+
+ 
+
+ 
+
+          </li>
+          <li class="spec"><span id="10">Should have a unique session id</span>
+
+
+
+
+ 
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When handling exceptions
+</h3>
+<h4 class="count">
+  3 specifications
+</h4>
+ 
+        <ul>
+          <li class="spec"><span id="4">Should fail</span>
+
+
+
+
+ 
+
+ 
+
+          </li>
+          <li class="spec"><span id="5">Should have a specific reason</span>
+
+
+
+
+ 
+
+ 
+
+          </li>
+          <li class="spec"><span id="6">Should have a specific argument</span>
+
+
+
+
+ 
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When using behaviors
+</h3>
+<h4 class="count">
+  2 specifications
+</h4>
+ 
+        <ul>
+          <li class="spec"><span id="7">Should indicate the users name</span>
+
+
+
+
+ 
+
+ 
+
+          </li>
+          <li class="spec"><span id="8">Should have a unique session id</span>
+
+
+
+
+ 
+
+ 
+
+          </li>
+        </ul>
+    <hr/>
+</body>
+</html>

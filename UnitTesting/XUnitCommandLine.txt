@@ -1,0 +1,21 @@
+dotnet test -h
+
+dotnet test
+
+-t, --list-tests					show discovered tests
+--filter <EXPRESSION>               Run tests that match the given expression.
+										FullyQualifiedName, DisplayName, Traits
+										= Match, != Not, ~ Lookup
+										|, &
+                                    More info on filtering support: https://aka.ms/vstest-filtering
+
+Examples:
+dotnet test --filter "Category=Calculator"
+dotnet test --filter "FullyQualifiedName~A_Basics"
+
+-c, --configuration <CONFIGURATION>  Configuration to use for building the project.  Default for most projects is  "Debug".
+--blame                             Runs the test in blame mode. This option is helpful in isolating the problematic test causing test host crash. It creates an output file in the current directory as "Sequence.xml", that captures the order of execution of test before the crash.
+-v, --verbosity                  Allowed values are q[uiet], m[inimal], n[ormal], d[etailed], and diag[nostic].
+
+
+

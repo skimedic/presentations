@@ -1,0 +1,27 @@
+https://github.com/machine/machine.specifications.runner.console
+
+dotnet test
+
+mspec-x86-clr4 ..\bin\debug\MachineSpecTestProjectFullDotNet.dll
+
+mspec-x86-clr4 ..\bin\debug\MachineSpecTestProjectFullDotNet.dll --html .\reports
+
+Usage: mspec-x86-clr4.exe [options] <assemblies>
+Options:
+  -f, --filters               Filter file specifying contexts to execute (full type name, one per line). Takes precedence over tags
+  -i, --include               Execute all specifications in contexts with these comma delimited tags. Ex. -i "foo,bar,foo_bar"
+  -x, --exclude               Exclude specifications in contexts with these comma delimited tags. Ex. -x "foo,bar,foo_bar"
+  -t, --timeinfo              Shows time-related information in HTML output
+  -s, --silent                Suppress progress output (print fatal errors, failures and summary)
+  -p, --progress              Print progress output
+  -c, --no-color              Suppress colored console output
+  -w, --wait                  Wait 15 seconds for debugger to be attached
+  --teamcity                  Reporting for TeamCity CI integration (also auto-detected)
+  --no-teamcity-autodetect    Disables TeamCity autodetection
+  --appveyor                  Reporting for AppVeyor CI integration (also auto-detected)
+  --no-appveyor-autodetect    Disables AppVeyor autodetection
+  --html <PATH>               Outputs the HTML report to path, one-per-assembly w/ index.html (if directory, otherwise all are in one file)
+  --xml <PATH>                Outputs the XML report to the file referenced by the path
+  -h, --help                  Shows this help message
+
+
