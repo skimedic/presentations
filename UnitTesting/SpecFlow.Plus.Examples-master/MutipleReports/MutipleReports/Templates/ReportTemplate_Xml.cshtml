@@ -1,0 +1,98 @@
+﻿@inherits TechTalk.SpecRun.Framework.Reporting.CustomTemplateBase<TestRunResult>
+@using System
+@using System.Linq
+@using System.Xml
+@using System.Globalization
+@using System.IO
+@using System.Xml.Serialization
+@using TechTalk.SpecRun.Framework
+@using TechTalk.SpecRun.Framework.Results
+<TestRunResult>
+    <Configuration>
+        <Name>@Model.Configuration.Name</Name>
+        <ProjectName>@Model.Configuration.ProjectName</ProjectName>
+        <Settings>
+            <TestProfile
+                Name="@Model.Configuration.TestProfileSettings.Name"
+                ProjectName="@Model.Configuration.TestProfileSettings.ProjectName"
+                ProjectId="@Model.Configuration.TestProfileSettings.ProjectId"
+                BaseFolder="@Model.Configuration.TestProfileSettings.BaseFolder"
+                OutputFolder="@Model.Configuration.TestProfileSettings.OutputFolderSetting"
+                ReportTemplate="@Model.Configuration.TestProfileSettings.ReportTemplate"/>
+            <Server 
+                PublishResults="@Model.Configuration.ServerSettings.PublishResults"
+                ServerUrl="@Model.Configuration.ServerSettings.ServerUrl"/>
+            <Execution
+                StopAfterFailures="@Model.Configuration.ExecutionSettings.StopAfterFailures"
+                TestSchedulingMode="@Model.Configuration.ExecutionSettings.TestSchedulingMode"
+                TestThreadCount="@Model.Configuration.ExecutionSettings.TestThreadCount"
+                RetryMode="@Model.Configuration.ExecutionSettings.RetryMode"
+                RetryCount="@Model.Configuration.ExecutionSettings.RetryCount"/>
+            <Report DisableGeneration="@Model.Configuration.ReportSettings.DisableGeneration" 
+                    CopyAlsoToBaseFolder="@Model.Configuration.ReportSettings.CopyAlsoToBaseFolder">
+                <Templates>
+                    @foreach (var reportEntry in Model.Configuration.ReportSettings.Templates)
+                    {
+                        <Report name="@reportEntry.InputName" outputName="@reportEntry.OutputName" />
+                    }
+                </Templates>
+            </Report>
+            <Environment FrameworkVersion="@Model.Configuration.TestEnvironmentSettings.FrameworkVersion" 
+                         Platform="@Model.Configuration.TestEnvironmentSettings.Platform"
+                         ApartmentState="@Model.Configuration.TestEnvironmentSettings.ApartmentState" 
+                         TestThreadIsolation="@Model.Configuration.TestEnvironmentSettings.TestThreadIsolation" />
+
+            <Targets>
+                @foreach (var target in Model.Configuration.Targets)
+                {
+                    <Target name="@target.Name" />
+                }
+            </Targets>
+        </Settings>
+        <Tests>
+            @foreach (var test in Model.Tests)
+            {
+                <Test id="@test.Id"
+                      title="@test.Title"
+                      description="@test.Description"
+                      type="@test.TestNodeType"
+                      result="@test.Result"
+                      error="@test.Error" 
+                      executionTime="@test.ExecutionTime">
+                    <Executions>
+                        @foreach (var execution in test.Executions.OrderBy(i => i.TestItemExecutionIndex))
+                        {
+                            <Execution resultType="@execution.ResultType"
+                                       executionTime="@execution.ExecutionTime.Duration"
+                                       isExecuted="@execution.IsExecuted">
+                                <Result result="@execution.Result.ResultType">
+                                    <Error>
+                                        @execution.Result.Error
+                                    </Error>
+                                    <StackTrace>
+                                        @execution.Result.StackTrace
+                                    </StackTrace>
+                                    <Messages>
+                                        @execution.Result.Messages
+                                    </Messages>
+                                </Result>
+                            </Execution>
+                        }
+                    </Executions>
+                    <Tags>
+                        @foreach (var tag in test.TestNode.Tags)
+                        {
+                            <Tag name="@tag"/>
+                        }
+                    </Tags>
+                    <Parents>
+                        @foreach (var parent in test.ParentTitles)
+                        {
+                            <Parent name="@parent"/>
+                        }
+                    </Parents>
+                </Test>
+            }
+        </Tests>
+    </Configuration>
+</TestRunResult>

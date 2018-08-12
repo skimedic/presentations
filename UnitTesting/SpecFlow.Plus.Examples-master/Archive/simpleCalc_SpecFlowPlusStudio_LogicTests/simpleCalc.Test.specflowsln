@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SpecFlow+ Studio Solution File, Format Version 2015.1
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{77EB53B7-0A7B-45CA-B3C0-F26CC34B54E9}") = "simpleCalc.Test", "simpleCalc.Test\simpleCalc.Test.csproj", "{6BAF319B-9D0D-461A-A7BE-9E627E0A8424}"
+EndProject
+Project("{77EB53B7-0A7B-45CA-B3C0-F26CC34B54E9}") = "simpleCalc.Logic", "simpleCalc.PCL\simpleCalc.Logic.csproj", "{3AF07C6A-C941-491C-B956-7C7ECB4AB41F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default Profile|Debug-AnyCPU = Default Profile|Debug-AnyCPU
+		Default Profile|Release-AnyCPU = Default Profile|Release-AnyCPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BAF319B-9D0D-461A-A7BE-9E627E0A8424}.Default Profile|Debug-AnyCPU.ActiveCfg = Default Profile|Debug-AnyCPU
+		{6BAF319B-9D0D-461A-A7BE-9E627E0A8424}.Default Profile|Release-AnyCPU.ActiveCfg = Default Profile|Release-AnyCPU
+		{3AF07C6A-C941-491C-B956-7C7ECB4AB41F}.Default Profile|Debug-AnyCPU.ActiveCfg = Default Profile|Debug-AnyCPU
+		{3AF07C6A-C941-491C-B956-7C7ECB4AB41F}.Default Profile|Release-AnyCPU.ActiveCfg = Default Profile|Release-AnyCPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

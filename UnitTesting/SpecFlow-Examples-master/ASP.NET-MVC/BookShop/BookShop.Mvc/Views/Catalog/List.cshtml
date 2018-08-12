@@ -1,0 +1,34 @@
+﻿@using BookShop.Mvc.Models
+@model IEnumerable<Book>
+
+@{
+    ViewBag.Title = "Books";
+}
+
+<div class="jumbotron">
+    <h1>Books</h1>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped" id="searchResultTable">
+        <thead>
+            <tr>
+                <th><em>Title</em></th>
+                <th><em>Author</em></th>
+                <th><em>Price</em></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td><h4>@Html.ActionLink(book.Title, "Details", "Catalog", new { id = book.Id }, new { })</h4></td>
+                    <td>@book.Author</td>
+                    <td>&euro; @book.Price.ToString("0.00")</td>
+                    <td>@Html.ActionLink("Add to cart", "Add", "ShoppingCart", new { bookId = book.Id }, new { @class = "btn btn-primary" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

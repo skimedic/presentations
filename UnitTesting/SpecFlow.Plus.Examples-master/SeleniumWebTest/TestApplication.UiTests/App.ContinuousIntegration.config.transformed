@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="specFlow" type="TechTalk.SpecFlow.Configuration.ConfigurationSectionHandler, TechTalk.SpecFlow" />
+    <section name="autofac" type="Autofac.Configuration.SectionHandler, Autofac.Configuration" />
+  </configSections>
+
+
+  <appSettings>
+    <add key="seleniumBaseUrl" value="http://localhost:58909" />
+    <add key="browser" value=""/>
+  </appSettings>
+
+
+  <specFlow>
+    <unitTestProvider name="SpecRun" />
+    <plugins>
+      <add name="SpecRun" />
+    </plugins>
+  </specFlow>
+</configuration>

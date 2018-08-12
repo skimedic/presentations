@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
+  <Settings projectName="TestApplication.UiTests" projectId="{347ddf1e-cf82-4520-8c9b-724ed9d7f5f0}" />
+  <Execution stopAfterFailures="0" testThreadCount="2" testSchedulingMode="Sequential" retryCount="0" apartmentState="MTA"  />
+  <Environment testThreadIsolation="Process" platform="x86"/>
+  <TestAssemblyPaths>
+    <TestAssemblyPath>TestApplication.UiTests.dll</TestAssemblyPath>
+  </TestAssemblyPaths>
+ 
+  <DeploymentTransformation>    
+    <Steps>
+      <IISExpress webAppFolder="..\..\..\TestApplication" port="58909"/>
+      <ConfigFileTransformation configFile="App.config" >
+        <Transformation>
+          <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+							<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+                              <appSettings>
+                                <add key="browser" value="{Target}" 
+                                 xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)" />
+                              </appSettings>
+							</configuration>
+						]]>
+        </Transformation>
+      </ConfigFileTransformation>
+    </Steps>
+  </DeploymentTransformation>
+  <Targets>
+    <Target name="IE">
+      <Filter>Browser_IE</Filter>
+    </Target>
+    <Target name="Chrome">
+      <Filter>Browser_Chrome</Filter>      
+    </Target>
+    <Target name="Firefox">
+      <Filter>Browser_Firefox</Filter>
+    </Target>
+  </Targets>
+</TestProfile>

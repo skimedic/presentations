@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
+  <Settings projectName="TestThreadIsolation" projectId="{b8e0674a-a3fd-44ac-9bbd-5cd76837a005}" />
+  <Execution testThreadCount="2" testSchedulingMode="Random"/>
+  <Environment testThreadIsolation="AppDomain"/>
+  <TestAssemblyPaths>
+    <TestAssemblyPath>TestThreadIsolation.dll</TestAssemblyPath>
+  </TestAssemblyPaths>
+</TestProfile>

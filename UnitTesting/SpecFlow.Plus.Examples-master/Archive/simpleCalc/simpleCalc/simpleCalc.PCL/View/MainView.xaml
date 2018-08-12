@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:windowsUap="clr-namespace:simpleCalc.WindowsUAP;assembly=simpleCalc.PCL"
+             x:Class="simpleCalc.PCL.View.MainView">
+  <Page.Resources>
+    <windowsUap:DoubleConverter x:Key="DoubleConverter" />
+  </Page.Resources>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Label Grid.Row="0" Grid.Column="0" >Operand 1</Label>
+    <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Path=Operand1, Mode=TwoWay, Converter={StaticResource DoubleConverter}}"></Entry>
+
+    <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Switch Grid.Column="0" IsToggled="{Binding Path=PlusOperator, Mode=TwoWay}">Plus</Switch>
+        <Switch Grid.Column="1" IsToggled="{Binding Path=MinusOperator, Mode=TwoWay}">Minus</Switch>
+        <Switch Grid.Column="2" IsToggled="{Binding Path=MultiplyOperator, Mode=TwoWay}">Multiply</Switch>
+        <Switch Grid.Column="3" IsToggled="{Binding Path=DivideOperator, Mode=TwoWay}">Divide</Switch>
+    </Grid>
+
+    <Label Grid.Row="2" Grid.Column="0" >Operand 2</Label>
+    <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Path=Operand2, Mode=TwoWay, Converter={StaticResource DoubleConverter}}"></Entry>
+
+    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"  Command="{Binding Path=CalcCommand}">Calculate</Button>
+
+    <Label Grid.Row="4" Grid.Column="0" >Result</Label>
+    <Entry Grid.Row="4" Grid.Column="1"  IsEnabled="False" Text="{Binding Path=Result, Converter={StaticResource DoubleConverter}}"></Entry>
+  </Grid>
+</ContentPage>

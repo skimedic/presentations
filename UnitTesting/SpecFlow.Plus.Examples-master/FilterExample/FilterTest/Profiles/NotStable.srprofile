@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
+  <Settings projectName="FilterTest" projectId="{18571ccd-86d4-400b-a94b-48d3108629f4}" />
+  <Execution stopAfterFailures="3" testThreadCount="1" testSchedulingMode="Sequential" retryFor="Failing" retryCount="3"/>
+  <TestAssemblyPaths>
+    <TestAssemblyPath>FilterTest.dll</TestAssemblyPath>
+  </TestAssemblyPaths>
+
+  <Filter>!@Stable</Filter>
+  
+</TestProfile>

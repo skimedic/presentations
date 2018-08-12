@@ -1,0 +1,53 @@
+﻿@using simpleCalc.Web.Models
+@model CalcModel
+
+
+
+<h2>Calc</h2>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                Operand 1
+            </td>
+            <td>
+                @Html.EditorFor(m => m.Operand1)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Function
+            </td>
+            <td>
+                @Html.RadioButtonFor(m => m.Function, "plus") Plus
+                @Html.RadioButtonFor(m => m.Function, "minus") Minus
+                @Html.RadioButtonFor(m => m.Function, "multiply") Multiply
+                @Html.RadioButtonFor(m => m.Function, "divide") Divide
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Operand 2
+            </td>
+            <td>
+                @Html.EditorFor(m => m.Operand2)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Calulate" id="calcButton"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Result:
+            </td>
+            <td>
+                <div id="result">@Model.Result</div>
+            </td>
+        </tr>
+    </table>
+}

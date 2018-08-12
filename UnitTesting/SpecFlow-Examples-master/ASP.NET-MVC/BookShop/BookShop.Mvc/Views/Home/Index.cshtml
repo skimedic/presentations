@@ -1,0 +1,42 @@
+﻿@using BookShop.Mvc.Models
+
+@model IEnumerable<Book>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="jumbotron">
+    <h1 class="page-header">Bookshop</h1>
+    <p class="lead">The bookshop example demonstrates using SpecFlow with Selenium-based UI tests.</p>
+    <p><a href="http://specflow.org/" class="btn btn-primary btn-lg" target="_blank">Learn more &raquo;</a></p>
+</div>
+
+<h2>Best offers</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <caption>
+            @Html.ActionLink("View all offers", "Search", "Catalog", new { }, new { @class = "btn btn-default" })
+        </caption>
+        <thead>
+            <tr>
+                <th><em>Title</em></th>
+                <th><em>Author</em></th>
+                <th><em>Price</em></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td><h4>@Html.ActionLink(book.Title, "Details", "Catalog", new { id = book.Id }, new { })</h4></td>
+                    <td>@book.Author</td>
+                    <td>&euro; @book.Price.ToString("0.00")</td>
+                    <td>@Html.ActionLink("Add to cart", "Add", "ShoppingCart", new { bookId = book.Id }, new { @class = "btn btn-primary" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

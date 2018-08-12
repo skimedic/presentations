@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling", "Bowling\Bowling.csproj", "{290E32E6-7521-47BA-884A-0A90A985CC2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling.SpecFlow", "Bowling.SpecFlow\Bowling.SpecFlow.csproj", "{F402481E-9694-40AB-A185-CC8A331B783B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{31A760F2-DFA4-4EF1-B627-33239CD84B5B}"
+	ProjectSection(SolutionItems) = preProject
+		BowlingKata-MsTest.vsmdi = BowlingKata-MsTest.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = BowlingKata-MsTest.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{290E32E6-7521-47BA-884A-0A90A985CC2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290E32E6-7521-47BA-884A-0A90A985CC2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290E32E6-7521-47BA-884A-0A90A985CC2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290E32E6-7521-47BA-884A-0A90A985CC2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F402481E-9694-40AB-A185-CC8A331B783B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F402481E-9694-40AB-A185-CC8A331B783B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F402481E-9694-40AB-A185-CC8A331B783B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F402481E-9694-40AB-A185-CC8A331B783B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

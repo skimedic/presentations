@@ -81,54 +81,10 @@
     <Compile Include="SystemUnderTest\SampleToken.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MSpecBinaries\mspec-clr4.exe.config" />
-    <None Include="MSpecBinaries\mspec-x86-clr4.exe.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MSpecBinaries\CommandLine.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\Example.BindingFailure.Ref.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\Example.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\Example.Failing.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\FluentAssertions.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\Machine.Specifications.ConsoleRunner.Specs.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\Machine.Specifications.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\Machine.Specifications.Reporting.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\Machine.Specifications.Reporting.Templates.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\Machine.Specifications.Runner.Utility.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\mspec.exe" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\mspec-clr4.exe" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\mspec-x86.exe" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\mspec-x86-clr4.exe" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MSpecBinaries\Spark.dll" />
+    <Folder Include="MSpecBinaries\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

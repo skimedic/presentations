@@ -1,0 +1,6 @@
+﻿<RunSettings>
+  <SpecRun>
+    <Profile>Process.srprofile</Profile>
+    <GenerateFeatureTrait>true</GenerateFeatureTrait>
+  </SpecRun>
+</RunSettings>

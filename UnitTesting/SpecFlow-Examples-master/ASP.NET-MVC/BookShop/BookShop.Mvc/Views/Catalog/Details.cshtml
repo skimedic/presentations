@@ -1,0 +1,26 @@
+﻿@using BookShop.Mvc.Models
+
+@model Book
+
+@{
+    ViewBag.Title = $"{Model.Title}";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="page-header">@Model.Title <small>by @Model.Author</small></h1>
+
+<dl class="dl-horizontal">
+    <dt>Title</dt>
+    <dd>@Model.Title</dd>
+
+    <dt>Author(s)</dt>
+    <dd>@Model.Author</dd>
+
+    <dt>Price</dt>
+    <dd>&euro; @Model.Price.ToString("0.00")</dd>
+
+    <dt>Id</dt>
+    <dd>@Model.Id</dd>
+</dl>
+
+@Html.ActionLink("Add to cart", "Add", "ShoppingCart", new { bookId = Model.Id }, new { @class = "btn btn-primary" })

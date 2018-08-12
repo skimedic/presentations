@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Bookshop</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Bookshop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Shopping Cart", "Index", "ShoppingCart")</li>
+                </ul>
+                @using (Html.BeginForm("Search", "Catalog", FormMethod.Get, new { Id = "searchForm", @class = "navbar-form navbar-right" }))
+                {
+                    <div class="form-group">
+                        @Html.Label("searchTerm", "Search", new { @class = "sr-only" })
+                        @Html.TextBox("searchTerm", "", new { @class = "form-control", placeholder = "Enter your search...", type = "search" })
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary form-control">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <span class="sr-only">Search</span>
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            
+            <p>&copy; @DateTime.Now.Year - TechTalk</p>
+            <p><a href="http://www.specflow.org" target="_blank">SpecFlow</a> - Pragmatic BDD for .NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="contactlist.NewContactPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:contactlist"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Firstname"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Firstname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Lastname"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="EMail"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=EMail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Phone"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Button Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Margin="10" Command="{Binding SaveCommand}">Save</Button>
+    </Grid>
+</Page>

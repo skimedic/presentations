@@ -1,0 +1,1 @@
+This solution is based on the [Getting Started](http://www.specflow.org/getting-started/) guide for SpecFlow+ Runner and uses the MSBuild Code-Behind file generation.

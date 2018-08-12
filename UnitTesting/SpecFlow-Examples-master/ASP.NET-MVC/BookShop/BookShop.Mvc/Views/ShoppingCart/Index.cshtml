@@ -1,0 +1,41 @@
+﻿@using BookShop.Mvc.Models;
+
+@model ShoppingCart
+
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+
+<h2>Shopping Cart</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><em>Title</em></th>
+            <th><em>Author</em></th>
+            <th><em>Quantity</em></th>
+            <th><em>Price</em></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var orderLine in Model.Lines)
+        {
+            <tr>
+                <td><h4>@Html.ActionLink(orderLine.Book.Title, "Details", "Catalog", new { id = orderLine.Book.Id }, new { })</h4></td>
+                <td>@orderLine.Book.Author</td>
+                <td>@orderLine.Quantity</td>
+                <td>&euro; @orderLine.Price.ToString("0.00")</td>
+            </tr>
+        }
+        </tbody>
+        <tfoot>
+        <tr>
+            <th><h4><strong>Total</strong></h4></th>
+            <th></th>
+            <th>@Model.Count</th>
+            <th>&euro; @Model.Price.ToString("0.00")</th>
+        </tr>
+        </tfoot>
+    </table>
+</div>

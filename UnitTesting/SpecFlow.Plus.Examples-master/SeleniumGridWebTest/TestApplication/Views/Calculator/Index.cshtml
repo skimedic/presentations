@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Calculator";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>Calculator</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.TextBox("summandOne")
+    </div>
+    <div>
+        @Html.TextBox("summandTwo")
+    </div>
+    <input type="submit" value="Add" id="AddButton" />
+    <div id="result">
+        @Model
+    </div>
+}
+
+

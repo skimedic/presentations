@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
+  <Settings projectName="CalculatorUnitTests" projectId="{b7296851-8405-46d5-b9c2-e9585b104de8}" />
+  <Execution stopAfterFailures="3" testThreadCount="1" testSchedulingMode="Sequential" />
+  <TestAssemblyPaths>
+    <TestAssemblyPath>CalculatorUnitTests.dll</TestAssemblyPath>
+  </TestAssemblyPaths>
+  <DeploymentTransformation>
+    <GlobalSteps>
+      <Custom type="CustomDeploymentSteps.StartWinAppDeploymentStep, CustomDeploymentSteps" arguments="C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe"></Custom>
+    </GlobalSteps>
+  </DeploymentTransformation>
+</TestProfile>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    @Styles.Render("~/Content/bootstrap-theme", "~/Content/bootstrap")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+    @RenderBody()
+
+    </div> 
+    <script src="~/Scripts/jquery-3.1.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    @RenderSection("scripts", required: false)
+
+  </body>
+</html>

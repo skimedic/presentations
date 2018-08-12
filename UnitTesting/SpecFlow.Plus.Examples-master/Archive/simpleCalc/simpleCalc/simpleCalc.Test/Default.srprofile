@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestProfile xmlns="http://www.specrun.com/schemas/2011/09/TestProfile">
+  <Settings projectName="simpleCalc.Test" projectId="{6baf319b-9d0d-461a-a7be-9e627e0a8424}" reportTemplate="Report\\ReportTemplate.cshtml" />
+  <Execution stopAfterFailures="3" testThreadCount="1" testSchedulingMode="Sequential" retryCount="0"/>
+
+  <TestAssemblyPaths>
+    <TestAssemblyPath>simpleCalc.Test.dll</TestAssemblyPath>
+  </TestAssemblyPaths>
+  <Targets>
+    <Target name="ViewModel">
+      <DeploymentTransformationSteps>
+        <ConfigFileTransformation configFile="App.config">
+          <Transformation>
+            <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+        	    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+                  <specFlow>
+                    <stepAssemblies>
+                      <stepAssembly xdt:Transform="Remove" />
+                      <stepAssembly assembly="simpleCalc.Test.ViewModel" xdt:Transform="Insert"/>
+                    </stepAssemblies>   
+                  </specFlow>
+				</configuration>
+            ]]>
+          </Transformation>
+        </ConfigFileTransformation>
+      </DeploymentTransformationSteps>
+    </Target>
+    <Target name="Web">
+      <DeploymentTransformationSteps>
+        <ConfigFileTransformation configFile="App.config">
+          <Transformation>
+            <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+			    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+                  <specFlow>
+                    <stepAssemblies>
+                      <stepAssembly xdt:Transform="Remove" />
+                      <stepAssembly assembly="simpleCalc.Test.Web" xdt:Transform="Insert"/>
+                    </stepAssemblies>               
+                  </specFlow>
+				</configuration>
+            ]]>
+          </Transformation>
+        </ConfigFileTransformation>
+      </DeploymentTransformationSteps>
+    </Target>
+  </Targets>
+</TestProfile>

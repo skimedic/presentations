@@ -32,6 +32,5 @@ namespace XUnitTestProject.A_Basics
         {
 
         }
-
     }
 }

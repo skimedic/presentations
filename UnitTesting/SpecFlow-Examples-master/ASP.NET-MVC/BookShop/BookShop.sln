@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F5A5D023-ED56-400E-83C8-D59F94C59E12}"
+	ProjectSection(SolutionItems) = preProject
+		BookShop.vsmdi = BookShop.vsmdi
+		create_db.sql = create_db.sql
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShop.UnitTests", "Bookshop.UnitTests\BookShop.UnitTests.csproj", "{EB34E21B-F86B-462D-86B3-BE3C9A213DA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShop.AcceptanceTests", "BookShop.AcceptanceTests\BookShop.AcceptanceTests.csproj", "{0906D17A-01F0-4761-9ECD-BE5023387943}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShop.WebTests.Selenium", "BookShop.WebTests.Selenium\BookShop.WebTests.Selenium.csproj", "{076B2B3F-B40C-4445-B73B-8847C15E9623}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShop.WebTests.CodedUI", "BookShop.WebTests.CodedUI\BookShop.WebTests.CodedUI.csproj", "{6DD879F7-E05B-41D6-8D7F-5DF09F7C858A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShop.AcceptanceTests.Common", "BookShop.AcceptanceTests.Common\BookShop.AcceptanceTests.Common.csproj", "{FDC3F86D-A2E8-443F-8665-6A71DA702123}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShop.Mvc", "BookShop.Mvc\BookShop.Mvc.csproj", "{17C90FE6-7E80-4E6C-9D1B-EADEE71E98B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB34E21B-F86B-462D-86B3-BE3C9A213DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB34E21B-F86B-462D-86B3-BE3C9A213DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB34E21B-F86B-462D-86B3-BE3C9A213DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB34E21B-F86B-462D-86B3-BE3C9A213DA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0906D17A-01F0-4761-9ECD-BE5023387943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0906D17A-01F0-4761-9ECD-BE5023387943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0906D17A-01F0-4761-9ECD-BE5023387943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0906D17A-01F0-4761-9ECD-BE5023387943}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076B2B3F-B40C-4445-B73B-8847C15E9623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076B2B3F-B40C-4445-B73B-8847C15E9623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076B2B3F-B40C-4445-B73B-8847C15E9623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076B2B3F-B40C-4445-B73B-8847C15E9623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD879F7-E05B-41D6-8D7F-5DF09F7C858A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD879F7-E05B-41D6-8D7F-5DF09F7C858A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD879F7-E05B-41D6-8D7F-5DF09F7C858A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD879F7-E05B-41D6-8D7F-5DF09F7C858A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDC3F86D-A2E8-443F-8665-6A71DA702123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC3F86D-A2E8-443F-8665-6A71DA702123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC3F86D-A2E8-443F-8665-6A71DA702123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC3F86D-A2E8-443F-8665-6A71DA702123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17C90FE6-7E80-4E6C-9D1B-EADEE71E98B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17C90FE6-7E80-4E6C-9D1B-EADEE71E98B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17C90FE6-7E80-4E6C-9D1B-EADEE71E98B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17C90FE6-7E80-4E6C-9D1B-EADEE71E98B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFE75200-D7F7-40E9-8A15-5DE5261D7E4B}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = BookShop.vsmdi
+	EndGlobalSection
+EndGlobal

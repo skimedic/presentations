@@ -1,0 +1,17 @@
+﻿@inherits TechTalk.SpecRun.Framework.Reporting.CustomTemplateBase<TestRunResult>
+@using System
+@using System.Linq
+@using System.Globalization
+@using TechTalk.SpecRun.Framework
+@using TechTalk.SpecRun.Framework.Results
+@using TechTalk.SpecRun.Framework.TestSuiteStructure
+@using Newtonsoft.Json
+
+@{
+    var serializationSettings = new JsonSerializerSettings
+    {
+        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+    };
+}
+
+@Raw(JsonConvert.SerializeObject(Model, Formatting.Indented, serializationSettings));

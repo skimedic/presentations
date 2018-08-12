@@ -1,0 +1,856 @@
+﻿@inherits TechTalk.SpecRun.Framework.Reporting.CustomTemplateBase<TestRunResult>
+<!DOCTYPE html>
+@using System
+@using System.Linq
+@using System.Globalization
+@using TechTalk.SpecRun.Framework
+@using TechTalk.SpecRun.Framework.Results
+@using TechTalk.SpecRun.Framework.TestSuiteStructure
+@helper GetReportBar(TestItemExecutionResult test)
+    {
+    <td class="testview-item" 
+        data-sr-exectime="@GetSeconds(test.ExecutionTime)" data-sr-rescode="@((int)test.ResultType)" data-sr-order="@test.ExecutionOrder" data-sr-acttime="@GetSeconds(test.ActExecutionTime)">
+        <a
+            class="bar @("color" + test.ResultType)" 
+            style="height: @GetBarSize(tr => tr.ExecutionTime.DurationMilliseconds, test, 0.0, 60)px;"
+            title="@GetTestBarTooltip(test)"
+            href="#@GetTestAnchor(test)">&nbsp;</a>
+    </td>
+}
+@helper GetTimelineBar(DateTime startTime, DateTime endTime, double msecPerPixel, TestItemExecutionResult test)
+    {
+    int endPixel = Math.Max((int)Math.Round((endTime - Model.ExecutionTime.StartTime).TotalMilliseconds / msecPerPixel), currentPixel + 4);
+    int size = endPixel - currentPixel;
+    currentPixel = endPixel;
+    <td>
+        <a
+            class="bar @(test == null ? "startupBar" : "color" + test.ResultType.ToString())" 
+            style="width: @(size - 1)px;" 
+            @if (test != null)
+            {
+                @:title="@GetTestBarTooltip(test)" 
+                @:href="#@GetTestAnchor(test)"
+            }
+            else
+            {
+                @:title="test thread startup" 
+            }
+        >&nbsp;</a>
+    </td>
+}
+@helper GetSummaryHeader(string titleHeader)
+{
+    <tr>
+        @if (titleHeader != null)
+        {
+            <th>@titleHeader</th>
+        }
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+    </tr>
+}
+@helper GetSummaryRow(TestCollectionResultSummary summary, string title, string href)
+{
+    <tr>
+        @if (title != null)
+        {
+            <td><a href="#@href">@title</a></td>
+        }
+        @GetSummaryRowTail(summary)
+    </tr>
+}
+@helper GetSummaryRowTail(TestCollectionResultSummary summary)
+{
+    <td>
+        @if(summary.TotalSucceeded + summary.TotalFailure + summary.TotalPending > 0)
+        {
+            @:@Math.Round((double)summary.TotalSucceeded * 100 / (summary.TotalSucceeded + summary.TotalFailure + summary.TotalPending))%
+        }
+        else 
+        {
+            @:n/a
+        }
+    </td>
+    <td>
+        <table class="timelineview" cellpadding="0" cellspacing="0">
+            <tr>
+                @foreach (var resultCount in summary.ResultCounts.Where(rc => rc.Value > 0).OrderByDescending(rc => rc.Key.GetGroup() == TestNodeResultTypeGroup.Success ? 1000 : (int)rc.Key))
+                {
+                    <td>
+                        <a class="bar @("color" + resultCount.Key)" 
+                                style="width: @Math.Round(((double)resultCount.Value * 200 / summary.Total) - 1)px;" 
+                                title="@summary.GetText(resultCount.Key)" 
+                        @if (resultCount.Key.GetGroup() == TestNodeResultTypeGroup.Failure)
+                        {
+                            @:href="#error_summary"
+                        }
+                                />
+                    </td>
+                }
+            </tr>
+        </table>
+    </td>
+    <td>@summary.TotalMessage</td>
+    <td>@summary.Succeeded</td>
+    <td>@summary.TotalFailure</td>
+    <td>@summary.TotalPending</td>
+    <td>@summary.Ignored</td>
+    <td>@summary.Skipped</td>
+}
+@helper TestItemLinks(TestItem testItem, int level)
+{
+    if (level == 0)
+    {
+        <a href="#@GetTestNodeAnchor(testItem, "t", 0)">@testItem.Type: @testItem.Title</a>
+    }
+    else
+    {
+        <a href="#@GetTestNodeAnchor(testItem, "t", 0)">@testItem.Title</a>
+    }
+    var tiResult = GetTestItemResult(testItem);
+    if (tiResult != null)
+    {
+        foreach (var retry in tiResult.Executions.Skip(1))
+        {
+            <a href="#@GetTestNodeAnchor(testItem, "t", retry.TestItemExecutionIndex)">retry #@retry.TestItemExecutionIndex</a>
+        }
+    }
+}
+@helper TestNodeLinks(TestNode testNode, int level)
+{
+    if (testNode is TestItem)
+    {
+        @TestItemLinks((TestItem)testNode, level)
+    }
+    if (testNode is TestCollection)
+    {
+        <span>@testNode.Type: @testNode.Title</span>
+        <ul class="subNodeLinks">
+        @foreach (var subTestNode in ((TestCollection)testNode).SubNodes)
+        {
+            <li>
+            @TestNodeLinks(subTestNode, level + 1)
+            </li>
+        }
+        </ul>
+    }
+}
+@functions
+{
+    string GetFixtureTitle(TestNode fixtureNode)
+    {
+        return fixtureNode.IsDefaultTestTarget ? fixtureNode.Title : string.Format("{0} (target: {1})", fixtureNode.Title, fixtureNode.TestTarget);
+    }
+}
+<html>
+	<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>@Model.Configuration.ProjectName Test Execution Report</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript">
+            /**
+            * jQuery.fn.sortElements
+            * --------------
+            * #author James Padolsey (http://james.padolsey.com)
+            * #version 0.11
+            * #updated 18-MAR-2010
+            * #url https://raw.github.com/jamespadolsey/jQuery-Plugins/master/sortElements/jquery.sortElements.js
+            * --------------
+            * #param Function comparator:
+            *   Exactly the same behaviour as [1,2,3].sort(comparator)
+            *   
+            * #param Function getSortable
+            *   A function that should return the element that is
+            *   to be sorted. The comparator will run on the
+            *   current collection, but you may want the actual
+            *   resulting sort to occur on a parent or another
+            *   associated element.
+            *   
+            *   E.g. $('td').sortElements(comparator, function(){
+            *      return this.parentNode; 
+            *   })
+            *   
+            *   The <td>'s parent (<tr>) will be sorted instead
+            *   of the <td> itself.
+            */
+            jQuery.fn.sortElements = (function () {
+
+                var sort = [].sort;
+
+                return function (comparator, getSortable) {
+
+                    getSortable = getSortable || function () { return this; };
+
+                    var placements = this.map(function () {
+
+                        var sortElement = getSortable.call(this),
+                parentNode = sortElement.parentNode,
+
+                        // Since the element itself will change position, we have
+                        // to have some way of storing it's original position in
+                        // the DOM. The easiest way is to have a 'flag' node:
+                nextSibling = parentNode.insertBefore(
+                    document.createTextNode(''),
+                    sortElement.nextSibling
+                );
+
+                        return function () {
+
+                            if (parentNode === this) {
+                                throw new Error(
+                        "You can't sort elements if any one is a descendant of another."
+                    );
+                            }
+
+                            // Insert before flag:
+                            parentNode.insertBefore(this, nextSibling);
+                            // Remove flag:
+                            parentNode.removeChild(nextSibling);
+
+                        };
+
+                    });
+
+                    return sort.call(this, comparator).each(function (i) {
+                        placements[i].call(getSortable.call(this));
+                    });
+
+                };
+
+            })();
+        </script>
+        <script type="text/javascript">
+            jQuery.fn.setBarSizes = (function () {
+                return function (metricName, maxBarSize, min) {
+                    var max = Math.max.apply(Math, $.makeArray($(this).map(function () { return Number($(this).attr('data-sr-' + metricName)); })));
+                    var scale = 1.0;
+                    while (max > 0.0 && max <= 10.0) {
+                        scale = scale * 10.0;
+                        max = max * 10.0;
+                    }
+                    max = (Math.ceil(max / 2) * 2) / scale;
+
+                    this.each(function () {
+                        var barAnchor = $(this).find('a');
+                        var actual = $(this).attr('data-sr-' + metricName);
+                        var newHeight = Math.max(Math.round(maxBarSize * (actual - min) / (max - min)), 2);
+                        barAnchor.css({ height: newHeight });
+                    });
+
+                    var unit = "";
+                    if (metricName.substr(metricName.length - 4, 4) === "time")
+                        unit = "s";
+
+                    $('#testview .scale-min-label').each(function () {
+                        $(this).text(min.toString() + unit);
+                    });
+                    $('#testview .scale-max-label').each(function () {
+                        $(this).text(max.toString() + unit);
+                    });
+                    var mid = max / 2;
+                    $('#testview .scale-mid-label').each(function () {
+                        $(this).text(mid.toString() + unit);
+                    });
+                };
+            })();
+
+            function getComparer(metricName, isDesc) {
+                return function (a, b) {
+                    var aNumber = Number($(a).attr('data-sr-' + metricName));
+                    var bNumber = Number($(b).attr('data-sr-' + metricName));
+                    var result = aNumber > bNumber ? 1 : (aNumber < bNumber ? -1 : 0);
+                    if (isDesc)
+                        result = -1 * result;
+
+                    if (result == 0 && metricName != "order")
+                        result = getComparer("order", false)(a, b);
+
+                    return result;
+                };
+            }
+
+            var currentSort = "";
+            function doSort(allowToggleDesc) {
+                var newSort = $("input[name='barSortOrder']:checked").val();
+                if (allowToggleDesc && currentSort == newSort) {
+                    $('#barSortDesc').click();
+                    doSort(false);
+                    return;
+                }
+                currentSort = newSort;
+                $('#testview td.testview-item').sortElements(getComparer(newSort, $('#barSortDesc').is(':checked')));
+            }
+
+
+            function doSetHeights(allowSort) {
+                var selectedMetric = $("input[name='barHeight']:checked").val();
+                $('#testview td.testview-item').setBarSizes(selectedMetric, 60, 0.0);
+
+                if (allowSort && currentSort != selectedMetric) {
+                    var $radios = $("input[name='barSortOrder']");
+                    $radios.filter('[value=' + selectedMetric + ']').attr('checked', true);
+                    $("#barSortDesc").attr("checked", [true]);
+                    doSort(false);
+                }
+            }
+
+            $(document).ready(function () {
+                $("input[name='barSortOrder']").click(function () { doSort(true); return true; });
+                $("input[name='barSortDesc']").change(function () { doSort(false); });
+                $("input[name='barHeight']").change(function () { doSetHeights(true); });
+
+                doSort(false);
+                doSetHeights(false);
+
+                $("div.scrollable").css({ 'overflow': 'auto' });
+            });
+        </script>
+
+        <style type="text/css">
+            body 
+            {
+                color: #000000;
+                font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
+                line-height: 130%;
+            }
+            h1 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 170%;
+                font-weight: bold;
+            }            
+            h2 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 130%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            h3 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 120%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            a.bar
+            {
+                text-decoration: none;
+                display: block;
+                line-height: 1px;
+            }
+            .description
+            {
+                font-style: italic;
+            }
+            .log 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                display: block;
+                margin: 0px;
+            }
+            .errorMessage 
+            {
+                width: 600px;
+                color: Red;
+                font-weight: bold;
+            }
+            .stackTrace 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                font-style: italic;
+                color: Red;
+                display: block;
+            }
+            table.testEvents
+            {
+                border: solid 1px #e8eef4;
+                border-collapse: collapse;
+            }
+            table.testEvents td
+            {
+                vertical-align: top;
+                padding: 5px;
+                border: solid 1px #e8eef4;
+            }
+            table.testEvents th
+            {
+                padding: 6px 5px;
+                text-align: left;
+                background-color: #e8eef4;
+                border: solid 1px #e8eef4;                
+            }
+            .comment
+            {
+                font-style: italic;
+                font-size: smaller;
+            }
+            .startupBar
+            {
+                background-color: #EEEEEE;
+                cursor: default;
+            }
+            
+            .colorSucceeded
+            {
+                background-color: #90ED7B;
+            }
+            .colorIgnored
+            {
+                background-color: #FFFF85;
+            }
+            .colorPending
+            {
+                background-color: #D47BED;
+            }
+            .colorNothingToRun
+            {
+                background-color: #CCCCFF;
+            }
+            .colorSkipped
+            {
+                background-color: #CCCCFF;
+            }
+            .colorInconclusive
+            {
+                background-color: #7BEDED;
+            }
+            .colorCleanupFailed
+            {
+                background-color: #FFCCCC;
+            }
+            .colorRandomlyFailed
+            {
+                background-color: #EDB07B;
+            }
+            .colorFailed
+            {
+                background-color: #ED5F5F;
+            }
+            .colorInitializationFailed
+            {
+                background-color: #FF0000;
+            }
+            .colorFrameworkError
+            {
+                background-color: #FF0000;
+            }
+            ul.subNodeLinks
+            {
+                padding-left: 20px;
+                margin: 0px;
+            }
+            ul.subNodeLinks li
+            {
+                list-style: none;
+            }
+            
+            /* views general */
+            div.scrollable
+            {
+                /*overflow: auto; - thsi has to be set from js, because of an IE9 bug */
+            }
+            div.viewbox
+            {
+                position: relative;
+                border: 3px solid #e8eef4;
+            }
+            div.viewbox table
+            {
+                border: 0px;
+            }
+                        
+            /* testview */
+            #testview
+            {
+                padding-top: 23px;
+            }
+            
+            table.testview-items td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 1px;
+            }
+            td.right-padding, td.left-padding
+            {
+                width: 25px;
+                min-width: 25px;
+            }
+            table.testview-items a.bar
+            {
+                width: 5px;
+            }
+            table.testview-items tr.testview-items-row
+            {
+                height: 60px;
+            }
+            
+            /* scale */
+            table.vertical-scale 
+            {
+                position: absolute;
+                top: 23px;
+                left: 0px;
+                width: 100%;
+                z-index: -100;
+            }
+            table.vertical-scale td, tr.horizontal-scale td
+            {
+                font-size: 60%;
+                line-height: normal;
+            }
+            table.vertical-scale tr.scale-max, table.vertical-scale tr.scale-mid 
+            {
+                height: 30px;
+            }
+            tr.horizontal-scale, table.vertical-scale tr.scale-min 
+            {
+                height: 12px;
+            }
+            
+            td.scale-max-label, td.scale-mid-label, td.scale-min-label
+            {
+                border-top: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: top;
+            }
+            td.scale-10-label
+            {
+                border-left: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: bottom;
+                padding-left: 1px;
+            }
+            tr.scale-mid td, tr.scale-min td, tr.scale-max td
+            {
+                border-top: solid 1px #E6E6E6;
+            }
+           
+            
+            /* bar-control */
+            #bar-control
+            {
+                font-size: 60%;
+                line-height: normal;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+            #bar-control label
+            {
+                font-weight: bold;
+                vertical-align: middle;
+            }
+            #bar-control .option
+            {
+                vertical-align: middle;
+                text-transform: lowercase;
+            }
+            #bar-control input[type="checkbox"]
+            {
+                padding: 0 2px 0 3px;
+            }
+            #bar-control input
+            {
+                vertical-align: top;
+                height: 12px;
+                margin: 0px;
+                padding: 0px;
+            }
+            #bar-control div
+            {
+                float: right;
+                margin: 3px 5px 3px 5px;
+            }
+            
+            
+            /* timeline view */
+            #timelineview
+            {
+                padding-top: 5px;
+            }
+            table.timelineview a
+            {
+                height: 20px;
+            }
+            table.timelineview td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 0px;
+                border: 0px;
+            }
+            tr.thread-items-row
+            {
+                height: 25px;
+            }
+            tr.thread-items-row td
+            {
+                vertical-align: bottom;
+            }
+            td.thread-label
+            {
+                padding: 0px 6px 0px 6px;
+                text-align: right;
+                line-height: 18px;
+                vertical-align: bottom;
+            }
+            th.thread-label
+            {
+                padding: 3px 6px 0px 6px;
+                line-height: 18px;
+                text-align: left;
+                vertical-align: bottom;
+            }
+        </style>
+	</head>
+	<body>
+        <h1>@Model.Configuration.ProjectName Test Execution Report</h1>
+        <ul>
+            <li>Project: @Model.Configuration.ProjectName</li>
+            <li>Configuration: @Model.Configuration.Name</li>
+            <li>Test Assemblies: @string.Join(", ", Model.Configuration.TestAssemblyPaths)</li>
+            <li>Start Time: @Model.ExecutionTime.StartTime</li>
+            <li>Duration: @Model.ExecutionTime.Duration</li>
+            <li>Test Threads: @Model.TestThreads.Count</li>
+            @if (Model.FrameworkError != null)
+            {
+                <li><div class="errorMessage">Execution framework error: @(Model.FrameworkError.ToString())</div></li>
+            }
+        </ul>
+
+        <h2>Result: @Model.Summary.ConcludedResultMessage</h2>
+        <table class="testEvents">
+            @GetSummaryHeader(null)
+            @GetSummaryRow(Model.Summary, null, null)
+        </table>
+        
+        <h2>Test Timeline Summary</h2>
+        @{
+            double msecPerPixel = Model.ExecutionTime.DurationMilliseconds / (Model.TestExecutionResults.Count() * 7);
+            var secScale = Math.Max(1.0, Math.Round((msecPerPixel / 1000 * 70) / 2) * 2);
+            var scaleItemCount = (int)Math.Floor(Model.ExecutionTime.DurationSeconds / secScale) + 1;
+            var pixelScale = secScale * 1000 / msecPerPixel;
+        }
+        <div id="timelineview" class="viewbox">
+            <div class="scrollable">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th class="thread-label" colspan="2">thread</th>
+                    </tr>
+                    @foreach (var testThread in Model.TestThreads)
+                    {
+                        <tr class="thread-items-row">
+                            <td class="thread-label" title="Machine: @testThread.MachineName">#@testThread.ThreadId</td>
+                            <td colspan="@scaleItemCount">
+                                <table class="timelineview" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        @{
+                        currentPixel = 0;
+                                        }
+                                        @GetTimelineBar(Model.ExecutionTime.StartTime, testThread.ExecutionTime.StartTime, msecPerPixel, null)
+                                        @foreach (var test in Model.TestExecutionResults.Where(tr => tr.ThreadId == testThread.ThreadId).OrderBy(tr => tr.ExecutionOrder))
+                                        {
+                                            @GetTimelineBar(test.ExecutionTime.StartTime, test.ExecutionTime.EndTime, msecPerPixel, test)
+                                        }
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    }
+                    <tr class="horizontal-scale">
+                        <td>&nbsp;</td>
+                        @for (int scaleIndex = 0; scaleIndex < scaleItemCount - 1; scaleIndex++)
+                        {
+                            var width = (int)(Math.Round((scaleIndex + 1) * pixelScale) - Math.Round((scaleIndex) * pixelScale));
+                            <td class="scale-10-label" style="width: @(width)px;min-width: @(width)px;">@Math.Round(secScale * scaleIndex)s</td>
+                        }
+                        <td class="scale-10-label">@Math.Round(secScale * (scaleItemCount - 1))s</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Test Result View</h2>
+        <div id="testview" class="viewbox">
+            <div id="bar-control">
+                <div id="bar-control-sort">
+                    <label>sort by:</label>
+                    <span class="option"><input type="radio" name="barSortOrder" value="exectime" />Time</span>
+                    <span class="option"><input type="radio" name="barSortOrder" value="acttime" />Act Time</span>
+                    <span class="option"><input type="radio" name="barSortOrder" value="order" />Execution</span>
+                    <span class="option"><input type="radio" name="barSortOrder" value="rescode" checked="checked" />Result</span>
+                    <span class="option"><input type="checkbox" name="barSortDesc" id="barSortDesc" checked="checked" />desc</span>
+                </div>
+                <div id="bar-control-heights">
+                    <label>heights:</label>
+                    <span class="option"><input type="radio" checked="checked" name="barHeight" value="exectime" />Time</span>
+                    <span class="option"><input type="radio" name="barHeight" value="acttime" />Act Time</span>
+                    @*<span class="option"><input type="radio" name="barHeight" value="rescode" />Result </span>*@
+                </div>
+            </div>
+            <table class="vertical-scale" cellpadding="0" cellspacing="0">
+                <tr class="scale-max">
+                    <td class="left-padding scale-max-label">&nbsp;</td>
+                    <td colspan="@Model.TestExecutionResults.Count()">&nbsp;</td>
+                    <td class="right-padding">&nbsp;</td>
+                </tr>
+                <tr class="scale-mid">
+                    <td class="left-padding scale-mid-label">&nbsp;</td>
+                    <td colspan="@Model.TestExecutionResults.Count()">&nbsp;</td>
+                    <td class="right-padding">&nbsp;</td>
+                </tr>
+                <tr class="scale-min">
+                    <td class="left-padding scale-min-label">&nbsp;</td>
+                    <td colspan="@Model.TestExecutionResults.Count()">&nbsp;</td>
+                    <td class="right-padding">&nbsp;</td>
+                </tr>
+            </table>
+            <div class="scrollable">
+                <table class="testview-items" cellpadding="0" cellspacing="0">
+                    <tr class="testview-items-row">
+                        <td class="left-padding">&nbsp;</td>
+                        @foreach (var test in Model.TestExecutionResults.OrderBy(tr => tr.ResultType))
+                        {
+                            @GetReportBar(test);
+                        }
+                        <td class="right-padding">&nbsp;</td>
+                    </tr>
+                    <tr class="horizontal-scale">
+                        <td class="left-padding">&nbsp;</td>
+                        <td colspan="10">&nbsp;</td>
+                        @for (int test10Index = 1; test10Index < Model.TestExecutionResults.Count() / 10; test10Index++)
+                        {
+                            <td class="scale-10-label" colspan="10">@(test10Index * 10)</td>
+                        }
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Feature Summary</h2>
+        <table class="testEvents">
+            @GetSummaryHeader("Feature")
+            @foreach (var fixtureNode in GetTextFixtures())
+            {
+                var fixtureSummary = GetSummary(fixtureNode);
+                @GetSummaryRow(fixtureSummary, GetFixtureTitle(fixtureNode), GetTestNodeAnchor(fixtureNode, "f"))
+            }
+        </table>
+
+        <a name="error_summary" />
+        <h2>Error Summary</h2>
+        <table class="testEvents">
+            @GetSummaryHeader("Test")
+            @foreach (var testResult in Model.Tests.Where(tr => tr.Result.GetGroup() == TestNodeResultTypeGroup.Failure))
+            {
+                var testSummary = GetSummary(testResult.TestNode);
+                <tr>
+                    <td>
+                        <a href="#@GetTestNodeAnchor(testResult.TestNode, "t", 0)">@GetTestTitle(testResult)</a>
+                        @foreach (var retry in testResult.Executions.Skip(1))
+                        {
+                            <a href="#@GetTestAnchor(retry)">retry #@retry.TestItemExecutionIndex</a>
+                        }
+                    </td>
+                    @GetSummaryRowTail(testSummary)
+                </tr>
+                if (!string.IsNullOrEmpty(testResult.Error))
+                {
+                <tr>
+                    <td colspan="9" style="padding-left: 20px;"><div class="errorMessage">Error: @(testResult.Error)</div></td>
+                </tr>
+                }
+            }
+        </table>
+
+        <h2>Scenario Summary</h2>
+        @foreach (var fixtureNode in GetTextFixtures())
+        {
+            <a name="@GetTestNodeAnchor(fixtureNode, "f")" />
+            <h3>@fixtureNode.Type: @GetFixtureTitle(fixtureNode)</h3>
+            if (!string.IsNullOrEmpty(fixtureNode.Description))
+            {
+                <div class="description"><pre>@fixtureNode.Description</pre>
+                </div>
+            }
+            <table class="testEvents">
+                @GetSummaryHeader("Test")
+                @foreach (var testNode in fixtureNode.SubNodes)
+                {
+                    var testSummary = GetSummary(testNode);
+                    <tr>
+                        <td>
+                            @TestNodeLinks(testNode, 0)
+                        </td>
+                        @GetSummaryRowTail(testSummary)
+                    </tr>
+                }
+            </table>
+        }
+
+        <h2>Execution Details</h2>
+        @foreach (var test in Model.TestExecutionResults.OrderBy(tr => tr.ExecutionOrder))
+        {
+            var testItem = test.TestItemResult.TestNode;
+            <a name="@GetTestAnchor(test)" />
+            <h3>@testItem.Type: @GetTestTitle(test)</h3>
+            if (!string.IsNullOrEmpty(testItem.Description))
+            {
+                <div class="description">
+                    <pre>@testItem.Description</pre>
+                </div>
+            }
+            if (testItem.Tags.Any())
+            {
+                <div class="description">
+                    tags: @string.Join(", ", testItem.Tags)
+                </div>
+            }
+            <ul>
+                <li>Status: @test.ResultType</li>
+                <li>Start time: @test.ExecutionTime.StartTime</li>
+                <li>Execution time (sec): @test.ExecutionTime.DurationSeconds</li>
+                <li>Thread: #@test.ThreadId</li>
+                @if (!string.IsNullOrEmpty(test.Result.Error))
+                {
+                <li>Error: @(test.Result.Error)</li>
+                }
+            </ul>
+            
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                @foreach (var traceEvent in test.Result.TraceEvents)
+                {
+	                if (!IsRelevant(traceEvent))
+	                {
+		                continue;
+	                }
+	                var relatedNode = GetTestNode(traceEvent);
+                    <tr>
+                        <td>
+                            <pre class="log">@(traceEvent.BusinessMessages.TrimEnd())</pre>
+                        </td>
+                        <td>
+                            <!-- [@traceEvent.Type: @relatedNode.Type - @relatedNode.Title] -->
+                            <pre class="log">@Raw(FormatTechMessages(traceEvent.TechMessages.TrimEnd()))</pre>
+                            @if (!string.IsNullOrEmpty(traceEvent.Error))
+                            {
+                                <div class="errorMessage">@Raw(FormatTechMessages(traceEvent.Error))</div>
+                                <pre class="stackTrace">@Raw(FormatTechMessages(traceEvent.StackTrace.TrimEnd()))</pre>
+                            }
+                        </td>
+                        <td>@traceEvent.ResultType in @GetSeconds(Math.Round(traceEvent.Duration.TotalSeconds, 3))s</td>
+                    </tr>
+                }
+            </table>
+        }
+	</body>
+</html>

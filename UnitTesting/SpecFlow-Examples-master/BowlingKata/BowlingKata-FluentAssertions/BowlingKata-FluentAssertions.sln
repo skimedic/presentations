@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling", "Bowling\Bowling.csproj", "{BE4E573D-A98B-4ADF-8FA5-C1327CBDA0DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling.SpecFlow", "Bowling.SpecFlow\Bowling.SpecFlow.csproj", "{288C1169-F991-4A1F-BE90-78F553762FFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE4E573D-A98B-4ADF-8FA5-C1327CBDA0DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE4E573D-A98B-4ADF-8FA5-C1327CBDA0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE4E573D-A98B-4ADF-8FA5-C1327CBDA0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE4E573D-A98B-4ADF-8FA5-C1327CBDA0DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{288C1169-F991-4A1F-BE90-78F553762FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{288C1169-F991-4A1F-BE90-78F553762FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{288C1169-F991-4A1F-BE90-78F553762FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{288C1169-F991-4A1F-BE90-78F553762FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1E47C32-E07D-495E-B58D-BAFCDDD12228}
+	EndGlobalSection
+EndGlobal

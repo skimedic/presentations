@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
+  <Settings projectName="MutipleReports" projectId="{c7c42b43-84e4-4139-9df6-4f08ce0d4117}" />
+  <Execution stopAfterFailures="3" testThreadCount="1" testSchedulingMode="Sequential" />
+  <TestAssemblyPaths>
+    <TestAssemblyPath>MutipleReports.dll</TestAssemblyPath>
+  </TestAssemblyPaths>
+  <Report>
+	  <Template name="Templates\ReportTemplate.cshtml" outputName="Report.html" existingFileHandlingStrategy="IncrementFilename"/>
+    <Template name="Templates\ReportTemplate_Json.cshtml" outputName="Report_Json.json" existingFileHandlingStrategy="Overwrite"/>
+    <Template name="Templates\ReportTemplate_Xml.cshtml" outputName="Report_Xml.xml" existingFileHandlingStrategy="Default"/>
+  </Report>
+</TestProfile>

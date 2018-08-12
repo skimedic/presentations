@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
+  <Settings projectName="ExcelExample" projectId="{b5fe505b-a5c1-43b9-80ae-df858b5e3e63}" />
+  <Execution stopAfterFailures="3" testThreadCount="1" testSchedulingMode="Sequential" />
+  <TestAssemblyPaths>
+    <TestAssemblyPath>ExcelExample.dll</TestAssemblyPath>
+  </TestAssemblyPaths>
+</TestProfile>
