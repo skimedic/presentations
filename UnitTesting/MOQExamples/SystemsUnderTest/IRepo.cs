@@ -14,12 +14,9 @@ using System.Linq.Expressions;
 
 namespace MOQExamples.SystemsUnderTest
 {
-    public interface IOrder
-    {
-        Customer CustomerOnOrder { get;set; }
-    }
     public interface IRepo
     {
+        event EventHandler FailedDatabaseRequest;
         int TenantId { get; set; }
         Customer Find(int id);
         IList<Customer> GetSome(Expression<Func<Customer, bool>> where);

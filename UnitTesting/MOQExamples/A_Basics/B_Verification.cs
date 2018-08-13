@@ -6,7 +6,7 @@ using Xunit;
 
 namespace MOQExamples.A_Basics
 {
-    public class B_FirstExample
+    public class B_Verification
     {
         [Fact]
         public void Should_Verify_Mock_Functions_Executed_Marked_Verifiable()
@@ -24,6 +24,22 @@ namespace MOQExamples.A_Basics
             Assert.Equal(name, actual.Name);
             mock.Verify(call);
         }
+
+        [Fact]
+        public void Should_Verify_Times_Executed()
+        {
+            var id = 12;
+            var name = "Fred Flinstone";
+            var customer = new Customer { Id = id, Name = name };
+            var mock = new Mock<IRepo>();
+            Expression<Func<IRepo, Customer>> call = x => x.Find(id);
+            mock.Setup(call).Returns(customer).Verifiable("Method not called");
+            var controller = new TestController(mock.Object);
+            var actual1 = controller.GetCustomer(id);
+            //var actual2 = controller.GetCustomer(id);
+            mock.Verify(call, Times.Once);
+        }
+
 
         [Fact]
         public void Should_Verify_All_Mock_Functions()

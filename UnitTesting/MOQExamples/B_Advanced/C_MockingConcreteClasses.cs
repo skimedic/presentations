@@ -14,7 +14,7 @@ using Xunit;
 
 namespace MOQExamples.B_Advanced
 {
-    public class B_MockingConcreteClasses
+    public class C_MockingConcreteClasses
     {
         [Fact]
         public void ShouldReplaceConcreteImplementation()

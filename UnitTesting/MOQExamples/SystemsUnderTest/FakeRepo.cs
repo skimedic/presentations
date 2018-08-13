@@ -6,6 +6,7 @@ namespace MOQExamples.SystemsUnderTest
 {
     public class FakeRepo : IRepo
     {
+        public event EventHandler FailedDatabaseRequest;
         public int TenantId { get; set; }
 
         public Customer Find(int id)

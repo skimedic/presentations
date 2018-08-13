@@ -10,7 +10,7 @@ namespace MOQExamples.A_Basics
     public class C_Properties
     {
         [Fact]
-        public void Should_Mock_Properties()
+        public void Should_Mock_Properties_Specifically()
         {
             var mock = new Mock<IRepo>();
             var tenantId = 5;
@@ -18,6 +18,25 @@ namespace MOQExamples.A_Basics
 
             var controller = new TestController(mock.Object);
             Assert.Equal(tenantId,controller.TenantId());
+        }
+
+        [Fact]
+        public void Should_Stub_Properties()
+        {
+            var mock = new Mock<IRepo>();
+            var tenantId = 5;
+            //Setup without a default value
+            //mock.SetupProperty(x => x.TenantId);
+
+            //This sets a default value
+            mock.SetupProperty(x => x.TenantId,tenantId);
+
+            var controller = new TestController(mock.Object);
+            Assert.Equal(tenantId,controller.TenantId());
+
+            var newTenantId = 12;
+            mock.Object.TenantId = newTenantId;
+            Assert.Equal(newTenantId, controller.TenantId());
         }
 
         [Fact]
@@ -42,5 +61,6 @@ namespace MOQExamples.A_Basics
 
             Assert.Equal("Elm",controller.GetCustomer().AddressNavigation.StreetName);
         }
+
     }
 }
