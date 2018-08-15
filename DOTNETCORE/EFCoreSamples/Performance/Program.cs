@@ -14,10 +14,11 @@ namespace Performance
             RunToListTest();
             RunToListTestUntracked();
             RunToListTestQueryType();
-            //RunComplexQueryTest();
-            //RunComplexQueryTestCorevsCore();
-            //RunAddAndSaveChangesTest();
-            //RunAddAndSaveChangesOptimizedTest();
+            RunToListTestCoreVsQueryType();
+            RunComplexQueryTest();
+            RunComplexQueryTestCorevsCore();
+            RunAddAndSaveChangesTest();
+            RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
@@ -66,7 +67,7 @@ namespace Performance
 
         private static void RunToListTestQueryType()
         {
-            Console.WriteLine("Query 19K ToList UnTracked");
+            Console.WriteLine("Query 19K ToList Query Type");
             RunTest(
                 ef6Test: () =>
                 {
@@ -83,6 +84,29 @@ namespace Performance
                         db.CustomersQuery.ToList();
                     }
                 });
+        }
+        private static void RunToListTestCoreVsQueryType()
+        {
+            Console.WriteLine("Query 19K ToList UnTracked vs QueryType");
+            RunTest(
+                ef6Test: () =>
+                {
+                    using (var db = new PerformanceEfCore.EFCore.Context
+                        .AdventureWorksContext())
+                    {
+                        db.Customers.AsNoTracking().ToList();
+                    }
+                },
+                ef7Test: () =>
+                {
+                    using (var db = new PerformanceEfCore.EFCore.Context
+                        .AdventureWorksContext())
+                    {
+                        db.CustomersQuery.ToList();
+                    }
+                },
+                firstLabel: "-  Untracked",
+                secondLabel: "- QueryType");
         }
 
         private static void RunComplexQueryTest()
@@ -219,7 +243,7 @@ namespace Performance
                 ef7Test();
                 stopwatch.Stop();
                 var efCore = stopwatch.ElapsedMilliseconds;
-                Console.WriteLine($"{secondLabel}:    {efCore.ToString().PadLeft(4)}ms");
+                Console.Write($"{secondLabel}:    {efCore.ToString().PadLeft(4)}ms");
 
                 var result = (ef6 - efCore) / (double)ef6;
                 Console.WriteLine($"  - Improvement: {result.ToString("P0")}");

@@ -24,9 +24,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specflow.Bowling", "SpecFlo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MOQExamples", "MOQExamples\MOQExamples.csproj", "{8476ECBD-F718-4796-96B8-8462F6900B59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreTests", "EFCoreTests\EFCoreTests.csproj", "{E2287A3F-D3EB-4E5E-AACA-76CB750EE55C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreTests", "EFCoreTests\EFCoreTests.csproj", "{E2287A3F-D3EB-4E5E-AACA-76CB750EE55C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreSamples", "EFCoreSamples\EFCoreSamples.csproj", "{425F625A-37C3-4A6A-BCCD-0FAC04142358}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreSamples", "EFCoreSamples\EFCoreSamples.csproj", "{425F625A-37C3-4A6A-BCCD-0FAC04142358}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Channel9Kickoff", "Channel9Kickoff\Channel9Kickoff.csproj", "{952864CD-27E6-4635-91E4-E6D72F85987A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +72,10 @@ Global
 		{425F625A-37C3-4A6A-BCCD-0FAC04142358}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{425F625A-37C3-4A6A-BCCD-0FAC04142358}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{425F625A-37C3-4A6A-BCCD-0FAC04142358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{952864CD-27E6-4635-91E4-E6D72F85987A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{952864CD-27E6-4635-91E4-E6D72F85987A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{952864CD-27E6-4635-91E4-E6D72F85987A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{952864CD-27E6-4635-91E4-E6D72F85987A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
