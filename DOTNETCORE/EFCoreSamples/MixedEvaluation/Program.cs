@@ -28,7 +28,7 @@ namespace MixedEvaluation
         private static BloggingContext CreateDb(bool allowMixedMode)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.MixedEvaluation;Trusted_Connection=True;";
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.MixedEvaluation;Integrated Security=true;";
 
             if (allowMixedMode)
             {

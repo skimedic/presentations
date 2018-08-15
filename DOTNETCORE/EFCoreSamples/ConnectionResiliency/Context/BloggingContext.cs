@@ -19,7 +19,7 @@ namespace ConnectionResiliency.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString =
-                @"Server=(localdb)\mssqllocaldb;Database=Demo.ConnectionResiliency;Trusted_Connection=True;";
+                @"Server=(localdb)\mssqllocaldb;Database=Demo.ConnectionResiliency;Integrated Security=true;";
             // EnablesRetryOnFailure adds default SqlServerRetryingExecutionStrategy
             if (!optionsBuilder.IsConfigured)
             {

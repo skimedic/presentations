@@ -19,7 +19,7 @@ namespace MixedEvaluation.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.MixedEvaluation;Trusted_Connection=True;";
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.MixedEvaluation;Integrated Security=true;";
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder

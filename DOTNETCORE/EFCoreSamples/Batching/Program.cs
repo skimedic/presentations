@@ -53,7 +53,7 @@ namespace Batching
         private static DbContextOptions<BloggingContext> CreateOptions(bool useCustomBatching)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.Batching;Trusted_Connection=True;";
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.Batching;Integrated Security=true;";
 
             if (useCustomBatching)
             {

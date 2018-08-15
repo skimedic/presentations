@@ -12,7 +12,7 @@ namespace FieldMapping.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Demo.FieldMapping;Trusted_Connection=True;");
+                .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Demo.FieldMapping;Integrated Security=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

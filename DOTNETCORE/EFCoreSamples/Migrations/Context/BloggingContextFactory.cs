@@ -8,7 +8,7 @@ namespace Migrations.Context
         public BloggingContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.Migrations;Trusted_Connection=True;";
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.Migrations;Integrated Security=true;";
             optionsBuilder.UseSqlServer(connectionString);
             return new BloggingContext(optionsBuilder.Options);
         }
