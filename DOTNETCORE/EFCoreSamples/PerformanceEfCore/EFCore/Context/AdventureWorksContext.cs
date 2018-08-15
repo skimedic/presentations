@@ -17,6 +17,9 @@ namespace PerformanceEfCore.EFCore.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder
+                .Query<CustomerQuery>().ToView("Customer","Sales");
+
             modelBuilder.Entity<ProductCategory>()
                 .Property(e => e.ModifiedDate)
                 .ValueGeneratedOnAddOrUpdate();
@@ -2243,7 +2246,7 @@ namespace PerformanceEfCore.EFCore.Context
                     .OnDelete(DeleteBehavior.Restrict);
             });
         }
-
+        public virtual DbQuery<CustomerQuery> CustomersQuery { get; set; }
         public virtual DbSet<AWBuildVersion> AWBuildVersion { get; set; }
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<AddressType> AddressType { get; set; }

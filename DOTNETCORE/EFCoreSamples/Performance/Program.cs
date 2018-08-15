@@ -12,10 +12,12 @@ namespace Performance
         {
             ResetAndWarmup();
             RunToListTest();
-            RunComplexQueryTest();
-            RunComplexQueryTestCorevsCore();
-            RunAddAndSaveChangesTest();
-            RunAddAndSaveChangesOptimizedTest();
+            RunToListTestUntracked();
+            RunToListTestQueryType();
+            //RunComplexQueryTest();
+            //RunComplexQueryTestCorevsCore();
+            //RunAddAndSaveChangesTest();
+            //RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
@@ -38,6 +40,47 @@ namespace Performance
                         .AdventureWorksContext())
                     {
                         db.Customers.ToList();
+                    }
+                });
+        }
+        private static void RunToListTestUntracked()
+        {
+            Console.WriteLine("Query 19K ToList UnTracked");
+            RunTest(
+                ef6Test: () =>
+                {
+                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
+                    {
+                        db.Customers.ToList();
+                    }
+                },
+                ef7Test: () =>
+                {
+                    using (var db = new PerformanceEfCore.EFCore.Context
+                        .AdventureWorksContext())
+                    {
+                        db.Customers.AsNoTracking().ToList();
+                    }
+                });
+        }
+
+        private static void RunToListTestQueryType()
+        {
+            Console.WriteLine("Query 19K ToList UnTracked");
+            RunTest(
+                ef6Test: () =>
+                {
+                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
+                    {
+                        db.Customers.ToList();
+                    }
+                },
+                ef7Test: () =>
+                {
+                    using (var db = new PerformanceEfCore.EFCore.Context
+                        .AdventureWorksContext())
+                    {
+                        db.CustomersQuery.ToList();
                     }
                 });
         }

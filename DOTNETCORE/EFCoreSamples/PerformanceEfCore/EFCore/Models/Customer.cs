@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace PerformanceEfCore.EFCore.Models
 {
-    public partial class Customer
+    public class CustomerQuery : CustomerBase
     {
-        public Customer()
-        {
-            SalesOrderHeaders = new HashSet<SalesOrderHeader>();
-        }
 
+    }
+
+    public class CustomerBase
+    {
         public int CustomerID { get; set; }
         public int? PersonID { get; set; }
         public int? StoreID { get; set; }
@@ -18,7 +18,15 @@ namespace PerformanceEfCore.EFCore.Models
         public Guid rowguid { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; }
+    }
+    public partial class Customer : CustomerBase
+    {
+        public Customer()
+        {
+        }
+
+        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } 
+            = new HashSet<SalesOrderHeader>();
         public virtual Person Person { get; set; }
         public virtual Store Store { get; set; }
         public virtual SalesTerritory Territory { get; set; }
