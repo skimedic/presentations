@@ -36,6 +36,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_Like", "Like\10_Like.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "09_GlobalQueryFilters", "GlobalQueryFilters\09_GlobalQueryFilters.csproj", "{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_ChangeTrackingEvents", "ChangeTrackingEvents\13_ChangeTrackingEvents.csproj", "{E5366932-8A30-478D-9E80-D9A04093E0F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -214,6 +216,18 @@ Global
 		{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}.Release|x64.Build.0 = Release|Any CPU
 		{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}.Release|x86.ActiveCfg = Release|Any CPU
 		{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}.Release|x86.Build.0 = Release|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Debug|x64.Build.0 = Debug|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Debug|x86.Build.0 = Debug|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Release|x64.ActiveCfg = Release|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Release|x64.Build.0 = Release|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Release|x86.ActiveCfg = Release|Any CPU
+		{E5366932-8A30-478D-9E80-D9A04093E0F4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

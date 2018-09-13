@@ -1,4 +1,6 @@
-﻿namespace Migrations.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Migrations.Models
 {
     public class Post
     {
@@ -7,6 +9,8 @@
         public string Content { get; set; }
 
         public int BlogId { get; set; }
-        public Blog Blog { get; set; }
+        [ForeignKey(nameof(BlogId))]
+        [InverseProperty(nameof(Blog.Posts))]
+        public Blog BlogNavigation { get; set; }
     }
 }

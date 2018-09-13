@@ -18,7 +18,7 @@ namespace Performance
             RunComplexQueryTest();
             RunComplexQueryTestCorevsCore();
             RunAddAndSaveChangesTest();
-            RunAddAndSaveChangesOptimizedTest();
+            //RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();

@@ -17,7 +17,7 @@ namespace Migrations.EFStructures.Migrations
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Migrations.Models.Blog", b =>
+            modelBuilder.Entity("Migrations.Models.BlogNavigation", b =>
                 {
                     b.Property<int>("BlogId")
                         .ValueGeneratedOnAdd();
