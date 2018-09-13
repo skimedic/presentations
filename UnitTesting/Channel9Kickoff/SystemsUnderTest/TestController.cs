@@ -38,12 +38,13 @@ namespace Channel9Kickoff.SystemsUnderTest
             try
             {
                 return _repo.Find(id);
-
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                throw;
+                _logger.Error(ex.Message);
             }
+
+            return null;
         }
 
         public void SaveCustomer(Customer customer)

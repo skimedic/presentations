@@ -37,6 +37,7 @@ namespace MOQExamples.SystemsUnderTest
         {
             try
             {
+                _repo.AddRecord(new Customer());
                 return _repo.Find(id);
 
             }

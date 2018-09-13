@@ -14,6 +14,7 @@ namespace MOQExamples.A_Basics
         [Fact]
         public void Should_Mock_Function_With_Return_Value()
         {
+            //Arrange
             var id = 12;
             var name = "Fred Flinstone";
             var customer = new Customer {Id = id, Name = name};
@@ -21,7 +22,9 @@ namespace MOQExamples.A_Basics
             mock.Setup(x => x.Find(id)).Returns(customer);
 
             var controller = new TestController(mock.Object);
+            //Act
             var actual = controller.GetCustomer(id);
+            //Assert
             Assert.Same(customer,actual);
             Assert.Equal(id,actual.Id);
             Assert.Equal(name,actual.Name);

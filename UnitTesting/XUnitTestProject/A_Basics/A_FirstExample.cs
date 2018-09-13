@@ -30,7 +30,8 @@ namespace XUnitTestProject.A_Basics
         [Fact(DisplayName = "Ignored Test - Custom Display Name", Skip="this can be anything")]
         public void ThisIsIgnored()
         {
-
+            //TODO: Fix this test
+            //Hack: I ignored this test
         }
     }
 }
