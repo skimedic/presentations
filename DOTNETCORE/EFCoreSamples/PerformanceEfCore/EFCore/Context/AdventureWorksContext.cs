@@ -6,6 +6,11 @@ namespace PerformanceEfCore.EFCore.Context
 {
     public partial class AdventureWorksContext : DbContext
     {
+        public virtual DbQuery<CustomerQuery> CustomersQuery { get; set; }
+        public virtual DbQuery<CustomerView> CustomersView { get; set; }
+
+        public virtual DbQuery<ModelForTestingQueryType> ModelForTestingQueryType { get; set; }
+
         [NotMapped]
         public DbSet<ModelForTesting> ModelForTestings { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -19,6 +24,9 @@ namespace PerformanceEfCore.EFCore.Context
         {
             modelBuilder
                 .Query<CustomerQuery>().ToView("Customer","Sales");
+
+            modelBuilder
+                .Query<CustomerView>().ToView("CustomerView","dbo");
 
             modelBuilder.Entity<ProductCategory>()
                 .Property(e => e.ModifiedDate)
@@ -2246,7 +2254,6 @@ namespace PerformanceEfCore.EFCore.Context
                     .OnDelete(DeleteBehavior.Restrict);
             });
         }
-        public virtual DbQuery<CustomerQuery> CustomersQuery { get; set; }
         public virtual DbSet<AWBuildVersion> AWBuildVersion { get; set; }
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<AddressType> AddressType { get; set; }

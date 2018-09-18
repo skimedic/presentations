@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace PerformanceEfCore.EFCore.Models
 {
+    public class CustomerView : CustomerBase
+    {
+
+    }
+
     public class CustomerQuery : CustomerBase
     {
 

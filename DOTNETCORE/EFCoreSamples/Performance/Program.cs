@@ -15,10 +15,11 @@ namespace Performance
             RunToListTestUntracked();
             RunToListTestQueryType();
             RunToListTestCoreVsQueryType();
+            RunToListTestCoreVsQueryTypeAsView();
             RunComplexQueryTest();
-            RunComplexQueryTestCorevsCore();
+            //RunComplexQueryTestCorevsCore();
             RunAddAndSaveChangesTest();
-            //RunAddAndSaveChangesOptimizedTest();
+            RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
@@ -109,6 +110,30 @@ namespace Performance
                 secondLabel: "- QueryType");
         }
 
+        private static void RunToListTestCoreVsQueryTypeAsView()
+        {
+            Console.WriteLine("Query 19K ToList Query Type vs QueryType From View");
+            RunTest(
+                ef6Test: () =>
+                {
+                    using (var db = new PerformanceEfCore.EFCore.Context
+                        .AdventureWorksContext())
+                    {
+                        db.CustomersQuery.ToList();
+                    }
+                },
+                ef7Test: () =>
+                {
+                    using (var db = new PerformanceEfCore.EFCore.Context
+                        .AdventureWorksContext())
+                    {
+                        db.CustomersView.ToList();
+                    }
+                },
+                firstLabel: "-  QueryType",
+                secondLabel: "- QueryTypeAsView");
+        }
+
         private static void RunComplexQueryTest()
         {
             Console.WriteLine("Query Complex");
@@ -141,6 +166,7 @@ namespace Performance
 
                         var el = Repo.GetComplexData(db);
                         //var el = Repo.CompiledQuery(db).ToList();
+                        //var el = Repo.GetComplexDataQueryType(db).ToList();
                     }
                 });
         }
@@ -159,7 +185,8 @@ namespace Performance
                 {
                     using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
                     {
-                        var el = Repo.CompiledQuery(db).ToList();
+                        //var el = Repo.CompiledQuery(db).ToList();
+                        var el = Repo.GetComplexDataQueryType(db).ToList();
                     }
                 },
                 firstLabel:"-  FromSQL",
