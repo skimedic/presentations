@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <title>Data Types</title>
+</head>
+<body>
+<script type="application/javascript" language="JavaScript">
+
+    var u = undefined;
+    console.log('var u = undefined; value is:' + u + '; type is:' + typeof(u));
+    var v;
+    console.log('var v; value is:' + v + '; type is:' + typeof(v));
+    var z = null;
+    console.log('var z = null; value is:' + z + '; type is:' + typeof(z));
+    var b = true;
+    console.log('var b = true; value is:' + b + '; type is:' + typeof(b));
+    var s = "a string";
+    console.log('var s = "a string"; value is:' + s + '; type is:' + typeof(s));
+    var i = 42;
+    console.log('var i = 42; value is:' + i + '; type is:' + typeof(i));
+    var n = 3.14159;
+    console.log('var n = 3.14159; value is:' + n + '; type is:' + typeof(n));
+    var o = {name: "Marcus", age: 16};
+    console.log('var o = {name: "Marcus", age: 16}; value is:' + o + '; type is:' + typeof(o));
+    var a = [1, "two", 3];
+    console.log('var a = [1, "two", 3]; value is:' + a + '; type is:' + typeof(a));
+    var d = new Date();
+    console.log('var d = new Date(); value is:' + d + '; type is:' + typeof(d));
+    var re = /str/;
+    console.log('var re = /str/; value is:' + re + '; type is:' + typeof(re));
+    var f = function () { return 2 + 2; };
+    console.log('var f = function () { return 2 + 2; }; value is:' + f + '; type is:' + typeof(f));
+    console.log('-------------------------------------');
+    var inf = 10/0;
+    console.log('var inf = 10/0; value is:' + inf + '; type is:' + typeof(inf));
+    var isnanum = 'abc';
+    console.log("var isnanum = 'abc'; value: " + isnanum + " value parsed: " + parseInt(isnanum)
+            + "; number check:" + !isNaN(isnanum) + '; type is:' + typeof(isnanum));
+    var isanum = '123';
+    console.log("var isanum = 'abc'; value: " + isanum + " value parsed: " + parseInt(isanum)
+            + "; number check:" + !isNaN(isanum) + '; type is:' + typeof(isanum));
+    console.log(isnanum + isanum);
+    console.log(isanum + isanum);
+    console.log(isanum + parseInt(isanum));
+    console.log(parseInt(isanum) + parseInt(isanum));
+    console.log("Null checking");
+    var fnc = (null == null);
+    console.log('null == null; value; ' + fnc);
+    var snc = (null === null);		{
+
+    console.log('null === null; value; ' + snc);
+    var nanc = (NaN != NaN);
+    console.log('NaN != NaN; value; ' + nanc);
+    var ic = (Infinity == Infinity);
+    console.log('Infinity == Infinity; value; ' + ic);
+
+</script>
+<pre>
+var u = undefined; <script type="application/javascript">document.write('value is: ' + u + '; type is: ' + typeof(u));</script>
+var v;  <script type="application/javascript">document.write('value is: ' + v + '; type is: ' + typeof(v));</script>
+var z = null; <script type="application/javascript">document.write('value is: ' + z + '; type is: ' + typeof(z));</script>
+var b = true; <script type="application/javascript">document.write('value is: ' + b + '; type is: ' + typeof(b));</script>
+var s = "a string"; <script type="application/javascript">document.write('value is: ' + s + '; type is: ' + typeof(s));</script>
+var i = 42; <script type="application/javascript">document.write('value is: ' + i + '; type is: ' + typeof(i));</script>
+var n = 3.14159; <script type="application/javascript">document.write('value is: ' + n + '; type is: ' + typeof(n));</script>
+var o = {name: "Marcus", age: 16}; <script type="application/javascript">document.write('value is: ' + o + '; type is: ' + typeof(o));</script>
+var a = [1, "two", 3]; <script type="application/javascript">document.write('value is: ' + a + '; type is: ' + typeof(a));</script>
+var d = new Date(); <script type="application/javascript">document.write('value is: ' + d + '; type is: ' + typeof(d));</script>
+var re = /str/; <script type="application/javascript">document.write('value is: ' + re + '; type is: ' + typeof(re));</script>
+var f = function () {
+    "use strict"
+    return 2 + 2;
+};   <script type="application/javascript">document.write('value is: ' + f + '; type is: ' + typeof(f));</script>
+<hr/>
+var foo = (null == null);         //true
+var foo = (null === null);        //true
+var foo = (NaN != NaN);           //true
+var foo = (Infinity == Infinity); //true
+</pre>
+
+</body>
+</html>

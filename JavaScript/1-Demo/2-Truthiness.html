@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Truthiness</title>
+</head>
+<body>
+<script type="application/javascript" language="JavaScript">
+
+    console.log('(false); value is: ' + Boolean(false) + ';'); //false
+    console.log('(null); value is: ' + Boolean(null) + ';'); //false
+    console.log('(undefined); value is: ' + Boolean(undefined) + ';'); //false
+    console.log('(""); value is: ' + Boolean("") + ';'); //false
+    console.log('(0); value is: ' + Boolean(0) + ';'); //false
+console.log('----------------------------------------');
+    var foobar = "foo";
+    if ("false" == false) {
+        foobar = 'false';
+    }
+    else {
+        var foobar = 'true';
+    }
+    console.log(foobar + "hi");
+    console.log('(true); value is: ' + Boolean(true) + ';');
+    console.log('(1); value is: ' + Boolean(1) + ';');
+    console.log('("a"); value is: ' + Boolean("a") + ';');
+    console.log('("false"); value is: ' + Boolean("false") + ';');
+    console.log('([]); value is: ' + Boolean([]) + ';');
+    console.log('({}); value is: ' + Boolean({}) + ';');
+</script>
+<pre>
+(false) <script type="application/javascript">document.write('value is: ' + Boolean(false) + ';');</script>
+(null) <script type="application/javascript">document.write('value is: ' + Boolean(null) + ';');</script>
+(undefined) <script type="application/javascript">document.write('value is: ' + Boolean(undefined) + ';');</script>
+("") <script type="application/javascript">document.write('value is: ' + Boolean("") + ';');</script>
+(0) <script type="application/javascript">document.write('value is: ' + Boolean(0) + ';');</script>
+<hr/>
+(true) <script type="application/javascript">document.write('value is: ' + Boolean(true) + ';');</script>
+(1) <script type="application/javascript">document.write('value is: ' + Boolean(1) + ';');</script>
+("a") <script type="application/javascript">document.write('value is: ' + Boolean("a") + ';');</script>
+("false") <script type="application/javascript">document.write('value is: ' + Boolean("false") + ';');</script>
+([])  <script type="application/javascript">document.write('value is: ' + Boolean([]) + ';');</script>
+({})  <script type="application/javascript">document.write('value is: ' + Boolean({}) + ';');</script>
+</pre>
+
+</body>
+</html>

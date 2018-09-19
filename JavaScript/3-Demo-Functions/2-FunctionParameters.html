@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Function Parameters</title>
+</head>
+<body>
+<pre>
+    function Person(name, age) {
+        if (name) {
+            this.name = name;
+        }
+        if (age) {
+            this.age = age;
+        }
+        // check for other arguments
+        if (arguments.length > 2) {
+            this.likes = Array.prototype.slice.call(arguments, 2);
+        }
+    }
+    var unknown = new Person();
+    var babyMarcus = new Person("Marcus");
+    var marcus = new Person("Marcus", 16);
+    var moreMarcus = new Person("Marcus", 16, "cheese", "pizza", "video games");
+    for (var index in moreMarcus.likes) {
+        document.write(index + ":" + moreMarcus.likes[index] + " || ");
+    }
+    </pre>
+<script type="application/javascript">
+    function Person(name, age) {
+        if (name) {
+            this.name = name;
+        }
+        if (age) {
+            this.age = age;
+        }
+        // check for other arguments
+        if (arguments.length > 2) {
+            this.likes = Array.prototype.slice.call(arguments, 2);
+        }
+    }
+    var unknown = new Person();
+    var babyMarcus = new Person("Marcus");
+    var marcus = new Person("Marcus", 16);
+    var moreMarcus = new Person("Marcus", 16, "cheese", "pizza", "video games");
+    for (var index in moreMarcus.likes) {
+        document.write(index + ":" + moreMarcus.likes[index] + " || ");
+    }
+</script>
+</body>
+</html>

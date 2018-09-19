@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript Reduce</title>
+</head>
+<body>
+<!--<input type="text" id="MyTextBox" name="MyTextBox" style="border: 1px solid red" /><br/>-->
+<!--<a href="foo.html" style="color: red;font-weight: bold;">Foo</a><br/>-->
+<span id="mySpan" style="color: red;font-weight: bold;">Foo</span><br/>
+<pre>
+    &lt;span id="mySpan" style="color: red;font-weight: bold;"&gt;Foo&lt;/span&gt;
+
+    function reducer(previousValue, currentValue, currentIndex, array1) {
+        if (previousValue) {
+            return previousValue[currentValue];
+        }
+        else {
+            return undefined;
+        }
+    };
+    function GetPropertyValue (item, itemProperties) {
+        return itemProperties.reduce(reducer, item);
+    };
+    var propValue = GetPropertyValue(mySpan,["style","font-weight"]);
+    document.write(propValue); //"bold"
+</pre>
+<!--<span style="color: red;">Foo</span><br/>-->
+<!--<input type="text" id="MyTextBox" name="MyTextBox" />-->
+<script type="application/javascript">
+    "use strict";
+    function reducer(previousValue, currentValue, currentIndex, array1) {
+        if (previousValue) {
+            return previousValue[currentValue];
+        }
+        else {
+            return undefined;
+        }
+    };
+    function GetPropertyValue (item, itemProperties) {
+        return itemProperties.reduce(reducer, item);
+    };
+//    document.addEventListener('DOMContentLoaded',function(){
+        var propValue = GetPropertyValue(mySpan,["style","font-weight"]);
+        document.write(propValue); //,"bold"
+//    });
+//    var b = foo[style];
+//    var c = b[font-weight];
+</script>
+</body>
+</html>

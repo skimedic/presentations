@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Self Executing Functions</title>
+</head>
+<body>
+<pre>
+    //old way
+    function foo() {
+    	"use strict";
+    	document.write("Executing standard function");
+    };
+    foo();
+    <hr/>
+    //self executing function (name becomes optional)
+    (function() {
+        "use strict";
+        document.write("Executing Self Executing Function");
+    })();
+</pre>
+<script type="application/javascript">
+    //old way
+    function foo() {
+    	"use strict";
+    	document.write("Executing standard function");
+    };
+//    foo();
+    //self executing function (name becomes optional)
+    (function() {
+        "use strict";
+        document.write("Executing Self Executing Function");
+    })();
+
+
+    (function() {
+        "use strict";
+        alert("Executing Self Executing Function 1");
+    })();
+    (function() {
+        "use strict";
+        alert("Executing Self Executing Function 2");
+    }());
+</script>
+</body>
+</html>

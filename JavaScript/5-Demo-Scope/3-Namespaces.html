@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Namespaces</title>
+</head>
+<body>
+<pre>
+
+    var PhilsCode = PhilsCode || {};
+        (function () {
+        PhilsCode.Person = function Person(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            Person.people++;
+        };
+        PhilsCode.Person2 = function(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            Person.people++;
+        };
+        PhilsCode.Person.people = 0;
+    })();
+    var me = new PhilsCode.Person("Philip", "Japikse");
+</pre>
+<script type="application/javascript">
+    var PhilsCode = PhilsCode || {};
+    (function () {
+        PhilsCode.Person = function Person(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            Person.people++;
+        };
+        PhilsCode.Person.people = 0;
+    })();
+    var me = new PhilsCode.Person("Philip", "Japikse");
+
+</script>
+</body>
+</html>

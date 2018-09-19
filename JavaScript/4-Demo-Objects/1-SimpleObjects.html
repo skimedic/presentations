@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Simple Objects</title>
+</head>
+<body>
+<pre>
+    var person = {
+    	firstName: 'Phil',
+    	lastName: 'Japikse'
+    };
+    person.move = function() {
+        return "Moved";
+    }
+    var address = { streetNumber: 123, streetName: 'Main Street' };
+    person.address = address;
+    if (person.hasOwnProperty("address") && person.address.hasOwnProperty("streetNumber")) {
+            document.write(person['address']["streetNumber"]); //123
+    };
+    document.write(person.move());
+    delete person.move;
+    DONT DO THIS
+    var elsa = Object.freeze(person);
+    elsa.move = function() {
+        return "Moved";
+    };
+    alert(elsa.move());
+    delete elsa.move;
+
+</pre>
+<script type="application/javascript">
+    var person = {
+    	firstName: 'Phil',
+    	lastName: 'Japikse'
+    };
+    person.move = function() {
+        return "Moved";
+    }
+    var address = { streetNumber: 123, streetName: 'Main Street' };
+    person.address = address;
+    if (person.hasOwnProperty("address") && person.address.hasOwnProperty("streetNumber")) {
+            document.write(person['address']["streetNumber"]); //123
+    };
+    document.write(person.move());
+    delete person.move;
+    var elsa = Object.freeze(person);
+    try {
+        elsa.move = function () {
+            return "Moved";
+        }
+    }
+    catch (e) {
+        document.write(e + '<br/>')
+        alert(e);
+    }
+    try {
+        alert(elsa.move());
+    }
+    catch (e) {
+        alert(e);
+    }
+    elsa = "foo";
+    alert(elsa);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Constructor Functions</title>
+</head>
+<body>
+<pre>
+    (function Person(firstName,lastName) {
+         this.firstName = firstName;
+         this.lastName = lastName;
+    };
+    Person.prototype.birthday = function () {
+        return "Happy Birthday";
+    })();
+
+
+    var bob = new Person();
+    function Address(streetNumber, streetName) {
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+    };
+    Person.prototype.birthday = function () {
+        return "Happy Birthday";
+    };
+    Person.prototype.foo;
+    document.write(bob.birthday() + "<br/>);
+    var me = new Person("Philip", "Japikse");
+    me.address = new Address(123, "Main Street");
+    document.write(me.address.streetNumber + "<br/>"); //123
+    document.write(me.birthday() + "<br/>"); //Happy Birthday
+
+</pre>
+<script type="application/javascript" >
+    function Person(firstName,lastName) {
+         this.firstName = firstName;
+         this.lastName = lastName;
+    };
+    var bob = new Person();
+    Person.prototype.foo;
+
+    function Address(streetNumber, streetName) {
+        this.streetNumber = streetNumber;
+        this.streetName = streetName;
+    };
+    Person.prototype.birthday = function () {
+        return "Happy Birthday";
+    };
+    document.write(bob.birthday() + "<br/>");
+    document.write(bob.foo + "foo<br/>");
+
+    var me = new Person("Philip", "Japikse");
+    me.address = new Address(123, "Main Street");
+    document.write(me.address.streetNumber + "<br/>"); //123
+    document.write(me.birthday() + "<br/>"); //Happy Birthday
+</script>
+</body>
+</html>
