@@ -17,11 +17,14 @@ namespace Concurrency
             using (var db = new BloggingContext())
             {
                 var blog = new Blog {Name = "Skimedic's Blog", Url = "http://skimedic.com"};
+                var blog2 = new Blog {Name = "Brandon's Blog", Url = "http://thirtywaytodropdatabases.com"};
                 db.Add(blog);
+                db.Add(blog2);
                 db.SaveChanges();
                 //change values outside of current context
                 db.Database.ExecuteSqlCommand($"Update dbo.blogs set name='Foo' where BlogId = {blog.BlogId}");
                 blog.Name = "Bar";
+                blog2.Name = "Brandon's retired and digging ditches now";
                 try
                 {
                     db.SaveChanges();
@@ -33,7 +36,8 @@ namespace Concurrency
                     //Kept in DbChangeTracker
                     PropertyValues originalValues = entryEntity.OriginalValues;
                     PropertyValues currentValues = entryEntity.CurrentValues;
-                    IEnumerable<PropertyEntry> modifiedEntries = entryEntity.Properties.Where(e => e.IsModified);
+                    IEnumerable<PropertyEntry> modifiedEntries = 
+                        entryEntity.Properties.Where(e => e.IsModified);
                     foreach (var itm in modifiedEntries)
                     {
                         //Console.WriteLine($"{itm.Metadata.Name},");

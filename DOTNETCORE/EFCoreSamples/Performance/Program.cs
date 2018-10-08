@@ -17,9 +17,9 @@ namespace Performance
             RunToListTestCoreVsQueryType();
             RunToListTestCoreVsQueryTypeAsView();
             RunComplexQueryTest();
-            //RunComplexQueryTestCorevsCore();
+            RunComplexQueryTestCorevsCore();
             RunAddAndSaveChangesTest();
-            RunAddAndSaveChangesOptimizedTest();
+            //RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
