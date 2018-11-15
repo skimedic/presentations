@@ -19,7 +19,8 @@
         {
             var item = Model.CartRecords[x];
             cartTotal += item.LineItemTotal;
-            @Html.Partial("Update", item)
+            <partial name="Update" model="item"/>
+            //@Html.Partial("Update", item)
         }
         <tfoot>
         <tr>
@@ -37,9 +38,10 @@
 
 @section Scripts
 {
-    @{
+    <partial name="_ValidationScriptsPartial"/>
+    @*@{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    }*@
     @*Here is the workaround for Visual Studio hanging up and restarting when editing JavaScript
         https://developercommunity.visualstudio.com/content/problem/314560/visual-studio-crashes-since-the-last-update.html#reply-316171
     *@

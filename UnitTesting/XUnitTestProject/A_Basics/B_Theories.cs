@@ -13,6 +13,14 @@ using Xunit;
 
 namespace XUnitTestProject.A_Basics
 {
+    public class Foo
+    {
+        public string Name { get; set; }
+    }
+    public class Bar
+    {
+        public string Name { get; set; }
+    }
     public class B_Theories
     {
         [Theory]
@@ -31,6 +39,7 @@ namespace XUnitTestProject.A_Basics
             Assert.Equal(expected, addend1 + addend2);
         }
 
+
         public static IEnumerable<object[]> TestData
             => new[]
             {
@@ -39,6 +48,20 @@ namespace XUnitTestProject.A_Basics
                 new object[] {-1, -3, 2}
             };
 
+        [Theory]
+        [MemberData(nameof(TestData2))] //NOTE: PropertyData is obsoleted
+        public void MemberDataTheory2(Foo expected, Bar input)
+        {
+            Assert.Equal(expected.Name, input.Name);
+        }
+
+        //[InlineData(1,2,3,4,5,6,7,8,91,2,3,4,5,6)]
+
+        public static IEnumerable<object[]> TestData2
+            => new[]
+            {
+                new object[] {new Foo {Name="Foo"},new Bar {Name="Foo"}},
+            };
 
         [Theory]
         [ClassData(typeof(TestDataClass))]

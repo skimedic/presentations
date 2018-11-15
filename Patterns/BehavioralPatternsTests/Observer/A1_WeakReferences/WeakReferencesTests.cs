@@ -40,7 +40,7 @@ namespace BehavioralPatternsTests.Observer.A1_WeakReferences
             subject.UnregisterObserver(wr2);
             Assert.Equal(0, subject.Observers.Count);
         }
-        [Fact]
+        [Fact(Skip="On hold")]
         public void ShouldHandleNullObjectsCorrectly()
         {
             var subject = new SportsAggregatorWeakReferences();
