@@ -25,6 +25,7 @@ namespace SpyStore_HOL.MVC.Controllers
         [HttpGet]
         public ActionResult Error()
         {
+            var foo = _settings.MySetting1;
             return View();
         }
         [HttpGet]
