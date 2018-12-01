@@ -6,153 +6,16 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using WhatsNewInCSharp7.B_Tuples;
+using WhatsNewInCSharp7.C_OutVariables;
 
 namespace WhatsNewInCSharp7
 {
-    //NOTE: Local functions are used here for demonstation purposes,
+    //NOTE: Local functions are used here for demonstration purposes,
     //and do not reflect best use cases for local functions.
     public class FeaturesIn70
     {
-        //I'm not a fan of regions, but they help with teaching
-        #region Local Functions
 
-        public static IEnumerable<char> AlphabetSubset3(char start, char end)
-        {
-            if (start < 'a' || start > 'z')
-                throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");
-            if (end < 'a' || end > 'z')
-                throw new ArgumentOutOfRangeException(paramName: nameof(end), message: "end must be a letter");
-
-            if (end <= start)
-                throw new ArgumentException($"{nameof(end)} must be greater than {nameof(start)}");
-
-            //for (var c = start; c < end; c++)
-            //    yield return c;
-            return AlphabetSubsetImplementation();
-
-            IEnumerable<char> AlphabetSubsetImplementation()
-            {
-                for (var c = start; c < end; c++)
-                    yield return c;
-            }
-        }
-
-        public Task<string> PerformLongRunningWork(string address, int index, string name)
-        {
-            if (string.IsNullOrWhiteSpace(address))
-                throw new ArgumentException(message: "An address is required", paramName: nameof(address));
-            if (index < 0)
-                throw new ArgumentOutOfRangeException(paramName: nameof(index),
-                    message: "The index must be non-negative");
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException(message: "You must supply a name", paramName: nameof(name));
-
-            return LongRunningWorkImplementation();
-
-            async Task<string> LongRunningWorkImplementation()
-            {
-                var interimResult = await Task.Run(() =>
-                {
-                    Thread.Sleep(1000);
-                    return address;
-                });
-                var secondResult = await Task.Run(() =>
-                {
-                    Thread.Sleep(1000);
-                    return name;
-                });
-                return $"The results are {interimResult} and {secondResult}. Enjoy.";
-            }
-        }
-
-        #endregion
-
-        #region Tuples
-
-        public void Tuples()
-        {
-            void SimpleTuples()
-            {
-                var letters = ("a", "b");
-                var firstLetter = letters.Item1;
-                var secondLetter = letters.Item2;
-            }
-
-            void NamedTuples()
-            {
-                //NOTE: Names only exist at compile time - are not accessible through reflection
-                //Names can be declared on the left
-                (string Alpha, string Beta) leftSideNamedTuple = ("a", "b");
-                Console.WriteLine($"{leftSideNamedTuple.Alpha},{leftSideNamedTuple.Beta}");
-                //or right side (must use var for this)
-                var rightSideNamedTuple = (Alpha: "a", Beta: "b");
-                Console.WriteLine($"{rightSideNamedTuple.Alpha},{rightSideNamedTuple.Beta}");
-                //If declared on both, ignored on the right
-                (string First, string Second) bothSideNamedTuple = (Alpha: "a", Beta: "b");
-                Console.WriteLine($"{bothSideNamedTuple.First},{bothSideNamedTuple.Second}");
-                //This doesn't compile
-                //Console.WriteLine($"{bothSideNamedTuple.Alpha},{bothSideNamedTuple.Beta}");
-            }
-
-            void ValueAssignmentWithoutDeconstruction()
-            {
-                var p = new Point(3.14, 6.28);
-                double horizontal = p.X;
-                double vertical = p.Y;
-                Console.WriteLine($"{horizontal}:{vertical}");
-            }
-
-            void Deconstruction()
-            {
-                var p = new Point(3.14, 6.28);
-                //var doesn't need types defined
-                var (horizontal, vertical) = p;
-                //without var must have types defined
-                (double horizontal1, double vertical2) = p;
-                Console.WriteLine($"{horizontal}:{vertical}");
-            }
-        }
-
-        private class Point
-        {
-            public Point(double x, double y)
-            {
-                this.X = x;
-                this.Y = y;
-            }
-
-            public double X { get; }
-            public double Y { get; }
-
-            public void Deconstruct(out double x, out double y)
-            {
-                x = this.X;
-                y = this.Y;
-            }
-        }
-
-        #endregion
-
-        #region Out Variables
-
-        public bool OutVariables()
-        {
-            //C# 6
-            int oldResult;
-            bool oldCanParse = int.TryParse("123", out oldResult);
-            //C# 7.0
-            bool canParse = int.TryParse("123", out int result);
-            bool canParse2 = int.TryParse("123", out var result2);
-
-            if (bool.TryParse("true", out var boolResult))
-            {
-                //Do something
-            }
-
-            return boolResult;
-        }
-
-        #endregion
 
         #region Pattern Matching
 
@@ -210,11 +73,11 @@ namespace WhatsNewInCSharp7
             //Out parameters
             bool canParse = int.TryParse("123", out _);
             //Stand alone discard
-            _ = OutVariables();
+            _ = new OutVariableExamples().OutVariables();
 
             void TupleDeconstruction()
             {
-                var p = new Point(3.14, 6.28);
+                var p = new MyPoint(3.14, 6.28);
                 //same var/non var rules apply
                 (double horizontal, _) = p;
                 //var (horizontal, _) = p;
@@ -267,7 +130,7 @@ namespace WhatsNewInCSharp7
             {
                 var _ = true;
                 //No compiler error, but uninteded consequence
-                _ = OutVariables();
+                _ = new OutVariableExamples().OutVariables();
             }
         }
 
