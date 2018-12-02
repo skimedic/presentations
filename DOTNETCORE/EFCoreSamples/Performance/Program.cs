@@ -289,6 +289,7 @@ namespace Performance
 
             using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
             {
+                //db.Database.ExecuteSqlCommand(@"DELETE FROM Production.ProductCategory WHERE Name LIKE 'Test %'");
                 db.Customers.FirstOrDefault();
             }
         }
