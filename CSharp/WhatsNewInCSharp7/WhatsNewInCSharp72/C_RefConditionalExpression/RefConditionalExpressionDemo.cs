@@ -1,6 +1,6 @@
 ﻿namespace WhatsNewInCSharp72.B_NumericLiterals
 {
-    public class ConditionalRefExpressionDemo
+    public class RefConditionalExpressionDemo
     {
         public ref int GetArrayValue(int[] arr, int[] otherArr)
         {

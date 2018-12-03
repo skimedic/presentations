@@ -1,4 +1,4 @@
-﻿namespace WhatsNewInCSharp72
+﻿namespace WhatsNewInCSharp72.A_PerfImprovForValueTypes
 {
     public class D_RefStructureType
     {

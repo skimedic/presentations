@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WhatsNewInCSharp72
+﻿namespace WhatsNewInCSharp72.B_NumericLiterals
 {
-    public class FeaturesIn72
+    public class UpdatedNumericLiterals
     {
         #region Numeric Literal Improvements
         public const int Sixteen = 0b_0001_0000;
