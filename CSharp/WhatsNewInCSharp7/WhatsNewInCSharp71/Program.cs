@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WhatsNewInCSharp71
@@ -8,17 +9,25 @@ namespace WhatsNewInCSharp71
         //Pre 7.1 syntax
         //static void Main(string[] args)
         //{
+        //     DoSomething().GetAwaiter().GetResult();    
         //}
 
         //7.1 and later
-        static async Task<int> Main(string[] args)
+        static async Task Main(string[] args)
         {
-            return 0;
+            await DoSomething();
         }
         //or
-        //static async Task Main(string[] args)
+        //static async Task<int> Main(string[] args)
         //{
         //}
 
+        static async Task DoSomething()
+        {
+            await Task.Run(() =>
+            {
+                Thread.Sleep(1000);
+            });
+        }
     }
 }

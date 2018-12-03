@@ -4,7 +4,7 @@ using Xunit;
 
 namespace WhatsNewInCSharp7_Tests.A_LocalFunctionTests
 {
-    public class FunctionTests
+    public class LocalFunctionTests
     {
         [Fact]
         public void ShouldCalculateWeight()
