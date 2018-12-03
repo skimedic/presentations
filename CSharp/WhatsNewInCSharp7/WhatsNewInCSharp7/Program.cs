@@ -6,10 +6,6 @@ namespace WhatsNewInCSharp7
     {
         static void Main(string[] args)
         {
-            var features = new FeaturesIn70();
-            features.RefsLocalsAndReturns();
-            Console.WriteLine("Press any key to continue");
-            Console.ReadLine();
         }
     }
 }
