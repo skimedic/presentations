@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -9,6 +9,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="2.1.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
@@ -22,5 +24,6 @@
   <ItemGroup>
     <ProjectReference Include="..\SpyStore_HOL.DAL\SpyStore_HOL.DAL.csproj" />
     <ProjectReference Include="..\SpyStore_HOL.Models\SpyStore_HOL.Models.csproj" />
+    <ProjectReference Include="..\SpyStore_HOL.MVC\SpyStore_HOL.MVC.csproj" />
   </ItemGroup>
 </Project>
