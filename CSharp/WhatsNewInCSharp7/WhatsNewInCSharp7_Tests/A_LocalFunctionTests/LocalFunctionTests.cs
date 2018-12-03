@@ -13,12 +13,13 @@ namespace WhatsNewInCSharp7_Tests.A_LocalFunctionTests
             var weight = sut.GetWeightForHolloBar(12m, 8m, 20m);
             Assert.Equal(356.01m, weight);
         }
+
         [Fact]
         public void ShouldThrowWithIteratorOldWay()
         {
             var sut = new LocalFunctionExamples();
             var enumerable = sut.AlphabetSubset3OldWay('1', '2');
-            Assert.Throws<ArgumentOutOfRangeException>(() => enumerable.GetEnumerator().MoveNext());
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => enumerable.GetEnumerator().MoveNext());
         }
         [Fact]
         public void ShouldThrowWithIteratorFunction()
