@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.Extensions.Options
+@using SpyStore_HOL.MVC.Support
+@inject IOptionsSnapshot<CustomSettings> settings
+@{
+    var _settings = settings.Value;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />

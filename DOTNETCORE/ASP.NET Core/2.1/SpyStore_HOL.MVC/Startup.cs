@@ -64,30 +64,31 @@ namespace SpyStore_HOL.MVC
             services.AddScoped<IOrderRepo, OrderRepo>();
             services.AddScoped<IOrderDetailRepo, OrderDetailRepo>();
             services.Configure<CustomSettings>(Configuration.GetSection("CustomSettings"));
-            if (_env.IsDevelopment())
-            {
-                services.AddWebOptimizer(options =>
-                {
-                    options.MinifyCssFiles("foo.css");
-                    options.MinifyJsFiles("foo.js");
-                });
-            }
-            else
-            {
-                services.AddWebOptimizer(options =>
-                {
-                    //Globbing is not working in the current released version, so this is a work around:
-                    var fileArray = Directory.GetFiles(@"wwwroot\js\validations", "*.js", SearchOption.AllDirectories);
-                    var jsAppFilenames = fileArray.Select(s => s.Replace(@"wwwroot\", "")).ToArray();
+            services.AddWebOptimizer();
+            //if (_env.IsDevelopment())
+            //{
+            //    services.AddWebOptimizer(options =>
+            //    {
+            //        options.MinifyCssFiles("foo.css");
+            //        options.MinifyJsFiles("foo.js");
+            //    });
+            //}
+            //else
+            //{
+            //    services.AddWebOptimizer(options =>
+            //    {
+            //        //Globbing is not working in the current released version, so this is a work around:
+            //        var fileArray = Directory.GetFiles(@"wwwroot\js\validations", "*.js", SearchOption.AllDirectories);
+            //        var jsAppFilenames = fileArray.Select(s => s.Replace(@"wwwroot\", "")).ToArray();
 
-                    options.MinifyCssFiles(); //Minifies all CSS files
-                    //options.MinifyJsFiles(); //Minifies all JS files
-                    options.MinifyJsFiles("js/site.js");
-                    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/*.js");
-                    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/validators.js", "js/validations/errorFormatting.js");
-                    options.AddJavaScriptBundle("js/validations/validationCode.js", jsAppFilenames);
-                });
-            }
+            //        options.MinifyCssFiles(); //Minifies all CSS files
+            //        //options.MinifyJsFiles(); //Minifies all JS files
+            //        options.MinifyJsFiles("js/site.js");
+            //        //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/*.js");
+            //        //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/validators.js", "js/validations/errorFormatting.js");
+            //        options.AddJavaScriptBundle("js/validations/validationCode.js", jsAppFilenames);
+            //    });
+            //}
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -112,6 +113,7 @@ namespace SpyStore_HOL.MVC
             app.UseStaticFiles();
             //app.UseCookiePolicy();
 
+            //app.UseMvcWithDefaultRoute();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

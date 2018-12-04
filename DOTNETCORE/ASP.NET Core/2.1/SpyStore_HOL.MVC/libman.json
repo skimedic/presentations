@@ -3,7 +3,7 @@
   //https://api.cdnjs.com/libraries?output=human
   "version": "1.0",
   "defaultProvider": "cdnjs",
-  "libraries": [
+  "libraries": [ 
     { 
       "library": "jquery@3.3.1",
       "destination": "wwwroot/lib/jquery",

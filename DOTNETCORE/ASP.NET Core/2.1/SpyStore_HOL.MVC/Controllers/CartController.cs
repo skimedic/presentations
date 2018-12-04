@@ -13,6 +13,7 @@ using SpyStore_HOL.MVC.ViewModels;
 namespace SpyStore_HOL.MVC.Controllers
 {
     [Route("[controller]/[action]/{customerId}")]
+    //[Route("Cart/[action]/{customerId}")]
     public class CartController : BaseController
     {
         private readonly IShoppingCartRepo _shoppingCartRepo;
@@ -49,6 +50,7 @@ namespace SpyStore_HOL.MVC.Controllers
             };
             return View(viewModel);
         }
+        //[Route()]
         [HttpGet("{productId}")]
         public IActionResult AddToCart([FromServices] IProductRepo productRepo,
             int customerId, int productId, bool cameFromProducts = false)
