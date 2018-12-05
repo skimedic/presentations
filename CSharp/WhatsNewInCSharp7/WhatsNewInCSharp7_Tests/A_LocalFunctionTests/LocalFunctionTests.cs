@@ -19,7 +19,8 @@ namespace WhatsNewInCSharp7_Tests.A_LocalFunctionTests
         {
             var sut = new LocalFunctionExamples();
             var enumerable = sut.AlphabetSubset3OldWay('1', '2');
-            var ex = Assert.Throws<ArgumentOutOfRangeException>(() => enumerable.GetEnumerator().MoveNext());
+            var ex = Assert.Throws<ArgumentOutOfRangeException>(
+                () => enumerable.GetEnumerator().MoveNext());
         }
         [Fact]
         public void ShouldThrowWithIteratorFunction()

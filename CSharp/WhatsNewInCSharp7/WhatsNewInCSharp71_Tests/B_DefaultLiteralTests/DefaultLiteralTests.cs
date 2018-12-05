@@ -26,7 +26,6 @@ namespace WhatsNewInCSharp71_Tests.B_DefaultLiteralTests
             var defaultStruct = GetDefaultValue<MyStruct>();
             Assert.Equal(0,defaultStruct.NumericValue);
             Assert.Null(defaultStruct.StringValue);
-
         }
 
         internal T GetDefaultValue<T>()

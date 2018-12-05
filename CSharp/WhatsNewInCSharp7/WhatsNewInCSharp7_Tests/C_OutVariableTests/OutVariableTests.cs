@@ -22,6 +22,10 @@ namespace WhatsNewInCSharp7_Tests.C_OutVariableTests
             Assert.True(canParse);
             Assert.True(boolResult);
 
+            if (bool.TryParse("true", out var boolResult2))
+            {
+            }
+            Assert.True(boolResult2);
         }
     }
 }

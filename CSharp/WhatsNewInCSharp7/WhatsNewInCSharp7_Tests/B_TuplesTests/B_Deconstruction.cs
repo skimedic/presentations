@@ -44,5 +44,19 @@ namespace WhatsNewInCSharp7_Tests.B_TuplesTests
             Assert.Equal(first,horizontal);
             Assert.Equal(second,vertical);
         }
+
+        [Fact]
+        public void ShouldDoSomething()
+        {
+            var t = DoSomething();
+            //t.i;
+            //t.s;
+            //t.p;
+        }
+        internal (string s,int i,MyPoint p) DoSomething()
+        {
+            return ("foo",5,new MyPoint(3,2));
+        }
     }
+    
 }

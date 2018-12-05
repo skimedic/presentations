@@ -20,6 +20,7 @@ namespace WhatsNewInCSharp7.E_Discards
 
             //Stand alone discard
             _ = DoSomething();
+            //DoSomething();
 
             void TupleDeconstruction()
             {
