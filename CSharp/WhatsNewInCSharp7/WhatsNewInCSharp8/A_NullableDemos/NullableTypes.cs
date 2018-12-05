@@ -3,8 +3,17 @@ using System.Runtime.CompilerServices;
 namespace WhatsNewInCSharp8
 {
 #nullable enable
-    public class Class1
+    public class MySampleType
     {
+
+    }
+    public class NullableTypes
+    {
+        private MySampleType? _sample;
+        public NullableTypes()
+        {
+        
+        }
         // Warning: Assignment of null to non-nullable reference type
         string s1 = null;
         string? s = null; // Ok

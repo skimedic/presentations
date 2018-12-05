@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhatsNewInCSharp72_Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhatsNewInCSharp73_Tests", "WhatsNewInCSharp73_Tests\WhatsNewInCSharp73_Tests.csproj", "{0C752435-CAB6-474C-826E-DD344F2C1357}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhatsNewInCSharp8", "WhatsNewInCSharp8\WhatsNewInCSharp8.csproj", "{DF39FDFE-9C15-424E-B731-67F79B99DCFB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +57,6 @@ Global
 		{0C752435-CAB6-474C-826E-DD344F2C1357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C752435-CAB6-474C-826E-DD344F2C1357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C752435-CAB6-474C-826E-DD344F2C1357}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF39FDFE-9C15-424E-B731-67F79B99DCFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF39FDFE-9C15-424E-B731-67F79B99DCFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF39FDFE-9C15-424E-B731-67F79B99DCFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF39FDFE-9C15-424E-B731-67F79B99DCFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
