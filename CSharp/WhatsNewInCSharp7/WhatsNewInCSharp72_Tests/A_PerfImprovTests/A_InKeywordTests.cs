@@ -13,7 +13,7 @@ namespace WhatsNewInCSharp72_Tests.A_PerfImprovTests
         internal void DontAllowModification(in int i)
         {
             //Compilation error
-            i = 5;
+            //i = 5;
         }
         [Fact]
         public void ShouldNotAllowModificationWithIn()
