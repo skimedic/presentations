@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PerformanceEF3.EFCore.Models
+namespace PerformanceEf3.EFCore.Models
 {
     public partial class Shift
     {

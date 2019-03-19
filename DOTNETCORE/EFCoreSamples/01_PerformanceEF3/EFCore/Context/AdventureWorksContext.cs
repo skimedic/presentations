@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
-using PerformanceEF3.EFCore.Models;
+using PerformanceEf3.EFCore.Models;
 
-namespace PerformanceEF3.EFCore.Context
+namespace PerformanceEf3.EFCore.Context
 {
     public partial class AdventureWorksContext : DbContext
     {

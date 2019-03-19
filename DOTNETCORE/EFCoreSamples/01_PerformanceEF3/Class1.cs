@@ -1,4 +1,4 @@
-﻿namespace PerformanceEF3
+﻿namespace PerformanceEf3
 {
     public class Class1
     {

@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using PerformanceEF3.EFCore.Context;
+using PerformanceEf3.EFCore.Context;
 
-namespace PerformanceEF3.EFCore
+namespace PerformanceEf3.EFCore
 {
     public static class Repo
     {

@@ -120,6 +120,7 @@
     <Compile Include="EF6\Models\WorkOrder.cs" />
     <Compile Include="EF6\Models\WorkOrderRouting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

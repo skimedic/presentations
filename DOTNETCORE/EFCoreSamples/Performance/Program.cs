@@ -2,8 +2,9 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Data.Entity;
-using PerformanceEfCore.EFCore;
-
+using PerformanceEf6;
+//using EfCore = PerformanceEfCore.EFCore;
+using EfCore = PerformanceEf3.EFCore;
 namespace Performance
 {
     class Program
@@ -14,10 +15,10 @@ namespace Performance
             RunToListTest();
             RunToListTestUntracked();
             RunToListTestQueryType();
-            RunToListTestCoreVsQueryType();
-            RunToListTestCoreVsQueryTypeAsView();
+            //RunToListTestCoreVsQueryType();
+            //RunToListTestCoreVsQueryTypeAsView();
             RunComplexQueryTest();
-            RunComplexQueryTestCorevsCore();
+            //RunComplexQueryTestCorevsCore();
             RunAddAndSaveChangesTest();
             //RunAddAndSaveChangesOptimizedTest();
             Console.WriteLine("Demo complete");
@@ -29,16 +30,10 @@ namespace Performance
         {
             Console.WriteLine("Query 19K ToList");
             RunTest(
-                ef6Test: () =>
-                {
-                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
-                    {
-                        db.Customers.ToList();
-                    }
-                },
+                ef6Test: TestEf6.GetAllCustomers,
                 ef7Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context
+                    using (var db = new EfCore.Context
                         .AdventureWorksContext())
                     {
                         db.Customers.ToList();
@@ -49,37 +44,24 @@ namespace Performance
         {
             Console.WriteLine("Query 19K ToList UnTracked");
             RunTest(
-                ef6Test: () =>
-                {
-                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
-                    {
-                        db.Customers.ToList();
-                    }
-                },
+                ef6Test: TestEf6.GetAllCustomers,
                 ef7Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context
+                    using (var db = new EfCore.Context
                         .AdventureWorksContext())
                     {
                         db.Customers.AsNoTracking().ToList();
                     }
                 });
         }
-
         private static void RunToListTestQueryType()
         {
             Console.WriteLine("Query 19K ToList Query Type");
             RunTest(
-                ef6Test: () =>
-                {
-                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
-                    {
-                        db.Customers.ToList();
-                    }
-                },
+                ef6Test: TestEf6.GetAllCustomers,
                 ef7Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context
+                    using (var db = new EfCore.Context
                         .AdventureWorksContext())
                     {
                         db.CustomersQuery.ToList();
@@ -92,7 +74,7 @@ namespace Performance
             RunTest(
                 ef6Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context
+                    using (var db = new EfCore.Context
                         .AdventureWorksContext())
                     {
                         db.Customers.AsNoTracking().ToList();
@@ -100,7 +82,7 @@ namespace Performance
                 },
                 ef7Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context
+                    using (var db = new EfCore.Context
                         .AdventureWorksContext())
                     {
                         db.CustomersQuery.ToList();
@@ -109,14 +91,13 @@ namespace Performance
                 firstLabel: "-  Untracked",
                 secondLabel: "- QueryType");
         }
-
         private static void RunToListTestCoreVsQueryTypeAsView()
         {
             Console.WriteLine("Query 19K ToList Query Type vs QueryType From View");
             RunTest(
                 ef6Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context
+                    using (var db = new EfCore.Context
                         .AdventureWorksContext())
                     {
                         db.CustomersQuery.ToList();
@@ -124,7 +105,7 @@ namespace Performance
                 },
                 ef7Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context
+                    using (var db = new EfCore.Context
                         .AdventureWorksContext())
                     {
                         db.CustomersView.ToList();
@@ -133,38 +114,18 @@ namespace Performance
                 firstLabel: "-  QueryType",
                 secondLabel: "- QueryTypeAsView");
         }
-
         private static void RunComplexQueryTest()
         {
             Console.WriteLine("Query Complex");
             RunTest(
-                ef6Test: () =>
-                {
-                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
-                    {
-                        var l = db.Products
-                            .Include(x => x.TransactionHistories)
-                            .Include(x => x.ProductSubcategory)
-                            .Include(x => x.ProductSubcategory.ProductCategory)
-                            .Include(x => x.ProductReviews)
-                            .Select(x => new PerformanceEf6.EF6.ModelForTesting()
-                            {
-                                ProductId = x.ProductID,
-                                Class = x.Class,
-                                ModifiedDate = x.TransactionHistories.Select(th => th.ModifiedDate).FirstOrDefault(),
-                                CategoryName = x.ProductSubcategory.ProductCategory.Name,
-                                Email = x.ProductReviews.Select(pr => pr.EmailAddress).FirstOrDefault()
-                            })
-                            .Take(100).ToList();
-                    }
-                },
+                ef6Test: TestEf6.RunComplexQuery,
                 ef7Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
+                    using (var db = new EfCore.Context.AdventureWorksContext())
                     {
 
 
-                        var el = Repo.GetComplexData(db);
+                        var el = EfCore.Repo.GetComplexData(db);
                         //var el = Repo.CompiledQuery(db).ToList();
                         //var el = Repo.GetComplexDataQueryType(db).ToList();
                     }
@@ -176,45 +137,34 @@ namespace Performance
             RunTest(
                 ef6Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
+                    using (var db = new EfCore.Context.AdventureWorksContext())
                     {
-                        var el = Repo.GetComplexData(db);
+                        var el = EfCore.Repo.GetComplexData(db);
                     }
                 },
                 ef7Test: () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
+                    using (var db = new EfCore.Context.AdventureWorksContext())
                     {
                         //var el = Repo.CompiledQuery(db).ToList();
-                        var el = Repo.GetComplexDataQueryType(db).ToList();
+                        var el = EfCore.Repo.GetComplexDataQueryType(db).ToList();
                     }
                 },
                 firstLabel:"-  FromSQL",
                 secondLabel:"- Compiled");
         }
-
         private static void RunAddAndSaveChangesTest()
         {
             Console.WriteLine("Add 1K & SaveChanges");
             RunTest(
+                TestEf6.AddRecordsAndSave,
                 () =>
                 {
-                    using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
+                    using (var db = new EfCore.Context.AdventureWorksContext())
                     {
                         for (int i = 0; i < 1000; i++)
                         {
-                            db.ProductCategories.Add(new PerformanceEf6.EF6.Models.ProductCategory { Name = $"Test {Guid.NewGuid()}" });
-                        }
-                        db.SaveChanges();
-                    }
-                },
-                () =>
-                {
-                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
-                    {
-                        for (int i = 0; i < 1000; i++)
-                        {
-                            db.ProductCategories.Add(new PerformanceEfCore.EFCore.Models.ProductCategory { Name = $"Test {Guid.NewGuid()}" });
+                            db.ProductCategories.Add(new EfCore.Models.ProductCategory { Name = $"Test {Guid.NewGuid()}" });
                         }
                         db.SaveChanges();
                     }
@@ -241,11 +191,11 @@ namespace Performance
                 },
                 () =>
                 {
-                    using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
+                    using (var db = new EfCore.Context.AdventureWorksContext())
                     {
                         for (int i = 0; i < 1000; i++)
                         {
-                            db.ProductCategories.Add(new PerformanceEfCore.EFCore.Models.ProductCategory { Name = $"Test {Guid.NewGuid()}" });
+                            db.ProductCategories.Add(new EfCore.Models.ProductCategory { Name = $"Test {Guid.NewGuid()}" });
                         }
                         db.SaveChanges();
                     }
@@ -281,13 +231,9 @@ namespace Performance
 
         private static void ResetAndWarmup()
         {
-            using (var db = new PerformanceEf6.EF6.Context.AdventureWorksContext())
-            {
-                db.Database.ExecuteSqlCommand(@"DELETE FROM Production.ProductCategory WHERE Name LIKE 'Test %'");
-                db.Customers.FirstOrDefault();
-            }
+            TestEf6.ResetAndWarmUp();
 
-            using (var db = new PerformanceEfCore.EFCore.Context.AdventureWorksContext())
+            using (var db = new EfCore.Context.AdventureWorksContext())
             {
                 //db.Database.ExecuteSqlCommand(@"DELETE FROM Production.ProductCategory WHERE Name LIKE 'Test %'");
                 db.Customers.FirstOrDefault();

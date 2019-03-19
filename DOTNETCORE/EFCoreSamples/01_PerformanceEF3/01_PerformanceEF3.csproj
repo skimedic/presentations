@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>PerformanceEF3</RootNamespace>
-    <AssemblyName>PerformanceEF3</AssemblyName>
+    <RootNamespace>PerformanceEf3</RootNamespace>
+    <AssemblyName>PerformanceEf3</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
