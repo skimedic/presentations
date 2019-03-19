@@ -5,7 +5,7 @@ namespace WhatsNewInCSharp8.C_AsyncStreams
 {
     public class AsyncStreams
     {
-        IAsyncEnumerable<int> foo;
+        IAsyncEnumerable<int>? foo;
         public async IAsyncEnumerable<string> GetNamesAsync()
         {
             string[] names = { "Archimedes", "Pythagoras", "Euclid", "Socrates", "Plato" };
