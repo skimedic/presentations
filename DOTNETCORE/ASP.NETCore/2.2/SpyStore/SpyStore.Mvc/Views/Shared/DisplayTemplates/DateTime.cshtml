@@ -1,0 +1,17 @@
+﻿@using System.Threading.Tasks
+@model DateTime?
+@if (Model == null)
+{
+    @:Unknown
+}
+else
+{
+    if (ViewData.ModelMetadata.IsNullableValueType)
+    {
+        @:@(Model.Value.ToString("d"))
+    }
+    else
+    {
+        @:@(((DateTime)Model).ToString("d"))
+    }
+}

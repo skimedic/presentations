@@ -1,0 +1,15 @@
+﻿@model bool?
+@{
+    if (!Model.HasValue)
+    {
+        @:Unknown
+    }
+    else if (Model.Value)
+    {
+        @:Yes
+    }
+    else
+    {
+        @:No
+    }
+}

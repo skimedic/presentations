@@ -1,0 +1,224 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.foo {
+}
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eeeeee;
+}
+
+    .jumbotron h1,
+    .jumbotron .h1 {
+        color: inherit;
+    }
+
+    .jumbotron p {
+        margin-bottom: 15px;
+        font-size: 21px;
+        font-weight: 200;
+    }
+
+    .jumbotron > hr {
+        border-top-color: #d5d5d5;
+    }
+
+.container .jumbotron,
+.container-fluid .jumbotron {
+    border-radius: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.jumbotron .container {
+    max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .container .jumbotron,
+    .container-fluid .jumbotron {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .jumbotron h1,
+    .jumbotron .h1 {
+        font-size: 63px;
+    }
+}
+
+.body-content > .jumbotron {
+    background: url(../images/jumbo.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 200px;
+    margin: -15px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+    .body-content > .jumbotron .btn-lg, .body-content > .jumbotron .btn-group-lg > .btn {
+        margin-top: 100px;
+    }
+
+@media (min-width: 992px) {
+    .body-content > .jumbotron {
+        min-height: 380px;
+    }
+
+        .body-content > .jumbotron .btn-lg, .body-content > .jumbotron .btn-group-lg > .btn {
+            margin-top: 180px;
+        }
+}
+
+.body-content .top-row {
+    margin-top: 30px;
+}
+
+.product-table {
+    min-width: 600px; }
+.product-table .cart-quantity-row input, .product-table .cart-quantity-row button {
+    display: block;
+    margin: 0 0 0 auto; }
+.product-table .cart-quantity-row button {
+    padding: 4px 0 0 0; }
+.product-table .cart-quantity {
+    width: 40px;
+    margin-bottom: 4px; }
+.product-table .product-cell-detail {
+    margin: 6px; }
+.product-table .product-cell-detail img {
+    margin-right: 10px; }
+
+.product {
+    display: block;
+    border: 1px solid #343a40;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 1px; }
+.product.featured::before {
+    content: "Featured";
+    background: #ffc107;
+    padding: 4px 10px;
+    color: white;
+    position: absolute;
+    display: inline-block;
+    left: 16px; }
+.product .title-container {
+    min-height: 72px;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 4px; }
+.product h5 {
+    display: inline-block;
+    vertical-align: bottom;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold; }
+.product .price {
+    font-size: 24px; }
+.product .btn-cart {
+    width: 100%;
+    padding: 10px 12px; }
+.product .model-number {
+    font-size: 10px;
+    margin: 4px 0; }
+.product .category {
+    margin: 0 0 12px 0;
+    display: inline-block; }
+@media (max-width: 576px) {
+    .product .price {
+        margin-top: 12px; }
+    .product img {
+        display: none; } }
+@media (min-width: 576px) {
+    .product h5 {
+        font-size: 20px; }
+    .product .title-container {
+        min-height: 86px; }
+    .product .model-number {
+        font-size: 12px; } }
+@media (min-width: 410px) {
+    .product .title-container {
+        min-height: 64px; } }
+@media (min-width: 600px) {
+    .product .title-container {
+        min-height: 40px; } }
+@media (min-width: 768px) {
+    .product .title-container {
+        min-height: 86px; } }
+@media (min-width: 992px) {
+    .product .title-container {
+        min-height: 64px; } }
+
+.order-card {
+    display: block;
+    border: 1px solid #e9ecef;
+    margin-bottom: 25px; }
+.order-card .order-card-heading {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    padding: 12px 20px; }
+@media (min-width: 576px) {
+    .order-card .order-card-heading label {
+        display: block; } }
+@media (max-width: 576px) {
+    .order-card .order-card-heading .col-sm-4 {
+        margin: 12px 0; } }
+.order-card .order-actions {
+    padding: 10px; }
+.order-card .order-details {
+    padding: 0px 40px 20px 40px; }
+.order-card .order-details .product-details {
+    margin-left: 80px; }
+.order-card .order-details .product-details img {
+    margin-left: -80px; }
+.order-card .order-details .product-details .price {
+    margin: 4px 0; }
+.order-card .order-details h3 {
+    margin-bottom: 20px; }

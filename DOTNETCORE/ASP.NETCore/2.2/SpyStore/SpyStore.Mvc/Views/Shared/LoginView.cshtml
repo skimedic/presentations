@@ -1,0 +1,22 @@
+﻿<ul class="nav navbar-nav">
+    <li><a asp-controller="Cart" asp-action="Index" title="Shopping Cart" class="nav-link">
+        Cart <span class="fa fa-shopping-cart"></span>
+    </a></li>
+    <li><a asp-controller="Orders" asp-action="Index" title="Order History" class="nav-link">
+        Orders <span class="fa fa-tag"></span>
+    </a></li>
+    <li>
+        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">SEARCH <span class="fa fa-search"></span></a>
+        <div class="dropdown-menu dropdown-menu-right bg-primary">
+            <form asp-controller="Products" asp-action="Search" class="form-inline justify-content-end" role="search">
+                <div class="input-group md-4">
+                    <label class="sr-only" for="searchString">Search</label>
+                    <input type="text" id="searchString" name="searchString" class="form-control" placeholder="SEARCH">
+                    <span class="input-group-append">
+                        <button class="btn btn-light" type="submit"><span class="fa fa-search"></span></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </li>
+</ul>
