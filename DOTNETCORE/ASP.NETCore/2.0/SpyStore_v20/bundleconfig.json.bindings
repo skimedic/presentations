@@ -1,1 +1,0 @@
-﻿///<binding BeforeBuild='Clean output files' AfterBuild='Update all files' Clean='Clean output files' />
