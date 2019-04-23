@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using SpyStore.Dal.Repos.Interfaces;
 
-namespace SpyStore.Hol.Mvc.ViewComponents
+namespace SpyStore.Mvc.ViewComponents
 {
     //https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components
     //The runtime searches for the view in the following paths:

@@ -2,11 +2,11 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SpyStore.Dal.Repos.Interfaces;
-using SpyStore.Hol.Mvc.Controllers.Base;
 using SpyStore.Models.Entities;
 using SpyStore.Models.ViewModels;
+using SpyStore.Mvc.Controllers.Base;
 
-namespace SpyStore.Hol.Mvc.Controllers
+namespace SpyStore.Mvc.Controllers
 {
     [Route("[controller]/[action]")]
     public class OrdersController : BaseController

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
-namespace SpyStore.Hol.Mvc.Validation
+namespace SpyStore.Mvc.Validation
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class MustNotBeGreaterThanAttribute : ValidationAttribute, IClientModelValidator

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using SpyStore.Hol.Mvc.Validation;
 using SpyStore.Models.ViewModels;
+using SpyStore.Mvc.Validation;
 
-namespace SpyStore.Hol.Mvc.Models.ViewModels
+namespace SpyStore.Mvc.Models.ViewModels
 {
     public class CartRecordViewModel : CartRecordWithProductInfo
     {

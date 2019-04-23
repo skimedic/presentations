@@ -1,4 +1,4 @@
-﻿namespace SpyStore.Hol.Mvc.Support
+﻿namespace SpyStore.Mvc.Support
 {
     public class CustomSettings
     {

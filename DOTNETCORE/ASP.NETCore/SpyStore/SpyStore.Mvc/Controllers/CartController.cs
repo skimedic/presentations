@@ -5,14 +5,15 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SpyStore.Dal.Repos.Interfaces;
-using SpyStore.Hol.Mvc.Controllers.Base;
-using SpyStore.Hol.Mvc.Models.ViewModels;
 using SpyStore.Models.Entities;
 using SpyStore.Models.Entities.Base;
 using SpyStore.Models.ViewModels;
+using SpyStore.Mvc.Controllers.Base;
+using SpyStore.Mvc.Models.ViewModels;
 
-namespace SpyStore.Hol.Mvc.Controllers
+namespace SpyStore.Mvc.Controllers
 {
+    //Demo: Routing
     [Route("[controller]/[action]")]
     public class CartController : BaseController
     {
@@ -73,10 +74,15 @@ namespace SpyStore.Hol.Mvc.Controllers
             cartRecord.Quantity = 1;
             return View(cartRecord);
         }
+        //Demo: model binding
         [HttpPost("{productId}"), ValidateAntiForgeryToken]
         public IActionResult AddToCart(int productId, AddToCartViewModel item)
         {
+            //var foo = await TryUpdateModelAsync(item);
             if (!ModelState.IsValid) return View(item);
+            //Do work
+            //Recheck model
+            //var isValid = TryValidateModel(item);
             try
             {
                 var mapper = _config.CreateMapper();
@@ -135,6 +141,7 @@ namespace SpyStore.Hol.Mvc.Controllers
         public async Task<IActionResult> Buy()
         {
             int orderId = _shoppingCartRepo.Purchase(ViewBag.CustomerId);
+            //Demo: Redirect to action
             return RedirectToAction(
                 nameof(OrdersController.Details),
                 nameof(OrdersController).Replace("Controller", ""),

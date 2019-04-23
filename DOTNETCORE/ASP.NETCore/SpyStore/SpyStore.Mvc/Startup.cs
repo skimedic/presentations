@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -14,9 +9,9 @@ using SpyStore.Dal.EfStructures;
 using SpyStore.Dal.Initialization;
 using SpyStore.Dal.Repos;
 using SpyStore.Dal.Repos.Interfaces;
-using SpyStore.Hol.Mvc.Support;
+using SpyStore.Mvc.Support;
 
-namespace SpyStore.Hol.Mvc
+namespace SpyStore.Mvc
 {
     public class Startup
     {
@@ -97,12 +92,18 @@ namespace SpyStore.Hol.Mvc
             app.UseStaticFiles();
             //app.UseCookiePolicy();
 
+            //Demo: Route Table
             //app.UseMvcWithDefaultRoute();
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
+                 routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+               routes.MapRoute(
                     name: "default",
                     template: "{controller=Products}/{action=Index}/{id?}");
+
             });
         }
     }

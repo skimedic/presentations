@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using SpyStore.Hol.Mvc.Models;
 using SpyStore.Models.Entities;
 using SpyStore.Models.Entities.Base;
+using SpyStore.Mvc.Models;
 
-namespace SpyStore.Hol.Mvc.Controllers
+namespace SpyStore.Mvc.Controllers
 {
     public class HomeController : Controller
     {

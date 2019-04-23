@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SpyStore.Dal.Repos.Interfaces;
-using SpyStore.Hol.Mvc.Controllers.Base;
-using SpyStore.Hol.Mvc.Support;
+using SpyStore.Mvc.Controllers.Base;
+using SpyStore.Mvc.Support;
 
-namespace SpyStore.Hol.Mvc.Controllers
+namespace SpyStore.Mvc.Controllers
 {
     public class ProductsController : BaseController
     {

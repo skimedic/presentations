@@ -11,7 +11,7 @@
 using System.Collections.Generic;
 using SpyStore.Models.Entities;
 
-namespace SpyStore.Hol.Mvc.Models.ViewModels
+namespace SpyStore.Mvc.Models.ViewModels
 {
     public class CartViewModel
     {

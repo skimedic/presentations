@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace SpyStore.Hol.Mvc.TagHelpers
+namespace SpyStore.Mvc.TagHelpers
 {
     public class EmailTagHelper : TagHelper
     {
