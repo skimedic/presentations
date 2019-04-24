@@ -3,6 +3,7 @@
 @foreach (var item in Model)
 {
     //Demo: Outgoing links (View)
+@*@Html.ActionLink("Product Foo","ProductList","Products",new {id=item.Id})*@
     <li><a asp-controller="Products" asp-action="ProductList" asp-route-id="@item.Id" class="nav-link">@item.CategoryName</a></li>
 }
 

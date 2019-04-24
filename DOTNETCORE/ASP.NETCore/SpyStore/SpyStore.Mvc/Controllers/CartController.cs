@@ -15,6 +15,8 @@ namespace SpyStore.Mvc.Controllers
 {
     //Demo: Routing
     [Route("[controller]/[action]")]
+    //[Route("Cart/[action]")]
+    //[Route("/")]
     public class CartController : BaseController
     {
         private readonly IShoppingCartRepo _shoppingCartRepo;
@@ -59,6 +61,7 @@ namespace SpyStore.Mvc.Controllers
             };
             return View(viewModel);
         }
+        //[Route("/{productId}")]
         [HttpGet("{productId}")]
         public IActionResult AddToCart([FromServices] IProductRepo productRepo,
             int productId, bool cameFromProducts = false)
@@ -79,7 +82,14 @@ namespace SpyStore.Mvc.Controllers
         public IActionResult AddToCart(int productId, AddToCartViewModel item)
         {
             //var foo = await TryUpdateModelAsync(item);
-            if (!ModelState.IsValid) return View(item);
+            if (!ModelState.IsValid)
+            {
+                ViewBag.CameFromProducts = false;
+                ViewBag.Title = "Add to Cart";
+                ViewBag.Header = "Add to Cart";
+                ViewBag.ShowCategory = true;
+                return View(item);
+            }
             //Do work
             //Recheck model
             //var isValid = TryValidateModel(item);
