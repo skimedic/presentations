@@ -13,7 +13,4 @@
                 _ => 0M
                 };
     }
-    public class PropertyPatterns
-    {
-    }
 }
