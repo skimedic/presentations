@@ -20,12 +20,12 @@ namespace WhatsNewInCSharp8.A_NullableDemos
             }
         }
         // Warning: Assignment of null to non-nullable reference type
-        //string s1 = null;
+        string s1 = null;
         string? s = null; // Ok
 
         public void MyMethod(string? s)
         {
-            // Warning: Possible null reference exception
+            // Warning: Dereference of a possible null reference CS8602
             Console.WriteLine(s.Length);
             //Use the null forgiving operator
             Console.WriteLine(s!.Length);

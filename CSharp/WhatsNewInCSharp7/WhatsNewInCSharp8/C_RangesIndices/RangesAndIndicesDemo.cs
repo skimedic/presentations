@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace WhatsNewInCSharp8.B_RangesIndices
+namespace WhatsNewInCSharp8.C_RangesIndices
 {
     public class RangesAndIndicesDemo
     {

@@ -1,4 +1,4 @@
-using WhatsNewInCSharp8.C_AsyncStreams;
+using WhatsNewInCSharp8.D_AsyncStreams;
 using Xunit;
 
 namespace WhatsNewInCSharp8_Tests.C_IAsyncEnumerable

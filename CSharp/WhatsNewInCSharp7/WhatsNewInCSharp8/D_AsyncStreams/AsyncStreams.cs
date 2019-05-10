@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace WhatsNewInCSharp8.C_AsyncStreams
+namespace WhatsNewInCSharp8.D_AsyncStreams
 {
     public class AsyncStreams
     {

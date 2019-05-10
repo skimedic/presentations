@@ -1,8 +1,8 @@
-﻿namespace System.Threading.Tasks
-{
-    using System.Runtime.CompilerServices;
-    using System.Threading.Tasks.Sources;
+﻿using System;
+using System.Threading.Tasks.Sources;
 
+namespace WhatsNewInCSharp8.D_AsyncStreams
+{
     internal struct ManualResetValueTaskSourceLogic<TResult>
     {
         private ManualResetValueTaskSourceCore<TResult> _core;
@@ -15,9 +15,6 @@
         public void SetResult(TResult result) => _core.SetResult(result);
         public void SetException(Exception error) => _core.SetException(error);
     }
-}
 
-namespace System.Runtime.CompilerServices
-{
     internal interface IStrongBox<T> { ref T Value { get; } }
 }

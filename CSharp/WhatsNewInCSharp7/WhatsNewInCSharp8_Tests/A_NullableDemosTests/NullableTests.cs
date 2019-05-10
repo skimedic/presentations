@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WhatsNewInCSharp8.A_NullableDemos;
 using Xunit;
 
 namespace WhatsNewInCSharp8_Tests.A_NullableDemosTests
 {
     public class NullableTests
     {
+        [Fact]
+        public void ShouldProperlyHandleNullableAndNullableInAConstructor()
+        {
+            var foo = new NullableTypesDemo();
+        }
         [Fact]
         public void ShouldHandleNullReferenceTypesWhenNull()
         {
