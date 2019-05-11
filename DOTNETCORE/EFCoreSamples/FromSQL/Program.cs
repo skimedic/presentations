@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FromSQL.Context;
-using FromSQL.Models;
+using FromSQLDbQuery.Context;
+using FromSQLDbQuery.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FromSQL
+namespace FromSQLDbQuery
 {
     class Program
     {
@@ -31,6 +31,15 @@ namespace FromSQL
                     .FromSql("SELECT * FROM dbo.Blogs")
                     .OrderBy(b => b.Url).ToList();
                 foreach (var itm in shortBlogs)
+                {
+                    Console.WriteLine($"{itm.Url}");
+                }
+                Console.WriteLine("-----------------------------");
+                Console.WriteLine("Get data for DbQuery model");
+                IEnumerable<ShortBlogQuery> shortBlogsQuery = db.ShortBlogsQuery
+                    .FromSql("SELECT * FROM dbo.Blogs")
+                    .OrderBy(b => b.Url).ToList();
+                foreach (var itm in shortBlogsQuery)
                 {
                     Console.WriteLine($"{itm.Url}");
                 }

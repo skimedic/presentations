@@ -1,6 +1,6 @@
 ﻿namespace FromSQLDbQuery.Models
 {
-    public class ShortBlog
+    public class ShortBlogQuery
     {
         public int BlogId { get; set; }
         public string Url { get; set; }

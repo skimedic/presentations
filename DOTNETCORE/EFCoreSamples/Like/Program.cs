@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Like.Context;
-using Like.Models;
+using HelperFunctions.Context;
+using HelperFunctions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Like
+namespace HelperFunctions
 {
     class Program
     {
@@ -14,7 +14,7 @@ namespace Like
             SetupDatabase();
             using (var db = new BloggingContext())
             {
-                var b = db.Blogs.Where(x=>EF.Functions.Like(x.Name,"%medic%")).First();
+                var b = db.Blogs.First(x => EF.Functions.Like(x.Name,"%medic%"));
                 Console.WriteLine(b.Name);
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();

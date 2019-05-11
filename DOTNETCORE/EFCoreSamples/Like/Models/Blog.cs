@@ -1,4 +1,4 @@
-﻿namespace Like.Models
+﻿namespace HelperFunctions.Models
 {
     public class Blog
     {

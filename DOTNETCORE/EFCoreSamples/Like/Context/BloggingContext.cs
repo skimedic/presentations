@@ -1,7 +1,7 @@
-using Like.Models;
+using HelperFunctions.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Like.Context
+namespace HelperFunctions.Context
 {
     public class BloggingContext : DbContext
     {

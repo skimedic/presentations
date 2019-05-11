@@ -1,4 +1,4 @@
-﻿namespace FromSQL.Models
+﻿namespace FromSQLDbQuery.Models
 {
     public class Blog
     {
