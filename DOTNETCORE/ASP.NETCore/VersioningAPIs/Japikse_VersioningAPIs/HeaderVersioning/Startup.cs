@@ -30,8 +30,8 @@ namespace HeaderVersioning
         public void ConfigureServices(IServiceCollection services)
         {
             // note: the specified format code will format the version as "'v'major[.minor][-status]"
-            services.AddMvcCore().AddVersionedApiExplorer(o => o.GroupNameFormat = "'v'VVV");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddVersionedApiExplorer(o => o.GroupNameFormat = "'v'VVV");
             services.AddApiVersioning(o =>
             {
                 o.AssumeDefaultVersionWhenUnspecified = true;

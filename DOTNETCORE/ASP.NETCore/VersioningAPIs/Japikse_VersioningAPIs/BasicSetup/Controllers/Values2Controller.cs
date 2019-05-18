@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace QueryStringVersioning.Controllers
+namespace BasicSetup.Controllers
 {
-    [ApiVersion("3.0")]
     [ApiVersion("2.0")]
-    [Route("api/Values")]
+    //[ApiVersion("3.0")]
+    [Route("api/values")]
     [ApiController]
     public class Values2Controller : ControllerBase
     {
@@ -26,7 +26,6 @@ namespace QueryStringVersioning.Controllers
             var foo = "foo";
             return new string[] { "value1v2", "value2v2" };
         }
-
 
         // POST api/values
         [HttpPost]

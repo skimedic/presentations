@@ -29,9 +29,17 @@ namespace QueryStringVersioning
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvcCore().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+#if BaseSetup
+            services.AddApiVersioning(o =>
+            {
+                o.AssumeDefaultVersionWhenUnspecified = true;
+                o.DefaultApiVersion = new ApiVersion(1, 0);
+            });
+#elif Swagger
             // note: the specified format code will format the version as "'v'major[.minor][-status]"
-            services.AddMvcCore().AddVersionedApiExplorer(o => o.GroupNameFormat = "'v'VVV");
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddVersionedApiExplorer();
+            //services.AddVersionedApiExplorer(o => o.GroupNameFormat = "'v'VVV");
             services.AddApiVersioning(o =>
             {
                 o.AssumeDefaultVersionWhenUnspecified = true;
@@ -50,7 +58,7 @@ namespace QueryStringVersioning
                 //// Content-Type: application/json;v=2.0
                 //o.ApiVersionReader = new MediaTypeApiVersionReader();
                 //// Content-Type: application/json;version=2.0
-                o.ApiVersionReader = new MediaTypeApiVersionReader("version");
+                //o.ApiVersionReader = new MediaTypeApiVersionReader("version");
 
             });
             services.AddSwaggerGen(
@@ -75,8 +83,19 @@ namespace QueryStringVersioning
                     // integrate xml comments
                     options.IncludeXmlComments(XmlCommentsFilePath);
                 });
+#endif
         }
+#if BaseSetup
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
+            app.UseMvc();
+        }
+#elif Swagger
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApiVersionDescriptionProvider provider)
         {
@@ -94,10 +113,11 @@ namespace QueryStringVersioning
                     foreach (var description in provider.ApiVersionDescriptions)
                     {
                         options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+                        options.RoutePrefix = string.Empty;
                     }
                 });
-
         }
+#endif
         static string XmlCommentsFilePath
         {
             get

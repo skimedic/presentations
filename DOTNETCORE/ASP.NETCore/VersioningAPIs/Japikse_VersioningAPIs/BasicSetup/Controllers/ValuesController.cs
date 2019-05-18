@@ -1,32 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace QueryStringVersioning.Controllers
+namespace BasicSetup.Controllers
 {
-    [ApiVersion("3.0")]
-    [ApiVersion("2.0")]
-    [Route("api/Values")]
+    [ApiVersion("1.0", Deprecated = true)]
     [ApiController]
-    public class Values2Controller : ControllerBase
+    [Route("api/[controller]")]
+    public class ValuesController : ControllerBase
     {
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            var version = HttpContext.GetRequestedApiVersion();
-            return new string[] { "value1v2", "value2v2" };
+            return new string[] { "value1", "value2" };
         }
 
+        // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<IEnumerable<string>> Get(int id, ApiVersion version)
+        public ActionResult<string> Get(int id)
         {
-            var foo = "foo";
-            return new string[] { "value1v2", "value2v2" };
+            return "value";
         }
-
 
         // POST api/values
         [HttpPost]
