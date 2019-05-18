@@ -4,36 +4,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BasicSetup.Controllers
+namespace SwaggerIntegration.Controllers
 {
-    [ApiVersion("2.0")]
-    [ApiVersion("2.5")]
-    [ApiVersion("3.0")]
-    [ApiVersion("3.0-RC")]
-    [Route("api/values")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class Values2Controller : ControllerBase
+    public class ValuesController : ControllerBase
     {
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            var version = HttpContext.GetRequestedApiVersion();
-            return new string[] { "value1v2", "value2v2" };
+            return new string[] { "value1", "value2" };
         }
 
+        // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<IEnumerable<string>> Get(int id, ApiVersion version)
+        public ActionResult<string> Get(int id)
         {
-            var foo = "foo";
-            return new string[] { "value1v2", "value2v2" };
+            return "value";
         }
 
-        [HttpGet("{id}"), MapToApiVersion("3.0")]
-        public ActionResult<IEnumerable<string>> GetV3(int id)
-        {
-            return new string[] { "value1v2", "value2v2" };
-        }
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
