@@ -7,10 +7,7 @@ namespace WhatsNewInCSharp7_Tests.F_RefLocalsAndReturnsTests
 {
     public class RefLocalsAndReturnsTests
     {
-        public ref int GetPositionInArray(int[] intArray, int position)
-        {
-            return ref intArray[position];
-        }
+        public ref int GetPositionInArray(int[] intArray, int position) => ref intArray[position];
 
         [Fact]
         public void ShouldGetReferenceToItemInArray()

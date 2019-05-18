@@ -85,6 +85,7 @@ namespace WhatsNewInCSharp8_Tests.B_RangesIndicesTests
             //Open means from the beginning and/or from the end
             Index i1 = 1;
             Index i2 = ^1;
+            Range r = 1..2;
             var subNames = names[i1..i2];
             Assert.NotEmpty(subNames);
             Assert.Equal(names[1], subNames[0]);
