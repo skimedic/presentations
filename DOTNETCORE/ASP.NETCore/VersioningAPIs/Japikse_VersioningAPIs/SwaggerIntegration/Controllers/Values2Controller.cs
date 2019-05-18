@@ -1,15 +1,22 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SwaggerIntegration_Old.Controllers
+namespace SwaggerIntegration.Controllers
 {
-    [ApiVersion("3.0")]
     [ApiVersion("2.0")]
-    [Route("api/Values")]
+    [ApiVersion("2.5", Deprecated = true)]
+    [ApiVersion("3.0")]
+    [ApiVersion("3.0-RC")]
+    [Route("api/values")]
     [ApiController]
     public class Values2Controller : ControllerBase
     {
-        // GET api/values
+        /// <summary>
+        /// Gets two values.
+        /// </summary>
+        /// <returns>The two strings.</returns>
+        /// <response code="200">The values were successfully retrieved.</response>
+        /// <response code="404">Not found.</response>
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -24,7 +31,11 @@ namespace SwaggerIntegration_Old.Controllers
             return new string[] { "value1v2", "value2v2" };
         }
 
-
+        [HttpGet("{id}"), MapToApiVersion("3.0")]
+        public ActionResult<IEnumerable<string>> GetV3(int id)
+        {
+            return new string[] { "value1v2", "value2v2" };
+        }
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)

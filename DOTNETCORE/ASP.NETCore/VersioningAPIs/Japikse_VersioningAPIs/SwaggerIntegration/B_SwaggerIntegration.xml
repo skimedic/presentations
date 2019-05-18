@@ -20,6 +20,14 @@
         <member name="M:SwaggerIntegration.ConfigureSwaggerOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
             <inheritdoc />
         </member>
+        <member name="M:SwaggerIntegration.Controllers.Values2Controller.Get">
+            <summary>
+            Gets two values.
+            </summary>
+            <returns>The two strings.</returns>
+            <response code="200">The values were successfully retrieved.</response>
+            <response code="404">Not found.</response>
+        </member>
         <member name="T:SwaggerIntegration.SwaggerDefaultValues">
             <summary>
             Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.

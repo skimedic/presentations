@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -36,8 +37,19 @@ namespace SwaggerIntegration
             services.AddApiVersioning(
                 options =>
                 {
+                    //Set Default version
+                    options.AssumeDefaultVersionWhenUnspecified = true;
+                    options.DefaultApiVersion = new ApiVersion(1, 0);
+                    //Only version [ApiController] - false in 3.0, true in 3.1
+                    options.UseApiBehavior = true;
                     // reporting api versions will return the headers "api-supported-versions" and "api-deprecated-versions"
                     options.ReportApiVersions = true;
+
+                    // This sets the default svc?api-version=2.0 and svc?v=2.0
+                    options.ApiVersionReader = ApiVersionReader.Combine(
+                        new QueryStringApiVersionReader(),
+                        new QueryStringApiVersionReader("v"));
+
                 });
             services.AddVersionedApiExplorer(
                 options =>

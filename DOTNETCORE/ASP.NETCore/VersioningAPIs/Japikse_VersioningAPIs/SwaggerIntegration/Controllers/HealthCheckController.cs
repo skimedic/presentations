@@ -2,7 +2,7 @@
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SwaggerIntegration_Old.Controllers
+namespace SwaggerIntegration.Controllers
 {
     [ApiVersionNeutral]
     [ApiController]
