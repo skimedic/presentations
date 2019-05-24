@@ -2,8 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Data.Entity;
-using PerformanceEf6;
-using EfCore = PerformanceEfCore.EFCore;
+
 namespace Performance
 {
     class Program

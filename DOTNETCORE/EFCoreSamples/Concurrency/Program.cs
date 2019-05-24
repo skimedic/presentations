@@ -46,6 +46,8 @@ namespace Concurrency
                     PropertyValues databaseValues = entryEntity.GetDatabaseValues();
                     //Discards local changes, gets database values, resets change tracker
                     entryEntity.Reload();
+                    //logging stuff here
+                    //throw new AppDbUpdateException(ex,IList<Customer>)
                 }
             }
             Console.WriteLine("Press any key to continue");
