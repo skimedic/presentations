@@ -43,16 +43,17 @@ namespace Repositories.Repos.Base
 
         public virtual IEnumerable<T> GetAll(IList<(Expression<Func<T, object>> orderBy, bool desc)> orders)
         {
-            var query = Table.AsQueryable();
-            foreach (var itm in orders)
+            IOrderedQueryable<T> query = default;
+            for (int x = 0; x<orders.Count;x++)
             {
-                if (itm.desc)
+                switch (x)
                 {
-                    query.OrderByDescending(itm.orderBy);
-                }
-                else
-                {
-                    query.OrderBy(itm.orderBy);
+                    case 0:
+                        query = orders[x].desc ? Table.OrderByDescending(orders[x].orderBy) : Table.OrderBy(orders[x].orderBy);
+                        break;
+                    default:
+                        query = orders[x].desc ? query?.ThenByDescending(orders[x].orderBy) : query?.OrderBy(orders[x].orderBy);
+                        break;
                 }
             }
 
