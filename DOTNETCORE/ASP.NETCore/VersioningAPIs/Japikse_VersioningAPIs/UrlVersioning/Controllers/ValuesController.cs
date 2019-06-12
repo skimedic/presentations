@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace UrlVersioning.Controllers
 {
-    [ApiVersion("1.0", Deprecated = true)]
+    [ApiVersion("1.0")]
+    //[ApiVersion("1.0", Deprecated = true)]
     [Route("api/[controller]")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]

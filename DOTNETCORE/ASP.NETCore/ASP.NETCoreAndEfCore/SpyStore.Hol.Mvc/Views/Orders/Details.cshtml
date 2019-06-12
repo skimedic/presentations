@@ -1,0 +1,85 @@
+﻿@model OrderWithDetailsAndProductInfo
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="card-body">
+    <h3>@ViewBag.Header</h3>
+    <div class="row top-row">
+        <div class="col-sm-6">
+            <label asp-for="OrderDate"></label>
+            <strong>@Html.DisplayFor(model => model.OrderDate)</strong>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="ShipDate"></label>
+            <strong>@Html.DisplayFor(model => model.ShipDate)</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <label>Billing Address:</label>
+            <address>
+                <strong>John Doe</strong><br>
+                123 State Street<br>
+                Whatever, UT 55555<br>
+                <abbr title="Phone">P:</abbr> (123) 456-7890
+            </address>
+        </div>
+        <div class="col-sm-6">
+            <label>Shipping Address:</label>
+            <address>
+                <strong>John Doe</strong><br>
+                123 State Street<br>
+                Whatever, UT 55555<br>
+                <abbr title="Phone">P:</abbr> (123) 456-7890
+                <email email-domain="domain.com" email-name="John.Doe"></email>
+            </address>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered product-table">
+            <thead>
+                <tr>
+                    <th style="width: 70%;">Product</th>
+                    <th class="text-right">Price</th>
+                    <th class="text-right">Quantity</th>
+                    <th class="text-right">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int x = 0; x < Model.OrderDetails.Count; x++)
+                {
+                    var item = Model.OrderDetails[x];
+                    <tr>
+                        <td>
+                            <div class="product-cell-detail">
+                                <img src="@Url.Content($"~/images/{item.ProductImageThumb}")" class="pull-left" />
+                                <a asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId" class="h5">
+                                    @Html.DisplayFor(model => item.ModelName)
+                                </a>
+                                <div class="small text-muted">
+                                    @Html.DisplayFor(model => item.Description)
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right">@Html.DisplayFor(model => item.UnitCost)</td>
+                        <td class="text-right">@Html.DisplayFor(model => item.Quantity)</td>
+                        <td class="text-right">@Html.DisplayFor(model => item.LineItemTotal)</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                    <th class="text-right">
+                        @Html.DisplayFor(model => model.OrderTotal)
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="pull-right">
+        <a asp-action="Index" class="btn btn-primary">Back to Order History</a>
+    </div>
+</div>

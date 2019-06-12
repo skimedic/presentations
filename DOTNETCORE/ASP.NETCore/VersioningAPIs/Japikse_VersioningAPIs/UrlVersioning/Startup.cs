@@ -30,13 +30,13 @@ namespace UrlVersioning
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // the sample application always uses the latest version, but you may want an explicit version such as Version_2_2
-            // note: Endpoint Routing is enabled by default; however, if you need legacy style routing via IRouter, change it to false
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddApiVersioning(
                 options =>
                 {
-                    //Only version [ApiController] - false in 3.0, true in 3.1
+                    options.AssumeDefaultVersionWhenUnspecified = true;
+                    options.DefaultApiVersion = new ApiVersion(1, 0);
+                    //Only version [ApiController] - defaults to false in 3.0, true in 3.1
                     options.UseApiBehavior = true;
                     // reporting api versions will return the headers "api-supported-versions" and "api-deprecated-versions"
                     options.ReportApiVersions = true;

@@ -5,13 +5,13 @@
 <form asp-controller="Cart" asp-action="Update" asp-route-id="@Model.Id" id="@formName" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <span asp-validation-for="Quantity" class="text-danger"></span>
-    <input type="hidden" asp-for="Id" />
-    <input type="hidden" asp-for="TimeStamp" />
-    <input type="hidden" asp-for="CustomerId" />
-    <input type="hidden" asp-for="UnitsInStock" />
-    <input type="hidden" asp-for="ProductId" />
-    <input type="hidden" asp-for="LineItemTotal" />
-    <input asp-for="Quantity" class="cart-quantity text-right" />
+    <input type="hidden" asp-for="Id"/>
+    <input type="hidden" asp-for="TimeStamp"/>
+    <input type="hidden" asp-for="CustomerId"/>
+    <input type="hidden" asp-for="UnitsInStock"/>
+    <input type="hidden" asp-for="ProductId"/>
+    <input type="hidden" asp-for="LineItemTotal"/>
+    <input asp-for="Quantity" class="cart-quantity text-right"/>
     <button class="btn btn-link btn-sm" onClick="updateCart($('#@formName')[0], '@Url.Action("Update", "Cart", new {id = @Model.Id})', @Model.Id);return false;">Update</button>
 </form>
 <form asp-controller="Cart" asp-action="Delete" asp-route-id="@Model.Id" id="deleteCartForm" method="post">

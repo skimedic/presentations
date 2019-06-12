@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Components
 
 <h1>Counter</h1>
-
+<h2> oh wow! this is awesome! </h2>
 <p>Current count: @currentCount</p>
 
 <button class="btn btn-primary" onclick="@IncrementCount">Click me</button>
@@ -12,10 +12,15 @@
 
     [Parameter]
     private int IncrementAmount { get; set; } = 1;
-
+    private bool didMagicJustHappen;
     void IncrementCount()
     {
 
         currentCount+=IncrementAmount;
+    }
+
+    void shouldntMethodsStartWithLowercase() {
+        // cool! PHil is very trusting
+
     }
 }

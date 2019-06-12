@@ -1,0 +1,4 @@
+docker pull mcr.microsoft.com/mssql/server:2017-latest
+
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@ssw0rd" -e "MSSQL_PID=Express" -p 6433:1433 --name SpyStoreHol -d mcr.microsoft.com/mssql/server:2017-latest
+

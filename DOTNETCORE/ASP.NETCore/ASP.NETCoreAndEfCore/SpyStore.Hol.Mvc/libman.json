@@ -1,0 +1,54 @@
+{
+  //https://api.cdnjs.com/libraries/jquery?output=human
+  //https://api.cdnjs.com/libraries?output=human
+  "version": "1.0",
+  "defaultProvider": "cdnjs", 
+  "defaultDestination": "wwwroot/lib",
+  "libraries": [ 
+    {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/lib/jquery",
+      "files": ["jquery.js", "jquery.min.js"]
+    },
+    {
+      "library": "jquery-validate@1.19.0",
+      "destination": "wwwroot/lib/jquery-validation",
+      "files": ["jquery.validate.js", "jquery.validate.min.js", "additional-methods.js", "additional-methods.min.js"]
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive",
+      "files": ["jquery.validate.unobtrusive.js", "jquery.validate.unobtrusive.min.js" ]
+    },
+    {
+      "library": "font-awesome@4.7.0",
+      "destination": "wwwroot/lib/fontawesome"
+    },
+    {
+      "library": "twitter-bootstrap@4.3.1",
+      "destination": "wwwroot/lib/bootstrap4",
+      "files": [
+        "css/bootstrap-grid.css",
+        "css/bootstrap-grid.css.map",
+        "css/bootstrap-grid.min.css",
+        "css/bootstrap-grid.min.css.map",
+        "css/bootstrap-reboot.css",
+        "css/bootstrap-reboot.css.map",
+        "css/bootstrap-reboot.min.css",
+        "css/bootstrap-reboot.min.css.map",
+        "css/bootstrap.css",
+        "css/bootstrap.css.map",
+        "css/bootstrap.min.css",
+        "css/bootstrap.min.css.map",
+        "js/bootstrap.bundle.js",
+        "js/bootstrap.bundle.js.map",
+        "js/bootstrap.bundle.min.js",
+        "js/bootstrap.bundle.min.js.map",
+        "js/bootstrap.js",
+        "js/bootstrap.js.map",
+        "js/bootstrap.min.js",
+        "js/bootstrap.min.js.map"
+      ]
+    }
+  ]
+}

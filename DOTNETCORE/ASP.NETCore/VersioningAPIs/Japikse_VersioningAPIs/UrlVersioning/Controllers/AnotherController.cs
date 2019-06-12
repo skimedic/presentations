@@ -12,6 +12,8 @@ namespace UrlVersioning.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [ApiVersion("3.0")]
+        [ApiVersion("3.5")]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1v3", "value2v3" };

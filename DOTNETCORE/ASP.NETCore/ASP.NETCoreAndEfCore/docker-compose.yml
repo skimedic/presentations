@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  db:
+    image: "microsoft/mssql-server-linux:2017-latest"
+    ports:
+      - "8433:1433"
+    environment:
+       SA_PASSWORD: "P@ssw0rd"
+       ACCEPT_EULA: "Y"
+       MSSQL_PID: "Express"
+  spystore.hol.service:
+    image: ${DOCKER_REGISTRY-}spystoreholservice
+    ports:
+      - "38081:80"
+    build:
+      context: .
+      dockerfile: SpyStore.Hol.Service/Dockerfile
+    depends_on:  
+       - db

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using PerformanceEfCore.EFCore;
-using PerformanceEfCore.EFCore.Context;
-using PerformanceEfCore.EFCore.Models;
+using PerformanceEfCore.EfStructures;
+using PerformanceEfCore.EfStructures.Context;
+using PerformanceEfCore.EfStructures.Models;
 
 namespace PerformanceEfCore
 {

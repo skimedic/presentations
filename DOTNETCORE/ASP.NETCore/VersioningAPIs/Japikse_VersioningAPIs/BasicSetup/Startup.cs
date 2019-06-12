@@ -47,7 +47,8 @@ namespace BasicSetup
                 //o.ApiVersionReader = new QueryStringApiVersionReader("v");
                 o.ApiVersionReader = ApiVersionReader.Combine(
                     new QueryStringApiVersionReader(),
-                    new QueryStringApiVersionReader("v"));
+                    new QueryStringApiVersionReader("v"),
+                    new QueryStringApiVersionReader("foo"));
 
                 //These are not considered compliant to the MS REST guidelines,
                 // Content-Type: application/json;v=2.0

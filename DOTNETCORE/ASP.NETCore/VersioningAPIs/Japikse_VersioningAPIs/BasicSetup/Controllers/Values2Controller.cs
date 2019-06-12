@@ -9,7 +9,7 @@ namespace BasicSetup.Controllers
     [ApiVersion("2.0")]
     [ApiVersion("2.5")]
     [ApiVersion("3.0")]
-    [ApiVersion("3.0-RC")]
+    [ApiVersion("2019-05-20.3.0-RC")]
     [Route("api/values")]
     [ApiController]
     public class Values2Controller : ControllerBase

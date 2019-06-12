@@ -1,0 +1,18 @@
+﻿<li class="nav-item navbar-text">Hello <em>Super Spy</em></li>
+<li class="nav-item"><a asp-controller="Cart" asp-action="Index" title="Cart" class="nav-link"><span class="fa fa-shopping-cart"></span> Cart</a></li>
+<li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-lock"></span> LOGIN</a></li>
+<li class="nav-item"><a asp-controller="Orders" asp-action="Index" title="Order History" class="nav-link"><span class="fa fa-tag"></span> Orders</a></li>
+<li class="nav-item dropdown search-dropdown">
+    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><span class="fa fa-search"></span> SEARCH</a>
+    <div class="dropdown-menu dropdown-menu-right bg-primary">
+        <form asp-controller="Products" asp-action="Search" class="form-inline justify-content-end" role="search">
+            <div class="input-group md-4">
+                <label class="sr-only" for="searchString">Search</label>
+                <input type="text" id="searchString" name="searchString" class="form-control" placeholder="SEARCH">
+                <div class="input-group-append">
+                    <button class="btn btn-light" type="submit"><span class="fa fa-search"></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</li>

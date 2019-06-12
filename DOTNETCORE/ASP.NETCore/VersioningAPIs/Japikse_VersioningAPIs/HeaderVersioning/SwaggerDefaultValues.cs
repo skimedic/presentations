@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -18,6 +19,10 @@ namespace HeaderVersioning
         /// <param name="context">The current operation filter context.</param>
         public void Apply(Operation operation, OperationFilterContext context)
         {
+            var apiDescription = context.ApiDescription;
+
+            operation.Deprecated = apiDescription.IsDeprecated();
+
             if (operation.Parameters == null)
             {
                 return;
