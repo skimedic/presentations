@@ -17,10 +17,10 @@ namespace SpyStore.Dal.EfStructures.MigrationHelpers
     END";
             migrationBuilder.Sql(sql);
         }
+
         public static void DropOrderTotalFunction(MigrationBuilder builder)
         {
             builder.Sql("drop function [Store].[GetOrderTotal]");
         }
-
     }
 }
