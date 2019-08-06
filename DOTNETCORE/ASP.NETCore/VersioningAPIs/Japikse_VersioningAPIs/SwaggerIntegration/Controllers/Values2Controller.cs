@@ -26,6 +26,7 @@ namespace SwaggerIntegration.Controllers
     //    }
     //}
 
+    //HACK: DONT DO THIS IRL Keep the versions concise per controller
     [ApiVersion("2.0")]
     [ApiVersion("2.5", Deprecated = true)]
     [ApiVersion("3.0")]
