@@ -67,6 +67,19 @@ namespace VersioningOptions
                 //http://localhost:5000/api/v2019-10-01.2.Beta/values
 
 
+                //Demo: 2E. Version Reader
+                //QueryStringVersion Reader changes the query string parameters
+                // This sets the default svc?api-version=2.0
+                //options.ApiVersionReader = new QueryStringApiVersionReader();
+                // svc?v=2.0
+                //options.ApiVersionReader = new QueryStringApiVersionReader("v");
+
+                //TODO: Add Header Versioning
+                options.ApiVersionReader = ApiVersionReader.Combine(
+                    new QueryStringApiVersionReader(),
+                    new QueryStringApiVersionReader("v"),
+                    new QueryStringApiVersionReader("foo"));
+
                 //These are not considered compliant to the MS REST guidelines,
                 // Content-Type: application/json;v=2.0
                 //options.ApiVersionReader = new MediaTypeApiVersionReader();

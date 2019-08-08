@@ -12,8 +12,8 @@ namespace VersioningOptions.Controllers
         public string Get(ApiVersion apiVersion) 
             => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
 
-        [HttpGet]
-        public string Get2(ApiVersion apiVersion)
-            => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
+        //[HttpGet]
+        //public string Get2(ApiVersion apiVersion)
+        //    => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
     }
 }
