@@ -30,8 +30,9 @@ namespace BareMinimum
             //Send api versions in header
             services.AddApiVersioning(o=>
             {
+                //Demo: 1A. Report Versions
                 o.ReportApiVersions = true;
-                //on by default for version >= 3.1. Adds versioning to anything with [ApiController] 
+                //Adds versioning to anything with [ApiController] on by default for version >= 3.1.
                 o.UseApiBehavior = true;
             });
         }

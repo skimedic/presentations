@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BareMinimum.Controllers
 {
+    //Demo: 1B. Version Neutral
     [ApiVersionNeutral]
     [ApiController]
     [Route("api/[controller]")]

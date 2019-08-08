@@ -14,10 +14,21 @@ namespace BareMinimum.Controllers
         [HttpGet]
         public string Get(ApiVersion apiVersion) 
             => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
+
+        [HttpGet("{id}")]
+        public string Get2(int id)
+        {
+            //Demo: 1E. Version Information
+            ApiVersion version = HttpContext.GetRequestedApiVersion();
+            return $"Controller = {GetType().Name}\nVersion = {version}";
+        }
+
         [HttpGet]
         [ApiVersion("1.5")]
         public string Get2(ApiVersion apiVersion) 
             => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
+        
+        //Demo: 1C. MapToApiVersion
         [HttpGet]
         [MapToApiVersion("3.0")]
         public string Get3(ApiVersion apiVersion) 

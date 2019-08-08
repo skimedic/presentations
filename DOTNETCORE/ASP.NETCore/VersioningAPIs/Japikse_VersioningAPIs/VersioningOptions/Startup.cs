@@ -35,18 +35,18 @@ namespace VersioningOptions
                 //on by default for version >= 3.1. Adds versioning to anything with [ApiController] 
                 options.UseApiBehavior = true;
 
-                //Demo: A. Version by Namespace
+                //Demo: 2A. Version by Namespace
                 // automatically applies an api version based on the name of the defining controller's namespace
                 options.Conventions.Add( new VersionByNamespaceConvention());
 
-                //Demo: B. Version with conventions
+                //Demo: 2B. Version with conventions
                 //Set version information in Code
                 //options.Conventions.Controller<VersioningOptions.Controllers.ValuesController>()
                 //    .HasDeprecatedApiVersion(0,5)
                 //    .HasApiVersion(4,0)
                 //    .Action(c => c.Get2(default)).MapToApiVersion(2,5);
 
-                //Demo: C. Default versions for requests
+                //Demo: 2C. Default versions for requests
                 //Affects clients and incoming calls
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 //The ApiVersionSelector determines default version
@@ -60,7 +60,7 @@ namespace VersioningOptions
 
                 //http://localhost:5000/api/values
 
-                //Demo: D. Defaults for controllers
+                //Demo: 2D. Defaults for controllers
                 //Affects controllers that are not versioned - Defaults to 1.0
                 options.DefaultApiVersion = new ApiVersion( new DateTime( 2019, 10, 1 ),2,0,"Beta" );
                 //options.DefaultApiVersion = new ApiVersion( new DateTime( 2019, 10, 1 ),2,0 );
