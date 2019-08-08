@@ -37,7 +37,7 @@ namespace VersioningOptions
 
                 //Demo: 2A. Version by Namespace
                 // automatically applies an api version based on the name of the defining controller's namespace
-                options.Conventions.Add( new VersionByNamespaceConvention());
+                options.Conventions.Add(new VersionByNamespaceConvention());
 
                 //Demo: 2B. Version with conventions
                 //Set version information in Code
@@ -51,7 +51,7 @@ namespace VersioningOptions
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 //The ApiVersionSelector determines default version
                 //uses the default process
-                options.ApiVersionSelector = new DefaultApiVersionSelector(options); 
+                options.ApiVersionSelector = new DefaultApiVersionSelector(options);
                 //options.ApiVersionSelector = new ConstantApiVersionSelector(new ApiVersion(new DateTime( 2019, 08, 1 ),1,5));
                 //greatest non alpha/rc/etc
                 //options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(options); 
@@ -62,7 +62,7 @@ namespace VersioningOptions
 
                 //Demo: 2D. Defaults for controllers
                 //Affects controllers that are not versioned - Defaults to 1.0
-                options.DefaultApiVersion = new ApiVersion( new DateTime( 2019, 10, 1 ),2,0,"Beta" );
+                options.DefaultApiVersion = new ApiVersion(new DateTime(2019, 10, 1), 2, 0, "Beta");
                 //options.DefaultApiVersion = new ApiVersion( new DateTime( 2019, 10, 1 ),2,0 );
                 //http://localhost:5000/api/v2019-10-01.2.Beta/values
 
@@ -73,19 +73,21 @@ namespace VersioningOptions
                 //options.ApiVersionReader = new QueryStringApiVersionReader();
                 // svc?v=2.0
                 //options.ApiVersionReader = new QueryStringApiVersionReader("v");
-
-                //TODO: Add Header Versioning
+                //Content-Type: application/json;v=3.0
                 options.ApiVersionReader = ApiVersionReader.Combine(
-                    new QueryStringApiVersionReader(),
+                    new QueryStringApiVersionReader(), //defaults to "api-version"
                     new QueryStringApiVersionReader("v"),
-                    new QueryStringApiVersionReader("foo"));
+                    new QueryStringApiVersionReader("foo"),
+                    new HeaderApiVersionReader("api-version"),
+                    new HeaderApiVersionReader("v"),
+                    new MediaTypeApiVersionReader(), //defaults to "v"
+                    new MediaTypeApiVersionReader("api-version"));
 
                 //These are not considered compliant to the MS REST guidelines,
                 // Content-Type: application/json;v=2.0
                 //options.ApiVersionReader = new MediaTypeApiVersionReader();
                 // Content-Type: application/json;version=2.0
                 //options.ApiVersionReader = new MediaTypeApiVersionReader("version");
-
             });
         }
 

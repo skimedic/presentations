@@ -4,11 +4,14 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RootNamespace>SwaggerIntegration</RootNamespace>
+    <AssemblyName>SwaggerIntegration</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\GitHub\presentations\DOTNETCORE\ASP.NETCore\VersioningAPIs\Japikse_VersioningAPIs\SwaggerIntegration\B_SwaggerIntegration.xml</DocumentationFile>
-  </PropertyGroup>
+  <!--<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildThisFileName).xml</DocumentationFile>
+  </PropertyGroup>-->
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />

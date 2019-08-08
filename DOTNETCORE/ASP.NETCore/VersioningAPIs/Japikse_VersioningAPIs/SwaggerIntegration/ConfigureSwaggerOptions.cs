@@ -19,7 +19,8 @@ namespace SwaggerIntegration
         /// Initializes a new instance of the <see cref="ConfigureSwaggerOptions"/> class.
         /// </summary>
         /// <param name="provider">The <see cref="IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
-        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) => this.provider = provider;
+        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) 
+            => this.provider = provider;
 
         /// <inheritdoc />
         public void Configure(SwaggerGenOptions options)
@@ -46,7 +47,7 @@ namespace SwaggerIntegration
 
             if (description.IsDeprecated)
             {
-                info.Description += " This API version has been deprecated.";
+                info.Description += "<span style=\"color:red\"> This API version has been deprecated.</span>";
             }
 
             return info;

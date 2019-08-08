@@ -14,16 +14,6 @@ namespace SwaggerIntegration.Controllers
     //    {
     //        return new string[] { "value1v2", "value2v2" };
     //    }
-    //    [HttpGet]
-    //    public override ActionResult<IEnumerable<string>> Get()
-    //    {
-    //        return base.Get();
-    //    }
-    //    [HttpGet("{id}")]
-    //    public override ActionResult<IEnumerable<string>> Get(int id, ApiVersion version)
-    //    {
-    //        return base.Get(id, version);
-    //    }
     //}
 
     //HACK: DONT DO THIS IRL Keep the versions concise per controller
@@ -32,34 +22,24 @@ namespace SwaggerIntegration.Controllers
     [ApiVersion("3.0")]
     [ApiVersion("3.0-RC")]
     [Route("api/values")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class Values2Controller : ControllerBase
     {
         /// <summary>
-        /// Gets two values.
+        /// Gets the API Version.
         /// </summary>
-        /// <returns>The two strings.</returns>
+        /// <returns>The JSON - controller name and version information.</returns>
         /// <response code="200">The values were successfully retrieved.</response>
         /// <response code="404">Not found.</response>
         [HttpGet]
-        public virtual ActionResult<IEnumerable<string>> Get()
-        {
-            var version = HttpContext.GetRequestedApiVersion();
-            return new string[] { "value1v2", "value2v2" };
-        }
+        public string Get(ApiVersion apiVersion) 
+            => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
 
         [HttpGet, MapToApiVersion("3.0-RC")]
-        public ActionResult<IEnumerable<string>> GetV3()
-        {
-            return new string[] { "value1v3RC", "value2v3RC" };
-        }
+        public string GetV3(ApiVersion apiVersion) 
+            => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
 
-        [HttpGet("{id}")]
-        public virtual ActionResult<IEnumerable<string>> Get(int id, ApiVersion version)
-        {
-            var foo = "foo";
-            return new string[] { "value1v2", "value2v2" };
-        }
 
     }
 }
