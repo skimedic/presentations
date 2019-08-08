@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>B_SwaggerIntegration</name>
+        <name>C_SwaggerIntegration</name>
     </assembly>
     <members>
         <member name="T:SwaggerIntegration.ConfigureSwaggerOptions">
