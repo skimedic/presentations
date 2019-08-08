@@ -1,0 +1,3 @@
+﻿http://localhost:5000/api/v2019-01-01.2.Beta/values
+http://localhost:5000/api/v2019-01-01.1.0/values
+http://localhost:5000/api/v2019-01-01.1/values

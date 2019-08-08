@@ -28,7 +28,12 @@ namespace BareMinimum
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //services.AddApiVersioning();
             //Send api versions in header
-            services.AddApiVersioning(o=>o.ReportApiVersions = true);
+            services.AddApiVersioning(o=>
+            {
+                o.ReportApiVersions = true;
+                //on by default for version >= 3.1. Adds versioning to anything with [ApiController] 
+                o.UseApiBehavior = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

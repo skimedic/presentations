@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace VersionByNamespace.Controllers.V1_5
+namespace VersioningOptions.Controllers.v2019_01_01_1_5
 {
     [ApiController]
     [Route("api/[controller]")]

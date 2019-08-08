@@ -29,8 +29,9 @@ namespace BasicSetup
             //services.AddApiVersioning();
             services.AddApiVersioning(o=>
             {
-                //Set Default version
+                //Set Default version for incoming requests
                 o.AssumeDefaultVersionWhenUnspecified = true;
+                //Set default version for unmarked methods
                 o.DefaultApiVersion = new ApiVersion(1, 0);
                 //Only version [ApiController] - false in 3.0, true in 3.1
                 o.UseApiBehavior = true;
@@ -50,11 +51,6 @@ namespace BasicSetup
                     new QueryStringApiVersionReader("v"),
                     new QueryStringApiVersionReader("foo"));
 
-                //These are not considered compliant to the MS REST guidelines,
-                // Content-Type: application/json;v=2.0
-                //o.ApiVersionReader = new MediaTypeApiVersionReader();
-                // Content-Type: application/json;version=2.0
-                //o.ApiVersionReader = new MediaTypeApiVersionReader("version");
 
                 //These handle requests where client doesn't request a version
                 //o.ApiVersionSelector = new DefaultApiVersionSelector(o); //uses the default process

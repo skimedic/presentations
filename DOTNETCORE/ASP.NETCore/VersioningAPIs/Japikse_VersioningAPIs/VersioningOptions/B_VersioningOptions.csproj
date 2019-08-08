@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <AssemblyName>VersionByNamespace</AssemblyName>
-    <RootNamespace>VersionByNamespace</RootNamespace>
+    <AssemblyName>VersioningOptions</AssemblyName>
+    <RootNamespace>VersioningOptions</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

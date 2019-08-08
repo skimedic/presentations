@@ -12,15 +12,15 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/values?api-version=1.0",
+      "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "VersionByNamespace": {
+    "VersioningOptions": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/v1.5/values",
+      "launchUrl": "api/v2019-01-01.1.5/values",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

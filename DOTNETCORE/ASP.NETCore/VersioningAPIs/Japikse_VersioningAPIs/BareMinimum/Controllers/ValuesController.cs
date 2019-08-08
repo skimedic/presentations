@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BareMinimum.Controllers
 {
-    [ApiVersion("1.0")]
+    [ApiVersion("1.0",Deprecated=true)]
+    [ApiVersion("2.0")]
     [ApiController]
     [Route("api/[controller]")]
     [Route("api/v{version:apiVersion}/[controller]")]
@@ -16,6 +17,10 @@ namespace BareMinimum.Controllers
         [HttpGet]
         [ApiVersion("1.5")]
         public string Get2(ApiVersion apiVersion) 
+            => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
+        [HttpGet]
+        [MapToApiVersion("3.0")]
+        public string Get3(ApiVersion apiVersion) 
             => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
 
     }

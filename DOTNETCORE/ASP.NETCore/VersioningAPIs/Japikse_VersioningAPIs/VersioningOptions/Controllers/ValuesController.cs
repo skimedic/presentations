@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BasicSetup.Controllers
+namespace VersioningOptions.Controllers
 {
-    [ApiVersion("1.0", Deprecated = true)]
     [ApiController]
     [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class ValuesController : ControllerBase
     {
         // GET api/values
@@ -18,5 +12,8 @@ namespace BasicSetup.Controllers
         public string Get(ApiVersion apiVersion) 
             => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
 
+        [HttpGet]
+        public string Get2(ApiVersion apiVersion)
+            => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
     }
 }

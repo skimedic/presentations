@@ -1,10 +1,8 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace VersionByNamespace.Controllers.V1
+namespace VersioningOptions.Controllers.V3
 {
     [ApiController]
-    [Obsolete]
     [Route("api/[controller]")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class ValuesController : ControllerBase
