@@ -5,7 +5,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using SpyStore.Models.Entities;
 using SpyStore.Models.ViewModels;
 using SpyStore.Mvc.Models.ViewModels;

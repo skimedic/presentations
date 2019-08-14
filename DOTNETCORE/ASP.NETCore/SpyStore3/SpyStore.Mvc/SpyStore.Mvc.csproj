@@ -8,13 +8,14 @@
   <ItemGroup>
     <ProjectReference Include="..\SpyStore.Dal\SpyStore.Dal.csproj" />
     <ProjectReference Include="..\SpyStore.Models\SpyStore.Models.csproj" />
+    <ProjectReference Include="..\WebOptimizer.Core\WebOptimizer.Core.csproj" />
   </ItemGroup>
 
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
-    <PackageReference Include="LigerShark.WebOptimizer.Core" Version="1.0.236" />
-    <PackageReference Include="LigerShark.WebOptimizer.sass" Version="1.0.34-beta" />
+    <!--<PackageReference Include="LigerShark.WebOptimizer.Core" Version="1.0.236" />
+    <PackageReference Include="LigerShark.WebOptimizer.sass" Version="1.0.34-beta" />-->
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0-preview8.19405.11" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.0.0-preview8.19405.4" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.76" />
