@@ -42,13 +42,18 @@ namespace SwaggerIntegration
                     options.DefaultApiVersion = new ApiVersion(1, 0);
                     //Only version [ApiController] - false in 3.0, true in 3.1
                     options.UseApiBehavior = true;
-                    // reporting api versions will return the headers "api-supported-versions" and "api-deprecated-versions"
+                    // reporting api versions will return the headers "api-supported-versions"
+                    // and "api-deprecated-versions"
                     options.ReportApiVersions = true;
 
                     // This sets the default svc?api-version=2.0 and svc?v=2.0
                     options.ApiVersionReader = ApiVersionReader.Combine(
-                        new QueryStringApiVersionReader(),
-                        new QueryStringApiVersionReader("v"));
+                        new QueryStringApiVersionReader(), //defaults to "api-version"
+                        new QueryStringApiVersionReader("v"),
+                        new HeaderApiVersionReader("api-version"),
+                        new HeaderApiVersionReader("v"),
+                        new MediaTypeApiVersionReader(), //defaults to "v"
+                        new MediaTypeApiVersionReader("api-version"));
 
                 });
             services.AddVersionedApiExplorer(
@@ -71,6 +76,8 @@ namespace SwaggerIntegration
 
                     // integrate xml comments
                     options.IncludeXmlComments(XmlCommentsFilePath);
+                    //If you have a bad API definition
+                    //options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 });
         }
 

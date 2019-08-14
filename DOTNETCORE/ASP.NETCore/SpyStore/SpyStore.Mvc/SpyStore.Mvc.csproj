@@ -27,13 +27,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="wwwroot\lib\bootstrap4\css\" />
-    <Folder Include="wwwroot\lib\bootstrap4\js\" />
-    <Folder Include="wwwroot\lib\fontawesome\css\" />
-    <Folder Include="wwwroot\lib\fontawesome\fonts\" />
-    <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
-    <Folder Include="wwwroot\lib\jquery-validation\" />
-    <Folder Include="wwwroot\lib\jquery\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,25 @@
+﻿@model SpyStore.Mvc.Models.ViewModels.CartRecordViewModel
+<tr id="row_@Model.Id">
+    <td>
+        <div class="product-cell-detail">
+            <img src="@Url.Content($"~/images/{Model.ProductImageThumb}")" class="pull-left" />
+            <a class="h5" asp-controller="Products" asp-action="Details"
+               asp-route-id="@Model.ProductId">@Html.DisplayFor(model => model.ModelName)</a>
+            <div class="small text-muted">@Html.DisplayFor(model => model.CategoryName)</div>
+            <div class="small text-muted d-none d-sm-block">@Html.DisplayFor(model => model.Description)</div>
+        </div>
+    </td>
+    <td class="text-right">
+        @Html.DisplayFor(model => model.CurrentPrice)
+    </td>
+    <td class="text-right cart-quantity-row">
+        @Html.EditorForModel()
+    </td>
+    <td class="text-right">
+        @Html.DisplayFor(model => model.UnitsInStock)
+    </td>
+    <td class="text-right">
+        <span id="rawTotal_@Model.ProductId" class="d-none">@Model.LineItemTotal</span>
+        <span id="total_@Model.ProductId">@Html.DisplayFor(model => model.LineItemTotal)</span>
+    </td>
+</tr>

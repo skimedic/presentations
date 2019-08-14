@@ -42,19 +42,19 @@ namespace VersioningOptions
                 //Demo: 2B. Version with conventions
                 //Set version information in Code
                 //options.Conventions.Controller<VersioningOptions.Controllers.ValuesController>()
-                //    .HasDeprecatedApiVersion(0,5)
-                //    .HasApiVersion(4,0)
-                //    .Action(c => c.Get2(default)).MapToApiVersion(2,5);
+                //    .HasDeprecatedApiVersion(0, 5)
+                //    .HasApiVersion(4, 0)
+                //    .Action(c => c.Get(default)).MapToApiVersion(2, 5);
 
                 //Demo: 2C. Default versions for requests
                 //Affects clients and incoming calls
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 //The ApiVersionSelector determines default version
                 //uses the default process
-                options.ApiVersionSelector = new DefaultApiVersionSelector(options);
+                //options.ApiVersionSelector = new DefaultApiVersionSelector(options);
                 //options.ApiVersionSelector = new ConstantApiVersionSelector(new ApiVersion(new DateTime( 2019, 08, 1 ),1,5));
                 //greatest non alpha/rc/etc
-                //options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(options); 
+                 //options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(options); 
                 //lowest - those without a date are considered lower than those with a date
                 //options.ApiVersionSelector = new LowestImplementedApiVersionSelector(options);
 
@@ -77,7 +77,7 @@ namespace VersioningOptions
                 options.ApiVersionReader = ApiVersionReader.Combine(
                     new QueryStringApiVersionReader(), //defaults to "api-version"
                     new QueryStringApiVersionReader("v"),
-                    new QueryStringApiVersionReader("foo"),
+                    //new QueryStringApiVersionReader("foo"),
                     new HeaderApiVersionReader("api-version"),
                     new HeaderApiVersionReader("v"),
                     new MediaTypeApiVersionReader(), //defaults to "v"

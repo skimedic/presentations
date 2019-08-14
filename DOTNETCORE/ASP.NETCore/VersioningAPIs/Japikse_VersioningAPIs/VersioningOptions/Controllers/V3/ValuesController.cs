@@ -4,6 +4,7 @@ namespace VersioningOptions.Controllers.V3
 {
     //HACK: This is an example of what NOT to do
     [ApiController]
+    //[ApiVersion("3.0")]
     [Route("api/[controller]")]
     [Route("api/api-version{version:apiVersion}/[controller]")]
     public class ValuesController : ControllerBase

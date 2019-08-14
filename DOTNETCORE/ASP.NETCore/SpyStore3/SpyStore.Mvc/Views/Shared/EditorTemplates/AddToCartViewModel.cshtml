@@ -1,0 +1,55 @@
+﻿@model SpyStore.Mvc.Models.ViewModels.AddToCartViewModel
+@if (Model.Quantity == 0)
+{
+    Model.Quantity = 1;
+}
+<div class="card">
+    <div class="card-body">
+        <h1 class="d-block">@Html.DisplayFor(x => x.ModelName)</h1>
+        
+        <div class="row product-details-container">
+            <div class="col-sm-6 product-images">
+                <img src="@Url.Content($"~/images/{Model.ProductImageLarge}")" />
+                <div class="key-label">PRODUCT IMAGES</div>
+            </div>
+            <div class="col-sm-6">
+                <div class="price-label">PRICE:</div>
+                <div class="price">@Html.DisplayFor(x => x.CurrentPrice)</div>
+                <div class="units">Only @Html.DisplayFor(x => x.UnitsInStock) left.</div>
+                <div class="product-description">@Html.DisplayFor(x => x.Description)</div>
+                <ul class="product-details">
+                    <li>
+                        <div class="key-label">MODEL NUMBER:</div> @Html.DisplayFor(x => x.ModelNumber)
+                    </li>
+                    <li>
+                        <div class="key-label">CATEGORY:</div> <a asp-controller="Products" asp-action="ProductList"
+                                                                  asp-route-id="@Model.CategoryId">@Model.CategoryName</a></li>
+                </ul>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="TimeStamp" />
+                <input type="hidden" asp-for="CategoryId" />
+                <input type="hidden" asp-for="CategoryName" />
+                <input type="hidden" asp-for="CustomerId" value="@ViewBag.CustomerId" />
+                <input type="hidden" asp-for="ProductId" />
+                <input type="hidden" asp-for="LineItemTotal" />
+                <input type="hidden" asp-for="Description" />
+                <input type="hidden" asp-for="ModelNumber" />
+                <input type="hidden" asp-for="ModelName" />
+                <input type="hidden" asp-for="ProductImage" />
+                <input type="hidden" asp-for="ProductImageLarge" />
+                <input type="hidden" asp-for="ProductImageThumb" />
+                <input type="hidden" asp-for="UnitsInStock" />
+                <input type="hidden" asp-for="CurrentPrice" />
+                <div class="row cart-group">
+                    <label for="qty">QUANTITY:</label>
+                    <input asp-for="Quantity" class="cart-quantity form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                    <button class="btn btn-primary" type="submit">Add to Cart</button>
+                </div>
+                <script>
+                    document.write('<a href="' + document.referrer + '">Go Back</a>');
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

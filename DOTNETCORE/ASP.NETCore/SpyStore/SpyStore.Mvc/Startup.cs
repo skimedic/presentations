@@ -52,6 +52,8 @@ namespace SpyStore.Mvc
             services.AddScoped<IOrderDetailRepo, OrderDetailRepo>();
             services.AddScoped<IShoppingCartRepo, ShoppingCartRepo>();
             services.Configure<CustomSettings>(Configuration.GetSection("CustomSettings"));
+            services.Configure<ServiceSettings>(Configuration.GetSection("ServiceSettings"));
+            services.AddHttpClient<SpyStoreServiceWrapper>();
             if (_env.IsDevelopment() || _env.EnvironmentName == "Local")
             {
                 services.AddWebOptimizer(options =>

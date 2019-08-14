@@ -1,0 +1,27 @@
+﻿@model SpyStore.Mvc.Models.ViewModels.AddToCartViewModel
+@{
+    ViewData["Title"] = @ViewBag.Title;
+}
+<h3>@ViewBag.Header</h3>
+<form method="post"
+      asp-controller="Cart"
+      asp-action="AddToCart"
+      asp-route-customerId="@ViewBag.CustomerId"
+      asp-antiforgery="true"
+      id="myForm">
+    @Html.EditorForModel()
+    <div asp-validation-summary="All" class="text-danger"></div>
+</form>
+@{
+    if (ViewBag.CameFromProducts != null && ViewBag.CameFromProducts)
+    {
+        <div>
+            <a href="#" onclick="window.history.go(-1); return false;">Back to List</a>
+        </div>
+    }
+}
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
