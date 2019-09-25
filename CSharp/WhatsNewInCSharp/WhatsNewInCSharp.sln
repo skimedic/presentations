@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhatsNewInCSharp8", "WhatsN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhatsNewInCSharp8_Tests", "WhatsNewInCSharp8_Tests\WhatsNewInCSharp8_Tests.csproj", "{D76F2D9C-0201-4E65-BF30-17D803B3C6A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{A5F554D3-73FC-4DCA-8CAF-23FBA8312F3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{A5F554D3-73FC-4DCA-8CAF-23FBA8312F3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
