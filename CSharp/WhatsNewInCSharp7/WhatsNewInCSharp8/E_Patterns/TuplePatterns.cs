@@ -1,4 +1,4 @@
-﻿namespace WhatsNewInCSharp8.B_Patterns
+﻿namespace WhatsNewInCSharp8.E_Patterns
 {
     public class TuplePatterns
     {

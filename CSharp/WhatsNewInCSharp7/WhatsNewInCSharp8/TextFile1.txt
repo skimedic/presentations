@@ -1,7 +1,6 @@
 ﻿##Todo
 Readonly members
 Default interface members
-More patterns in more places
 Disposable ref structs
 Asynchronous streams
 Unmanaged constructed types
@@ -11,6 +10,7 @@ stackalloc in nested expressions
 ##in process
 Null-coalescing assignment
 Enhancement of interpolated verbatim strings
+More patterns in more places
 
 ##Complete
 Nullable reference types
