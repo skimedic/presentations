@@ -1,0 +1,20 @@
+﻿##Todo
+Readonly members
+Default interface members
+More patterns in more places
+Disposable ref structs
+Asynchronous streams
+Unmanaged constructed types
+stackalloc in nested expressions
+
+
+##in process
+Null-coalescing assignment
+Enhancement of interpolated verbatim strings
+
+##Complete
+Nullable reference types
+  https://docs.microsoft.com/en-us/dotnet/csharp/nullable-attributes#choose-a-nullable-strategy
+Indices and ranges
+Static local functions
+using declarations

@@ -32,7 +32,6 @@ namespace SpyStore.Mvc.Controllers
         [Route("/")]
         [Route("/[controller]")]
         [Route("/[controller]/[action]")]
-
         [HttpGet]
         public ActionResult Index()
         {

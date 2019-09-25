@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>LigerShark.WebOptimizer.Analyzers</id>
+    <version>1.0.6</version>
+    <title>LigerShark.WebOptimizer.Analyzers</title>
+    <authors>Mads Kristensen</authors>
+    <owners>Mads Kristensen</owners>
+    <licenseUrl>https://github.com/ligershark/WebOptimizer.Analyzers/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/ligershark/WebOptimizer.Analyzers</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/ligershark/WebOptimizer/master/art/logo64x64.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>WebOptimizer.Analyzers</description>
+    <copyright>Copyright Mads Kristensen</copyright>
+    <tags>WebOptimizer.Analyzers, analyzers</tags>
+    <developmentDependency>true</developmentDependency>
+  </metadata>
+  <!-- The convention for analyzers is to put language agnostic dlls in analyzers\portable50 and language specific analyzers in either analyzers\portable50\cs or analyzers\portable50\vb -->
+  <files>
+    <file src="*.dll" target="analyzers\dotnet\cs" exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*;**\System.Composition.*" />
+    <file src="..\..\..\tools\*.ps1" target="tools\" />
+  </files>
+</package>

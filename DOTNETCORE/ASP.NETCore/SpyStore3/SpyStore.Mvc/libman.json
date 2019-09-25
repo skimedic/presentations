@@ -4,21 +4,21 @@
   "version": "1.0",
   "defaultProvider": "cdnjs", 
   "defaultDestination": "wwwroot/lib",
-  "libraries": [ 
+  "libraries": [
     {
       "library": "jquery@3.4.1",
-      "destination": "wwwroot/lib/jquery", 
-      "files": ["jquery.js", "jquery.min.js"] 
+      "destination": "wwwroot/lib/jquery",
+      "files": [ "jquery.js", "jquery.min.js" ]
     },
     {
       "library": "jquery-validate@1.19.0",
       "destination": "wwwroot/lib/jquery-validation",
-      "files": ["jquery.validate.js", "jquery.validate.min.js", "additional-methods.js", "additional-methods.min.js"]
+      "files": [ "jquery.validate.js", "jquery.validate.min.js", "additional-methods.js", "additional-methods.min.js" ]
     },
     {
       "library": "jquery-validation-unobtrusive@3.2.11",
       "destination": "wwwroot/lib/jquery-validation-unobtrusive",
-      "files": ["jquery.validate.unobtrusive.js", "jquery.validate.unobtrusive.min.js" ]
+      "files": [ "jquery.validate.unobtrusive.js", "jquery.validate.unobtrusive.min.js" ]
     },
     {
       "library": "font-awesome@4.7.0",
