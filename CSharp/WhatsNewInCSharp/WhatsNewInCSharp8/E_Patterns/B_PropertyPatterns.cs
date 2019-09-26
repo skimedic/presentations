@@ -3,7 +3,7 @@
     public class Address
     {
         public string? State { get; set; }
-        public static decimal ComputeSalesTax(Address location, decimal salePrice) =>
+        public static decimal SalesTax(Address location, decimal salePrice) =>
             location switch
                 {
                 { State: "WA" } => salePrice * 0.06M,
@@ -12,5 +12,6 @@
                 // other cases removed for brevity...
                 _ => 0M
                 };
+
     }
 }

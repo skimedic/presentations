@@ -29,13 +29,28 @@ namespace WhatsNewInCSharp8.E_Patterns
                 _ => throw new ArgumentException(message: "invalid enum value", paramName: nameof(colorBand)),
                 };
 
-        /*
-The variable comes before the switch keyword. The different order makes it visually easy to distinguish the 
-  switch expression from the switch statement.
-The case and : elements are replaced with =>. It's more concise and intuitive.
-The default case is replaced with a _ discard.
-The bodies are expressions, not statements.
-Must either produce a value or throw an exception
-         */
+        public static Color FromRainbowClassic(Rainbow colorBand)
+        {
+            switch (colorBand)
+            {
+                case Rainbow.Red:
+                    return Color.FromArgb(0xFF, 0x00, 0x00);
+                case Rainbow.Orange:
+                    return Color.FromArgb(0xFF, 0x7F, 0x00);
+                case Rainbow.Yellow:
+                    return Color.FromArgb(0xFF, 0xFF, 0x00);
+                case Rainbow.Green:
+                    return Color.FromArgb(0x00, 0xFF, 0x00);
+                case Rainbow.Blue:
+                    return Color.FromArgb(0x00, 0x00, 0xFF);
+                case Rainbow.Indigo:
+                    return Color.FromArgb(0x4B, 0x00, 0x82);
+                case Rainbow.Violet:
+                    return Color.FromArgb(0x94, 0x00, 0xD3);
+                default:
+                    throw new ArgumentException(message: "invalid enum value", paramName: nameof(colorBand));
+            };
+        }
+
     }
 }

@@ -1,16 +1,10 @@
 ﻿##Todo
-Readonly members
-Default interface members
-Disposable ref structs
-Asynchronous streams
 Unmanaged constructed types
 stackalloc in nested expressions
 
-
 ##in process
-Null-coalescing assignment
-Enhancement of interpolated verbatim strings
-More patterns in more places
+Asynchronous streams
+
 
 ##Complete
 Nullable reference types
@@ -18,3 +12,9 @@ Nullable reference types
 Indices and ranges
 Static local functions
 using declarations
+More patterns in more places
+Default interface members
+Readonly members
+Disposable ref structs
+Null-coalescing assignment
+Enhancement of interpolated verbatim strings
