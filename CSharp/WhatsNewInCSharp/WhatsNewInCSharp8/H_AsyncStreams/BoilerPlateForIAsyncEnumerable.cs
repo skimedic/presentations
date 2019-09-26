@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks.Sources;
 
-namespace WhatsNewInCSharp8.D_AsyncStreams
+namespace WhatsNewInCSharp8.H_AsyncStreams
 {
     internal struct ManualResetValueTaskSourceLogic<TResult>
     {

@@ -3,7 +3,6 @@ Unmanaged constructed types
 stackalloc in nested expressions
 
 ##in process
-Asynchronous streams
 
 
 ##Complete
@@ -18,3 +17,4 @@ Readonly members
 Disposable ref structs
 Null-coalescing assignment
 Enhancement of interpolated verbatim strings
+Asynchronous streams

@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace WhatsNewInCSharp8.D_AsyncStreams
+namespace WhatsNewInCSharp8.H_AsyncStreams
 {
     public class AsyncStreams
     {
-        IAsyncEnumerable<int>? foo;
         public async IAsyncEnumerable<string> GetNamesAsync()
         {
             string[] names = { "Archimedes", "Pythagoras", "Euclid", "Socrates", "Plato" };
