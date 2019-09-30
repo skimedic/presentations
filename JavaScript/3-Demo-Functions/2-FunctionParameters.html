@@ -25,6 +25,11 @@
     for (var index in moreMarcus.likes) {
         document.write(index + ":" + moreMarcus.likes[index] + " || ");
     }
+        function foo(x=15) {
+        document.writeln(x + '<br/>');
+    }
+    foo();
+    foo(12);
     </pre>
 <script type="application/javascript">
     function Person(name, age) {
@@ -46,6 +51,12 @@
     for (var index in moreMarcus.likes) {
         document.write(index + ":" + moreMarcus.likes[index] + " || ");
     }
+    document.writeln('<br/>');
+    function foo(x=15) {
+        document.writeln(x + '<br/>');
+    }
+    foo();
+    foo(12);
 </script>
 </body>
 </html>

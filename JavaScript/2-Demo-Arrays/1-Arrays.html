@@ -38,6 +38,18 @@
     0:a || 1:b || 2:c || 3:3 || 12:42 || life:foo ||
     arr.splice(0,2,["a","b","c"]);
     0:a,b,c || 1:c || 2:3 || 11:42 || life:foo ||
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.find(myFunction);
+    document.writeln(first + '<br/>')
+    function myFunction(value, index, array) {
+        return value > 18;
+    }
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.findIndex(myFunction);
+    document.writeln(first + '<br/>')
+    function myFunction(value, index, array) {
+        return value > 18;
+    }
 </pre>
 Examples
 <script type="application/javascript">
@@ -88,7 +100,18 @@ Examples
         document.write(index + ":" + arr[index] + " || ");
     }
     document.writeln("<br/>");
-
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.find(myFunction);
+    document.writeln(first + '<br/>')
+    function myFunction(value, index, array) {
+        return value > 18;
+    }
+    var numbers = [4, 9, 16, 25, 29];
+    var first = numbers.findIndex(myFunction);
+    document.writeln(first + '<br/>')
+    function myFunction(value, index, array) {
+        return value > 18;
+    }
 </script>
 </body>
 </html>
