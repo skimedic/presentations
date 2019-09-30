@@ -15,8 +15,7 @@ namespace PerformanceEfCore.EfStructures.Context
         public DbSet<ModelForTesting> ModelForTestings { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //var connectionString = @"Server=(localdb)\mssqllocaldb;Database=AdventureWorks2014;Integrated Security=true;MultipleActiveResultSets=true;";
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=AdventureWorks2014;Integrated Security=true;";
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=AdventureWorks2016 ;Integrated Security=true;";
 
             optionsBuilder.UseSqlServer(connectionString);
         }
