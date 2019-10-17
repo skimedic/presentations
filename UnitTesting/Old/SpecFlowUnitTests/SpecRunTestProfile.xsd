@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="SpecRunTestProfile"
-    targetNamespace="http://www.specrun.com/schemas/2011/09/TestProfile"
+    targetNamespace="http://www.specflow.org/schemas/plus/TestProfile/1.5"
     elementFormDefault="qualified"
-    xmlns="http://www.specrun.com/schemas/2011/09/TestProfile"
+    xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <xs:element name="TestProfile" type="TestProfile" />
@@ -77,7 +77,7 @@
     <xs:attribute name="disable" type="xs:boolean" use="optional" default="false" />
     <xs:attribute name="existingFileHandlingStrategy" type="ExistingFileHandlingStrategy" use="optional" default="Default" />
   </xs:complexType>
-
+  
   <!-- test targets -->
 
   <xs:complexType name="Targets">
@@ -119,12 +119,14 @@
   <xs:complexType name="DeploymentTransformationSteps">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element minOccurs="1" maxOccurs="1" name="CopyFolder" type="CopyFolder" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DeleteFolder" type="DeleteFolder" />
       <xs:element minOccurs="1" maxOccurs="1" name="ConfigFileTransformation" type="ConfigFileTransformation" />
       <xs:element minOccurs="1" maxOccurs="1" name="Relocate" type="Relocate" />
       <xs:element minOccurs="1" maxOccurs="1" name="RelocateConfigurationFile" type="RelocateConfigurationFile" />
       <xs:element minOccurs="1" maxOccurs="1" name="Custom" type="CustomStep" />
       <xs:element minOccurs="1" maxOccurs="1" name="IISExpress" type="IISExpressStep" />
       <xs:element minOccurs="1" maxOccurs="1" name="CopyFile" type="CopyFile" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EnvironmentVariable" type="EnvironmentVariable" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="CopyFolder">
@@ -132,6 +134,14 @@
     <xs:attribute name="target" type="xs:string" use="required" />
     <xs:attribute name="deleteFolderOnRestore" type="xs:boolean" use="optional" default="true" />
     <xs:attribute name="deleteFolderOnApply" type="xs:boolean" use="optional" default="true" />
+  </xs:complexType> 
+  <xs:complexType name="EnvironmentVariable">
+    <xs:attribute name="variable" type="xs:string" use="required" />
+    <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="DeleteFolder">
+    <xs:attribute name="path" type="xs:string" use="required" />
+    <xs:attribute name="throwExceptionIfFolderDoesNotExist" type="xs:boolean" default="false" />
   </xs:complexType>
   <xs:complexType name="Relocate">
     <xs:attribute name="targetFolder" type="xs:string" use="required" />
@@ -162,7 +172,7 @@
     <xs:attribute name="targetFolder" type="xs:string" use="optional" />
     <xs:attribute name="deleteOnRestore" type="xs:boolean" use="optional" default="true" />
   </xs:complexType>
-
+  
   <!-- VSTest -->
 
   <xs:complexType name="VSTest">
@@ -210,7 +220,7 @@
       <xs:enumeration value="Max" />
     </xs:restriction>
   </xs:simpleType>
-
+  
   <xs:simpleType name="TestSchedulingMode">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Sequential" />
@@ -240,13 +250,13 @@
       <xs:enumeration value="MTA" />
     </xs:restriction>
   </xs:simpleType>
-
+  
   <xs:simpleType name="FrameworkVersion">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Default" />
-      <xs:enumeration value="Net35" />
       <xs:enumeration value="Net40" />
       <xs:enumeration value="Net45" />
+      <xs:enumeration value="Netcoreapp2.0" />
     </xs:restriction>
   </xs:simpleType>
 
@@ -257,7 +267,7 @@
       <xs:enumeration value="x64" />
     </xs:restriction>
   </xs:simpleType>
-
+  
   <xs:simpleType name="TestThreadIsolation">
     <xs:restriction base="xs:string">
       <xs:enumeration value="SharedAppDomain" />

@@ -7,15 +7,25 @@
 // See License.txt for more information
 // ==================================
 #endregion
+
+using System.Diagnostics;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace XUnitTestProject.A_Basics
 {
     public class A_FirstExample
     {
+        private readonly ITestOutputHelper _output;
+
+        public A_FirstExample(ITestOutputHelper output)
+        {
+            this._output = output;
+        }
         [Fact]
         public void FirstFact()
         {
+            _output.WriteLine("First fact");
             Assert.Equal(5,3+2);
         }
 
@@ -25,6 +35,7 @@ namespace XUnitTestProject.A_Basics
         [InlineData(-1,-3,2)]
         public void FirstTheory(int expected, int addend1, int addend2)
         {
+            _output.WriteLine($"First Theory {expected},{addend1},{addend2}");
             Assert.Equal(expected,addend1+addend2);
         }
         [Fact(DisplayName = "Ignored Test - Custom Display Name", Skip="this can be anything")]

@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Machine.Specifications" Version="0.12.0" />
-    <PackageReference Include="Machine.Specifications.Runner.Console" Version="0.10.0-Unstable0005" />
-    <PackageReference Include="Machine.Specifications.Runner.VisualStudio" Version="2.7.0" />
-    <PackageReference Include="Machine.Specifications.Should" Version="0.11.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="Machine.Specifications" Version="1.0.0" />
+    <PackageReference Include="Machine.Specifications.Runner.Console" Version="1.0.0" />
+    <PackageReference Include="Machine.Specifications.Runner.VisualStudio" Version="2.9.0" />
+    <PackageReference Include="Machine.Specifications.Should" Version="1.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
   </ItemGroup>
 
 </Project>

@@ -24,7 +24,7 @@ namespace MOQExamples.B_Advanced
             var id = 12;
             mockRepo.Setup(x => x.Find(12)).Returns(new Customer());
             var ex = Assert.Throws<MockException>(()=>controller.GetCustomer(id));
-            Assert.Equal($"IRepo.Find({id}) invocation failed with mock behavior Strict.\nAll invocations on the mock must have a corresponding setup.",ex.Message);
+            Assert.Equal($"IRepo.AddRecord(Customer) invocation failed with mock behavior Strict.\nAll invocations on the mock must have a corresponding setup.",ex.Message);
 
         }
     }

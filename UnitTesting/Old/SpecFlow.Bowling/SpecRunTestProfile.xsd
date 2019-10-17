@@ -119,12 +119,14 @@
   <xs:complexType name="DeploymentTransformationSteps">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element minOccurs="1" maxOccurs="1" name="CopyFolder" type="CopyFolder" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DeleteFolder" type="DeleteFolder" />
       <xs:element minOccurs="1" maxOccurs="1" name="ConfigFileTransformation" type="ConfigFileTransformation" />
       <xs:element minOccurs="1" maxOccurs="1" name="Relocate" type="Relocate" />
       <xs:element minOccurs="1" maxOccurs="1" name="RelocateConfigurationFile" type="RelocateConfigurationFile" />
       <xs:element minOccurs="1" maxOccurs="1" name="Custom" type="CustomStep" />
       <xs:element minOccurs="1" maxOccurs="1" name="IISExpress" type="IISExpressStep" />
       <xs:element minOccurs="1" maxOccurs="1" name="CopyFile" type="CopyFile" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EnvironmentVariable" type="EnvironmentVariable" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="CopyFolder">
@@ -132,6 +134,14 @@
     <xs:attribute name="target" type="xs:string" use="required" />
     <xs:attribute name="deleteFolderOnRestore" type="xs:boolean" use="optional" default="true" />
     <xs:attribute name="deleteFolderOnApply" type="xs:boolean" use="optional" default="true" />
+  </xs:complexType> 
+  <xs:complexType name="EnvironmentVariable">
+    <xs:attribute name="variable" type="xs:string" use="required" />
+    <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="DeleteFolder">
+    <xs:attribute name="path" type="xs:string" use="required" />
+    <xs:attribute name="throwExceptionIfFolderDoesNotExist" type="xs:boolean" default="false" />
   </xs:complexType>
   <xs:complexType name="Relocate">
     <xs:attribute name="targetFolder" type="xs:string" use="required" />
@@ -244,9 +254,9 @@
   <xs:simpleType name="FrameworkVersion">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Default" />
-      <xs:enumeration value="Net35" />
       <xs:enumeration value="Net40" />
       <xs:enumeration value="Net45" />
+      <xs:enumeration value="Netcoreapp2.0" />
     </xs:restriction>
   </xs:simpleType>
 

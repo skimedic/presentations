@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SpecFlow" Version="3.0.225" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.0.225" />
+    <PackageReference Include="SpecFlow.xUnit" Version="3.0.225" />
+    <PackageReference Include="SpecRun.SpecFlow.3-0-0" Version="3.0.391" />
+  </ItemGroup>
+
+</Project>
