@@ -1,0 +1,5 @@
+dotnet ef dbcontext scaffold  server=(localdb)\mssqllocaldb;Database=Adventureworks2016;Trusted_Connection=True; Microsoft.EntityFrameworkCore.SqlServer -d -c AW2016Context --context-dir EfStructures -o Entities
+
+dotnet ef dbcontext scaffold  server=(localdb)\mssqllocaldb;Database=Adventureworks2016;Trusted_Connection=True; Microsoft.EntityFrameworkCore.SqlServer -d -c AW2016Context --context-dir EfStructures -o Entities
+
+dotnet ef dbcontext scaffold  server=(localdb)\mssqllocaldb;Database=Adventureworks2016;Trusted_Connection=True; Microsoft.EntityFrameworkCore.SqlServer -d -c AW2016Context --context-dir EfStructures -o Entities
