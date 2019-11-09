@@ -5,6 +5,8 @@ namespace WhatsNewInCSharp73
 {
     class Program
     {
+        private string _foo = default;
+
         static void Main(string[] args)
         {
             //var t = new Tuples();

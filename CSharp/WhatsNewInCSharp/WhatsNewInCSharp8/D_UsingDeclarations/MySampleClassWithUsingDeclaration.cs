@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 
 namespace WhatsNewInCSharp8.D_UsingDeclarations
 {
@@ -7,6 +8,7 @@ namespace WhatsNewInCSharp8.D_UsingDeclarations
         static void WriteLinesToFile(IEnumerable<string> lines)
         {
             using var file = new System.IO.StreamWriter("WriteLines1.txt");
+            //using var foo = new StreamReader("foo");
             foreach (string line in lines)
             {
                 // If the line doesn't contain the word 'Second', write the line to the file.

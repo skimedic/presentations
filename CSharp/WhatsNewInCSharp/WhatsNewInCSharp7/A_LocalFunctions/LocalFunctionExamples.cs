@@ -45,14 +45,12 @@ namespace WhatsNewInCSharp7.A_LocalFunctions
                 throw new ArgumentOutOfRangeException(paramName: nameof(start), message: "start must be a letter");
             if (end < 'a' || end > 'z')
                 throw new ArgumentOutOfRangeException(paramName: nameof(end), message: "end must be a letter");
-
             if (end <= start)
                 throw new ArgumentException($"{nameof(end)} must be greater than {nameof(start)}");
 
             //for (var c = start; c < end; c++)
             //    yield return c;
             return AlphabetSubsetImplementation();
-
             IEnumerable<char> AlphabetSubsetImplementation()
             {
                 for (var c = start; c < end; c++)

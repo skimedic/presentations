@@ -9,10 +9,12 @@ namespace WhatsNewInCSharp7.E_Discards
 {
     public class DiscardExamples
     {
+        public int DoSomething2() => 5;
         public int DoSomething()
         {
             return 5;
         }
+
         public void Discards()
         {
             //Out parameters

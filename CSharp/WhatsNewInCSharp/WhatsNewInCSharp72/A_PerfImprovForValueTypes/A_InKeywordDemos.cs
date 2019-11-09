@@ -5,6 +5,7 @@ namespace WhatsNewInCSharp72.A_PerfImprovForValueTypes
     public class A_InKeywordDemos
     {
         //int is not a good candidate - in fact, performance might degrade
+
         internal void AllowModification(int i)
         {
             i = 5;

@@ -23,6 +23,5 @@ namespace WhatsNewInCSharp8.F_Interfaces
         public string Name { get; set; }
         public string City { get; set; }
         public string GetName() => "Unknown Person";
-
     }
 }

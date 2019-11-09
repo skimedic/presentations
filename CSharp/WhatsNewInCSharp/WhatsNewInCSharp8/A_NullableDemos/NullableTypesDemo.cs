@@ -62,7 +62,8 @@ namespace WhatsNewInCSharp8.A_NullableDemos
 
         }
 
-        public bool TryGetMessage(string key, [NotNullWhen(true)] out string? message)
+        public bool TryGetMessage(string key, 
+            [NotNullWhen(true)] out string? message)
         {
             if (key.Equals("Y", StringComparison.OrdinalIgnoreCase))
             {
@@ -73,7 +74,8 @@ namespace WhatsNewInCSharp8.A_NullableDemos
             message = null;
             return false;
         }
-        public bool TryGetMessage2(string key, [MaybeNullWhen(true)] out string? message)
+        public bool TryGetMessage2(string key, 
+            [MaybeNullWhen(true)] out string? message)
         {
             if (key.Equals("Y", StringComparison.OrdinalIgnoreCase))
             {

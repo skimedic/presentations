@@ -8,7 +8,11 @@
             int x = 7;
             return Add(x, y);
 
-            static int Add(int left, int right) => left + right;
+            static int Add(int left, int right)
+            {
+                //x = 12; Compiler 
+                return left + right;
+            }
         }
     }
 }

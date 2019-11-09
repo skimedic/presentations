@@ -20,7 +20,7 @@ namespace WhatsNewInCSharp8.B_RangesIndices
         public void Foo()
         {
             Range range = 1..4;
-            var foo = GetNames(range);
+            IEnumerable<string> foo = GetNames(range);
 
             Range openRange = 0..^1;
             openRange = 1..^0;
