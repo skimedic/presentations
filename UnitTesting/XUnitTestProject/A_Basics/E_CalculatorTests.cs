@@ -27,7 +27,8 @@ namespace XUnitTestProject.A_Basics
             //Arrange
             var calculator = new Calculator();
             //Act
-            var actual = calculator.Add(addend1, addend2);
+            int actual;
+                actual = calculator.Add(addend1, addend2);
             //Assert
             Assert.Equal(result, actual);
         }

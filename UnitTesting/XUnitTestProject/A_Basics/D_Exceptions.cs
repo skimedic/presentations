@@ -28,6 +28,11 @@ namespace XUnitTestProject.A_Basics
         {
             //Better follows AAA syntax
             Exception ex = Record.Exception(() => ThrowAnError());
+            //Doesn't check the exception type in the action
+            if (!(ex is InvalidOperationException))
+            {
+                Assert.True(false);
+            }
             Assert.Equal(_customMessage, ex.Message);
         }
 

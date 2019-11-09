@@ -25,6 +25,7 @@ namespace XUnitTestProject.A_Basics
     Default: false
 
          */
+    [Collection("Foo")]
     public class TestClass1
     {
         [Fact]

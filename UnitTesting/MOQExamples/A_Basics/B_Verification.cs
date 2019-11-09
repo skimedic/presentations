@@ -37,7 +37,7 @@ namespace MOQExamples.A_Basics
             var controller = new TestController(mock.Object);
             var actual1 = controller.GetCustomer(id);
             //var actual2 = controller.GetCustomer(id);
-            mock.Verify(call, Times.Once);
+            mock.Verify(call, Times.Exactly(1));
         }
 
 

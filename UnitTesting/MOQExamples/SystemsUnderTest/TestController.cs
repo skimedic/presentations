@@ -38,11 +38,13 @@ namespace MOQExamples.SystemsUnderTest
             try
             {
                 _repo.AddRecord(new Customer());
+                //var c = _repo.Find(id);
                 return _repo.Find(id);
 
             }
             catch (Exception ex)
             {
+                _logger.Error("Oops",ex);
                 throw;
             }
         }
