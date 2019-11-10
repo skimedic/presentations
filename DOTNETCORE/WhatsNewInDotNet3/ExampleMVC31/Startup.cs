@@ -36,6 +36,7 @@ namespace ExampleMVC31
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSignalR();
+            services.AddHealthChecks();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +68,7 @@ namespace ExampleMVC31
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
                 endpoints.MapHub<ChatHub>("/chatHub");
+                endpoints.MapHealthChecks("/health");
             });
         }
     }

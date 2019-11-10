@@ -7,13 +7,26 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublishImprovements", "Publ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleMVC31", "ExampleMVC31\ExampleMVC31.csproj", "{2C5AEA6B-06A9-44B8-93E6-4E1BB0DEFA93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceExample", "WebServiceExample\WebServiceExample.csproj", "{F201BC2C-CCA0-458B-BCFB-5FDC39899364}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebServiceExample", "WebServiceExample\WebServiceExample.csproj", "{F201BC2C-CCA0-458B-BCFB-5FDC39899364}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServer", "BlazorServer\BlazorServer.csproj", "{FEF74CCE-E550-4919-AC12-3EE750C2B0BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServer", "BlazorServer\BlazorServer.csproj", "{FEF74CCE-E550-4919-AC12-3EE750C2B0BE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcServiceExample", "GrpcServiceExample\GrpcServiceExample.csproj", "{78EFD688-C35B-4303-8CE6-193B962613A5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcClient", "GrpcClient\GrpcClient.csproj", "{8F2E6130-8245-497E-B115-BF64FC97516D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Dal", "Northwind.DAL\Northwind.Dal.csproj", "{A0ED241B-6877-425B-839C-0D59770C72AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{052493FE-EAF2-4B4D-8BF6-998CB0BFFBE3}"
+	ProjectSection(SolutionItems) = preProject
+		Migrations.txt = Migrations.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Dal.Tests", "Northwind.Dal.Tests\Northwind.Dal.Tests.csproj", "{225EB914-AE69-4807-A4EC-CFE4F2FBC053}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Dal21", "Northwind.Dal21\Northwind.Dal21.csproj", "{362ACDD6-18EA-42FA-9840-FFCA3C41EC85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Dal21.Tests", "Northwind.Dal21.Tests\Northwind.Dal21.Tests.csproj", "{CE019A8C-F7D3-4E22-9AF9-FCEAF9DF1B01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +58,22 @@ Global
 		{8F2E6130-8245-497E-B115-BF64FC97516D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F2E6130-8245-497E-B115-BF64FC97516D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F2E6130-8245-497E-B115-BF64FC97516D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0ED241B-6877-425B-839C-0D59770C72AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0ED241B-6877-425B-839C-0D59770C72AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0ED241B-6877-425B-839C-0D59770C72AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0ED241B-6877-425B-839C-0D59770C72AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{225EB914-AE69-4807-A4EC-CFE4F2FBC053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{225EB914-AE69-4807-A4EC-CFE4F2FBC053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{225EB914-AE69-4807-A4EC-CFE4F2FBC053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{225EB914-AE69-4807-A4EC-CFE4F2FBC053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{362ACDD6-18EA-42FA-9840-FFCA3C41EC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362ACDD6-18EA-42FA-9840-FFCA3C41EC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362ACDD6-18EA-42FA-9840-FFCA3C41EC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362ACDD6-18EA-42FA-9840-FFCA3C41EC85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE019A8C-F7D3-4E22-9AF9-FCEAF9DF1B01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE019A8C-F7D3-4E22-9AF9-FCEAF9DF1B01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE019A8C-F7D3-4E22-9AF9-FCEAF9DF1B01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE019A8C-F7D3-4E22-9AF9-FCEAF9DF1B01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
