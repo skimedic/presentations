@@ -14,9 +14,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C320F55B-5A2B-4B43-B904-25AF78A823E4}"
 	ProjectSection(SolutionItems) = preProject
 		DalDocker.txt = DalDocker.txt
+		global.json = global.json
 		Migrations.txt = Migrations.txt
-		NuGet.confi_.bak = NuGet.confi_.bak
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,6 +78,18 @@ Global
 		{3AC5D45A-5169-4E55-BCDC-08D6373D28C3}.Release|x64.Build.0 = Release|Any CPU
 		{3AC5D45A-5169-4E55-BCDC-08D6373D28C3}.Release|x86.ActiveCfg = Release|Any CPU
 		{3AC5D45A-5169-4E55-BCDC-08D6373D28C3}.Release|x86.Build.0 = Release|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Debug|x64.Build.0 = Debug|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Debug|x86.Build.0 = Debug|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Release|x64.ActiveCfg = Release|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Release|x64.Build.0 = Release|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Release|x86.ActiveCfg = Release|Any CPU
+		{E13BD4EF-F8A7-40FA-AC45-39BE15000BA9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

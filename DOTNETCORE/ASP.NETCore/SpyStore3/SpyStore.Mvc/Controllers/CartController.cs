@@ -62,6 +62,7 @@ namespace SpyStore.Mvc.Controllers
             return View(viewModel);
         }
         //[Route("/{productId}")]
+        // mysite.com/Cart/AddToCart/5
         [HttpGet("{productId}")]
         public IActionResult AddToCart([FromServices] IProductRepo productRepo,
             int productId, bool cameFromProducts = false)
@@ -81,6 +82,8 @@ namespace SpyStore.Mvc.Controllers
         [HttpPost("{productId}"), ValidateAntiForgeryToken]
         public IActionResult AddToCart(int productId, AddToCartViewModel item)
         {
+            //ModelState.AddModelError("","This is an error");
+
             //var foo = await TryUpdateModelAsync(item);
             if (!ModelState.IsValid)
             {
@@ -109,7 +112,7 @@ namespace SpyStore.Mvc.Controllers
             return RedirectToAction(nameof(CartController.Index));
         }
         [HttpPost("{id}"), ValidateAntiForgeryToken]
-        public IActionResult Update(ShoppingCartRecordBase record)
+        public IActionResult Update(int id,ShoppingCartRecordBase record)
         {
             _shoppingCartRepo.Context.CustomerId = ViewBag.CustomerId;
             ShoppingCartRecord dbItem = _shoppingCartRepo.Find(record.Id);
@@ -121,7 +124,11 @@ namespace SpyStore.Mvc.Controllers
                 try
                 {
                     _shoppingCartRepo.Update(dbItem);
-                    var updatedItem = _shoppingCartRepo.GetShoppingCartRecord(dbItem.Id);
+                    CartRecordWithProductInfo updatedItem = _shoppingCartRepo.GetShoppingCartRecord(dbItem.Id);
+                    if (updatedItem == null)
+                    {
+                        return new EmptyResult();
+                    }
                     CartRecordViewModel newItem = mapper.Map<CartRecordViewModel>(updatedItem);
                     return PartialView(newItem);
                 }
@@ -139,7 +146,7 @@ namespace SpyStore.Mvc.Controllers
             return PartialView(vm);
 
         }
-        [HttpPost("{id}"), ValidateAntiForgeryToken]
+        [HttpPost("{customerId}/{id}"), ValidateAntiForgeryToken]
         public IActionResult Delete(int customerId, int id, ShoppingCartRecord item)
         {
             _shoppingCartRepo.Context.CustomerId = ViewBag.CustomerId;

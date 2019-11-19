@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace SpyStore.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]")]
     public class MainAdminController : Controller
     {
         public IActionResult Index()

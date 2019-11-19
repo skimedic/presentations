@@ -35,13 +35,15 @@
             </tfoot>
         </table>
         <form asp-controller="Cart" asp-action="Buy">
+            <input asp-for="Customer.Id" type="hidden"/>
+            <input asp-for="Customer.EmailAddress" type="hidden"/>
+            <input asp-for="Customer.Password" value="hidden"  type="hidden"/>
             <div class="pull-right">
                 <button class="btn btn-primary">Checkout</button>
             </div>
         </form>
     </div>
 </div>
-
 @section Scripts
 {
     <partial Name="_ValidationScriptsPartial"/>
@@ -53,8 +55,11 @@
             "option strict";
             var quantity = form.elements["Quantity"].value;
             var timeStamp = form.elements["TimeStamp"].value;
+            var productId = form.elements["ProductId"].value;
+            var customerId = form.elements["CustomerId"].value;
+            var unitsInStock = form.elements["UnitsInStock"].value;
             var token = $('input[name="__RequestVerificationToken"]', form).val();
-            var myData = { TimeStamp: timeStamp, Quantity: quantity };
+            var myData = { TimeStamp: timeStamp, Quantity: quantity, ProductId:productId, CustomerId: customerId, UnitsInStock:unitsInStock };
             var dataWithAntiforgeryToken = $.extend(myData, { '__RequestVerificationToken': token });
 
             $.ajax({
@@ -65,7 +70,7 @@
                     success: function(data) {
                         $("#row_" + id).replaceWith(data);
                     },
-                    error: function() {
+                    error: function(jqXHR, exception) {
                         alert('An error occurred: Please reload the page and try again.');
                     }
                 })

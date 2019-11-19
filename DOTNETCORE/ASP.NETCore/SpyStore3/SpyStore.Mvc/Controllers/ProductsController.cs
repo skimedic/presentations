@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Options;
 using SpyStore.Dal.Repos.Interfaces;
 using SpyStore.Mvc.Controllers.Base;
@@ -6,6 +7,7 @@ using SpyStore.Mvc.Support;
 
 namespace SpyStore.Mvc.Controllers
 {
+    [Route("[controller]/[action]")]
     public class ProductsController : BaseController
     {
         private readonly IProductRepo _productRepo;
@@ -32,7 +34,6 @@ namespace SpyStore.Mvc.Controllers
         [Route("/")]
         [Route("/[controller]")]
         [Route("/[controller]/[action]")]
-
         [HttpGet]
         public ActionResult Index()
         {
@@ -48,7 +49,7 @@ namespace SpyStore.Mvc.Controllers
                     cameFromProducts = true
                 });
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult ProductList([FromServices]ICategoryRepo categoryRepo, int id)
         {
             var cat = categoryRepo.Find(id);

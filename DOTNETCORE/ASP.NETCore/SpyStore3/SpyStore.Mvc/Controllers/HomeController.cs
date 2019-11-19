@@ -6,8 +6,10 @@ using SpyStore.Mvc.Models;
 
 namespace SpyStore.Mvc.Controllers
 {
+    [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
+        [Route("privacy")]
         public IActionResult Privacy()
         {
             return View();
