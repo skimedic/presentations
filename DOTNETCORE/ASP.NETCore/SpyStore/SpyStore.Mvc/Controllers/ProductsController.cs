@@ -6,6 +6,7 @@ using SpyStore.Mvc.Support;
 
 namespace SpyStore.Mvc.Controllers
 {
+    [Route("/[controller]/[action]")]
     public class ProductsController : BaseController
     {
         private readonly IProductRepo _productRepo;
@@ -47,7 +48,7 @@ namespace SpyStore.Mvc.Controllers
                     cameFromProducts = true
                 });
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IActionResult ProductList([FromServices]ICategoryRepo categoryRepo, int id)
         {
             var cat = categoryRepo.Find(id);

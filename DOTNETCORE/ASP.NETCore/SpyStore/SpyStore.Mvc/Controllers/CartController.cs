@@ -148,6 +148,8 @@ namespace SpyStore.Mvc.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
+        [Route("/buy")]
+        //[Route("/Cart/buy")]
         public async Task<IActionResult> Buy()
         {
             int orderId = _shoppingCartRepo.Purchase(ViewBag.CustomerId);

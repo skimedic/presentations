@@ -3,7 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 a {
     color: #A32121;
 }
-a:hover {
+a:hover { 
     color: #631414;
 }
 .table {
