@@ -24,7 +24,7 @@ namespace Performace
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
-                private static void RunToListTest()
+        private static void RunToListTest()
         {
             Console.WriteLine("Query 19K ToList");
             RunTest(
@@ -193,7 +193,7 @@ namespace Performace
         //        });
         //}
 
-        private static void RunTest(Action ef6Test, Action ef7Test, 
+        private static void RunTest(Action ef6Test, Action ef7Test,
             string firstLabel = "  - EF6.x", string secondLabel = "  - EF Core")
         {
             var stopwatch = new Stopwatch();
