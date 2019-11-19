@@ -275,10 +275,7 @@
       <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/WorkOrder.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/WorkOrderRouting.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Concurrency/Models/Blog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Concurrency/Models/Blog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4-Demo-Objects/6-Classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/4-Demo-Objects/6-Classes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5-Demo-Scope/2-Hoisting.html" beforeDir="false" afterPath="$PROJECT_DIR$/5-Demo-Scope/2-Hoisting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/A_Basics/A_FirstExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/A_Basics/A_FirstExample.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UnitTesting/MOQExamples/SystemsUnderTest/TestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../UnitTesting/MOQExamples/SystemsUnderTest/TestController.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -344,6 +341,7 @@
       <workItem from="1570118561919" duration="692000" />
       <workItem from="1570289121444" duration="3688000" />
       <workItem from="1570654203496" duration="4719000" />
+      <workItem from="1571418159495" duration="167000" />
     </task>
     <servers />
   </component>
