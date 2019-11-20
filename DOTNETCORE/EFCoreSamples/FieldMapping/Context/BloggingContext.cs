@@ -18,7 +18,7 @@ namespace FieldMapping.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Blog>()
-                .Property<string>("Url")
+                .Property(b => b.Url)
                 .HasField("_url");
         }
     }

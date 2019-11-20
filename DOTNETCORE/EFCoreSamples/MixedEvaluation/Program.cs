@@ -29,17 +29,18 @@ namespace MixedEvaluation
         {
             var optionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
             var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.MixedEvaluation;Integrated Security=true;";
+            optionsBuilder.UseSqlServer(connectionString);
 
-            if (allowMixedMode)
-            {
-                optionsBuilder.UseSqlServer(connectionString);
-            }
-            else
-            {
-                optionsBuilder.UseSqlServer(connectionString)
-                    .ConfigureWarnings(warnings
-                        => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));
-            }
+            //if (allowMixedMode)
+            //{
+            //    optionsBuilder.UseSqlServer(connectionString);
+            //}
+            //else
+            //{
+            //    optionsBuilder.UseSqlServer(connectionString)
+            //        .ConfigureWarnings(warnings
+            //            => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));
+            //}
             return new BloggingContext(optionsBuilder.Options);
         }
 

@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
+using ChangeTrackingEvents.Interceptors;
 using ChangeTrackingEvents.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace ChangeTrackingEvents.Context
 {
@@ -60,8 +63,15 @@ namespace ChangeTrackingEvents.Context
             var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.ChangeTracking;Integrated Security=true;";
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseSqlServer(connectionString)
+                    .AddInterceptors(new List<IInterceptor>
+                    {
+                        new CommandInterceptor(),
+                        new ConnectionInterceptor(), 
+                        new TransactionInterceptor()
+                    });
             }
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

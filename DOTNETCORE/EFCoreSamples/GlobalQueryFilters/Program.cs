@@ -15,7 +15,7 @@ namespace GlobalQueryFilters
             using (var db = new BloggingContext())
             {
                 Console.WriteLine($"{db.Blogs.Count()} active blogs (LINQ).");
-                Console.WriteLine($"{db.Blogs.FromSql("select * from blogs").Count()} active blogs (FromSql).");
+                Console.WriteLine($"{db.Blogs.FromSqlRaw("select * from blogs").Count()} active blogs (FromSql).");
                 Console.WriteLine($"{db.Blogs.IgnoreQueryFilters().Count()} total blogs.");
                 Console.WriteLine("Press any key to continue...");
                 Console.ReadKey();

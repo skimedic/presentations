@@ -13,3 +13,5 @@ dotnet ef migrations add Posts
 dotnet ef database update
 
 dotnet ef migrations add SQL
+
+dotnet ef migrations add MoreFields

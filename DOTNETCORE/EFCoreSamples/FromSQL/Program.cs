@@ -19,7 +19,7 @@ namespace FromSQLDbQuery
                 var param = "Snake";
                 var blogs = db.Blogs
                     //.FromSql("SELECT * FROM dbo.SearchBlogs(@p0)", "Snake")
-                    .FromSql($"SELECT * FROM dbo.SearchBlogs({param})")
+                    .FromSqlInterpolated($"SELECT * FROM dbo.SearchBlogs({param})")
                     .OrderBy(b => b.Url);
                 foreach (var itm in blogs)
                 {
@@ -29,7 +29,7 @@ namespace FromSQLDbQuery
                 Console.WriteLine("Get data for non table model");
                 var where = "";
                 IEnumerable<ShortBlog> shortBlogs = db.ShortBlogs
-                    .FromSql($"SELECT * FROM dbo.Blogs {where}")
+                    .FromSqlRaw($"SELECT * FROM dbo.Blogs {where}")
                     .OrderBy(b => b.Url).ToList();
                 foreach (var itm in shortBlogs)
                 {
@@ -38,7 +38,7 @@ namespace FromSQLDbQuery
                 Console.WriteLine("-----------------------------");
                 Console.WriteLine("Get data for DbQuery model");
                 IEnumerable<ShortBlogQuery> shortBlogsQuery = db.ShortBlogsQuery
-                    .FromSql("SELECT * FROM dbo.Blogs")
+                    .FromSqlRaw("SELECT * FROM dbo.Blogs")
                     .OrderBy(b => b.Url).ToList();
                 foreach (var itm in shortBlogsQuery)
                 {

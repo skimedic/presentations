@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 using Migrations.Models;
 
@@ -14,6 +15,12 @@ namespace Migrations.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder
+                .Entity<Blog>()
+                .Property(e => e.BlogType)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (BlogTypeEnum)Enum.Parse(typeof(BlogTypeEnum), v));
         }
     }
 }
