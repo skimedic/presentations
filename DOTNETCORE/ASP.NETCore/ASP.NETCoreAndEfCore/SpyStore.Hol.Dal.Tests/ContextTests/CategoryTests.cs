@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SpyStore.Hol.Dal.EfStructures;
+using SpyStore.Hol.Dal.Initialization;
 using SpyStore.Hol.Models.Entities;
 using Xunit;
 
@@ -20,19 +21,19 @@ namespace SpyStore.Hol.Dal.Tests.ContextTests
 
         public void Dispose()
         {
-            CleanDatabase();
+            //CleanDatabase();
             _db.Dispose();
         }
         private void CleanDatabase()
         {
-            _db.Database.ExecuteSqlCommand("Delete from Store.Categories");
-            _db.Database.ExecuteSqlCommand($"DBCC CHECKIDENT (\"Store.Categories\", RESEED, -1);");
+            SampleDataInitializer.ClearData(_db);
         }
 
         [Fact]
         public void FirstTest()
         {
             Assert.True(true);
+            SampleDataInitializer.InitializeData(_db);
         }
 
         [Fact]
@@ -41,11 +42,11 @@ namespace SpyStore.Hol.Dal.Tests.ContextTests
             var category = new Category { CategoryName = "Foo" };
             _db.Categories.Add(category);
             Assert.Equal(EntityState.Added, _db.Entry(category).State);
-            Assert.True(category.Id < 0);
+            Assert.True(category.Id == 0);
             Assert.Null(category.TimeStamp);
             _db.SaveChanges();
             Assert.Equal(EntityState.Unchanged, _db.Entry(category).State);
-            Assert.Equal(0, category.Id);
+            Assert.NotEqual(0, category.Id);
             Assert.NotNull(category.TimeStamp);
             Assert.Equal(1, _db.Categories.Count());
         }
@@ -55,11 +56,11 @@ namespace SpyStore.Hol.Dal.Tests.ContextTests
             var category = new Category { CategoryName = "Foo" };
             _db.Add(category);
             Assert.Equal(EntityState.Added, _db.Entry(category).State);
-            Assert.True(category.Id < 0);
+            Assert.True(category.Id == 0);
             Assert.Null(category.TimeStamp);
             _db.SaveChanges();
             Assert.Equal(EntityState.Unchanged, _db.Entry(category).State);
-            Assert.Equal(0, category.Id);
+            Assert.NotEqual(0, category.Id);
             Assert.NotNull(category.TimeStamp);
             Assert.Equal(1, _db.Categories.Count());
         }

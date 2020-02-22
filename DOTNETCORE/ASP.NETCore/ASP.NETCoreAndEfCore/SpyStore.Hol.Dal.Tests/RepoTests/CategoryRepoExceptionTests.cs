@@ -30,7 +30,7 @@ namespace SpyStore.Hol.Dal.Tests.RepoTests
         {
             var category = new Category {CategoryName = "Foo"};
             _repo.Add(category);
-            _repo.Context.Database.ExecuteSqlCommand("Update Store.Categories set CategoryName = 'Bar'");
+            _repo.Context.Database.ExecuteSqlRaw("Update Store.Categories set CategoryName = 'Bar'");
             var ex = Assert.Throws<SpyStoreConcurrencyException>(() => _repo.Delete(category));
         }
 

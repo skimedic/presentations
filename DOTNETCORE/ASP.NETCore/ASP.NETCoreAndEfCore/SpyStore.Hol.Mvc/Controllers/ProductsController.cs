@@ -26,8 +26,8 @@ namespace SpyStore.Hol.Mvc.Controllers
         }
 
         [Route("/")]
-        [Route("Products")]
-        [Route("Products/Index")]
+        [Route("/Products")]
+        [Route("/Products/Index")]
         [HttpGet]
         public ActionResult Index()
         {

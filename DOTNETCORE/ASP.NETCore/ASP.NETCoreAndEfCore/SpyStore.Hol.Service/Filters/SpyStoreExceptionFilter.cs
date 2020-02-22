@@ -2,24 +2,25 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using SpyStore.Hol.Dal.Exceptions;
 
 namespace SpyStore.Hol.Service.Filters
 {
     public class SpyStoreExceptionFilter : ExceptionFilterAttribute
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
         public SpyStoreExceptionFilter(
-            IHostingEnvironment hostingEnvironment)
+            IWebHostEnvironment hostEnvironment)
         {
-            _hostingEnvironment = hostingEnvironment;
+            _hostEnvironment = hostEnvironment;
         }
 
         public override void OnException(ExceptionContext context)
         {
             var ex = context.Exception;
-            string stackTrace = _hostingEnvironment.IsDevelopment() ? context.Exception.StackTrace : string.Empty;
+            string stackTrace = _hostEnvironment.IsDevelopment() ? context.Exception.StackTrace : string.Empty;
             string message = ex.Message;
             string error;
             IActionResult actionResult;

@@ -41,11 +41,10 @@ namespace SpyStore.Hol.Service.Controllers
     /// <param name="customerId"></param>
     /// <param name="customer"></param>
     /// <returns></returns>
-    // api/Customer/1/buy
     [HttpPost("buy", Name = "Purchase")]
     [ProducesResponseType(201)]
     [ProducesResponseType(500)]
-    public IActionResult Purchase(int customerId, [FromBody]Customer customer)
+    public IActionResult Purchase(int customerId, Customer customer)
     {
       if (customer == null || customer.Id != customerId || !ModelState.IsValid)
       {

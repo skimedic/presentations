@@ -26,16 +26,14 @@ protected override void Down(MigrationBuilder migrationBuilder)
             builder.Sql(@"
 CREATE VIEW [Store].[OrderDetailWithProductInfo]
 AS
-SELECT  od.Id, od.TimeStamp, od.OrderId, od.ProductId, od.Quantity, od.UnitCost, 
-        od.Quantity * od.UnitCost as LineItemTotal, 
-        p.ModelName, p.Description as Description,
-        p.ModelNumber, p.ProductImage, 
-        p.ProductImageLarge, p.ProductImageThumb, 
-        p.CategoryId, p.UnitsInStock, p.CurrentPrice, c.CategoryName
-FROM Store.Categories c 
-	INNER JOIN Store.Products p ON c.Id = p.Id 
-	INNER JOIN Store.OrderDetails od ON c.Id = od.Id
-");
+SELECT        
+  od.Id, od.TimeStamp, od.OrderId, od.ProductId, od.Quantity, od.UnitCost, 
+  od.Quantity * od.UnitCost AS LineItemTotal, 
+  p.ModelName, p.Description, p.ModelNumber, p.ProductImage, p.ProductImageLarge, 
+  p.ProductImageThumb, p.CategoryId, p.UnitsInStock, p.CurrentPrice, c.CategoryName
+FROM  Store.OrderDetails od INNER JOIN Store.Orders o ON o.Id = od.OrderId
+INNER JOIN Store.Products AS p ON od.ProductId = p.Id INNER JOIN
+ Store.Categories AS c ON p.CategoryId = c.id");
         }
         public static void CreateCartRecordWithProductInfoView(MigrationBuilder builder)
         {

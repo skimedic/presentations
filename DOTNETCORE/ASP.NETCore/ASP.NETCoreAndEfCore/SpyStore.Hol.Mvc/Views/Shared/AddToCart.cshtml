@@ -6,10 +6,11 @@
       asp-controller="Cart"
       asp-action="AddToCart"
       asp-route-customerId="@ViewBag.CustomerId"
-      asp-route-productId="@Model.Id"
+      asp-route-productId="@Model.ProductId"
       asp-antiforgery="true"
       id="myForm">
     @Html.EditorForModel()
+    <div asp-validation-summary="All" class="text-danger"></div>
 </form>
 @{
     if (ViewBag.CameFromProducts != null && ViewBag.CameFromProducts)

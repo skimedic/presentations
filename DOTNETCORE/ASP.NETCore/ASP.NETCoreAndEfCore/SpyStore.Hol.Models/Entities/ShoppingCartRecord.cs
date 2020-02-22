@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using SpyStore.Hol.Models.Entities.Base;
 
 namespace SpyStore.Hol.Models.Entities

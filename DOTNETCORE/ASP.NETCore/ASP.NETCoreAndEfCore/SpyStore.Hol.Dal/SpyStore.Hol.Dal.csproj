@@ -5,17 +5,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="System.Text.Json" Version="4.7.1" />
   </ItemGroup>
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
 </Project>

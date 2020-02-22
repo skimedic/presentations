@@ -24,8 +24,6 @@ namespace SpyStore.Hol.Dal.EfStructures
 #endif
       optionsBuilder
         .UseSqlServer(connectionString, options => options.EnableRetryOnFailure());
-      optionsBuilder
-        .ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));
       Console.WriteLine(connectionString);
       return new StoreContext(optionsBuilder.Options);
     }

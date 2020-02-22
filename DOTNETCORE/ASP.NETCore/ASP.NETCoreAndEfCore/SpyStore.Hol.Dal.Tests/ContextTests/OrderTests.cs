@@ -32,15 +32,15 @@ namespace SpyStore.Hol.Dal.Tests.ContextTests
             var order = _db.Orders.IgnoreQueryFilters().FirstOrDefault(x => x.Id == 1);
             var orders = _db.Orders.ToList();
             Assert.Single(orders);
-            Assert.Equal(4414.90M, orders[0].OrderTotal);
+            Assert.Equal(4424.90M, orders[0].OrderTotal);
         }
 
         [Fact]
         public void ShouldGetOrderTotalWithFunction()
         {
-            var order = _db.Orders.First(x => StoreContext.GetOrderTotal(x.Id) == 4414.90M);
+            var order = _db.Orders.First(x => StoreContext.GetOrderTotal(x.Id) == 4424.90M);
             Assert.NotNull(order);
-            Assert.Equal(4414.90M, order.OrderTotal);
+            Assert.Equal(4424.90M, order.OrderTotal);
         }
 
         [Fact]
@@ -67,7 +67,7 @@ namespace SpyStore.Hol.Dal.Tests.ContextTests
             storeContext.CustomerId = 1;
             order = storeContext.Orders.First();
             //order = _db.Orders.FirstOrDefault();
-            Assert.Equal(4914.90M, order.OrderTotal);
+            Assert.Equal(4924.90M, order.OrderTotal);
         }
     }
 }

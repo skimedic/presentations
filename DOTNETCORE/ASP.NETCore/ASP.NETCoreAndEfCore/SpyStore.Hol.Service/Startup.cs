@@ -1,32 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using SpyStore.Hol.Dal.EfStructures;
 using SpyStore.Hol.Dal.Initialization;
 using SpyStore.Hol.Dal.Repos;
 using SpyStore.Hol.Dal.Repos.Interfaces;
 using SpyStore.Hol.Service.Filters;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace SpyStore.Hol.Service
 {
     public class Startup
     {
-        private readonly IHostingEnvironment _env;
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        private readonly IWebHostEnvironment _env;
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             _env = env;
             Configuration = configuration;
@@ -37,19 +31,21 @@ namespace SpyStore.Hol.Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddMvcCore(config =>
+            services.AddControllers(config => 
                     config.Filters.Add(new SpyStoreExceptionFilter(_env)))
-                .AddJsonFormatters(j =>
+                .AddJsonOptions(options=>
                 {
-                    j.ContractResolver = new DefaultContractResolver();
-                    j.Formatting = Formatting.Indented;
+                    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                    options.JsonSerializerOptions.WriteIndented = true;
                 });
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", builder =>
                 {
-                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
+                    builder
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin();
                 });
             });
             var connectionString = Configuration.GetConnectionString("SpyStore");
@@ -63,18 +59,18 @@ namespace SpyStore.Hol.Service
             services.AddScoped<IOrderDetailRepo, OrderDetailRepo>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", 
-                    new Info
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
                     {
                         Title = "SpyStore Service",
                         Version = "v1",
                         Description = "Service to support the SpyStore sample eCommerce site",
-                        TermsOfService = "None",
-                        License = new License
+                        //TermsOfService = new Uri("None"),
+                        License = new OpenApiLicense
                         {
                             Name = "Freeware",
                             //Url = "https://en.wikipedia.org/wiki/Freeware"
-                            Url = "http://localhost:32080/LICENSE.txt"
+                            Url = new Uri("http://localhost:38080/LICENSE.txt")
                         }
                     });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -84,7 +80,7 @@ namespace SpyStore.Hol.Service
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -101,9 +97,17 @@ namespace SpyStore.Hol.Service
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json","SpyStore Service v1");
             });
-            app.UseStaticFiles();
-            app.UseCors("AllowAll");  // has to go before UseMvc
-            app.UseMvc();
+            app.UseCors("AllowAll");
+
+            app.UseHttpsRedirection();
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();//.RequireCors("AllowAll");
+            });
         }
     }
 }

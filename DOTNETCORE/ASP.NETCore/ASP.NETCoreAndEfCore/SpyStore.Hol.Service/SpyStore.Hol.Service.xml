@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpyStore.Hol.Service</name>
+    </assembly>
+    <members>
+        <member name="M:SpyStore.Hol.Service.Controllers.CategoryController.Get">
+            <summary>
+            Get all categories.
+            </summary>
+            <remarks>
+            Sample request:
+                GET /api/Categories
+            </remarks>
+            <returns>List of all categories</returns>
+            <response code="200">Returns categories.</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.CategoryController.Get(System.Int32)">
+            <summary>
+            Gets a single category.
+            </summary>
+            <param name="id">Primary Key of the category to retrieve</param>
+            <remarks>
+            Sample request:
+                GET /api/Categories/5
+            </remarks>
+            <returns>Single Category</returns>
+            <response code="200">Returns single Category.</response>
+            <response code="404">Returned when Category with specific id doesn't exist.</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.CategoryController.GetProductsForCategory(SpyStore.Hol.Dal.Repos.Interfaces.IProductRepo,System.Int32)">
+            <summary>
+            Gets all product for a single category.
+            </summary>
+            <param name="categoryId">Primary Key of the category to retrieve</param>
+            <remarks>
+            Sample request:
+                GET /api/Categories/5/products
+            </remarks>
+            <returns>List of all products in a category</returns>
+            <response code="200">Returns all products for a single category.</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.CustomerController.Get">
+            <summary>
+            Get all customers.
+            </summary>
+            <remarks>
+            Sample request:
+                GET /api/Customer
+            </remarks>
+            <returns>List of all customers.</returns>
+            <response code="200">Returns customers.</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.CustomerController.Get(System.Int32)">
+            <summary>
+            Gets a single customer.
+            </summary>
+            <param name="id">Primary Key of the customer to retrieve</param>
+            <remarks>
+            Sample request:
+                GET /api/Customer/1
+            </remarks>
+            <returns>Customer</returns>
+            <response code="200">Returns single customer.</response>
+            <response code="404">Returned when customer with specific id doesn't exist.</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.OrderDetailsController.GetOrderWithDetailsForCustomer(System.Int32)">
+            <summary>
+            Get order with Details for one customer
+            </summary>
+            <param name="orderId">Primary Key for the Order Table</param>
+            <remarks>
+            Sample request:
+                GET /api/OrderDetails/1
+            </remarks>
+            <returns>Order with Order Details</returns>
+            <response code="200">Returns order with order details.</response>
+            <response code="404">Order unable to be located</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.OrdersController.GetOrderHistory(System.Int32)">
+            <summary>
+            Get Order History for a customer (top line only)
+            </summary>
+            <param name="customerId"></param>
+            <remarks>
+            Sample request:
+                GET /api/OrdersController/1
+            </remarks>
+            <returns>Order History</returns>
+            <response code="200">Returns order history for a customer.</response>
+            <response code="404">Order history unable to be located</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.ProductController.Get(System.Int32)">
+            <summary>
+            Gets a single product with category name.
+            </summary>
+            <param name="id">Primary Key of the product to retrieve</param>
+            <remarks>
+            Sample request:
+                GET /api/Product/5
+            </remarks>
+            <returns>Single Product</returns>
+            <response code="200">Returns single Product.</response>
+            <response code="404">Returned when Product with specific id doesn't exist.</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.ProductController.GetFeatured">
+            <summary>
+            Get all featured Products with Category Name.
+            </summary>
+            <remarks>
+            Sample request:
+                GET /api/featured
+            </remarks>
+            <returns>List of all featured Products with Category Name.</returns>
+            <response code="200">Returns featured Products.</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.SearchController.Search(System.String)">
+            <summary>
+            Gets a single category.
+            </summary>
+            <param name="searchString">String to search the product name and product description description.</param>
+            <remarks>
+            Sample request:
+                GET /api/Seach/persuade%20anyone
+            </remarks>
+            <returns>Single Category</returns>
+            <response code="200">Returns matching products.</response>
+            <response code="204">Returned when no content in the response</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.ShoppingCartController.GetShoppingCart(System.Int32)">
+            <summary>
+            Get Shopping Cart Records for a customer.
+            </summary>
+            <remarks>
+            Sample request:
+                GET /api/ShoppingCart/1
+            </remarks>
+            <param name="customerId">Primary Key of the Customer</param>
+            <response code="200">Returns all Shopping Cart Records for the customer</response>
+            <response code="204">Returned when no content in the response</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.ShoppingCartController.Purchase(System.Int32,SpyStore.Hol.Models.Entities.Customer)">
+            <summary>
+            
+            </summary>
+            <param name="customerId"></param>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.ShoppingCartRecordController.GetShoppingCartRecord(System.Int32)">
+            <summary>
+            Get Shopping Cart Record for cart record id.
+            </summary>
+            <remarks>
+            Sample request:
+                GET /api/ShoppingCartRecord/1
+            </remarks>
+            <param name="id">Primary Key of the Cart Record</param>
+            <response code="200">Returns single Shopping Cart Record</response>
+            <response code="404">Returned when no record was found</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.ShoppingCartRecordController.AddShoppingCartRecord(System.Int32,SpyStore.Hol.Models.Entities.ShoppingCartRecord)">
+            <summary>
+            Creates a new Shopping Cart Record
+            </summary>
+            <remarks>
+            Sample request:
+                  POST /api/ShoppingCartRecord/1
+                  {
+                     "CustomerId": 1,
+                     "Quantity": 2,
+                     "ProductId": 34,
+                  }
+            </remarks>
+            <param name="customerId">Primary key of the Customer</param>
+            <param name="record">Shopping Cart Record
+                  {
+                     "CustomerId": 1,
+                     "Quantity": 2,
+                     "ProductId": 34,
+                  }
+            </param>
+            <response code="201">Returned new created item</response>
+            <response code="400">Returned when there was an error in the data (bad CustomerId/ProductId).</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.ShoppingCartRecordController.UpdateShoppingCartRecord(System.Int32,SpyStore.Hol.Models.Entities.ShoppingCartRecord)">
+            <summary>
+            Updates a Shopping Cart Record
+            </summary>
+            <remarks>
+            Sample request:
+                  PUT /api/ShoppingCartRecord/1
+                  {
+                     "CustomerId": 1,
+                     "Quantity": 2,
+                     "ProductId": 34,
+                  }
+            </remarks>
+            <param name="recordId">Primary key of the cart record</param>
+            <param name="item">Shopping Cart Record
+                  {
+                     "CustomerId": 1,
+                     "Quantity": 2,
+                     "ProductId": 34,
+                  }
+            </param>
+            <response code="201">Returned new created item</response>
+            <response code="400">Returned when there was an error in the data (bad CustomerId/ProductId).</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+        <member name="M:SpyStore.Hol.Service.Controllers.ShoppingCartRecordController.DeleteCartRecord(System.Int32,SpyStore.Hol.Models.Entities.ShoppingCartRecord)">
+            <summary>
+            Deletes a Shopping Cart Record
+            </summary>
+            <remarks>
+            Sample request:
+                  DELETE /api/ShoppingCartRecord/1
+                  {
+                     "CustomerId": 1,
+                     "Quantity": 2,
+                     "ProductId": 34,
+                     "TimeStamp": "AAAAAAAAs+M="
+                  }
+            </remarks>
+            <param name="recordId">Primary key of the cart record</param>
+            <param name="item">Shopping Cart Record
+                  {
+                     "CustomerId": 1,
+                     "Quantity": 2,
+                     "ProductId": 34,
+                     "TimeStamp": "AAAAAAAAs+M="
+                  }
+            </param>
+            <response code="201">Returned new created item</response>
+            <response code="400">Returned when there was an error in the data (bad CustomerId/ProductId).</response>
+            <response code="500">Returned when there was an error in the repo.</response>
+        </member>
+    </members>
+</doc>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SpyStore.Hol.Dal.EfStructures;
@@ -15,6 +15,7 @@ namespace SpyStore.Hol.Dal.Repos
 {
     public class ShoppingCartRepo : RepoBase<ShoppingCartRecord>, IShoppingCartRepo
     {
+        private bool _isDisposed;
         private readonly IProductRepo _productRepo;
         private readonly ICustomerRepo _customerRepo;
         public ShoppingCartRepo(StoreContext context, 
@@ -25,17 +26,27 @@ namespace SpyStore.Hol.Dal.Repos
             _customerRepo = customerRepo;
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (_isDisposed)
+            {
+                return;
+            } 
+      
+            if (disposing) {
+                _productRepo.Dispose();
+                _customerRepo.Dispose();
+            }
+      
+            _isDisposed = true;
+            // Call base class implementation.
+            base.Dispose(disposing);
+        }
+
         internal ShoppingCartRepo(DbContextOptions<StoreContext> options): base(new StoreContext(options))
         {
             _productRepo = new ProductRepo(Context);
             _customerRepo = new CustomerRepo(Context);
-        }
-
-        public override void Dispose()
-        {
-            _productRepo.Dispose();
-            _customerRepo.Dispose();
-            base.Dispose();
         }
 
         public override IEnumerable<ShoppingCartRecord> GetAll()
@@ -157,7 +168,7 @@ namespace SpyStore.Hol.Dal.Repos
             };
             try
             {
-                Context.Database.ExecuteSqlCommand("EXEC [Store].[PurchaseItemsInCart] @customerId, @orderid out", customerIdParam, orderIdParam);
+                Context.Database.ExecuteSqlRaw("EXEC [Store].[PurchaseItemsInCart] @customerId, @orderid out", customerIdParam, orderIdParam);
             }
             catch (Exception ex)
             {

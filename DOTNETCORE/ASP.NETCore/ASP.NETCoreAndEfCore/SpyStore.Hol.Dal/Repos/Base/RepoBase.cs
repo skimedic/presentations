@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +13,7 @@ namespace SpyStore.Hol.Dal.Repos.Base
 {
     public abstract class RepoBase<T> : IRepo<T> where T : EntityBase, new()
     {
+        private bool _isDisposed;
         public DbSet<T> Table { get; }
         public StoreContext Context { get; }
         private readonly bool _disposeContext;
@@ -29,14 +30,30 @@ namespace SpyStore.Hol.Dal.Repos.Base
             _disposeContext = true;
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         {
-            if (_disposeContext)
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_isDisposed)
+            {
+                return;
+            }
+
+            if (disposing && _disposeContext)
             {
                 Context.Dispose();
             }
+            _isDisposed = true;
         }
 
+        ~RepoBase()
+        {
+            Dispose(false);
+        }
         public T Find(int? id) => Table.Find(id);
         public T FindAsNoTracking(int id) => Table.Where(x => x.Id == id).AsNoTracking().FirstOrDefault();
         public T FindIgnoreQueryFilters(int id) => Table.IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);

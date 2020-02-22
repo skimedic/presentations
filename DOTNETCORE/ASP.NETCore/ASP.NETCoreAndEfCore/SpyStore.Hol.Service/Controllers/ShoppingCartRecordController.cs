@@ -7,7 +7,6 @@ using SpyStore.Hol.Models.ViewModels;
 namespace SpyStore.Hol.Service.Controllers
 {
   [Route("api/[controller]")]
-  //[Route("api/ShoppingCart")]
   [ApiController]
   public class ShoppingCartRecordController : ControllerBase
   {

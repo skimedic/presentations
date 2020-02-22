@@ -41,7 +41,7 @@ namespace SpyStore.Hol.Dal.Tests.RepoTests
             _repo.Add(item);
             var shoppingCartRecords = _repo.GetShoppingCartRecords(Db.CustomerId).ToList();
             Assert.Equal(2, shoppingCartRecords.Count);
-            Assert.Equal(33, shoppingCartRecords[0].ProductId);
+            Assert.Equal(12, shoppingCartRecords[0].ProductId);
             Assert.Equal(1, shoppingCartRecords[0].Quantity);
             Assert.Equal(2, shoppingCartRecords[1].ProductId);
             Assert.Equal(3, shoppingCartRecords[1].Quantity);
@@ -52,7 +52,7 @@ namespace SpyStore.Hol.Dal.Tests.RepoTests
         {
             var item = new ShoppingCartRecord()
             {
-                ProductId = 33,
+                ProductId = 12,
                 Quantity = 1,
                 DateCreated = DateTime.Now,
                 CustomerId = Db.CustomerId
@@ -83,7 +83,7 @@ namespace SpyStore.Hol.Dal.Tests.RepoTests
         {
             var item = new ShoppingCartRecord()
             {
-                ProductId = 33,
+                ProductId = 12,
                 Quantity = -10,
                 DateCreated = DateTime.Now,
                 CustomerId = Db.CustomerId

@@ -20,8 +20,8 @@ namespace SpyStore.Hol.Dal.EfStructures
             //code in here doesn’t matter since it never gets executed
             throw new Exception();
         }
-        public DbQuery<CartRecordWithProductInfo> CartRecordWithProductInfos { get; set; }
-        public DbQuery<OrderDetailWithProductInfo> OrderDetailWithProductInfos { get; set; }
+        public DbSet<CartRecordWithProductInfo> CartRecordWithProductInfos { get; set; }
+        public DbSet<OrderDetailWithProductInfo> OrderDetailWithProductInfos { get; set; }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -32,8 +32,10 @@ namespace SpyStore.Hol.Dal.EfStructures
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Query<CartRecordWithProductInfo>().ToView("CartRecordWithProductInfo", "Store");
-            modelBuilder.Query<OrderDetailWithProductInfo>().ToView("OrderDetailWithProductInfo", "Store");
+            modelBuilder.Entity<CartRecordWithProductInfo>()
+                .ToView("CartRecordWithProductInfo", "Store").HasNoKey();
+            modelBuilder.Entity<OrderDetailWithProductInfo>()
+                .ToView("OrderDetailWithProductInfo", "Store").HasNoKey();
 
             modelBuilder.Entity<Customer>(entity =>
             {

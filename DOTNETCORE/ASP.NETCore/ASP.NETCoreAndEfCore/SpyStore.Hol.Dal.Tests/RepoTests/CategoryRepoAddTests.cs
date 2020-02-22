@@ -31,7 +31,7 @@ namespace SpyStore.Hol.Dal.Tests.RepoTests
             var category = new Category { CategoryName = "Foo" };
             var count = _repo.Add(category);
             Assert.Equal(1, count);
-            Assert.Equal(1, category.Id);
+            Assert.NotEqual(0, category.Id);
             Assert.Equal(1, _repo.Table.Count());
         }
         [Fact]
@@ -40,7 +40,7 @@ namespace SpyStore.Hol.Dal.Tests.RepoTests
             var category = new Category { CategoryName = "Foo" };
             var count = _repo.Add(category, false);
             Assert.Equal(0, count);
-            Assert.True(category.Id < 0);
+            Assert.True(category.Id == 0);
             Assert.Equal(0, _repo.Table.Count());
         }
 

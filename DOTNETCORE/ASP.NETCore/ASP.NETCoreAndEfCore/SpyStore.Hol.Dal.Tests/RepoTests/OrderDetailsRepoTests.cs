@@ -35,8 +35,8 @@ namespace SpyStore.Hol.Dal.Tests.RepoTests
         [Fact]
         public void ShouldGetLineItemTotal()
         {
-            var orderDetails = _repo.GetOrderDetailsWithProductInfoForOrder(1).ToList();
-            var orderDetail = orderDetails[0];
+            var orderDetails = _repo.GetAll().ToList();
+            var orderDetail = orderDetails.FirstOrDefault(x => x.ProductId == 4);
             Assert.Equal(1799.9700M, orderDetail.LineItemTotal);
         }
 

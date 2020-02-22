@@ -2,282 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc024ee5-84d1-495d-9266-a5e8630a939d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/ConsoleApp1/ConsoleApp1.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/ConsoleApp1/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp7/A_LocalFunctions/LocalFunctionExamples.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp7/A_LocalFunctions/LocalFunctionExamples.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp7/E_Discards/DiscardExamples.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp7/E_Discards/DiscardExamples.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp72/A_PerfImprovForValueTypes/A_InKeywordDemos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp72/A_PerfImprovForValueTypes/A_InKeywordDemos.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp73/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp73/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/A_NullableDemos/NullableTypesDemo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/A_NullableDemos/NullableTypesDemo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/B_RangesIndices/RangesAndIndicesDemo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/B_RangesIndices/RangesAndIndicesDemo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/C_StaticLocalFunctions/StaticLocals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/C_StaticLocalFunctions/StaticLocals.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/D_UsingDeclarations/MySampleClassWithUsingDeclaration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/D_UsingDeclarations/MySampleClassWithUsingDeclaration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/F_Interfaces/Interface1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/F_Interfaces/Interface1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CSharp/WhatsNewInCSharp/WhatsNewInCSharp8/TextFile1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/Controllers/CartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/Controllers/ProductsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/Controllers/ProductsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/libman.json" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/libman.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/SpyStore.Mvc/wwwroot/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/global.json" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore/global.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/ClassLibrary1/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/ClassLibrary1/ClassLibrary1.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/ConsoleApp1/ConsoleApp1.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/ConsoleApp1/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.30.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.30.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Dal.Tests/SpyStore.Dal.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Dal.Tests/SpyStore.Dal.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Dal/SpyStore.Dal.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Dal/SpyStore.Dal.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Models/SpyStore.Models.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Models/SpyStore.Models.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Controllers/CartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Controllers/ProductsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Controllers/ProductsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/SpyStore.Mvc.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/SpyStore.Mvc.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Views/Cart/EditorTemplates/CartRecordViewModel.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Views/Cart/EditorTemplates/CartRecordViewModel.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Views/Cart/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Views/Cart/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/SpyStore.Mvc/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Controllers/HomeController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Models/ErrorViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Views/Home/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Views/Home/Privacy.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Views/Shared/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Views/Shared/_Layout.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Views/_ViewImports.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/Views/_ViewStart.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/WebApplication1.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/css/site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/js/site.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication1/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/Error.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/Index.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/Privacy.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/Privacy.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/Shared/_Layout.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/_ViewImports.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Pages/_ViewStart.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/WebApplication2.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/css/site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/js/site.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebApplication2/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/AddBundleContentTypeAnalyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/AddBundleExtensionsNoSourceFilesAnalyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/AddBundleGlobbingRouteAnalyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/AddBundleInvalidPathAnalyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/AddBundleNoSourceFilesAnalyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/AddFilesContentTypeAnalyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/AddFilesNoSourceFilesAnalyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/AssetPipelineBaseAnalyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/Descriptors.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/Diagnostic.nuspec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/WebOptimizer.Analyzers.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/tools/install.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Analyzers/tools/uninstall.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Asset.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/AssetBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/AssetContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/AssetMiddleware.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/AssetPipeline.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/AssetResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/AssetResponseStore.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/CompositeFileProviderExtended.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Extensions/ApplicationBuilderExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Extensions/ByteExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Extensions/CodeBundlingSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Extensions/CssBundlingSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Extensions/LoggerExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Extensions/ServiceExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/FileVersionProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/IAsset.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/IAssetBuilder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/IAssetContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/IAssetPipeline.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/IAssetResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/IAssetResponseStore.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/IWebOptimizerOptions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/Concatenator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/CssFingerprinter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/CssImageInliner.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/CssMinifier.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/EnforceFileExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/HtmlMinifier.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/IProcessor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/JavaScriptMinifier.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/Processor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/RelativePathAdjuster.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/ResponseHeader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Processors/UseContentRoot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Properties/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/TagHelpersDynamic/Helpers.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/TagHelpersDynamic/LinkTagHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/TagHelpersDynamic/ScriptTagHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Taghelpers/BaseTagHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Taghelpers/LinkInlineHrefTagHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Taghelpers/LinkTagHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Taghelpers/ScriptInlineSrcTagHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/Taghelpers/ScriptTagHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/WebOptimizer.Core.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/WebOptimizerConfig.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/SpyStore3/WebOptimizer.Core/WebOptimizerOptions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/01_PerformanceEF3.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Context/AdventureWorksContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/ModelForTesting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/AWBuildVersion.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Address.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/AddressType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/BillOfMaterials.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/BusinessEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/BusinessEntityAddress.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/BusinessEntityContact.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ContactType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/CountryRegion.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/CountryRegionCurrency.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/CreditCard.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Culture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Currency.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/CurrencyRate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Customer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/DatabaseLog.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Department.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/EmailAddress.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Employee.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/EmployeeDepartmentHistory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/EmployeePayHistory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ErrorLog.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Illustration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/JobCandidate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Location.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Password.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Person.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/PersonCreditCard.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/PersonPhone.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/PhoneNumberType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Product.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductCategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductCostHistory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductDescription.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductInventory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductListPriceHistory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductModelIllustration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductModelProductDescriptionCulture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductPhoto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductProductPhoto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductReview.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductSubcategory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ProductVendor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/PurchaseOrderDetail.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/PurchaseOrderHeader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SalesOrderDetail.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SalesOrderHeader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SalesOrderHeaderSalesReason.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SalesPerson.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SalesPersonQuotaHistory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SalesReason.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SalesTaxRate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SalesTerritory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SalesTerritoryHistory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ScrapReason.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Shift.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ShipMethod.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/ShoppingCartItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SpecialOffer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/SpecialOfferProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/StateProvince.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Store.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/TransactionHistory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/TransactionHistoryArchive.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/UnitMeasure.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/Vendor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/WorkOrder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/01_PerformanceEF3/EFCore/Models/WorkOrderRouting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Concurrency/Models/Blog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Concurrency/Models/Blog.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UnitTesting/MOQExamples/SystemsUnderTest/TestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../UnitTesting/MOQExamples/SystemsUnderTest/TestController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/ConnectionResiliency/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/ConnectionResiliency/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Migrations/Models/Blog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Migrations/Models/Blog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -295,6 +23,11 @@
   </component>
   <component name="ProjectId" id="1RZ9OEvFfc9GDrATh1FMQ0oXFDp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -309,15 +42,15 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.JavaScript" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -342,6 +75,14 @@
       <workItem from="1570289121444" duration="3688000" />
       <workItem from="1570654203496" duration="4719000" />
       <workItem from="1571418159495" duration="167000" />
+      <workItem from="1575904323060" duration="1783000" />
+      <workItem from="1577463694837" duration="23000" />
+      <workItem from="1577463753406" duration="42000" />
+      <workItem from="1577463837200" duration="16000" />
+      <workItem from="1582311147442" duration="1448000" />
+      <workItem from="1582312650186" duration="602000" />
+      <workItem from="1582345887294" duration="1224000" />
+      <workItem from="1582391955314" duration="139000" />
     </task>
     <servers />
   </component>
@@ -360,5 +101,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="625" y="120" key="CommitChangelistDialog2" timestamp="1582312014889">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="625" y="120" key="CommitChangelistDialog2/0.0.1920.1040/3840.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1582312014889" />
   </component>
 </project>

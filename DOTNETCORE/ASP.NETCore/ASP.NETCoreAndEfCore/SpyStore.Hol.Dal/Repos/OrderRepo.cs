@@ -11,6 +11,7 @@ namespace SpyStore.Hol.Dal.Repos
 {
     public class OrderRepo : RepoBase<Order>,IOrderRepo
     {
+        private bool _isDisposed;
         private readonly IOrderDetailRepo _orderDetailRepo;
 
         public OrderRepo(
@@ -25,10 +26,20 @@ namespace SpyStore.Hol.Dal.Repos
             _orderDetailRepo = new OrderDetailRepo(Context);
         }
 
-        public override void Dispose()
+        protected override void Dispose(bool disposing)
         {
-            _orderDetailRepo.Dispose();
-            base.Dispose();
+            if (_isDisposed)
+            {
+                return;
+            } 
+      
+            if (disposing) {
+                _orderDetailRepo.Dispose();
+            }
+      
+            _isDisposed = true;
+            // Call base class implementation.
+            base.Dispose(disposing);
         }
 
         public IList<Order> GetOrderHistory() => 
