@@ -55,6 +55,7 @@ namespace SpyStore.Hol.Service
             services.AddScoped<IProductRepo, ProductRepo>();
             services.AddScoped<ICustomerRepo, CustomerRepo>();
             services.AddScoped<IShoppingCartRepo, ShoppingCartRepo>();
+            //services.AddScoped<IShoppingCartRepo, ShoppingCartRepo2>();
             services.AddScoped<IOrderRepo, OrderRepo>();
             services.AddScoped<IOrderDetailRepo, OrderDetailRepo>();
             services.AddSwaggerGen(c =>

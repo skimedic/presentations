@@ -1,4 +1,12 @@
-﻿@using SpyStore.Hol.Mvc.ViewComponents
+﻿@using Microsoft.Extensions.Hosting
+@using SpyStore.Hol.Mvc.ViewComponents
+@inject IHostEnvironment env;
+@{
+    if (env.IsDevelopment())
+    {
+        <h2>Development</h2>
+    }
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SpyStore.Hol.Mvc</title>
     <environment include="Development,Local">
-        <link rel="stylesheet" href="~/lib/bootstrap4/css/bootstrap.css"/>
+        <link rel="stylesheet" href="~/lib/bootstrap4/css/bootstrap.css" asp-append-version="true"/>
         <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.css"/>
     </environment>
     <environment exclude="Development,Local">

@@ -20,6 +20,7 @@ namespace SpyStore.Hol.Dal.EfStructures
             //code in here doesn’t matter since it never gets executed
             throw new Exception();
         }
+        //public DbQuery<CartRecordWithProductInfo> Test { get; set; }
         public DbSet<CartRecordWithProductInfo> CartRecordWithProductInfos { get; set; }
         public DbSet<OrderDetailWithProductInfo> OrderDetailWithProductInfos { get; set; }
 

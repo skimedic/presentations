@@ -18,10 +18,10 @@ namespace SpyStore.Hol.Mvc.Support
         private HttpClient _client;
         private ServiceSettings _settings;
 
-        public SpyStoreServiceWrapper(HttpClient client, IOptionsSnapshot<ServiceSettings> settings)
+        public SpyStoreServiceWrapper(HttpClient client, IOptionsMonitor<ServiceSettings> settings)
         {
             _client = client;
-            _settings = settings.Value;
+            _settings = settings.CurrentValue;
             _client.BaseAddress = new Uri(_settings.Uri);
         }
 

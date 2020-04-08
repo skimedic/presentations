@@ -16,7 +16,9 @@ namespace SpyStore.Hol.Dal.Repos
         internal CategoryRepo(DbContextOptions<StoreContext> options) : base(options)
         {
         }
-        public override IEnumerable<Category> GetAll() => base.GetAll(x => x.CategoryName);
+        public override IEnumerable<Category> GetAll() => 
+            base.GetAll(x=>x.CategoryName);
+        //public override IEnumerable<Category> GetAll() => base.GetAll(x => x.CategoryName);
 
 
     }

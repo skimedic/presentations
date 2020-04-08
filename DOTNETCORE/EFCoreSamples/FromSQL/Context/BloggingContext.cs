@@ -8,10 +8,11 @@ namespace FromSQLDbQuery.Context
     {
         public DbSet<Blog> Blogs { get; set; }
 
-        [NotMapped]
+        //[NotMapped]
         public DbSet<ShortBlog> ShortBlogs { get; set; }
 
-        public DbQuery<ShortBlogQuery> ShortBlogsQuery { get; set; }
+        [NotMapped]
+        public DbSet<ShortBlogQuery> ShortBlogsQuery { get; set; }
 
         public BloggingContext()
         {
@@ -35,7 +36,7 @@ namespace FromSQLDbQuery.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ShortBlog>().HasKey(x => x.BlogId);
-            //modelBuilder.Query<ShortBlogQuery>().ToView("ViewName");
+            modelBuilder.Entity<ShortBlogQuery>().ToView("ViewName").HasNoKey();
         }
     }
 }

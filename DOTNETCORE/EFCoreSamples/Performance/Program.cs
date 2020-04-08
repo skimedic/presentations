@@ -73,14 +73,12 @@ namespace Performance
 
                 stopwatch.Restart();
                 ef6Test();
-        //        //ef7Test();
                 stopwatch.Stop();
                 var ef6 = stopwatch.ElapsedMilliseconds;
                 Console.WriteLine($"{firstLabel}:      {ef6.ToString().PadLeft(4)}ms");
 
                 stopwatch.Restart();
                 ef7Test();
-        //        //ef6Test();
                 stopwatch.Stop();
                 var efCore = stopwatch.ElapsedMilliseconds;
                 Console.Write($"{secondLabel}:    {efCore.ToString().PadLeft(4)}ms");
@@ -88,7 +86,6 @@ namespace Performance
                 var result = (ef6 - efCore) / (double)ef6;
                 Console.WriteLine($"  - Improvement: {result.ToString("P0")}");
                 Console.WriteLine();
-        //        //return;
             }
         }
 

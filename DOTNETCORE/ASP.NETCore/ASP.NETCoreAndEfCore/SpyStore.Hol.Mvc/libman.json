@@ -9,7 +9,7 @@
       "library": "jquery@3.4.1",
       "destination": "wwwroot/lib/jquery",
       "files": ["jquery.js", "jquery.min.js"]
-    },
+    }, 
     {
       "library": "jquery-validate@1.19.0",
       "destination": "wwwroot/lib/jquery-validation",

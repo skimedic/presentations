@@ -105,7 +105,7 @@ ORDER BY [i].[_Position];
 
                 if (db.Blogs.Any())
                 {
-                    db.Database.ExecuteSqlCommand("DELETE FROM dbo.Blogs");
+                    db.Database.ExecuteSqlRaw("DELETE FROM dbo.Blogs");
                 }
 
                 db.Blogs.Add(new Blog {Name = "The Dog Blog", Url = "http://sample.com/dogs"});

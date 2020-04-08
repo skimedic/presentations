@@ -21,15 +21,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "12_ComputedColumns", "Compu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "13_Find", "Find\13_Find.csproj", "{19FE1ACF-123B-4904-AC73-7F5AC6F38986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_PerformanceEf6", "PerformanceEf6\01_PerformanceEf6.csproj", "{BB3BEFC5-9A69-4C8D-A570-31DF9AB1A44D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_PerformanceEf6", "PerformanceEf6\01_PerformanceEf6.csproj", "{BB3BEFC5-9A69-4C8D-A570-31DF9AB1A44D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_PerformanceEfCore", "PerformanceEfCore\01_PerformanceEfCore.csproj", "{64DF4B79-257D-4764-9112-52C3B07E6DA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_PerformanceEfCore", "PerformanceEfCore\01_PerformanceEfCore.csproj", "{64DF4B79-257D-4764-9112-52C3B07E6DA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_Performance", "Performance\01_Performance.csproj", "{A2907418-D0A6-4CC0-B688-5A4C9134223E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_Performance", "Performance\01_Performance.csproj", "{A2907418-D0A6-4CC0-B688-5A4C9134223E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{6B9A2587-C3BD-4387-A90D-1034662E7407}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		TaskList.txt = TaskList.txt
 	EndProjectSection
 EndProject

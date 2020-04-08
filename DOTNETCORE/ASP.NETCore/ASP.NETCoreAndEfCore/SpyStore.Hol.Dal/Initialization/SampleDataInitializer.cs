@@ -59,12 +59,19 @@ namespace SpyStore.Hol.Dal.Initialization
                     {
                         using (var transaction = context.Database.BeginTransaction())
                         {
-                            context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('Store.Customers', RESEED, 0);");
-                            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Store.Customers" + " ON");
-                            context.Customers.Add(cust);
-                            context.SaveChanges();
-                            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Store.Customers" + " OFF");
-                            transaction.Commit();
+                            try
+                            {
+                                context.Database.ExecuteSqlRaw("DBCC CHECKIDENT ('Store.Customers', RESEED, 0);");
+                                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Store.Customers" + " ON");
+                                context.Customers.Add(cust);
+                                context.SaveChanges();
+                                context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT Store.Customers" + " OFF");
+                                transaction.Commit();
+                            }
+                            catch (Exception e)
+                            {
+                                transaction.Rollback();
+                            }
                         }
                     });
                 }

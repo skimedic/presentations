@@ -57,7 +57,7 @@ namespace FromSQLDbQuery
                 db.Database.EnsureDeleted();
                 if (db.Database.EnsureCreated())
                 {
-                    db.Database.ExecuteSqlCommand(
+                    db.Database.ExecuteSqlRaw(
                         "CREATE FUNCTION [dbo].[SearchBlogs] (@term nvarchar(200)) RETURNS TABLE AS RETURN (SELECT * FROM dbo.Blogs WHERE Url LIKE '%' + @term + '%')");
 
                     db.Blogs.Add(new Blog {Name = "The Horse Blog", Url = "http://sample.com/blogs/horses"});

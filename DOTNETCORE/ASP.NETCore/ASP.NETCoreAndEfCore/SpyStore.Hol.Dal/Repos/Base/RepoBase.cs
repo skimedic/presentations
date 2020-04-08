@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using SpyStore.Hol.Dal.EfStructures;
@@ -55,7 +56,11 @@ namespace SpyStore.Hol.Dal.Repos.Base
             Dispose(false);
         }
         public T Find(int? id) => Table.Find(id);
-        public T FindAsNoTracking(int id) => Table.Where(x => x.Id == id).AsNoTracking().FirstOrDefault();
+        public T FindAsNoTracking(int id)
+        {
+            return Table.Where(x => x.Id == id).AsNoTracking().FirstOrDefault();
+        }
+
         public T FindIgnoreQueryFilters(int id) => Table.IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
         public virtual IEnumerable<T> GetAll() => Table;
 
