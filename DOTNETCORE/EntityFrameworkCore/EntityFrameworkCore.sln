@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCoreBasics", "EfCoreBasics\EfCoreBasics.csproj", "{7DD30564-2192-4F27-9978-202B7FC716EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0D6B6B0-B70E-45C8-A16E-E3E586A0A5FB}"
+	ProjectSection(SolutionItems) = preProject
+		Migrationstxt.txt = Migrationstxt.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DD30564-2192-4F27-9978-202B7FC716EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD30564-2192-4F27-9978-202B7FC716EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD30564-2192-4F27-9978-202B7FC716EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD30564-2192-4F27-9978-202B7FC716EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {237BC69B-BEE0-45C8-BE76-5BDEE058CF71}
+	EndGlobalSection
+EndGlobal
