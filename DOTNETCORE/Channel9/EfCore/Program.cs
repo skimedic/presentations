@@ -22,7 +22,7 @@ namespace EfCore
             Console.WriteLine("\r\n****** Related Data and Projections ******");
             new RelatedDataAndProjections().RunSamples();
             Console.WriteLine("\r\n****** Persisting Data ******");
-            new PersistingData().RunExamples();
+            new PersistingData().RunSamples();
             Console.WriteLine("Complete");
             Console.ReadLine();
         }

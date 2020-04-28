@@ -22,13 +22,13 @@ namespace EfCore
         {
             ResetContext();
         }
-
         public void RunSamples()
         {
             GetPersonAndRelatedData();
             CreateProjections();
             ExplicitlyLoadRelatedData();
         }
+
         internal void GetPersonAndRelatedData()
         {
             //Get collections (many of many to one)

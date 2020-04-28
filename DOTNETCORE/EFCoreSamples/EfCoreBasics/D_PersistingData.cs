@@ -29,11 +29,6 @@ namespace EfCoreBasics
             AddItems();
             AddAnObjectGraph();
         }
-        private void ResetContext()
-        {
-            _context = new AwDbContextFactory().CreateDbContext(null);
-        }
-
         public void AddAnItem()
         {
             ShouldExecuteInATransaction(AddNewPerson);
@@ -47,8 +42,31 @@ namespace EfCoreBasics
                     Title = "Neighbor"
                 };
                 _context.Person.Add(person);
+                _context.SaveChanges();
             }
         }
+
+        public void AddAnObjectGraph()
+        {
+            ShouldExecuteInATransaction(AddNewPerson);
+
+            void AddNewPerson()
+            {
+                var person = new Person
+                {
+                    AdditionalContactInfo = "Home",
+                    FirstName = "Barney",
+                    LastName = "Rubble",
+                    Title = "Neighbor"
+                };
+                person.EmailAddress.Add(new EmailAddress
+                {
+                    EmailAddress1 = "foo@foo.com"
+                });
+                _context.Person.Add(person);
+            }
+        }
+
         public void AddItems()
         {
             ShouldExecuteInATransaction(AddNewPerson);
@@ -75,33 +93,19 @@ namespace EfCoreBasics
                 _context.Person.AddRange(list);
             }
         }
-        public void AddAnObjectGraph()
-        {
-            ShouldExecuteInATransaction(AddNewPerson);
-            void AddNewPerson()
-            {
-                var person = new Person
-                {
-                    AdditionalContactInfo = "Home",
-                    FirstName = "Barney",
-                    LastName = "Rubble",
-                    Title = "Neighbor"
-                };
-                person.EmailAddress.Add(new EmailAddress
-                {
-                    EmailAddress1 = "foo@foo.com"
-                });
-                _context.Person.Add(person);
-            }
-        }
 
         public void ShouldExecuteInATransaction(Action actionToExecute)
         {
-                using (var transaction = _context.Database.BeginTransaction())
-                {
-                    actionToExecute();
-                    transaction.Rollback();
-                }
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                actionToExecute();
+                transaction.Rollback();
+            }
+        }
+
+        private void ResetContext()
+        {
+            _context = new AwDbContextFactory().CreateDbContext(null);
         }
     }
 }

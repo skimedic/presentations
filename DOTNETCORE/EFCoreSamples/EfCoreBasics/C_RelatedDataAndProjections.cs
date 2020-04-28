@@ -22,10 +22,6 @@ namespace EfCoreBasics
         {
             ResetContext();
         }
-        private void ResetContext()
-        {
-            _context = new AwDbContextFactory().CreateDbContext(null);
-        }
         public void RunSamples()
         {
             GetPersonAndRelatedData();
@@ -37,29 +33,32 @@ namespace EfCoreBasics
         {
             //Get collections (many of many to one)
             _ = _context.Person.Include(x => x.EmailAddress);
-            //Get Parent (one of many to one)
+            //Get Parent (one of one to one)
             _ = _context.Person.Include(x => x.BusinessEntity);
             //Get Chain of related
-            _ = _context.Person
+            var q = _context.Person
                 .Include(x => x.Employee)
                 .ThenInclude(x => x.SalesPerson);
+            q.ToList();
         }
 
         internal void ExplicitlyLoadRelatedData()
         {
             var p = _context.Person.FirstOrDefault(x => x.BusinessEntityId == 1);
-            _context.Entry(p).Reference(p=>p.Employee).Load();
-            _context.Entry(p).Collection(p=>p.EmailAddress).Load();
+            _context.Entry(p).Reference(p => p.Employee).Load();
+            _context.Entry(p).Collection(p => p.EmailAddress).Load();
         }
+
         internal void CreateProjections()
         {
             //Create list of anonymous objects
             var newAnonList = _context.Person
-                .Select(x=> new
+                .Select(x => new
                 {
                     x.FirstName,
                     x.MiddleName,
-                    x.LastName
+                    x.LastName,
+                    x.EmailAddress
                 })
                 .ToList();
             IQueryable<ICollection<EmailAddress>> result1 = _context.Person.Select(x => x.EmailAddress);
@@ -67,14 +66,20 @@ namespace EfCoreBasics
             IQueryable<EmailAddress> result2 = _context.Person.SelectMany(x => x.EmailAddress);
 
             //Project to a ViewModel
-            var newVMList = _context.Person
-                .Select(x=> new PersonViewModel
+            List<PersonViewModel> newVMList = _context.Person
+                .Select(x => new PersonViewModel
                 {
                     FirstName = x.FirstName,
                     MiddleName = x.MiddleName,
                     LastName = x.LastName
                 })
                 .ToList();
+        }
+
+
+        private void ResetContext()
+        {
+            _context = new AwDbContextFactory().CreateDbContext(null);
         }
     }
 

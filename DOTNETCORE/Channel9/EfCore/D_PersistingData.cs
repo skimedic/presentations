@@ -22,7 +22,7 @@ namespace EfCore
             ResetContext();
         }
 
-        public void RunExamples()
+        public void RunSamples()
         {
             AddAnItem();
             AddItems();

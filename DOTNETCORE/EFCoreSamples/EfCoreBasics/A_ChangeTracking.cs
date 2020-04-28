@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using EfCoreBasics.EfStructures;
 using EfCoreBasics.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace EfCoreBasics
@@ -68,7 +69,12 @@ namespace EfCoreBasics
         {
             Console.WriteLine("*** Delete Entity *** ");
             var person = _context.Person.Find(1);
+            //This isn't in memory -> retrieved from database
+            _context.Entry(person).State = EntityState.Deleted;
+            //This mus be in memory -> retrieved from database
             _context.Person.Remove(person);
+            _context.SaveChanges();
+
             return _context.ChangeTracker.Entries().First();
         }
 
@@ -77,6 +83,8 @@ namespace EfCoreBasics
             Console.WriteLine("*** Edit Entity *** ");
             var person = _context.Person.Find(2);
             person.LastName = "Flinstone";
+            _context.Person.Update(person);
+            _context.SaveChanges();
             return _context.ChangeTracker.Entries().First();
         }
 
@@ -84,6 +92,7 @@ namespace EfCoreBasics
         {
             Console.WriteLine("*** Get Entity *** ");
             var person = _context.Person.Find(1);
+            var person2 = _context.Person.Where(x => x.BusinessEntityId == 5).AsNoTracking();
             return _context.ChangeTracker.Entries().First();
         }
 

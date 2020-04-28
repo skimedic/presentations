@@ -56,7 +56,6 @@ namespace EfCoreBasics
             //And here
             _ = _context.Person.Find(1);
         }
-
         internal void GetByPrimaryKey()
         {
             //Get by primary key with immediate execution
@@ -64,7 +63,6 @@ namespace EfCoreBasics
             //Complex PK with immediate execution
             _ = _context.ProductVendor.Find(2, 1688);
         }
-
         internal void GetSingleRecord()
         {
             //All immediate execution
@@ -74,7 +72,6 @@ namespace EfCoreBasics
             //Using Single - Exception if more than one is found
             _ = _context.Person.SingleOrDefault(x => x.BusinessEntityId == 1);
         }
-
         public void ProblemQueries()
         {
             try
@@ -104,7 +101,6 @@ namespace EfCoreBasics
             }
 
         }
-
         public void SelectWithMultipleClauses()
         {
             //All in one statement
@@ -121,7 +117,6 @@ namespace EfCoreBasics
             var query4 = _context.Person
                 .Where(x => x.PersonType == "em" || x.EmailPromotion == 1);
         }
-
         public void UsingCSharpLikeFunction()
         {
             List<int> list = new List<int> { 1, 3, 5 };
@@ -145,7 +140,6 @@ namespace EfCoreBasics
             IOrderedQueryable<Person> query2 =
                 _context.Person.OrderByDescending(x => x.PersonType).ThenBy(x => x.EmailPromotion);
         }
-
         public void PageRecords()
         {
             var prodList = _context.Person
@@ -153,7 +147,5 @@ namespace EfCoreBasics
                 .OrderBy(x=>x.EmailPromotion)
                 .Skip(25).Take(50);
         }
-
-
     }
 }
