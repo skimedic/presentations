@@ -1,0 +1,1 @@
+Run the UpdateAdventureWorks2016.SQL to update the database to support scaffolding. 
