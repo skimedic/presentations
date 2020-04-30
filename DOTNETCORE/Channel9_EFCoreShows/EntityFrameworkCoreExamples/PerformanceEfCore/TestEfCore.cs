@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PerformanceEfCore;
 using PerformanceEfCore.EfStructures;
@@ -9,6 +10,23 @@ namespace PerformanceEfCore
 {
     public static class TestEfCore
     {
+        public static List<ProductViewModel> GetProductsFromSproc()
+        {
+            using (var db = new Aw2016Context())
+            {
+                return db.ProductViewModels.FromSqlRaw("dbo.uspGetAllProducts").ToList();
+                //return db.ProductViewModels.FromSqlInterpolated($"update foo set name = 'bob' where id ={foo}").ToList();
+            }
+        }
+        public static List<ProductViewModel> GetProductsFromSql()
+        {
+            using (var db = new Aw2016Context())
+            {
+                return db.ProductViewModels
+                    .FromSqlInterpolated($@"Select p.* from Production.Product p inner join sales.orderdetails od on 
+                                  p.Id = od.ProductId where od.OrderDate< {DateTime.Now}").ToList();
+            }
+        }
         public static void GetAllCustomers()
         {
             using (var db = new Aw2016Context())

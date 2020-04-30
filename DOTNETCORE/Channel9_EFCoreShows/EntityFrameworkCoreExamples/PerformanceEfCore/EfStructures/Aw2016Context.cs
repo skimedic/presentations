@@ -17,6 +17,7 @@ namespace PerformanceEfCore.EfStructures
         }
         public DbSet<ModelForTesting> ModelsForTesting { get; set; }
         public virtual DbSet<CustomerQuery> CustomerQuery { get; set; }
+        public virtual DbSet<ProductViewModel> ProductViewModels { get; set; }
         #region Default tables
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<AddressType> AddressType { get; set; }
@@ -120,6 +121,7 @@ namespace PerformanceEfCore.EfStructures
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CustomerQuery>().HasNoKey();
+            modelBuilder.Entity<ProductViewModel>().HasNoKey();
             modelBuilder.Entity<ModelForTesting>(entity => entity.HasNoKey());
             #region Default entries
             modelBuilder.Entity<Address>(entity =>
