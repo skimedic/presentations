@@ -5,13 +5,13 @@ using PerformanceEfCore.Entities;
 
 namespace PerformanceEfCore.EfStructures
 {
-    public partial class Aw2016Context : DbContext
+    public partial class Aw12016Context : DbContext
     {
-        public Aw2016Context()
+        public Aw12016Context()
         {
         }
 
-        public Aw2016Context(DbContextOptions<Aw2016Context> options)
+        public Aw12016Context(DbContextOptions<Aw12016Context> options)
             : base(options)
         {
         }

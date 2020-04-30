@@ -6,11 +6,11 @@ using PerformanceEfCore.EfStructures;
 
 namespace SpyStore.Hol.Dal.EfStructures
 {
-    public class Aw2016DbContextFactory : IDesignTimeDbContextFactory<Aw2016Context>
+    public class Aw12016DbContextFactory : IDesignTimeDbContextFactory<Aw12016Context>
     {
-        public Aw2016Context CreateDbContext(string[] args)
+        public Aw12016Context CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<Aw2016Context>();
+            var optionsBuilder = new DbContextOptionsBuilder<Aw12016Context>();
             var connectionString =
                 @"Server=(localdb)\mssqllocaldb;Database=Adventureworks2016;Trusted_Connection=True;MultipleActiveResultSets=true;";
             optionsBuilder
@@ -19,7 +19,7 @@ namespace SpyStore.Hol.Dal.EfStructures
                 .EnableSensitiveDataLogging(true)
                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             Console.WriteLine(connectionString);
-            return new Aw2016Context(optionsBuilder.Options);
+            return new Aw12016Context(optionsBuilder.Options);
         }
     }
 }
