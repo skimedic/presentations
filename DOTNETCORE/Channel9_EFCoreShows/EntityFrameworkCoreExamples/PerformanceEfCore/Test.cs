@@ -11,14 +11,14 @@ namespace PerformanceEfCore
     {
         public static void GetAllCustomers()
         {
-            using (var db = new Aw12016Context())
+            using (var db = new Aw2016Context())
             {
                 db.Customer.ToList();
             }
         }
         public static void GetAllCustomersAsNoTracking()
         {
-            using (var db = new Aw12016Context())
+            using (var db = new Aw2016Context())
             {
                 db.Customer.AsNoTracking().ToList();
             }
@@ -26,14 +26,14 @@ namespace PerformanceEfCore
 
         public static void GetAllCustomersQueryType()
         {
-            using (var db = new Aw12016Context())
+            using (var db = new Aw2016Context())
             {
                 db.CustomerQuery.FromSqlRaw("Select * from Sales.Customer").ToList();
             }
         }
         public static void RunComplexQuery()
         {
-            using (var db = new Aw12016Context())
+            using (var db = new Aw2016Context())
             {
                 var l = db.Product
                     .Include(x => x.TransactionHistory)
@@ -55,7 +55,7 @@ namespace PerformanceEfCore
 
         public static void AddRecordsAndSave()
         {
-            using (var db = new Aw12016Context())
+            using (var db = new Aw2016Context())
             {
                 for (int i = 0; i < 1000; i++)
                 {
@@ -67,11 +67,11 @@ namespace PerformanceEfCore
 
         public static void AddRecordsAndSaveNoBatching()
         {
-            var builder = new DbContextOptionsBuilder<Aw12016Context>();
+            var builder = new DbContextOptionsBuilder<Aw2016Context>();
             var connectionString = "server=(localdb)\\mssqllocaldb;Database=Adventureworks2016;Trusted_Connection=True;";
             builder.UseSqlServer(connectionString,options => options.MaxBatchSize(1));
 
-            using (var db = new Aw12016Context(builder.Options))
+            using (var db = new Aw2016Context(builder.Options))
             {
                 for (int i = 0; i < 1000; i++)
                 {
@@ -83,7 +83,7 @@ namespace PerformanceEfCore
 
         public static void ResetAndWarmUp()
         {
-            using (var db = new Aw12016Context())
+            using (var db = new Aw2016Context())
             {
                 db.Database.ExecuteSqlRaw(@"DELETE FROM Production.ProductCategory WHERE Name LIKE 'Test %'");
                 db.Customer.FirstOrDefault();
