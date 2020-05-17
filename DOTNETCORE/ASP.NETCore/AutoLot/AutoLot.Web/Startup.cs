@@ -9,9 +9,11 @@ using AutoLot.Dal.Repos.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
 namespace AutoLot.Web
@@ -40,6 +42,8 @@ namespace AutoLot.Web
             services.AddScoped<ICustomerRepo, CustomerRepo>();
             services.AddScoped<IMakeRepo, MakeRepo>();
             services.AddScoped<IOrderRepo, OrderRepo>();
+
+            services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
         }
 

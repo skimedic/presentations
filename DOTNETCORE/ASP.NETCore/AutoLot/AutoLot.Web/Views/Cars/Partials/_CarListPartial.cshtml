@@ -45,9 +45,9 @@
                 </td>
             }
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="text-warning">Edit <i class="fas fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a asp-action="Details" asp-route-id="@item.Id" class="text-info">Details <i class="fas fa-info-circle"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger">Delete <i class="fas fa-trash"></i></a>
+                <edit-car car-id="@item.Id"></edit-car>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <car-details car-id="@item.Id"></car-details>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <delete-car car-id="@item.Id"></delete-car>
             </td>
         </tr>
     }
