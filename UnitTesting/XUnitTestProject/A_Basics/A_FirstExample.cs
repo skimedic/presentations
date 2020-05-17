@@ -8,13 +8,14 @@
 // ==================================
 #endregion
 
+using System;
 using System.Diagnostics;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace XUnitTestProject.A_Basics
 {
-    public class A_FirstExample
+    public class A_FirstExample : IDisposable
     {
         private readonly ITestOutputHelper _output;
 
@@ -22,6 +23,11 @@ namespace XUnitTestProject.A_Basics
         {
             this._output = output;
         }
+        public void Dispose()
+        {
+            //throw new NotImplementedException();
+        }
+
         [Fact]
         public void FirstFact()
         {
@@ -44,5 +50,6 @@ namespace XUnitTestProject.A_Basics
             //TODO: Fix this test
             //Hack: I ignored this test
         }
+
     }
 }

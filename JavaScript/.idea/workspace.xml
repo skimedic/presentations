@@ -2,50 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc024ee5-84d1-495d-9266-a5e8630a939d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Dal/EfStructures/StoreContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Dal/EfStructures/StoreContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Dal/Initialization/SampleDataInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Dal/Initialization/SampleDataInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Dal/Repos/Base/RepoBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Dal/Repos/Base/RepoBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Dal/Repos/CategoryRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Dal/Repos/CategoryRepo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/Controllers/ProductsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/Controllers/ProductsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/Support/SpyStoreServiceWrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/Support/SpyStoreServiceWrapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/Views/Shared/EditorTemplates/AddToCartViewModel.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/Views/Shared/EditorTemplates/AddToCartViewModel.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/libman.json" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/libman.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/wwwroot/lib/bootstrap4/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/wwwroot/lib/bootstrap4/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/wwwroot/lib/bootstrap4/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/wwwroot/lib/bootstrap4/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/wwwroot/lib/bootstrap4/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/wwwroot/lib/bootstrap4/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/wwwroot/lib/bootstrap4/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Mvc/wwwroot/lib/bootstrap4/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Service/Controllers/ValuesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Service/Controllers/ValuesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Service/SpyStore.Service.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Service/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.Service/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/ASP.NETCoreAndEfCore/SpyStore.Hol.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Batching/02_Batching.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Batching/02_Batching.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Batching/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Batching/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/ChangeTrackingEvents/11_ChangeTrackingEvents.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/ChangeTrackingEvents/11_ChangeTrackingEvents.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/ComputedColumns/12_ComputedColumns.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/ComputedColumns/12_ComputedColumns.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Concurrency/04_Concurrency.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Concurrency/04_Concurrency.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Concurrency/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Concurrency/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/ConnectionResiliency/03_ConnectionResiliency.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/ConnectionResiliency/03_ConnectionResiliency.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/EFCoreExamples.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/EFCoreExamples.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/FieldMapping/08_FieldMapping.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/FieldMapping/08_FieldMapping.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Find/13_Find.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Find/13_Find.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/FromSQL/06_FromSQLDbQuery.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/FromSQL/06_FromSQLDbQuery.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/FromSQL/Context/BloggingContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/FromSQL/Context/BloggingContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/FromSQL/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/FromSQL/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/GlobalQueryFilters/05_GlobalQueryFilters.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/GlobalQueryFilters/05_GlobalQueryFilters.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Like/07_HelperFunctions.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Like/07_HelperFunctions.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Migrations/10_Migrations.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Migrations/10_Migrations.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/MixedEvaluation/09_MixedEvaluation.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/MixedEvaluation/09_MixedEvaluation.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Performance/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Performance/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/PerformanceEf6/01_PerformanceEf6.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/PerformanceEf6/01_PerformanceEf6.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/PerformanceEfCore/01_PerformanceEfCore.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/PerformanceEfCore/01_PerformanceEfCore.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/PerformanceEfCore/EfStructures/AW2016Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/PerformanceEfCore/EfStructures/AW2016Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Repositories/14_Repositories.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/EFCoreSamples/Repositories/14_Repositories.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/A_Basics/A_FirstExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/A_Basics/A_FirstExample.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/XUnitTestProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/XUnitTestProject.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +91,7 @@
       <workItem from="1583541491669" duration="1491000" />
       <workItem from="1583853444868" duration="55000" />
       <workItem from="1585156544322" duration="68000" />
+      <workItem from="1589482590563" duration="35000" />
     </task>
     <servers />
   </component>
