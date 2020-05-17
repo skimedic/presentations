@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using AutoLot.Dal.Models.Entities.Base;
@@ -8,13 +9,20 @@ namespace AutoLot.Dal.Models.Entities
     [Table("Inventory",Schema = "Dbo")]
     public partial class Car : BaseEntity
     {
+        [Required]
         public int MakeId { get; set; }
+
         [ForeignKey(nameof(MakeId))]
+        [DisplayName("Make")]
         public Make MakeNavigation { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string Color { get; set; }
+
+        [Required]
         [StringLength(50)]
+        [DisplayName("Pet Name")]
         public string PetName { get; set; }
 
         [InverseProperty(nameof(Order.CarNavigation))]

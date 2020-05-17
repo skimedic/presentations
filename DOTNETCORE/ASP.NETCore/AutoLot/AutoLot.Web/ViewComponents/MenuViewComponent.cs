@@ -23,8 +23,6 @@ namespace AutoLot.Web.ViewComponents
         //public async Task<IViewComponentResult> InvokeAsync()
         public IViewComponentResult Invoke()
         {
-            //return await Task.Run(() =>
-            //{
                 var makes = _repo.GetAll();
                 if (makes == null)
                 {
@@ -33,7 +31,6 @@ namespace AutoLot.Web.ViewComponents
 
                 return View("MenuView", makes);
 
-            //});
         }
 
     }

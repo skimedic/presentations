@@ -1,0 +1,55 @@
+﻿@using System.Transactions
+@model IEnumerable<AutoLot.Dal.Models.Entities.Car>
+@{
+    var hideMake = false;
+    if (ViewBag.ByMake?.ToString() != null && bool.TryParse(ViewBag.ByMake?.ToString(), out bool _))
+    {
+        hideMake = true;
+    }
+}
+<p>
+    <a asp-action="Create" class="text-success">Create New <i class="fas fa-plus"></i></a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        @if (!hideMake)
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.MakeNavigation)
+            </th>
+        }
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            @if (!hideMake)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.MakeNavigation.Name)
+                </td>
+            }
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="text-warning">Edit <i class="fas fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-action="Details" asp-route-id="@item.Id" class="text-info">Details <i class="fas fa-info-circle"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger">Delete <i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

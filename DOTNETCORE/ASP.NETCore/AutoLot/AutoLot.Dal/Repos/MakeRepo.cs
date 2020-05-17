@@ -1,4 +1,6 @@
-﻿using AutoLot.Dal.EfStructures;
+﻿using System.Collections.Generic;
+using System.Linq;
+using AutoLot.Dal.EfStructures;
 using AutoLot.Dal.Models.Entities;
 using AutoLot.Dal.Repos.Base;
 using AutoLot.Dal.Repos.Interfaces;
@@ -15,5 +17,8 @@ namespace AutoLot.Dal.Repos
         internal MakeRepo(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
+
+        public override IEnumerable<Make> GetAll()
+            => Table.OrderBy(m => m.Name);
     }
 }

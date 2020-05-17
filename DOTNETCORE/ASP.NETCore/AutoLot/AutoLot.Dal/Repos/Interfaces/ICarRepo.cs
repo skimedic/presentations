@@ -8,5 +8,6 @@ namespace AutoLot.Dal.Repos.Interfaces
 {
     public interface ICarRepo : IRepo<Car>
     {
+        IEnumerable<Car> GetAllBy(int makeId);
     }
 }

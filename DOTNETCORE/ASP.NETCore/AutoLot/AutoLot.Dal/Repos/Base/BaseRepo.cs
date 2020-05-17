@@ -52,8 +52,8 @@ namespace AutoLot.Dal.Repos.Base
             Dispose(false);
         }
 
-        public T Find(int? id) => Table.Find(id);
-        public T FindAsNoTracking(int id)
+        public virtual T Find(int? id) => Table.Find(id);
+        public virtual T FindAsNoTracking(int id)
         {
             return Table.Where(x => x.Id == id).AsNoTracking().FirstOrDefault();
         }

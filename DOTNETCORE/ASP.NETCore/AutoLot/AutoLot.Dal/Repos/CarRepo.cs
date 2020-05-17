@@ -20,5 +20,13 @@ namespace AutoLot.Dal.Repos
 
         public override IEnumerable<Car> GetAll() 
             => Table.Include(c => c.MakeNavigation).OrderBy(o => o.PetName);
+
+        public IEnumerable<Car> GetAllBy(int makeId)
+        {
+            return Table.Include(c => c.MakeNavigation).Where(x => x.MakeId == makeId).OrderBy(c => c.PetName);
+        }
+
+        public override Car Find(int? id)
+            => Table.Where(x => x.Id == id).Include(m => m.MakeNavigation).FirstOrDefault();
     }
 }

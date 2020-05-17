@@ -20,8 +20,8 @@ namespace AutoLot.Web.Controllers
         }
 
         [Route("/")]
-        [Route("/Products")]
-        [Route("/Products/Index")]
+        [Route("/[controller]")]
+        [Route("/[controller]/[action]")]
         public IActionResult Index()
         {
             return View();

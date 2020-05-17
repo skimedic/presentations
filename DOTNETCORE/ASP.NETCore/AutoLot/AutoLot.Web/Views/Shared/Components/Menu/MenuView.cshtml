@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Make>
 @foreach (var item in Model)
 {
-    <li class="nav-item"><a asp-controller="Cars" asp-action="CarList" asp-route-id="@item.Id" class="nav-link text-dark">@item.Name <i class="fas fa-car"></i></a></li>
+    <li class="nav-item"><a asp-controller="Cars" asp-action="ByMake" asp-route-makeId="@item.Id" asp-route-makeName="@item.Name" class="nav-link text-dark">@item.Name</a></li>
 }
