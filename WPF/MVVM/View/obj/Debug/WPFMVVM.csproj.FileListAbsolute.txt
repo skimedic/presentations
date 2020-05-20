@@ -1,2 +1,0 @@
-E:\Projects\2008\Presentations\MVVM\View\bin\Debug\WPFMVVM.exe.config
-E:\Projects\2008\Presentations\MVVM\View\bin\Debug\WPF.exe.config

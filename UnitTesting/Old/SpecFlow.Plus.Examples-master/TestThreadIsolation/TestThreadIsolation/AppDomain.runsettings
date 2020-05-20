@@ -1,6 +1,0 @@
-﻿<RunSettings>
-  <SpecRun>
-    <Profile>AppDomain.srprofile</Profile>
-    <GenerateFeatureTrait>true</GenerateFeatureTrait>
-  </SpecRun>
-</RunSettings>

@@ -1,3 +1,0 @@
-E:\Projects\2008\Presentations\MVVM\View\bin\Debug\WpfDemo.exe.config
-E:\Projects\2008\Presentations\MVVM\View\obj\Debug\WpfDemo.exe
-E:\Projects\2008\Presentations\MVVM\View\obj\Debug\WpfDemo.pdb
