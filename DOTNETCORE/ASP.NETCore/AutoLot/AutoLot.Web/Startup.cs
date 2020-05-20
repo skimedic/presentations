@@ -44,6 +44,7 @@ namespace AutoLot.Web
             services.AddScoped<IOrderRepo, OrderRepo>();
 
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.AddHttpContextAccessor();
 
         }
 

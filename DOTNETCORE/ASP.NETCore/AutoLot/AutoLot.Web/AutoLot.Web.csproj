@@ -23,4 +23,8 @@
       <ProjectReference Include="..\AutoLot.Dal\AutoLot.Dal.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Views\Shared\Partials\" />
+    </ItemGroup>
+
 </Project>

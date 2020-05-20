@@ -64,9 +64,9 @@ namespace AutoLot.Web.Controllers
         // POST: Cars/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //public async Task<IActionResult> Create([Bind("MakeId,Color,PetName,Id,TimeStamp")] Car car)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("MakeId,Color,PetName,Id,TimeStamp")] Car car)
         public IActionResult Create([FromServices] IMakeRepo makeRepo, Car car)
         {
             if (ModelState.IsValid)
@@ -78,7 +78,6 @@ namespace AutoLot.Web.Controllers
             ViewData["MakeId"] = GetMakes(makeRepo);
             return View(car);
         }
-
         // GET: Cars/Edit/5
         [HttpGet("{id?}")]
         public IActionResult Edit([FromServices] IMakeRepo makeRepo, int? id)
@@ -124,6 +123,31 @@ namespace AutoLot.Web.Controllers
 
             ViewData["MakeId"] = GetMakes(makeRepo);
             return View(car);
+        }
+        //Model Binding: https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-3.1
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit2([FromServices] IMakeRepo makeRepo, int id)
+        {
+            Car car = new Car();
+            if (await TryUpdateModelAsync(car,"",
+                c=>c.Id,c=>c.MakeId, c=>c.TimeStamp))
+            {
+                //Color doesn't get updated because it's not in the list
+                //c=>c.Color, 
+                //Petname from the forms is ignored but hard coded later
+                //c=>c.PetName, 
+            }
+
+            var valid0 = ModelState.IsValid;
+            ModelState.Clear();
+            car.PetName = "Model T";
+            car.Color = "Black";
+            var valid1 = TryValidateModel(car);
+            var valid2 = ModelState.IsValid;
+            ViewData["MakeId"] = GetMakes(makeRepo);
+            return View("Edit",car);
         }
 
         // GET: Cars/Delete/5

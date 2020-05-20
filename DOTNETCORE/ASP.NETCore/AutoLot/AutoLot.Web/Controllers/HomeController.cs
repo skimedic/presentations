@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoLot.Dal.Repos.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AutoLot.Web.Models;
@@ -32,6 +33,10 @@ namespace AutoLot.Web.Controllers
             return View();
         }
 
+        public IActionResult RazorSyntax([FromServices]ICarRepo carRepo)
+        {
+            return View(carRepo.Find(1));
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
