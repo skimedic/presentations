@@ -4,9 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoLot.Dal.Repos.Interfaces;
+using AutoLot.Web.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AutoLot.Web.Models;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace AutoLot.Web.Controllers
 {
@@ -31,6 +33,20 @@ namespace AutoLot.Web.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult GrantConsent()
+        {
+            HttpContext.Features.Get<ITrackingConsentFeature>().GrantConsent();
+            return RedirectToAction(nameof(Index), nameof(HomeController).RemoveController(),
+                new {area = ""});
+        }
+
+        public IActionResult WithdrawConsent()
+        {
+            HttpContext.Features.Get<ITrackingConsentFeature>().WithdrawConsent();
+            return RedirectToAction(nameof(Index), nameof(HomeController).RemoveController(),
+                new {area = ""});
         }
 
         public IActionResult RazorSyntax([FromServices]ICarRepo carRepo)

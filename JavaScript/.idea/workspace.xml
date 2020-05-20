@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc024ee5-84d1-495d-9266-a5e8630a939d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/A_Basics/A_FirstExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/A_Basics/A_FirstExample.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/XUnitTestProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../UnitTesting/XUnitTestProject/XUnitTestProject.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="cc024ee5-84d1-495d-9266-a5e8630a939d" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +89,7 @@
       <workItem from="1583853444868" duration="55000" />
       <workItem from="1585156544322" duration="68000" />
       <workItem from="1589482590563" duration="35000" />
+      <workItem from="1589985905103" duration="62000" />
     </task>
     <servers />
   </component>

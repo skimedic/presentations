@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http.Features
+<!DOCTYPE html>
+@{
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var showBanner = !consentFeature?.CanTrack ?? false;
+
+}
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -6,7 +12,6 @@
     <title>@ViewData["Title"] - AutoLot.Web</title>
     <environment include="Development,Local">
         <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" asp-append-version="true"/>
-        <link rel="stylesheet" href="~/lib/fontawesome/css/all.css"/>
     </environment>
     <environment exclude="Development,Local">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -14,9 +19,8 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
-        <link rel="stylesheet" href="~/lib/fontawesome/css/all.css"/>
     </environment>
-
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/site.css"/>
 </head>
 <body>
@@ -30,22 +34,36 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                 <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Cars" asp-action="Index">Inventory <i class="fa fa-car"></i></a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">Inventory <i class="fa fa-car"></i></a>
+                        <vc:menu/>
                     </li>
-                    <vc:menu/>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RazorSyntax">Razor Syntax</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RazorSyntax">Razor Syntax <i class="fas fa-cut"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy <i class="fa fa-user-secret"></i></a>
                     </li>
+                    @if (showBanner)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="GrantConsent" title="Accept Cookie Policy">Accept Cookie Policy <i class="fas fa-cookie-bite"></i></a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="WithdrawConsent" title="Revoke Cookie Policy">Revoke Cookie Policy <i class="fas fa-cookie"></i></a>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </div>
     </nav>
 </header>
 <div class="container">
+    <partial name="_CookieConsentPartial"/>
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
