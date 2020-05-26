@@ -2,6 +2,7 @@ using AutoLot.Dal.EfStructures;
 using AutoLot.Dal.Initialization;
 using AutoLot.Dal.Repos;
 using AutoLot.Dal.Repos.Interfaces;
+using AutoLot.Web.ConfigSettings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,7 +17,8 @@ namespace AutoLot.Web
 {
     public class Startup
     {
-        private IWebHostEnvironment _env;
+        private readonly IWebHostEnvironment _env;
+
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             _env = env;
@@ -38,13 +40,14 @@ namespace AutoLot.Web
             services.AddControllersWithViews();
             var connectionString = Configuration.GetConnectionString("AutoLot");
             services.AddDbContextPool<ApplicationDbContext>(
-                options =>options.UseSqlServer(connectionString,
-                sqlOptions => sqlOptions.EnableRetryOnFailure().CommandTimeout(60)));
+                options => options.UseSqlServer(connectionString,
+                    sqlOptions => sqlOptions.EnableRetryOnFailure().CommandTimeout(60)));
             services.AddScoped<ICarRepo, CarRepo>();
             services.AddScoped<ICreditRiskRepo, CreditRiskRepo>();
             services.AddScoped<ICustomerRepo, CustomerRepo>();
             services.AddScoped<IMakeRepo, MakeRepo>();
             services.AddScoped<IOrderRepo, OrderRepo>();
+            services.Configure<DealerInfo>(Configuration.GetSection(nameof(DealerInfo)));
 
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
             services.AddHttpContextAccessor();
@@ -72,18 +75,21 @@ namespace AutoLot.Web
                     //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/validators.js", "js/validations/errorFormatting.js");
                 });
             }
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment() || _env.EnvironmentName == "Local")
+            if (env.IsDevelopment() || env.IsEnvironment("Local"))
             {
                 app.UseDeveloperExceptionPage();
-                using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+                using var serviceScope =
+                    app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
                 var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                SampleDataInitializer.InitializeData(context);
+                if (Configuration.GetValue<bool>("RebuildDataBase"))
+                {
+                    SampleDataInitializer.InitializeData(context);
+                }
             }
             else
             {
@@ -91,6 +97,7 @@ namespace AutoLot.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseWebOptimizer();
             app.UseStaticFiles();

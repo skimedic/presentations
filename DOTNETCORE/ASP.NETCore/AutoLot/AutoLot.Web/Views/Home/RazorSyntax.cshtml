@@ -27,7 +27,6 @@
     </text>
     <br />
 }
-<a asp-controller="Cars" asp-action="Details" asp-route-id="@Model.Id">@Model.PetName</a>
 
 <hr/>
 @*
@@ -49,12 +48,18 @@ test@(foo) = testFoo<br/>
 @{ var myList = new List<string>  {"C", "A", "Z", "F"};
     var sortedList = SortList(myList); //MyFunctions.SortList(myList)
 }
-@foreach (string s in sortedList) {
+@foreach (string s in sortedList)
+{
     @s@:&nbsp;
 }
 <hr/>
 @{
-    Func<dynamic, object> 
-        b = @<strong>@item</strong>;
+    Func<dynamic, object> b = @<strong>@item</strong>;
 }
 This will be bold: @b("Foo")
+
+@Html.DisplayForModel()
+<hr/>
+@Html.EditorForModel()
+<hr/>
+<a asp-controller="Cars" asp-action="Details" asp-route-id="@Model.Id">@Model.PetName</a>

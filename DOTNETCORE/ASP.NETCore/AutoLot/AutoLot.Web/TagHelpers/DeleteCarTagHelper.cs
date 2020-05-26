@@ -16,14 +16,4 @@ namespace AutoLot.Web.TagHelpers
             BuildContent(output,nameof(CarsController.Delete),"text-danger","Delete","trash");
         }
     }
-    public class CarDetailsTagHelper : CarLinkTagHelperBase
-    {
-        public CarDetailsTagHelper(IActionContextAccessor contextAccessor, IUrlHelperFactory urlHelperFactory) 
-            : base(contextAccessor, urlHelperFactory) { }
-
-        public override void Process(TagHelperContext context, TagHelperOutput output)
-        {
-            BuildContent(output,nameof(CarsController.Details),"text-info","Details","info-circle");
-        }
-    }
 }

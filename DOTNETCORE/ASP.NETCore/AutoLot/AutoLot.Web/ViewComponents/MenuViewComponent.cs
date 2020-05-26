@@ -13,24 +13,23 @@ namespace AutoLot.Web.ViewComponents
 
     public class MenuViewComponent : ViewComponent
     {
-        private readonly IMakeRepo _repo;
+        private readonly IMakeRepo _makeRepo;
 
-        public MenuViewComponent(IMakeRepo repo)
+        public MenuViewComponent(IMakeRepo makeRepo)
         {
-            _repo = repo;
+            _makeRepo = makeRepo;
         }
 
         //public async Task<IViewComponentResult> InvokeAsync()
         public IViewComponentResult Invoke()
         {
-                var makes = _repo.GetAll();
-                if (makes == null)
-                {
-                    return new ContentViewComponentResult("There was an error getting the makes");
-                }
+            var makes = _makeRepo.GetAll();
+            if (makes == null)
+            {
+                return new ContentViewComponentResult("Unable to get the makes");
+            }
 
-                return View("MenuView", makes);
-
+            return View("MenuView", makes);
         }
 
     }

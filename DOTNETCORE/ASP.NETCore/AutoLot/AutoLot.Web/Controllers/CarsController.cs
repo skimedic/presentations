@@ -126,12 +126,12 @@ namespace AutoLot.Web.Controllers
         }
         //Model Binding: https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding?view=aspnetcore-3.1
 
-        [HttpPost]
+        [HttpPost("{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit2([FromServices] IMakeRepo makeRepo, int id)
         {
-            Car car = new Car();
-            if (await TryUpdateModelAsync(car,"",
+            var vm = new Car();
+            if (await TryUpdateModelAsync(vm,"",
                 c=>c.Id,c=>c.MakeId, c=>c.TimeStamp))
             {
                 //Color doesn't get updated because it's not in the list
@@ -139,15 +139,14 @@ namespace AutoLot.Web.Controllers
                 //Petname from the forms is ignored but hard coded later
                 //c=>c.PetName, 
             }
-
             var valid0 = ModelState.IsValid;
             ModelState.Clear();
-            car.PetName = "Model T";
-            car.Color = "Black";
-            var valid1 = TryValidateModel(car);
+            vm.PetName = "Model T";
+            vm.Color = "Black";
+            var valid1 = TryValidateModel(vm);
             var valid2 = ModelState.IsValid;
-            ViewData["MakeId"] = GetMakes(makeRepo);
-            return View("Edit",car);
+            ViewData["MakeId"] = GetMakes();
+            return View("Edit",vm);
         }
 
         // GET: Cars/Delete/5

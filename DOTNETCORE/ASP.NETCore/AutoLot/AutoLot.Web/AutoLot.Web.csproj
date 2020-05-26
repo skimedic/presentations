@@ -7,15 +7,10 @@
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="9.0.0" />
         <PackageReference Include="LigerShark.WebOptimizer.Core" Version="3.0.250" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
         <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.96" />
-        <PackageReference Include="System.Text.Json" Version="4.7.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
     </ItemGroup>
 
     <ItemGroup>
@@ -24,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Views\Shared\Partials\" />
+      <Folder Include="Views\Shared\EditorTemplates\" />
     </ItemGroup>
 
 </Project>

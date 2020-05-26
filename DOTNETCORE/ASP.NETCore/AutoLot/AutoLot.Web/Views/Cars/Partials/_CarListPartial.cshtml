@@ -1,10 +1,9 @@
-﻿@using System.Transactions
-@model IEnumerable<AutoLot.Dal.Models.Entities.Car>
+﻿@model IEnumerable<AutoLot.Dal.Models.Entities.Car>
 @{
-    var hideMake = false;
-    if (ViewBag.ByMake?.ToString() != null && bool.TryParse(ViewBag.ByMake?.ToString(), out bool _))
+    var showMake = true;
+    if (bool.TryParse(ViewBag.ByMake?.ToString(), out bool byMake))
     {
-        hideMake = true;
+        showMake = !byMake;
     }
 }
 <p>
@@ -19,7 +18,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Color)
         </th>
-        @if (!hideMake)
+        @if (showMake)
         {
             <th>
                 @Html.DisplayNameFor(model => model.MakeNavigation)
@@ -38,7 +37,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Color)
             </td>
-            @if (!hideMake)
+            @if (showMake)
             {
                 <td>
                     @Html.DisplayFor(modelItem => item.MakeNavigation.Name)

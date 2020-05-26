@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoLot.Web.Controllers;
+using AutoLot.Web.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -20,7 +21,7 @@ namespace AutoLot.Web.TagHelpers
             string actionName, string className, string displayText, string fontAwesomeName)
         {
             output.TagName = "a"; // Replaces <email> with <a> tag
-            var target = UrlHelper.Action(actionName, "Cars", new {id = CarId});
+            var target = UrlHelper.Action(actionName, nameof(CarsController).RemoveController(), new {id = CarId});
             output.Attributes.SetAttribute("href", target);
             output.Attributes.Add("class",className);
             output.Content.AppendHtml($@"{displayText} <i class=""fas fa-{fontAwesomeName}""></i>");
