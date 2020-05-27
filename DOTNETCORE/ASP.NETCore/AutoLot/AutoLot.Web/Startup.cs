@@ -6,6 +6,7 @@ using AutoLot.Web.ConfigSettings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +31,7 @@ namespace AutoLot.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is
@@ -37,7 +39,10 @@ namespace AutoLot.Web
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddControllersWithViews();
+            // The TempData provider cookie is not essential. Make it essential
+            // so TempData is functional when tracking is disabled.
+            services.Configure<CookieTempDataProviderOptions>(options => { options.Cookie.IsEssential = true; });
+            services.AddSession(options => { options.Cookie.IsEssential = true; });
             var connectionString = Configuration.GetConnectionString("AutoLot");
             services.AddDbContextPool<ApplicationDbContext>(
                 options => options.UseSqlServer(connectionString,
@@ -51,7 +56,7 @@ namespace AutoLot.Web
 
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
             services.AddHttpContextAccessor();
-            if (_env.IsDevelopment() || _env.EnvironmentName == "Local")
+            if (_env.IsDevelopment() || _env.IsEnvironment("Local"))
             {
                 //services.AddWebOptimizer(false,false);
                 services.AddWebOptimizer(options =>

@@ -1,6 +1,5 @@
-﻿@using Microsoft.AspNetCore.Http.Features
-@using Microsoft.Extensions.Options
-@using AutoLot.Web.ConfigSettings
+﻿@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Http.Features
 @inject IOptionsMonitor<DealerInfo> DealerInfoMonitor
 @{
     var dealerInfo = DealerInfoMonitor.CurrentValue;

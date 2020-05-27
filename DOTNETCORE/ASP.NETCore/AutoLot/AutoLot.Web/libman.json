@@ -1,6 +1,6 @@
-{ 
-  //https://api.cdnjs.com/libraries/jquery?output=human
+{
   //https://api.cdnjs.com/libraries?output=human
+  //https://api.cdnjs.com/libraries/jquery?output=human
   "version": "1.0",
   "defaultProvider": "cdnjs",
   "defaultDestination": "wwwroot/lib",

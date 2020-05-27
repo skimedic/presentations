@@ -15,7 +15,7 @@ using Microsoft.Extensions.Options;
 namespace AutoLot.Web.Controllers
 {
     [Route("[controller]/[action]")]
-    [Route("Home/[action]")]
+    //[Route("Home/[action]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
