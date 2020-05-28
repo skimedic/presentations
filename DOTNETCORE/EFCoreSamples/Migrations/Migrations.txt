@@ -1,17 +1,19 @@
-﻿cd .\Migrations
-dotnet ef -h | --help
+﻿dotnet tool uninstall --global dotnet-ef
+dotnet tool install --global dotnet-ef
 
-dotnet ef migrations add [name] -o|--output-dir -c | --context 
-dotnet ef migrations add Initial -o EF\Migrations -c Migrations.Context.BloggingContext
+dotnet ef dbcontext scaffold "Server=(localdb)\MSSQLLocalDB;Database=Demo.Migrations;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d -c ApplicationDbContext --context-dir EfStructures -o Models 
 
-dotnet ef migrations script <from> <to> -o | --output <file> -i | -idempotent -c | --context
+dotnet ef migrations add Initial -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
+dotnet ef database update Initial -c Migrations.EfStructures.ApplicationDbContext
 
-dotnet ef database update [null | migration | '0'] -c | --context
-dotnet ef database update Initial -c Migrations.Context.BloggingContext
+dotnet ef database drop -f
+dotnet ef database update 0
 
-dotnet ef migrations add Posts
-dotnet ef database update
+dotnet ef migrations add AddSproc -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
+dotnet ef database update AddSproc -c Migrations.EfStructures.ApplicationDbContext
 
-dotnet ef migrations add SQL
+dotnet ef migrations remove
 
-dotnet ef migrations add MoreFields
+dotnet ef migrations add AddCreditRisk -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
+dotnet ef database update AddCreditRisk -c Migrations.EfStructures.ApplicationDbContext
+

@@ -1,0 +1,27 @@
+﻿dotnet tool uninstall --global dotnet-ef
+dotnet tool install --global dotnet-ef
+
+dotnet ef dbcontext scaffold "Server=(localdb)\MSSQLLocalDB;Database=Demo.Migrations;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d -c ApplicationDbContext --context-dir EfStructures -o Models 
+
+dotnet ef migrations add Initial -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
+dotnet ef database update Initial -c Migrations.EfStructures.ApplicationDbContext
+
+dotnet ef database drop -f
+dotnet ef database update 0
+
+dotnet ef migrations add AddSproc -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
+dotnet ef database update AddSproc -c Migrations.EfStructures.ApplicationDbContext
+
+dotnet ef migrations remove
+
+dotnet ef migrations add AddCreditRisk -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
+dotnet ef database update AddCreditRisk -c Migrations.EfStructures.ApplicationDbContext
+
+dotnet ef migrations add AddedOwnedTable -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
+dotnet ef database update AddedOwnedTable -c Migrations.EfStructures.ApplicationDbContext
+
+dotnet ef migrations add AddedUniqueIndexToOrder -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
+dotnet ef database update AddedUniqueIndexToOrder -c Migrations.EfStructures.ApplicationDbContext
+
+dotnet ef migrations add MovedOwnedConfig -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
+dotnet ef database update MovedOwnedConfig -c Migrations.EfStructures.ApplicationDbContext
