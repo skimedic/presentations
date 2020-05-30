@@ -20,11 +20,11 @@ namespace Migrations.EFStructures
         public DbSet<Car> Cars { get; set; }
         public DbSet<Order> Orders { get; set; }
 
-        public DbSet<CustomOrderViewModel> CustomOrderViewModels { get; set; }
+        public DbSet<CustomerOrderViewModel> CustomerOrderViewModels { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CustomOrderViewModel>(entity =>
+            modelBuilder.Entity<CustomerOrderViewModel>(entity =>
             {
                 entity.HasNoKey().ToView("CustomerOrderView","dbo");
             });

@@ -15,7 +15,7 @@ namespace SpyStore.Hol.Dal.EfStructures
         }
 
         [DbFunction("GetOrderTotal", Schema = "Store")]
-        public static int GetOrderTotal(int orderId)
+        public static decimal GetOrderTotal(int orderId)
         {
             //code in here doesn’t matter since it never gets executed
             throw new Exception();

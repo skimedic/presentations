@@ -2,7 +2,7 @@
 
 namespace Migrations.ViewModels
 {
-    public class CustomOrderViewModel
+    public class CustomerOrderViewModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

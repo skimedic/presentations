@@ -7,12 +7,12 @@ namespace Migrations.EfStructures.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            MigrationHelpers.CreateSproc(migrationBuilder);
+            MigrationHelpers.CreateView(migrationBuilder);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            MigrationHelpers.DropSproc(migrationBuilder);
+            MigrationHelpers.DropView(migrationBuilder);
         }
     }
 }

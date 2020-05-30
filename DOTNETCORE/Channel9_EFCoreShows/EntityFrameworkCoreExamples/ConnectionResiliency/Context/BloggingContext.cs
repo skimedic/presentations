@@ -20,16 +20,17 @@ namespace ConnectionResiliency.Context
         {
             var connectionString =
                 @"Server=(localdb)\mssqllocaldb;Database=Demo.ConnectionResiliency;Integrated Security=true;";
-            // EnablesRetryOnFailure adds default SqlServerRetryingExecutionStrategy
+            // EnablesRetryOnFailure adds default
+            //SqlServerRetryingExecutionStrategy
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer(connectionString);
-                //optionsBuilder.UseSqlServer(connectionString, options
-                //    => options.EnableRetryOnFailure());
-                optionsBuilder.UseSqlServer(connectionString,
-                    options => options.ExecutionStrategy(
-                        c => new CustomExecutionStrategy(
-                            c, 5, new TimeSpan(0, 0, 0, 0, 30))));
+                optionsBuilder.UseSqlServer(connectionString, options
+                    => options.EnableRetryOnFailure());
+                //optionsBuilder.UseSqlServer(connectionString,
+                //    options => options.ExecutionStrategy(
+                //        c => new CustomExecutionStrategy(
+                //            c, 5, new TimeSpan(0, 0, 0, 0, 30))));
             }
         }
 

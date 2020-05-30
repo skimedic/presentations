@@ -19,6 +19,7 @@ namespace ConnectionResiliency
                 try
                 {
                     db.SaveChanges();
+                    //ExecuteInATransaction(db);
                 }
                 catch (RetryLimitExceededException ex)
                 {

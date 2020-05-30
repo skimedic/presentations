@@ -50,7 +50,8 @@ namespace SpyStore.Hol.Service
             });
             var connectionString = Configuration.GetConnectionString("SpyStore");
             services.AddDbContextPool<StoreContext>(
-                options =>options.UseSqlServer(connectionString));
+                options =>options.UseSqlServer(connectionString,
+                    so => so.EnableRetryOnFailure()));
             services.AddScoped<ICategoryRepo, CategoryRepo>();
             services.AddScoped<IProductRepo, ProductRepo>();
             services.AddScoped<ICustomerRepo, CustomerRepo>();
