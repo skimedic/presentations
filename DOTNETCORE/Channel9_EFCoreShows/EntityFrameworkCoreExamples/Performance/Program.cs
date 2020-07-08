@@ -10,12 +10,12 @@ namespace Performance
     {
         static void Main(string[] args)
         {
-            //ResetAndWarmup();
-            //RunToListTest();
-            //RunToListTestUntracked();
-            //RunToListTestQueryType();
-            //RunComplexQueryTest();
-            //RunAddAndSaveChangesTest();
+            ResetAndWarmup();
+            RunToListTest();
+            RunToListTestUntracked();
+            RunToListTestQueryType();
+            RunComplexQueryTest();
+            RunAddAndSaveChangesTest();
             RunAddAndSaveChangesTestNoBatching();
             TestEfCore.GetProductsFromSql();
             TestEfCore.GetProductsFromSproc();

@@ -13,11 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02_Batching", "Batching\02_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_FromSQLDbQuery", "FromSQL\06_FromSQLDbQuery.csproj", "{AA918D05-B594-412C-9F52-6492623153FF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_Migrations", "Migrations\10_Migrations.csproj", "{BDF122CC-A7E6-49CE-9E30-734BF32AD8FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "09_Migrations", "Migrations\09_Migrations.csproj", "{BDF122CC-A7E6-49CE-9E30-734BF32AD8FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "12_ComputedColumns", "ComputedColumns\12_ComputedColumns.csproj", "{E7194098-14EB-41F5-9739-6CE72A604247}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "13_Find", "Find\13_Find.csproj", "{19FE1ACF-123B-4904-AC73-7F5AC6F38986}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "11_ComputedColumns", "ComputedColumns\11_ComputedColumns.csproj", "{E7194098-14EB-41F5-9739-6CE72A604247}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_PerformanceEf6", "PerformanceEf6\01_PerformanceEf6.csproj", "{BB3BEFC5-9A69-4C8D-A570-31DF9AB1A44D}"
 EndProject
@@ -36,9 +34,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_HelperFunctions", "Like\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_GlobalQueryFilters", "GlobalQueryFilters\05_GlobalQueryFilters.csproj", "{3BBB8FFF-C7A8-4890-A28F-26FDA9055847}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "11_ChangeTrackingEvents", "ChangeTrackingEvents\11_ChangeTrackingEvents.csproj", "{E5366932-8A30-478D-9E80-D9A04093E0F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_ChangeTrackingEvents", "ChangeTrackingEvents\10_ChangeTrackingEvents.csproj", "{E5366932-8A30-478D-9E80-D9A04093E0F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "14_Repositories", "Repositories\14_Repositories.csproj", "{B9AF2D6D-87BF-472D-8A48-D5038CF72CE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "12_Repositories", "Repositories\12_Repositories.csproj", "{B9AF2D6D-87BF-472D-8A48-D5038CF72CE9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "00_EfCoreBasics", "EfCoreBasics\00_EfCoreBasics.csproj", "{ACC159A1-C343-41CB-AD96-E7B7A9DB64D3}"
 EndProject
@@ -136,18 +134,6 @@ Global
 		{E7194098-14EB-41F5-9739-6CE72A604247}.Release|x64.Build.0 = Release|Any CPU
 		{E7194098-14EB-41F5-9739-6CE72A604247}.Release|x86.ActiveCfg = Release|Any CPU
 		{E7194098-14EB-41F5-9739-6CE72A604247}.Release|x86.Build.0 = Release|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Debug|x64.Build.0 = Debug|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Debug|x86.Build.0 = Debug|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Release|x64.ActiveCfg = Release|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Release|x64.Build.0 = Release|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Release|x86.ActiveCfg = Release|Any CPU
-		{19FE1ACF-123B-4904-AC73-7F5AC6F38986}.Release|x86.Build.0 = Release|Any CPU
 		{BB3BEFC5-9A69-4C8D-A570-31DF9AB1A44D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB3BEFC5-9A69-4C8D-A570-31DF9AB1A44D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB3BEFC5-9A69-4C8D-A570-31DF9AB1A44D}.Debug|x64.ActiveCfg = Debug|Any CPU

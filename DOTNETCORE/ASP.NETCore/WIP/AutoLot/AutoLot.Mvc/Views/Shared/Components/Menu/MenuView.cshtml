@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Make>
+<div class="dropdown-menu">
+<a class="dropdown-item text-dark" asp-area="" asp-controller="Cars" asp-action="Index">All</a>
+
+@foreach (var item in Model)
+{
+    <a class="dropdown-item text-dark" asp-controller="Cars" asp-action="ByMake" asp-route-makeId="@item.Id" asp-route-makeName="@item.Name">@item.Name</a>
+}
+</div>

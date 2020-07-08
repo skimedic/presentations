@@ -145,7 +145,7 @@ namespace AutoLot.Web.Controllers
             vm.Color = "Black";
             var valid1 = TryValidateModel(vm);
             var valid2 = ModelState.IsValid;
-            ViewData["MakeId"] = GetMakes();
+            ViewData["MakeId"] = GetMakes(makeRepo);
             return View("Edit",vm);
         }
 

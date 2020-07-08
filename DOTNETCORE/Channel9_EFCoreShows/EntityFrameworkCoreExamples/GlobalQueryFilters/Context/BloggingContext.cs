@@ -20,7 +20,7 @@ namespace GlobalQueryFilters.Context
             if (!optionsBuilder.IsConfigured)
             {
                 var connectionString =
-                    @"Server=(localdb)\mssqllocaldb;Database=Demo.GlobalQueryFilters;Integrated Security=true;";
+                    @"Server=.\dev2019;Database=Demo.GlobalQueryFilters;Integrated Security=true;";
                 if (!optionsBuilder.IsConfigured)
                 {
                     optionsBuilder.UseSqlServer(connectionString);

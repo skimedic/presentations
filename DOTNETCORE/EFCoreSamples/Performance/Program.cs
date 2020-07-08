@@ -16,6 +16,7 @@ namespace Performance
             RunToListTestQueryType();
             RunComplexQueryTest();
             RunAddAndSaveChangesTest();
+            RunAddAndSaveChangesTestNoBatching();
             Console.WriteLine("Demo complete");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
@@ -61,6 +62,15 @@ namespace Performance
                 TestEf6.AddRecordsAndSave,
                 TestEfCore.AddRecordsAndSave
                 );
+        }
+
+        private static void RunAddAndSaveChangesTestNoBatching()
+        {
+            Console.WriteLine("Add 1K & SaveChanges");
+            RunTest(
+                TestEf6.AddRecordsAndSave,
+                TestEfCore.AddRecordsAndSaveNoBatching
+            );
         }
 
         private static void RunTest(Action ef6Test, Action ef7Test,

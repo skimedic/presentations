@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AutoLot.Dal.Models.Entities.Car>
+@{
+    var showMake = true;
+    if (bool.TryParse(ViewBag.ByMake?.ToString(), out bool byMake))
+    {
+        showMake = !byMake;
+    }
+}
+<p>
+    <a asp-action="Create" class="text-success">Create New <i class="fas fa-plus"></i></a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        @if (showMake)
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.MakeNavigation)
+            </th>
+        }
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            @if (showMake)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.MakeNavigation.Name)
+                </td>
+            }
+            <td>
+                <edit-car car-id="@item.Id"></edit-car>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <car-details car-id="@item.Id"></car-details>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <delete-car car-id="@item.Id"></delete-car>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

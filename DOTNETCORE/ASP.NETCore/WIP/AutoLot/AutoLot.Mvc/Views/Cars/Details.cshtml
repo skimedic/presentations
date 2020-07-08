@@ -1,0 +1,14 @@
+﻿@model AutoLot.Dal.Models.Entities.Car
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details for @Model.PetName</h1>
+@Html.DisplayForModel()
+@*@Html.DisplayForModel("CarWithColors")*@
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="text-warning">Edit <i class="fas fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="text-danger">Delete <i class="fas fa-trash"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a asp-action="Index" class="text-info">Back to List <i class="fas fa-list"></i></a>
+</div>

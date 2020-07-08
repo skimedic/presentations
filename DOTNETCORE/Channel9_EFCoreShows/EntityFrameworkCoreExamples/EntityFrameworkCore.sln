@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_PerformanceEfCore", "Per
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_Performance", "Performance\01_Performance.csproj", "{784C9B91-58DC-47F0-AD11-448AC54238E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02_EntityConfiguration", "DbContextConfiguration\02_EntityConfiguration.csproj", "{E03E505F-74E3-445F-BCB0-D7377D00FDA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "00_Configuration", "DbContextConfiguration\00_Configuration.csproj", "{E03E505F-74E3-445F-BCB0-D7377D00FDA4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_Models_Migrations", "Migrations\03_Models_Migrations.csproj", "{34E94277-7C67-418E-8FC9-19F68EA07D79}"
 EndProject

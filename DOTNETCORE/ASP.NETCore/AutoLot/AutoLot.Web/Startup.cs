@@ -83,14 +83,14 @@ namespace AutoLot.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
         {
             if (env.IsDevelopment() || env.IsEnvironment("Local"))
             {
                 app.UseDeveloperExceptionPage();
-                using var serviceScope =
-                    app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
-                var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                //using var serviceScope =
+                //    app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+                //var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 if (Configuration.GetValue<bool>("RebuildDataBase"))
                 {
                     SampleDataInitializer.InitializeData(context);

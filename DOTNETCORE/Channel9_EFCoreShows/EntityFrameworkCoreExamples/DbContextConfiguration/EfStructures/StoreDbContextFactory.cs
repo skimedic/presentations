@@ -10,7 +10,7 @@ namespace EntityConfiguration.EfStructures
         {
             var optionsBuilder = new DbContextOptionsBuilder<StoreDbContext>();
             var connectionString =
-                @"Server=(localdb)\mssqllocaldb;Database=SpyStoreHol;Trusted_Connection=True;MultipleActiveResultSets=true;";
+                @"Server=.\dev2019;Database=SpyStoreHol;Trusted_Connection=True;MultipleActiveResultSets=true;";
             optionsBuilder
                 .UseSqlServer(connectionString,
                     options => options.EnableRetryOnFailure().CommandTimeout(60))

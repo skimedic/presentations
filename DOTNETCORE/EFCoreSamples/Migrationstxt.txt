@@ -1,6 +1,6 @@
 Scaffold AW
 
-dotnet ef dbcontext scaffold "server=(localdb)\mssqllocaldb;Database=Adventureworks2016;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d -c AwDbContext --context-dir EfStructures -o Entities 
+dotnet ef dbcontext scaffold "server=.\dev2019;Database=Adventureworks2016;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d -c AwDbContext --context-dir EfStructures -o Entities 
 
 
 C:\GitHub\presentations\DOTNETCORE\EntityFrameworkCore\EfCoreBasics>dotnet ef dbcontext scaffold -h

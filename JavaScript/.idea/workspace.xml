@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc024ee5-84d1-495d-9266-a5e8630a939d" name="Default" comment="" />
+    <list default="true" id="cc024ee5-84d1-495d-9266-a5e8630a939d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.API/AutoLot.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.API/AutoLot.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.Web/AutoLot.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.Web/AutoLot.Web.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.Web/Controllers/CarsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.Web/Controllers/CarsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.Web/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.Web/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.Web/appsettings.Local.json" beforeDir="false" afterPath="$PROJECT_DIR$/../DOTNETCORE/ASP.NETCore/AutoLot/AutoLot.Web/appsettings.Local.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +28,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -38,18 +44,6 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -90,24 +84,27 @@
       <workItem from="1585156544322" duration="68000" />
       <workItem from="1589482590563" duration="35000" />
       <workItem from="1589985905103" duration="62000" />
+      <workItem from="1591036693305" duration="29000" />
+      <workItem from="1591036767789" duration="4000" />
+      <workItem from="1591194468771" duration="41000" />
+      <workItem from="1591194590677" duration="434000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="120" key="CommitChangelistDialog2" timestamp="1583541511526">

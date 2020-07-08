@@ -58,7 +58,7 @@ namespace ChangeTrackingEvents.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.ChangeTracking;Integrated Security=true;";
+            var connectionString = @"Server=.\dev2019;Database=Demo.ChangeTracking;Integrated Security=true;";
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(connectionString)

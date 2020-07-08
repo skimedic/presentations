@@ -61,7 +61,7 @@ namespace ConnectionResiliency
         {
             var contextOptionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
             var connectionString =
-                @"Server=(localdb)\mssqllocaldb;Database=SpyStore;user id=foo;password=bar;MultipleActiveResultSets=true;";
+                @"Server=.\dev2019;Database=SpyStore;user id=foo;password=bar;MultipleActiveResultSets=true;";
             //contextOptionsBuilder.UseSqlServer(connectionString,
             //    o => o.EnableRetryOnFailure());
             contextOptionsBuilder.UseSqlServer(connectionString,

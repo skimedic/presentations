@@ -23,8 +23,8 @@ namespace PerformanceEfCore
             using (var db = new Aw2016Context())
             {
                 return db.ProductViewModels
-                    .FromSqlInterpolated($@"Select p.* from Production.Product p inner join sales.orderdetails od on 
-                                  p.Id = od.ProductId where od.OrderDate< {DateTime.Now}").ToList();
+                    .FromSqlInterpolated($@"Select p.* from Production.Product p inner join sales.salesorderdetail od on 
+                                  p.ProductId = od.ProductId where od.ModifiedDate< {DateTime.Now}").ToList();
             }
         }
         public static void GetAllCustomers()
@@ -86,7 +86,7 @@ namespace PerformanceEfCore
         public static void AddRecordsAndSaveNoBatching()
         {
             var builder = new DbContextOptionsBuilder<Aw2016Context>();
-            var connectionString = "server=(localdb)\\mssqllocaldb;Database=Adventureworks2016;Trusted_Connection=True;";
+            var connectionString = @"server=.\dev2019;Database=Adventureworks2016;Trusted_Connection=True;";
             builder.UseSqlServer(connectionString,options => options.MaxBatchSize(1));
 
             using (var db = new Aw2016Context(builder.Options))

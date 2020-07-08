@@ -10,7 +10,7 @@ namespace Concurrency.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.Concurrency;Integrated Security=true;";
+            var connectionString = @"Server=.\dev2019;Database=Demo.Concurrency;Integrated Security=true;";
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(connectionString);

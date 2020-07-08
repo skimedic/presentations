@@ -1,0 +1,40 @@
+{
+  //https://api.cdnjs.com/libraries?output=human
+  //https://api.cdnjs.com/libraries/jquery?output=human
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "defaultDestination": "wwwroot/lib",
+  "libraries": [
+    {
+      "library": "jquery@3.5.1",
+      "destination": "wwwroot/lib/jquery",
+      "files": [ "jquery.js" ]
+    },
+    {
+      "library": "jquery-validate@1.19.1",
+      "destination": "wwwroot/lib/jquery-validation",
+      "files": [ "jquery.validate.js", "additional-methods.js" ]
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive",
+      "files": [ "jquery.validate.unobtrusive.js" ]
+    },
+    {
+      "library": "font-awesome@5.13.0",
+      "destination": "wwwroot/lib/fontawesome"
+    },
+    {
+      "library": "twitter-bootstrap@4.5.0",
+      "destination": "wwwroot/lib/bootstrap",
+      "files": [
+        "css/bootstrap.css",
+        "css/bootstrap.css.map",
+        "js/bootstrap.bundle.js",
+        "js/bootstrap.bundle.js.map",
+        "js/bootstrap.js",
+        "js/bootstrap.js.map"
+      ]
+    }
+  ]
+}

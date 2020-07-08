@@ -13,7 +13,7 @@ namespace Migrations
         {
             using var context = new ApplicationDbContextFactory().CreateDbContext(new string[0]);
             SampleDataInitializer.InitializeData(context);
-            var orders = context.CustomOrderViewModels.ToList();
+            var orders = context.CustomerOrderViewModels.ToList();
             foreach (var order in orders)
             {
                 Console.WriteLine(order.ToString());

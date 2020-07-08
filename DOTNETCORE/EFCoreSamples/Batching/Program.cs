@@ -84,7 +84,7 @@ ORDER BY [i].[_Position];
         private static DbContextOptions<BloggingContext> CreateOptions(bool useCustomBatching)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Demo.Batching;Integrated Security=true;";
+            var connectionString = @"Server=.\dev2019;Database=Demo.Batching;Integrated Security=true;";
 
             if (useCustomBatching)
             {
