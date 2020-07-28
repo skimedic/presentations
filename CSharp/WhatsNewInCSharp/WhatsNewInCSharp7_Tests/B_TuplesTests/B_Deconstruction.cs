@@ -56,7 +56,7 @@ namespace WhatsNewInCSharp7_Tests.B_TuplesTests
         }
         internal (string s,int i,MyPoint p) DoSomething()
         {
-            return ("foo",5,new MyPoint(3,2));
+            return ("foo",5,new MyPoint(3,2, z:5));
         }
     }
     
