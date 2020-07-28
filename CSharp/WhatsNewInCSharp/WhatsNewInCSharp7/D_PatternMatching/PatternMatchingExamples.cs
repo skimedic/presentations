@@ -7,6 +7,24 @@ namespace WhatsNewInCSharp7.D_PatternMatching
 {
     public class PatternMatchingExamples
     {
+
+        public int DiceSumOldWay(IEnumerable<object> values)
+        {
+            var sum = 0;
+            foreach (var item in values)
+            {
+                if (item is int)
+                {
+                    sum += (int)item;
+                }
+                else if (item is IEnumerable<object> subList)
+                {
+                    sum += DiceSum(subList);
+                }
+            }
+
+            return sum;
+        }
         public int DiceSum(IEnumerable<object> values)
         {
             var sum = 0;

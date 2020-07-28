@@ -6,12 +6,25 @@ namespace WhatsNewInCSharp7.B_Tuples
 {
     public class TuplesExamples
     {
-        public (string, string) SimpleTuples()
+        public (string, string, string) SimpleTuples()
         {
-            var letters = ("a", "b");
+            var letters = ("a", "b", "c");
             var firstLetter = letters.Item1;
             var secondLetter = letters.Item2;
+            var thirdLetter = letters.Item3;
             return letters;
+        }
+
+        public (bool result, string errorMessage) DoSomething()
+        {
+            if (true)
+            {
+                return (true, string.Empty);
+            }
+            else
+            {
+                return (false, "An error occured");
+            }
         }
 
         public (string Alpha, string Beta) NamedTuples()
@@ -20,6 +33,7 @@ namespace WhatsNewInCSharp7.B_Tuples
             //Names can be declared on the left
             (string Alpha, string Beta) leftSideNamedTuple = ("a", "b");
             Console.WriteLine($"{leftSideNamedTuple.Alpha},{leftSideNamedTuple.Beta}");
+            Console.WriteLine($"{leftSideNamedTuple.Item1},{leftSideNamedTuple.Item2}");
 
             //or right side (must use var for this)
             var rightSideNamedTuple = (Alpha: "a", Beta: "b");

@@ -26,10 +26,10 @@ namespace WhatsNewInCSharp7.E_Discards
 
             void TupleDeconstruction()
             {
-                var p = new MyPoint(3.14, 6.28);
+                var p = new MyPoint(3.14, 6.28, 5.75);
                 //same var/non var rules apply
-                (double horizontal, _) = p;
-                //var (horizontal, _) = p;
+                (double horizontal, _, _) = p;
+                //var (horizontal, _, _) = p;
             }
 
             int DiscardsWithPatternMatching(IEnumerable<object> values)

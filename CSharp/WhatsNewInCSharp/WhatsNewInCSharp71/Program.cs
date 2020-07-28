@@ -4,8 +4,18 @@ using System.Threading.Tasks;
 
 namespace WhatsNewInCSharp71
 {
+    class Foo<T>
+    {
+
+        public Foo()
+        { 
+            T local = default;
+        }
+           
+    }
     class Program
     {
+        
         //Pre 7.1 syntax
         //static void Main(string[] args)
         //{

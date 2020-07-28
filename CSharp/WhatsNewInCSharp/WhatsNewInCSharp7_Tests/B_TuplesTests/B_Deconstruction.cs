@@ -37,10 +37,11 @@ namespace WhatsNewInCSharp7_Tests.B_TuplesTests
         {
             var first = 3.14;
             var second = 6.28;
-            var p = new MyPoint(first, second);
-            var (horizontal, vertical) = p;
+            var third = 6.28;
+            var p = new MyPoint(first, second, third);
+            var (horizontal, vertical, zAxis) = p;
             //without var, need specific type
-            (double horizontal1, double vertical1) = p;
+            (double horizontal1, double vertical1, double zAxis1) = p;
             Assert.Equal(first,horizontal);
             Assert.Equal(second,vertical);
         }

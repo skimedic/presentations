@@ -4,6 +4,11 @@ using System.Text;
 
 namespace WhatsNewInCSharp8.F_Interfaces
 {
+    public interface IGetName
+    {
+        string Name { get; set; }
+        public string GetName() => string.IsNullOrEmpty(Name) ? "Jane Doe" : Name;
+    }
     public interface IPerson
     {
         string Name { get; set; }
@@ -12,7 +17,7 @@ namespace WhatsNewInCSharp8.F_Interfaces
         public string GetName() => string.IsNullOrEmpty(Name) ? "Jane Doe" : Name;
     }
 
-    public class Person : IPerson
+    public class Person : IPerson, IGetName
     {
         public string Name { get; set; }
         public string City { get; set; }

@@ -14,5 +14,17 @@
                 return left + right;
             }
         }
+        int MOld()
+        {
+            int y = 5;
+            int x = 7;
+            return Add();
+
+            int Add()
+            {
+                x = 2;
+                return x + y;
+            }
+        }
     }
 }
