@@ -24,12 +24,12 @@ namespace ConnectionResiliency.Context
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer(connectionString);
-                //optionsBuilder.UseSqlServer(connectionString, options
-                //    => options.EnableRetryOnFailure());
-                optionsBuilder.UseSqlServer(connectionString,
-                    options => options.ExecutionStrategy(
-                        c => new CustomExecutionStrategy(
-                            c, 5, new TimeSpan(0, 0, 0, 0, 30))));
+                optionsBuilder.UseSqlServer(connectionString, options
+                    => options.EnableRetryOnFailure());
+                //optionsBuilder.UseSqlServer(connectionString,
+                //    options => options.ExecutionStrategy(
+                //        c => new CustomExecutionStrategy(
+                //            c, 5, new TimeSpan(0, 0, 0, 0, 30))));
             }
         }
 

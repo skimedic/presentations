@@ -1,0 +1,25 @@
+﻿@model Car
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Model.PetName</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            @Html.EditorForModel()
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="TimeStamp" />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save <i class="fas fa-save"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-action="Index" class="text-info">Back to List <i class="fas fa-list"></i></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

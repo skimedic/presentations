@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Models", "AutoLot.Models\AutoLot.Models.csproj", "{1E5CE851-0124-4AC3-BECC-0DAD3F70CF54}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Dal", "AutoLot.Dal\AutoLot.Dal.csproj", "{BFD830D5-51FB-478E-AC3A-F8F7B5C45368}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Dal.Tests", "AutoLot.Dal.Tests\AutoLot.Dal.Tests.csproj", "{FDA01785-55EF-4B37-B9D1-818C97428775}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Web", "AutoLot.Web\AutoLot.Web.csproj", "{CEA8CBF6-73F4-400B-A743-43EF2BE94FDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.API", "AutoLot.API\AutoLot.API.csproj", "{5099D19B-C814-42C2-8180-E635A610E207}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{764F97E6-8BBE-40B3-A8CB-1503C35FAEC5}"
+	ProjectSection(SolutionItems) = preProject
+		Docker.txt = Docker.txt
+		Migrations.txt = Migrations.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E5CE851-0124-4AC3-BECC-0DAD3F70CF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E5CE851-0124-4AC3-BECC-0DAD3F70CF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E5CE851-0124-4AC3-BECC-0DAD3F70CF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E5CE851-0124-4AC3-BECC-0DAD3F70CF54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFD830D5-51FB-478E-AC3A-F8F7B5C45368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD830D5-51FB-478E-AC3A-F8F7B5C45368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD830D5-51FB-478E-AC3A-F8F7B5C45368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD830D5-51FB-478E-AC3A-F8F7B5C45368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA01785-55EF-4B37-B9D1-818C97428775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA01785-55EF-4B37-B9D1-818C97428775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA01785-55EF-4B37-B9D1-818C97428775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA01785-55EF-4B37-B9D1-818C97428775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA8CBF6-73F4-400B-A743-43EF2BE94FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA8CBF6-73F4-400B-A743-43EF2BE94FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA8CBF6-73F4-400B-A743-43EF2BE94FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA8CBF6-73F4-400B-A743-43EF2BE94FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5099D19B-C814-42C2-8180-E635A610E207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5099D19B-C814-42C2-8180-E635A610E207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5099D19B-C814-42C2-8180-E635A610E207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5099D19B-C814-42C2-8180-E635A610E207}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {500D178E-4F33-49E2-8B78-0B090E78B1C0}
+	EndGlobalSection
+EndGlobal

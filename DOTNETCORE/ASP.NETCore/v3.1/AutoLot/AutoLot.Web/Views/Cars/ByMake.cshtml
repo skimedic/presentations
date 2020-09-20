@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Car>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vehicle Inventory for @ViewBag.MakeName</h1>
+
+@{
+    var mode = new ViewDataDictionary(ViewData) {{"ByMake", true}};
+}
+
+<partial name="Partials/_CarListPartial" model="Model" view-data="@mode"/>

@@ -1,0 +1,18 @@
+﻿@model Car
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete @Model.PetName</h1>
+
+<h3>Are you sure you want to delete this car?</h3>
+<div>
+    @Html.DisplayForModel()
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="TimeStamp" />
+        <button type="submit" class="btn btn-danger">Delete <i class="fas fa-trash"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a asp-action="Index" class="text-info">Back to List <i class="fas fa-list"></i></a>
+    </form>
+</div>
