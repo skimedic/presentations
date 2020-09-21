@@ -21,7 +21,7 @@ namespace AutoLot.Dal.EfStructures
 
         public int MakeId { get; set; }
 
-        private void ChangeTracker_StateChanged(object sender, EntityStateChangedEventArgs e)
+        private void ChangeTracker_StateChanged(object? sender, EntityStateChangedEventArgs e)
         {
             if (!(e.Entry.Entity is Car c))
             {
@@ -62,7 +62,7 @@ namespace AutoLot.Dal.EfStructures
             }
         }
 
-        private void ChangeTracker_Tracked(object sender, EntityTrackedEventArgs e)
+        private void ChangeTracker_Tracked(object? sender, EntityTrackedEventArgs e)
         {
             var source = (e.FromQuery) ? "Database" : "Code";
             if (e.Entry.Entity is Car c)

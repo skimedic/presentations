@@ -11,7 +11,7 @@
       "files": [ "jquery.js", "jquery.min.js" ]
     },
     {
-      "library": "jquery-validate@1.19.1",
+      "library": "jquery-validate@1.19.2",
       "destination": "wwwroot/lib/jquery-validation",
       "files": [ "jquery.validate.js", "jquery.validate.min.js", "additional-methods.js", "additional-methods.min.js" ]
     },
@@ -21,25 +21,38 @@
       "files": [ "jquery.validate.unobtrusive.js", "jquery.validate.unobtrusive.min.js" ]
     },
     {
-      "library": "font-awesome@5.13.0",
-      "destination": "wwwroot/lib/fontawesome"
-    },
-    {
-      "library": "twitter-bootstrap@4.5.0",
+      "library": "twitter-bootstrap@4.5.2",
       "destination": "wwwroot/lib/bootstrap",
       "files": [
         "css/bootstrap.css",
-        "css/bootstrap.css.map",
-        "css/bootstrap.min.css",
-        "css/bootstrap.min.css.map",
         "js/bootstrap.bundle.js",
-        "js/bootstrap.bundle.js.map",
-        "js/bootstrap.bundle.min.js",
-        "js/bootstrap.bundle.min.js.map",
-        "js/bootstrap.js",
-        "js/bootstrap.js.map",
-        "js/bootstrap.min.js",
-        "js/bootstrap.min.js.map"
+        "js/bootstrap.js"
+      ]
+    },
+    {
+      "library": "font-awesome@5.14.0",
+      "destination": "wwwroot/lib/font-awesome/",
+      "files": [
+        "js/all.js",
+        "css/all.css",
+        "sprites/brands.svg",
+        "sprites/regular.svg",
+        "sprites/solid.svg",
+        "webfonts/fa-brands-400.eot",
+        "webfonts/fa-brands-400.svg",
+        "webfonts/fa-brands-400.ttf",
+        "webfonts/fa-brands-400.woff",
+        "webfonts/fa-brands-400.woff2",
+        "webfonts/fa-regular-400.eot",
+        "webfonts/fa-regular-400.svg",
+        "webfonts/fa-regular-400.ttf",
+        "webfonts/fa-regular-400.woff",
+        "webfonts/fa-regular-400.woff2",
+        "webfonts/fa-solid-900.eot",
+        "webfonts/fa-solid-900.svg",
+        "webfonts/fa-solid-900.ttf",
+        "webfonts/fa-solid-900.woff",
+        "webfonts/fa-solid-900.woff2"
       ]
     }
   ]

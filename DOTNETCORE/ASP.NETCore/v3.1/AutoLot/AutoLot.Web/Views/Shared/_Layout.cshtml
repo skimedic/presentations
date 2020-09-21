@@ -9,12 +9,6 @@
 </head>
 <body>
 <header>
-    @{
-        if (Env.IsDevelopment() || Env.IsEnvironment("Local"))
-        {
-            <p class="lead">Development</p>
-        }
-    }
     <partial name="Partials/_Menu"/>
 </header>
 <div class="container">
@@ -26,7 +20,7 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2020 - AutoLot.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2020 - AutoLot.Web - @Env.EnvironmentName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
 <partial name="Partials/_JavaScriptFiles"/>

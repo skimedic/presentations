@@ -15,11 +15,11 @@ namespace AutoLot.Dal.EfStructures.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Car", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Car", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.ToTable("Inventory","Dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.CreditRisk", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.CreditRisk", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,14 +60,6 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
 
                     b.Property<byte[]>("TimeStamp")
                         .IsConcurrencyToken()
@@ -78,27 +70,15 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("FirstName", "LastName")
-                        .IsUnique()
-                        .HasFilter("[FirstName] IS NOT NULL AND [LastName] IS NOT NULL");
-
                     b.ToTable("CreditRisks","Dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Customer", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Customer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
 
                     b.Property<byte[]>("TimeStamp")
                         .IsConcurrencyToken()
@@ -110,7 +90,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.ToTable("Customers","Dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Make", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Make", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -118,6 +98,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
@@ -131,7 +112,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.ToTable("Makes","dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Order", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -153,14 +134,15 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
                     b.HasIndex("CarId");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerId", "CarId")
+                        .IsUnique();
 
                     b.ToTable("Orders","Dbo");
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Car", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Car", b =>
                 {
-                    b.HasOne("AutoLot.Dal.Models.Entities.Make", "MakeNavigation")
+                    b.HasOne("AutoLot.Models.Entities.Make", "MakeNavigation")
                         .WithMany("Cars")
                         .HasForeignKey("MakeId")
                         .HasConstraintName("FK_Make_Inventory")
@@ -168,25 +150,82 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.CreditRisk", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.CreditRisk", b =>
                 {
-                    b.HasOne("AutoLot.Dal.Models.Entities.Customer", "CustomerNavigation")
+                    b.HasOne("AutoLot.Models.Entities.Customer", "CustomerNavigation")
                         .WithMany("CreditRisks")
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("FK_CreditRisks_Customers")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.OwnsOne("AutoLot.Models.Entities.Owned.Person", "PersonalInformation", b1 =>
+                        {
+                            b1.Property<int>("CreditRiskId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int")
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<string>("FirstName")
+                                .IsRequired()
+                                .HasColumnName("FirstName")
+                                .HasColumnType("nvarchar(50)")
+                                .HasMaxLength(50);
+
+                            b1.Property<string>("LastName")
+                                .IsRequired()
+                                .HasColumnName("LastName")
+                                .HasColumnType("nvarchar(50)")
+                                .HasMaxLength(50);
+
+                            b1.HasKey("CreditRiskId");
+
+                            b1.ToTable("CreditRisks");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CreditRiskId");
+                        });
                 });
 
-            modelBuilder.Entity("AutoLot.Dal.Models.Entities.Order", b =>
+            modelBuilder.Entity("AutoLot.Models.Entities.Customer", b =>
                 {
-                    b.HasOne("AutoLot.Dal.Models.Entities.Car", "CarNavigation")
+                    b.OwnsOne("AutoLot.Models.Entities.Owned.Person", "PersonalInformation", b1 =>
+                        {
+                            b1.Property<int>("CustomerId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int")
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<string>("FirstName")
+                                .IsRequired()
+                                .HasColumnName("FirstName")
+                                .HasColumnType("nvarchar(50)")
+                                .HasMaxLength(50);
+
+                            b1.Property<string>("LastName")
+                                .IsRequired()
+                                .HasColumnName("LastName")
+                                .HasColumnType("nvarchar(50)")
+                                .HasMaxLength(50);
+
+                            b1.HasKey("CustomerId");
+
+                            b1.ToTable("Customers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CustomerId");
+                        });
+                });
+
+            modelBuilder.Entity("AutoLot.Models.Entities.Order", b =>
+                {
+                    b.HasOne("AutoLot.Models.Entities.Car", "CarNavigation")
                         .WithMany("Orders")
                         .HasForeignKey("CarId")
                         .HasConstraintName("FK_Orders_Inventory")
                         .IsRequired();
 
-                    b.HasOne("AutoLot.Dal.Models.Entities.Customer", "CustomerNavigation")
+                    b.HasOne("AutoLot.Models.Entities.Customer", "CustomerNavigation")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .HasConstraintName("FK_Orders_Customers")

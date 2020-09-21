@@ -7,11 +7,8 @@ dotnet ef database update Initial -c AutoLot.Dal.EfStructures.ApplicationDbConte
 
 dotnet ef database drop -f
 
-dotnet ef migrations add AddMakeTable -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
-dotnet ef database update AddMakeTable -c AutoLot.Dal.EfStructures.ApplicationDbContext
+dotnet ef migrations add CustomSql -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
+dotnet ef database update CustomSql -c AutoLot.Dal.EfStructures.ApplicationDbContext
 
 dotnet ef migrations remove
-
-dotnet ef migrations add AddRequired -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
-dotnet ef database update AddRequired -c AutoLot.Dal.EfStructures.ApplicationDbContext
 
