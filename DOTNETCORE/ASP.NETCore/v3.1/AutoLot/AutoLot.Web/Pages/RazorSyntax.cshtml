@@ -1,0 +1,76 @@
+﻿@page
+@model AutoLot.Web.Pages.RazorSyntaxModel
+@{
+}
+
+
+<h1>Razor Syntax</h1>
+
+@{
+    //Code Block
+    var foo = "Foo";
+    var bar = "Bar";
+    var htmlString = "<ul><li>one</li><li>two</li></ul>";
+}
+@foo
+<br />
+@htmlString
+<br />
+@foo.@bar
+<br />
+@Html.Raw(htmlString)
+<hr />
+@for (int i = 0; i < 15; i++)
+{
+}
+@{
+    @:Straight Text
+    @*<div>Value:@Model.Id</div>*@
+    <text>
+        Lines without HTML tag
+    </text>
+    <br />
+}
+
+<hr />
+@*
+    Multiline Comments
+    Hi.
+*@
+Email Address Handling:
+<br />
+foo@foo.com = foo@foo.com
+<br />
+test@foo = test@foo
+<br />
+test@(foo) = testFoo
+<br />
+<hr />
+@functions {
+    public static IList<string> SortList(IList<string> strings)
+    {
+        var list = from s in strings orderby s select s;
+        return list.ToList();
+    }
+}
+--------------------------------------------------------------
+@{
+    var myList = new List<string> { "C", "A", "Z", "F" };
+    var sortedList = SortList(myList); //MyFunctions.SortList(myList)
+}
+@foreach (string s in sortedList)
+{
+    @s@:&nbsp;
+}
+<hr />
+@{
+    Func<dynamic, object> b = @<strong>@item</strong>;
+}
+This will be bold: @b("Foo")
+
+@Html.DisplayForModel()
+<hr />
+@Html.EditorForModel()
+<hr />
+@*<a asp-page="Cars" asp-action="Invoke" asp-route-id="@Model.Id">@Model.PetName</a>*@
+

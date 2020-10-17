@@ -2,7 +2,7 @@ using AutoLot.Dal.EfStructures;
 using AutoLot.Dal.Initialization;
 using AutoLot.Dal.Repos;
 using AutoLot.Dal.Repos.Interfaces;
-using AutoLot.Web.ConfigSettings;
+using AutoLot.Models.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +31,7 @@ namespace AutoLot.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddRazorPages();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is
@@ -39,8 +39,6 @@ namespace AutoLot.Web
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            // The TempData provider cookie is not essential. Make it essential
-            // so TempData is functional when tracking is disabled.
             services.Configure<CookieTempDataProviderOptions>(options => { options.Cookie.IsEssential = true; });
             services.AddSession(options => { options.Cookie.IsEssential = true; });
             var connectionString = Configuration.GetConnectionString("AutoLot");
@@ -62,11 +60,11 @@ namespace AutoLot.Web
                 services.AddWebOptimizer(options =>
                 {
                     options.MinifyCssFiles(); //Minifies all CSS files
-                    //options.MinifyJsFiles(); //Minifies all JS files
-                //    options.MinifyJsFiles("js/site.js");
+                                              //options.MinifyJsFiles(); //Minifies all JS files
+                                              //    options.MinifyJsFiles("js/site.js");
                     options.MinifyJsFiles("lib/**/*.js");
-                //    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/**/*.js");
-                //    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/validators.js", "js/validations/errorFormatting.js");
+                    //    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/**/*.js");
+                    //    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/validators.js", "js/validations/errorFormatting.js");
                 });
             }
             else
@@ -80,6 +78,7 @@ namespace AutoLot.Web
                     //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/validators.js", "js/validations/errorFormatting.js");
                 });
             }
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -98,7 +97,7 @@ namespace AutoLot.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -107,16 +106,14 @@ namespace AutoLot.Web
             app.UseWebOptimizer();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
-                //endpoints.MapControllerRoute(
-                //    name: "default",
-                //    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

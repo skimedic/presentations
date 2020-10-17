@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Dal", "AutoLot.Dal\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Dal.Tests", "AutoLot.Dal.Tests\AutoLot.Dal.Tests.csproj", "{FDA01785-55EF-4B37-B9D1-818C97428775}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Web", "AutoLot.Web\AutoLot.Web.csproj", "{CEA8CBF6-73F4-400B-A743-43EF2BE94FDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Mvc", "AutoLot.Mvc\AutoLot.Mvc.csproj", "{CEA8CBF6-73F4-400B-A743-43EF2BE94FDF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.API", "AutoLot.API\AutoLot.API.csproj", "{5099D19B-C814-42C2-8180-E635A610E207}"
 EndProject
@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		Docker.txt = Docker.txt
 		Migrations.txt = Migrations.txt
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Web", "AutoLot.Web\AutoLot.Web.csproj", "{2CD84E70-2286-41DC-B431-3EEA9132E877}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{5099D19B-C814-42C2-8180-E635A610E207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5099D19B-C814-42C2-8180-E635A610E207}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5099D19B-C814-42C2-8180-E635A610E207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD84E70-2286-41DC-B431-3EEA9132E877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD84E70-2286-41DC-B431-3EEA9132E877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD84E70-2286-41DC-B431-3EEA9132E877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD84E70-2286-41DC-B431-3EEA9132E877}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

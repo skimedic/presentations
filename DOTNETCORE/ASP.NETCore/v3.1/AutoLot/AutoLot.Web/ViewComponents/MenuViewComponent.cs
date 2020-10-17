@@ -1,8 +1,10 @@
-﻿using AutoLot.Dal.Repos.Interfaces;
+﻿using System.Linq;
+using AutoLot.Dal.Repos.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.EntityFrameworkCore.Internal;
 
-namespace AutoLot.Web.ViewComponents
+namespace AutoLot.Web.Pages.ViewComponents
 {
     //https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components
     //The runtime searches for the view in the following paths:
@@ -22,8 +24,8 @@ namespace AutoLot.Web.ViewComponents
         //public async Task<IViewComponentResult> InvokeAsync()
         public IViewComponentResult Invoke()
         {
-            var makes = _makeRepo.GetAll();
-            if (makes == null)
+            var makes = _makeRepo.GetAll().ToList();
+            if (!makes.Any())
             {
                 return new ContentViewComponentResult("Unable to get the makes");
             }
