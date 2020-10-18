@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id?}"
 @model AutoLot.Web.Pages.Cars.DeleteModel
 
 @{
@@ -37,7 +37,7 @@
             @Html.DisplayFor(model => model.Car.TimeStamp)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Car.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

@@ -16,14 +16,13 @@ namespace AutoLot.Web.TagHelpers
         }
 
         protected void BuildContent(TagHelperOutput output, 
-            string actionName, string className, string displayText, string fontAwesomeName)
+            string pageName, string className, string displayText, string fontAwesomeName)
         {
-            //output.TagName = "a"; // Replaces <email> with <a> tag
-            //var target = UrlHelper.Action(actionName, nameof(CarsController).RemoveController(), new {id = CarId});
-            //output.Attributes.SetAttribute("href", target);
-            //output.Attributes.Add("class",className);
-            //output.Content.AppendHtml($@"{displayText} <i class=""fas fa-{fontAwesomeName}""></i>");
-
+            output.TagName = "a"; // Replaces <email> with <a> tag
+            var target = UrlHelper.Page(pageName,new { id = CarId });
+            output.Attributes.SetAttribute("href", target);
+            output.Attributes.Add("class", className);
+            output.Content.AppendHtml($@"{displayText} <i class=""fas fa-{fontAwesomeName}""></i>");
         }
 
     }

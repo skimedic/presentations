@@ -11,7 +11,7 @@ namespace AutoLot.Web.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            //BuildContent(output,nameof(CarsController.Edit),"text-warning","Edit","edit");
+            BuildContent(output,"Edit","text-warning","Edit","edit");
         }
     }
 }
