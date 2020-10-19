@@ -6,31 +6,29 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using AutoLot.Dal.EfStructures;
+using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 
 namespace AutoLot.Web.Pages.Cars
 {
     public class DetailsModel : PageModel
     {
-        private readonly AutoLot.Dal.EfStructures.ApplicationDbContext _context;
+        private readonly ICarRepo _repo;
 
-        public DetailsModel(AutoLot.Dal.EfStructures.ApplicationDbContext context)
+        public DetailsModel(ICarRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         public Car Car { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
-                return NotFound();
+                return BadRequest();
             }
-
-            Car = await _context.Cars
-                .Include(c => c.MakeNavigation).FirstOrDefaultAsync(m => m.Id == id);
-
+            Car = _repo.Find(id.Value);
             if (Car == null)
             {
                 return NotFound();

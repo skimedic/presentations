@@ -6,41 +6,46 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AutoLot.Dal.EfStructures;
+using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 
 namespace AutoLot.Web.Pages.Cars
 {
     public class CreateModel : PageModel
     {
-        private readonly AutoLot.Dal.EfStructures.ApplicationDbContext _context;
+        private readonly ICarRepo _carRepo;
+        private readonly IMakeRepo _makeRepo;
 
-        public CreateModel(AutoLot.Dal.EfStructures.ApplicationDbContext context)
+        public CreateModel(ICarRepo carRepo, IMakeRepo makeRepo)
         {
-            _context = context;
+            _carRepo = carRepo;
+            _makeRepo = makeRepo;
         }
+
+        internal SelectList GetMakes() =>
+            new SelectList(_makeRepo.GetAll(), nameof(Make.Id), nameof(Make.Name));
+
+        public SelectList Makes { get; set; }
 
         public IActionResult OnGet()
         {
-        ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
+            Makes = GetMakes();
             return Page();
         }
 
-        [BindProperty]
-        public Car Car { get; set; }
+        [BindProperty] public Car Car { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return Page();
+                _carRepo.Add(Car);
+                return RedirectToPage("./Index");
             }
-
-            _context.Cars.Add(Car);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            Makes = GetMakes();
+            return Page();
         }
     }
 }

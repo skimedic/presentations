@@ -1,77 +1,62 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AutoLot.Dal.EfStructures;
+using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 
 namespace AutoLot.Web.Pages.Cars
 {
     public class EditModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICarRepo _repo;
+        private readonly IMakeRepo _makeRepo;
 
-        public EditModel(ApplicationDbContext context)
+        public EditModel(ICarRepo repo, IMakeRepo makeRepo)
         {
-            _context = context;
+            _repo = repo;
+            _makeRepo = makeRepo;
         }
 
-        [BindProperty]
-        public Car Car { get; set; }
+        public SelectList Makes { get; set; }
+        [BindProperty] public Car Car { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            Car = await _context.Cars
-                .Include(c => c.MakeNavigation).FirstOrDefaultAsync(m => m.Id == id);
-
+            Car = _repo.Find(id.Value);
             if (Car == null)
             {
                 return NotFound();
             }
-           ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
+            Makes = GetMakes();
             return Page();
         }
 
+        internal SelectList GetMakes() =>
+            new SelectList(_makeRepo.GetAll(), nameof(Make.Id), nameof(Make.Name));
+
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost(int? id)
         {
             if (!ModelState.IsValid)
             {
+                Makes = GetMakes();
                 return Page();
             }
 
-            _context.Attach(Car).State = EntityState.Modified;
-
-            try
+            if (!id.HasValue || id.Value != Car.Id)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CarExists(Car.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest();
             }
 
+            _repo.Update(Car);
             return RedirectToPage("./Index");
         }
 
-        private bool CarExists(int id)
-        {
-            return _context.Cars.Any(e => e.Id == id);
-        }
     }
 }

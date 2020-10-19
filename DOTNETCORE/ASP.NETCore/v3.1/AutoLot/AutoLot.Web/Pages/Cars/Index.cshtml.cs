@@ -21,7 +21,7 @@ namespace AutoLot.Web.Pages.Cars
         public int? MakeId { get; set; }
         public IEnumerable<Car> Cars { get;set; }
 
-        public void OnGetAsync(int? makeId, string? makeName)
+        public void OnGet(int? makeId, string? makeName)
         {
             MakeId = makeId;
             MakeName = makeName;
