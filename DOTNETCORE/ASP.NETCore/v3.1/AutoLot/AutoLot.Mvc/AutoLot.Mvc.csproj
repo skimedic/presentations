@@ -5,6 +5,13 @@
 		<UserSecretsId>31db9e7a-a53d-469b-9f28-2f6529965858</UserSecretsId>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Compile Remove="Views\Shared\EditorTemplates\**" />
+	  <Content Remove="Views\Shared\EditorTemplates\**" />
+	  <EmbeddedResource Remove="Views\Shared\EditorTemplates\**" />
+	  <None Remove="Views\Shared\EditorTemplates\**" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="10.0.0" />
@@ -18,10 +25,6 @@
 	<ItemGroup>
 		<ProjectReference Include="..\AutoLot.Models\AutoLot.Models.csproj" />
 		<ProjectReference Include="..\AutoLot.Dal\AutoLot.Dal.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Views\Shared\EditorTemplates\" />
 	</ItemGroup>
 
 </Project>
