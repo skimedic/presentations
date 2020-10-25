@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Car>
+@{
+    var showMake = true;
+    if (bool.TryParse(ViewBag.ByMake?.ToString(), out bool byMake))
+    {
+        showMake = !byMake;
+    }
+}
+<p>
+    <a asp-action="Create" class="text-success">Create New <i class="fas fa-plus"></i></a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        @if (showMake)
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.MakeId)
+            </th>
+        }
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetName)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (showMake)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.MakeNavigation.Name)
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetName)
+            </td>
+            <td>
+                <edit-car car-id="@item.Id"></edit-car> |
+                <car-details car-id="@item.Id"></car-details> |
+                <delete-car car-id="@item.Id"></delete-car>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

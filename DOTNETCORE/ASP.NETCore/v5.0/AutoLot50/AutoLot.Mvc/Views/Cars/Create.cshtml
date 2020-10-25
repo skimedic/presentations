@@ -1,0 +1,24 @@
+﻿@model Car
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create a New Car</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.EditorForModel()
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Create <i class="fas fa-plus"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-action="Index" class="text-info">Back to List <i class="fas fa-list"></i></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
