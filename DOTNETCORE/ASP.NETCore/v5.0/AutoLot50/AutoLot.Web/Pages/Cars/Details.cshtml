@@ -1,0 +1,18 @@
+﻿@page "{id?}"
+@model AutoLot.Web.Pages.Cars.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details for @Model.Car.PetName</h1>
+
+@Html.DisplayFor(m=>m.Car)
+@Html.DisplayFor(m=>m.Car,"CarWithColors")
+
+<div>
+    <edit-car car-id="@Model.Car.Id"></edit-car> |
+    <delete-car car-id="@Model.Car.Id"></delete-car> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+

@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.Data.SqlClient;
 using AutoLot.Models.Entities;
 using AutoLot.Models.Entities.Owned;
 using AutoLot.Models.ViewModels;
@@ -86,8 +85,11 @@ namespace AutoLot.Dal.EfStructures
                 entity.HasNoKey().ToView("CustomerOrderView", "dbo");
             });
 
-            modelBuilder.Entity<Car>(entity => { entity.HasQueryFilter(c => c.MakeId == MakeId); });
-
+            modelBuilder.Entity<Car>(entity => { 
+                entity.HasQueryFilter(c => c.MakeId == MakeId); 
+            });
+            //New in EF Core 5 - bi-directional query filters
+            modelBuilder.Entity<Order>().HasQueryFilter(e => e.CarNavigation.MakeId == MakeId);
             modelBuilder.Entity<CreditRisk>(entity =>
             {
                 entity.HasOne(d => d.CustomerNavigation)

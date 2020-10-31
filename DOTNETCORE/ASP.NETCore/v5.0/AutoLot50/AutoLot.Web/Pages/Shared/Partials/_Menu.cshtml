@@ -1,0 +1,49 @@
+﻿@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Http.Features
+@using AutoLot.Models.ViewModels
+@inject IOptionsMonitor<DealerInfo> DealerInfoMonitor
+@{
+    var dealerInfo = DealerInfoMonitor.CurrentValue;
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var showBanner = !consentFeature?.CanTrack ?? false;
+
+}
+<nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+        <a class="navbar-brand" asp-page="/Index">@dealerInfo.DealerName</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">Inventory <i class="fa fa-car"></i></a>
+                    <vc:menu />
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/RazorSyntax">Razor Syntax <i class="fas fa-cut"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy <i class="fa fa-user-secret"></i></a>
+                </li>
+                @if (showBanner)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-page="Consent" asp-route-actionName="grant" title="Accept Cookie Policy">Accept Cookie Policy <i class="fas fa-cookie-bite"></i></a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-page="Consent" asp-route-actionName="withdraw" title="Revoke Cookie Policy">Revoke Cookie Policy <i class="fas fa-cookie"></i></a>
+                    </li>
+                }
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Admin" asp-page="./Makes/Index" title="Makes Admin">Makes Admin<i class="fas fa-cog"></i></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

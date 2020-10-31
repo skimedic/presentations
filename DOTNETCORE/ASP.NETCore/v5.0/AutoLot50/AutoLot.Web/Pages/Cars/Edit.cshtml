@@ -1,0 +1,26 @@
+﻿@page "{id?}"
+@model AutoLot.Web.Pages.Cars.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit @Model.Car.PetName</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-page="Edit" asp-route-id="@Model.Car.Id">
+            @Html.EditorFor(x=>x.Car,new {Makes = Model.Makes})
+            <input type="hidden" asp-for="Car.Id" />
+            <input type="hidden" asp-for="Car.TimeStamp" />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save <i class="fas fa-save"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-page="./Index" class="text-info">Back to List <i class="fas fa-list"></i></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -12,3 +12,4 @@ dotnet ef database update CustomSql -c AutoLot.Dal.EfStructures.ApplicationDbCon
 
 dotnet ef migrations remove
 
+dotnet ef migrations script -o allmigrations.sql -i

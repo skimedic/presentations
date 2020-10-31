@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30615.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLot.Models", "AutoLot.Models\AutoLot.Models.csproj", "{230B6281-61D6-44CE-A95F-6841AD092538}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Models", "AutoLot.Models\AutoLot.Models.csproj", "{230B6281-61D6-44CE-A95F-6841AD092538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLot.Dal", "AutoLot.Dal\AutoLot.Dal.csproj", "{DC18BE45-4377-44A3-A6B9-3DB7A7046754}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Dal", "AutoLot.Dal\AutoLot.Dal.csproj", "{DC18BE45-4377-44A3-A6B9-3DB7A7046754}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLot.Dal.Tests", "AutoLot.Dal.Tests\AutoLot.Dal.Tests.csproj", "{628E0341-4DBF-4A0B-969D-BDF144D06BE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Dal.Tests", "AutoLot.Dal.Tests\AutoLot.Dal.Tests.csproj", "{628E0341-4DBF-4A0B-969D-BDF144D06BE3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DBAF5B41-CE79-4DC4-B2D8-421611F745E9}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,7 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Migrations.txt = Migrations.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoLot.Mvc", "AutoLot.Mvc\AutoLot.Mvc.csproj", "{6FF05CF4-3A5A-4A5F-8126-B9B15C5A7F63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Mvc", "AutoLot.Mvc\AutoLot.Mvc.csproj", "{6FF05CF4-3A5A-4A5F-8126-B9B15C5A7F63}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Web", "AutoLot.Web\AutoLot.Web.csproj", "{A7168CBB-EEB7-4AC7-9FC4-07983C7DAF2D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Api", "AutoLot.Api\AutoLot.Api.csproj", "{08847D35-8B57-472C-93CB-F60C181468C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{6FF05CF4-3A5A-4A5F-8126-B9B15C5A7F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FF05CF4-3A5A-4A5F-8126-B9B15C5A7F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FF05CF4-3A5A-4A5F-8126-B9B15C5A7F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7168CBB-EEB7-4AC7-9FC4-07983C7DAF2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7168CBB-EEB7-4AC7-9FC4-07983C7DAF2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7168CBB-EEB7-4AC7-9FC4-07983C7DAF2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7168CBB-EEB7-4AC7-9FC4-07983C7DAF2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08847D35-8B57-472C-93CB-F60C181468C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08847D35-8B57-472C-93CB-F60C181468C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08847D35-8B57-472C-93CB-F60C181468C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08847D35-8B57-472C-93CB-F60C181468C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
