@@ -13,11 +13,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Make.Name" class="col-form-label"></label>
-                <input asp-for="Make.Name" class="form-control" />
-                <span asp-validation-for="Make.Name" class="text-danger"></span>
-            </div>
+            @Html.EditorFor(x=>x.Make)
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

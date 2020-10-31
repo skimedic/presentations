@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id?}"
 @model DetailsModel
 
 @{
@@ -8,22 +8,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Make</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Make.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Make.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Make.TimeStamp)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Make.TimeStamp)
-        </dd>
-    </dl>
+    @Html.DisplayFor(x => x.Make)
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Make.Id">Edit</a> |

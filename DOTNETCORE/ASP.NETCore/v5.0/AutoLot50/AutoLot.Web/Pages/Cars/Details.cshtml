@@ -11,8 +11,8 @@
 @Html.DisplayFor(m=>m.Car,"CarWithColors")
 
 <div>
-    <edit-car car-id="@Model.Car.Id"></edit-car> |
-    <delete-car car-id="@Model.Car.Id"></delete-car> |
+    <car-edit car-id="@Model.Car.Id"></car-edit> |
+    <car-delete car-id="@Model.Car.Id"></car-delete> |
     <a asp-page="./Index">Back to List</a>
 </div>
 

@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.PetName)
             </td>
             <td>
-                <edit-car car-id="@item.Id"></edit-car> |
+                <car-edit car-id="@item.Id"></car-edit> |
                 <car-details car-id="@item.Id"></car-details> |
-                <delete-car car-id="@item.Id"></delete-car>
+                <car-delete car-id="@item.Id"></car-delete>
             </td>
         </tr>
     }
