@@ -29,12 +29,9 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TimeStamp)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <car-edit car-id="@item.Id"></car-edit> |
+                <car-details car-id="@item.Id"></car-details> |
+                <car-delete car-id="@item.Id"></car-delete>
             </td>
         </tr>
 }

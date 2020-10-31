@@ -11,6 +11,6 @@
     @Html.DisplayFor(x => x.Make)
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Make.Id">Edit</a> |
+    <car-edit car-id="@Model.Make.Id"></car-edit> |
     <a asp-page="./Index">Back to List</a>
 </div>
