@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http.Features
+@using AutoLot.Mvc.Controllers
+@using AutoLot.Mvc.Extensions
 
 @{
     var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
@@ -19,6 +21,7 @@
             var button = document.querySelector("#cookieConsent button[data-cookie-string]");
             button.addEventListener("click", function (event) {
                 document.cookie = button.dataset.cookieString;
+                window.location = '@Url.Action(nameof(HomeController.Index),nameof(HomeController).RemoveController())';
             }, false);
         })();
     </script>

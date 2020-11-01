@@ -33,6 +33,8 @@ namespace AutoLot.Web.Pages.Cars
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
+        //TODO: Slides Change action name https://docs.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-5.0&tabs=visual-studio
+
         public IActionResult OnPostCreateNewCar()
         {
             if (!ModelState.IsValid)

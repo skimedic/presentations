@@ -1,9 +1,10 @@
-﻿using AutoLot.Web.TagHelpers.Base;
+﻿using AutoLot.Mvc.Controllers;
+using AutoLot.Mvc.TagHelpers.Base;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace AutoLot.Web.TagHelpers
+namespace AutoLot.Mvc.TagHelpers
 {
     public class ItemEditTagHelper : ItemLinkTagHelperBase
     {
@@ -12,7 +13,7 @@ namespace AutoLot.Web.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            BuildContent(output,"Edit","text-warning","Edit","edit");
+            BuildContent(output,nameof(CarsController.Edit),"text-warning","Edit","edit");
         }
     }
 }

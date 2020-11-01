@@ -7,7 +7,7 @@
     }
 }
 <p>
-    <a asp-action="Create" class="text-success">Create New <i class="fas fa-plus"></i></a>
+    <item-create></item-create>
 </p>
 <table class="table">
     <thead>
@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.PetName)
             </td>
             <td>
-                <edit-car car-id="@item.Id"></edit-car> |
-                <car-details car-id="@item.Id"></car-details> |
-                <delete-car car-id="@item.Id"></delete-car>
+                <item-edit item-id="@item.Id"></item-edit> | 
+                <item-details item-id="@item.Id"></item-details> | 
+                <item-delete item-id="@item.Id"></item-delete>
             </td>
         </tr>
     }

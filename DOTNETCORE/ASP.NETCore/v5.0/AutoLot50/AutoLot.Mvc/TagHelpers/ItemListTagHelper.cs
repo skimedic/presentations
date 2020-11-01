@@ -1,9 +1,9 @@
-﻿using AutoLot.Web.TagHelpers.Base;
+﻿using AutoLot.Mvc.TagHelpers.Base;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace AutoLot.Web.TagHelpers
+namespace AutoLot.Mvc.TagHelpers
 {
     public class ItemListTagHelper : ItemLinkTagHelperBase
     {

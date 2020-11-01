@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoLot.Dal.EfStructures;
+using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,11 +13,11 @@ namespace AutoLot.Mvc.Areas.Admin.Controllers
     [Route("Admin/[controller]/[action]")]
     public class MakesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IMakeRepo _repo;
 
-        public MakesController(ApplicationDbContext context)
+        public MakesController(IMakeRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: Admin/Makes
@@ -23,21 +25,21 @@ namespace AutoLot.Mvc.Areas.Admin.Controllers
         [Route("/Admin/[controller]")]
         [Route("/Admin/[controller]/[action]")]
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Makes.ToListAsync());
+            return View(_repo.GetAllIgnoreQueryFilters());
         }
 
         // GET: Admin/Makes/Details/5
-        public async Task<IActionResult> Details(int? id)
+        [HttpGet("{id?}")]
+        public IActionResult Details(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
                 return NotFound();
             }
 
-            var make = await _context.Makes
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var make = _repo.Find(id.Value);
             if (make == null)
             {
                 return NotFound();
@@ -47,6 +49,7 @@ namespace AutoLot.Mvc.Areas.Admin.Controllers
         }
 
         // GET: Admin/Makes/Create
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -55,28 +58,38 @@ namespace AutoLot.Mvc.Areas.Admin.Controllers
         // POST: Admin/Makes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //TODO: Slides Add Overposting MVC + Razor Pages
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Id,TimeStamp")] Make make)
+        public IActionResult Create([Bind("Name,Id,TimeStamp")] Make make)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(make);
-                await _context.SaveChangesAsync();
+                return View(make);
+            }
+
+            try
+            {
+                _repo.Add(make);
                 return RedirectToAction(nameof(Index));
             }
-            return View(make);
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty,ex.Message);
+                return View(make);
+            }
         }
 
         // GET: Admin/Makes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        [HttpGet("{id?}")]
+        public IActionResult Edit(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
                 return NotFound();
             }
 
-            var make = await _context.Makes.FindAsync(id);
+            var make = _repo.Find(id.Value);
             if (make == null)
             {
                 return NotFound();
@@ -87,48 +100,42 @@ namespace AutoLot.Mvc.Areas.Admin.Controllers
         // POST: Admin/Makes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost("{id?}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Id,TimeStamp")] Make make)
+        public IActionResult Edit(int id, [Bind("Name,Id,TimeStamp")] Make make)
         {
             if (id != make.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(make);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MakeExists(make.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                return View(make);
+            }
+
+            try
+            {
+                _repo.Update(make);
                 return RedirectToAction(nameof(Index));
             }
-            return View(make);
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(make);
+            }
         }
 
         // GET: Admin/Makes/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        [HttpGet("{id?}")]
+        public IActionResult Delete(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
                 return NotFound();
             }
 
-            var make = await _context.Makes
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var make = _repo.Find(id.Value);
             if (make == null)
             {
                 return NotFound();
@@ -138,19 +145,26 @@ namespace AutoLot.Mvc.Areas.Admin.Controllers
         }
 
         // POST: Admin/Makes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        //[ActionName("Delete")]
+        [HttpPost("{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult Delete(int id, Make entity)
         {
-            var make = await _context.Makes.FindAsync(id);
-            _context.Makes.Remove(make);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+            if (id != entity.Id)
+            {
+                return BadRequest();
+            }
 
-        private bool MakeExists(int id)
-        {
-            return _context.Makes.Any(e => e.Id == id);
+            try
+            {
+                _repo.Delete(entity);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty,ex.Message);
+                return View(entity);
+            }
         }
     }
 }
