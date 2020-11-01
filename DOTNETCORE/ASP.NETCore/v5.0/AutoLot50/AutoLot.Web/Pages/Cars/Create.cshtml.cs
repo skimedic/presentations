@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AutoLot.Dal.Repos.Interfaces;
@@ -32,15 +33,25 @@ namespace AutoLot.Web.Pages.Cars
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public IActionResult OnPost()
+        public IActionResult OnPostCreateNewCar()
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+            {
+                Makes = GetMakes();
+                return Page();
+            }
+
+            try
             {
                 _carRepo.Add(Car);
-                return RedirectToPage("./Index");
             }
-            Makes = GetMakes();
-            return Page();
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty,ex.Message);
+                Makes = GetMakes();
+                return Page();
+            }
+            return RedirectToPage("./Index");
         }
     }
 }

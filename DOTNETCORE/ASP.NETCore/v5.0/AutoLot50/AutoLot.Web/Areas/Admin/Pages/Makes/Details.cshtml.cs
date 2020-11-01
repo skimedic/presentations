@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,23 +9,23 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
 {
     public class DetailsModel : PageModel
     {
-        private readonly AutoLot.Dal.EfStructures.ApplicationDbContext _context;
+        private readonly IMakeRepo _repo;
 
-        public DetailsModel(AutoLot.Dal.EfStructures.ApplicationDbContext context)
+        public DetailsModel(IMakeRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         public Make Make { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
                 return NotFound();
             }
 
-            Make = await _context.Makes.FirstOrDefaultAsync(m => m.Id == id);
+            Make = _repo.Find(id.Value);
 
             if (Make == null)
             {

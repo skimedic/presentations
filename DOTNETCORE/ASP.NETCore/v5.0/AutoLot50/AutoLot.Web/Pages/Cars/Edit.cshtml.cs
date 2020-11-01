@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AutoLot.Dal.Repos.Interfaces;
@@ -54,7 +55,17 @@ namespace AutoLot.Web.Pages.Cars
                 return BadRequest();
             }
 
-            _repo.Update(Car);
+            try
+            {
+                _repo.Update(Car);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                Makes = GetMakes();
+                return Page();
+            }
+
             return RedirectToPage("./Index");
         }
 

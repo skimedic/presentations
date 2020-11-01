@@ -4,14 +4,14 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace AutoLot.Web.TagHelpers
 {
-    public class CarDeleteTagHelper : CarLinkTagHelperBase
+    public class ItemListTagHelper : ItemLinkTagHelperBase
     {
-        public CarDeleteTagHelper(IActionContextAccessor contextAccessor, IUrlHelperFactory urlHelperFactory) 
+        public ItemListTagHelper(IActionContextAccessor contextAccessor, IUrlHelperFactory urlHelperFactory) 
             : base(contextAccessor, urlHelperFactory) { }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-           BuildContent(output,"Delete","text-danger","Delete","trash");
+            BuildContent(output,"Index","text-default","Back to List","list");
         }
     }
 }

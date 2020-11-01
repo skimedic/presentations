@@ -11,9 +11,10 @@
 <div>
     @Html.DisplayForModel()
     <form asp-page="Delete" asp-route-id="@Model.Car.Id">
+        <div asp-validation-summary="All" class="text-danger"></div>
         <input type="hidden" asp-for="Car.Id" />
         <input type="hidden" asp-for="Car.TimeStamp" />
         <button type="submit" class="btn btn-danger">Delete <i class="fas fa-trash"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a asp-page="./Index">Back to List</a>
+        <item-list></item-list>
     </form>
 </div>

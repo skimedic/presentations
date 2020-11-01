@@ -5,33 +5,30 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Vehicle Makes</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <item-create></item-create>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Make[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Make[0].TimeStamp)
+                @Html.DisplayNameFor(model => model.Makes[0].Name)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Make) {
+@foreach (var item in Model.Makes) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <car-edit car-id="@item.Id"></car-edit> |
-                <car-details car-id="@item.Id"></car-details> |
-                <car-delete car-id="@item.Id"></car-delete>
+                <item-edit car-id="@item.Id"></item-edit> |
+                <item-details car-id="@item.Id"></item-details> |
+                <item-delete car-id="@item.Id"></item-delete>
             </td>
         </tr>
 }

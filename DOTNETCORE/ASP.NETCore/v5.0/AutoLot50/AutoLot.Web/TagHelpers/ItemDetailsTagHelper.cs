@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace AutoLot.Web.TagHelpers
 {
-    public class CarDetailsTagHelper : CarLinkTagHelperBase
+    public class ItemDetailsTagHelper : ItemLinkTagHelperBase
     {
-        public CarDetailsTagHelper(IActionContextAccessor contextAccessor, IUrlHelperFactory urlHelperFactory) 
+        public ItemDetailsTagHelper(IActionContextAccessor contextAccessor, IUrlHelperFactory urlHelperFactory) 
             : base(contextAccessor, urlHelperFactory) { }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)

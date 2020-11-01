@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,65 +11,52 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
 {
     public class EditModel : PageModel
     {
-        private readonly AutoLot.Dal.EfStructures.ApplicationDbContext _context;
+        private readonly IMakeRepo _repo;
 
-        public EditModel(AutoLot.Dal.EfStructures.ApplicationDbContext context)
+        public EditModel(IMakeRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
-        [BindProperty]
-        public Make Make { get; set; }
+        [BindProperty] public Make Make { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
                 return NotFound();
             }
 
-            Make = await _context.Makes.FirstOrDefaultAsync(m => m.Id == id);
+            Make = _repo.Find(id.Value);
 
             if (Make == null)
             {
                 return NotFound();
             }
+
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(Make).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                _repo.Update(Make);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception ex)
             {
-                if (!MakeExists(Make.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                ModelState.AddModelError(string.Empty,ex.Message);
+                return Page();
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private bool MakeExists(int id)
-        {
-            return _context.Makes.Any(e => e.Id == id);
         }
     }
 }

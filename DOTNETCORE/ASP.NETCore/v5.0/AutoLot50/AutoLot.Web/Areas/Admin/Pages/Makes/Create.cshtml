@@ -15,14 +15,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @Html.EditorFor(x=>x.Make)
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" /> | 
+                <item-list></item-list>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

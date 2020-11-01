@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -8,18 +10,18 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
 {
     public class IndexModel : PageModel
     {
-        private readonly AutoLot.Dal.EfStructures.ApplicationDbContext _context;
+        private readonly IMakeRepo _repo;
 
-        public IndexModel(AutoLot.Dal.EfStructures.ApplicationDbContext context)
+        public IndexModel(IMakeRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
-        public IList<Make> Make { get;set; }
+        public IList<Make> Makes { get;set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            Make = await _context.Makes.ToListAsync();
+            Makes = _repo.GetAll().ToList();
         }
     }
 }
