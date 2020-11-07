@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,46 +9,45 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
 {
     public class DeleteModel : PageModel
     {
-        private readonly AutoLot.Dal.EfStructures.ApplicationDbContext _context;
+        private readonly IMakeRepo _makeRepo;
 
-        public DeleteModel(AutoLot.Dal.EfStructures.ApplicationDbContext context)
+        public DeleteModel(IMakeRepo makeRepo)
         {
-            _context = context;
+            _makeRepo = makeRepo;
         }
 
         [BindProperty]
-        public Make Make { get; set; }
+        public Make Entity { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
                 return NotFound();
             }
 
-            Make = await _context.Makes.FirstOrDefaultAsync(m => m.Id == id);
+            Entity = _makeRepo.Find(id);
 
-            if (Make == null)
+            if (Entity == null)
             {
                 return NotFound();
             }
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public IActionResult OnPost(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
                 return NotFound();
             }
 
-            Make = await _context.Makes.FindAsync(id);
-
-            if (Make != null)
+            if (id.Value != Entity.Id)
             {
-                _context.Makes.Remove(Make);
-                await _context.SaveChangesAsync();
+                return BadRequest();
             }
+
+            _makeRepo.Delete(Entity);
 
             return RedirectToPage("./Index");
         }

@@ -18,7 +18,7 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
             _repo = repo;
         }
 
-        [BindProperty] public Make Make { get; set; }
+        [BindProperty] public Make Entity { get; set; }
 
         public IActionResult OnGet(int? id)
         {
@@ -27,9 +27,9 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
                 return NotFound();
             }
 
-            Make = _repo.Find(id.Value);
+            Entity = _repo.Find(id.Value);
 
-            if (Make == null)
+            if (Entity == null)
             {
                 return NotFound();
             }
@@ -39,7 +39,7 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
             if (!ModelState.IsValid)
             {
@@ -48,7 +48,7 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
 
             try
             {
-                _repo.Update(Make);
+                _repo.Update(Entity);
             }
             catch (Exception ex)
             {

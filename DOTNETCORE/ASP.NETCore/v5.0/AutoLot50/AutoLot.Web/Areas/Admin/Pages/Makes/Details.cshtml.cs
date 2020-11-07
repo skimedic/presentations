@@ -16,7 +16,7 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
             _repo = repo;
         }
 
-        public Make Make { get; set; }
+        public Make Entity { get; set; }
 
         public IActionResult OnGet(int? id)
         {
@@ -25,9 +25,9 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
                 return NotFound();
             }
 
-            Make = _repo.Find(id.Value);
+            Entity = _repo.Find(id.Value);
 
-            if (Make == null)
+            if (Entity == null)
             {
                 return NotFound();
             }

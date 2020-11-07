@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,11 +8,11 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
 {
     public class CreateModel : PageModel
     {
-        private readonly AutoLot.Dal.EfStructures.ApplicationDbContext _context;
+        private readonly IMakeRepo _makeRepo;
 
-        public CreateModel(AutoLot.Dal.EfStructures.ApplicationDbContext context)
+        public CreateModel(IMakeRepo makeRepo)
         {
-            _context = context;
+            _makeRepo = makeRepo;
         }
 
         public IActionResult OnGet()
@@ -20,19 +21,18 @@ namespace AutoLot.Web.Areas.Admin.Pages.Makes
         }
 
         [BindProperty]
-        public Make Make { get; set; }
+        public Make Entity { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Makes.Add(Make);
-            await _context.SaveChangesAsync();
+            _makeRepo.Add(Entity);
 
             return RedirectToPage("./Index");
         }

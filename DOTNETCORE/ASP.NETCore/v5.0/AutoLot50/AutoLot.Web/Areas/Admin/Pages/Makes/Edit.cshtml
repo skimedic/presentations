@@ -11,11 +11,11 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" asp-route-id="@Model.Entity.Id">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @Html.EditorFor(x => x.Make)
-            <input type="hidden" asp-for="Make.Id" />
-            <input type="hidden" asp-for="Make.TimeStamp" />
+            @Html.EditorFor(x => x.Entity)
+            <input type="hidden" asp-for="Entity.Id" />
+            <input type="hidden" asp-for="Entity.TimeStamp" />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" /> | 
                 <item-list></item-list>

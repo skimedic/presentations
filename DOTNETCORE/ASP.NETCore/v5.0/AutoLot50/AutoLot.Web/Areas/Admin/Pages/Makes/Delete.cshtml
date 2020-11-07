@@ -9,11 +9,11 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    @Html.DisplayFor(x => x.Make)
+    @Html.DisplayFor(x => x.Entity)
 
     <form method="post">
-        <input type="hidden" asp-for="Make.Id" />
-        <input type="hidden" asp-for="Make.TimeStamp" />
+        <input type="hidden" asp-for="Entity.Id" />
+        <input type="hidden" asp-for="Entity.TimeStamp" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <item-list></item-list>
     </form>
