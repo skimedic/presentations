@@ -84,7 +84,6 @@ namespace AutoLot.API
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,6 +99,7 @@ namespace AutoLot.API
                     SampleDataInitializer.InitializeData(context);
                 }
             }
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

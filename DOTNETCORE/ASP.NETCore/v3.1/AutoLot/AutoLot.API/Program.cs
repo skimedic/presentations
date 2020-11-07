@@ -1,4 +1,3 @@
-using AutoLot.API;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
