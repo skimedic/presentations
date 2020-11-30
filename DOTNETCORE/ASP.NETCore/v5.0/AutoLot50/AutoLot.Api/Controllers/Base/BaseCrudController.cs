@@ -87,7 +87,7 @@ namespace AutoLot.Api.Controllers.Base
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPut("{id}")]
-        public IActionResult UpdateOne(int id,T entity)
+        public IActionResult UpdateOne(int id,[FromBody]T entity)
         {
             if (id != entity.Id)
             {

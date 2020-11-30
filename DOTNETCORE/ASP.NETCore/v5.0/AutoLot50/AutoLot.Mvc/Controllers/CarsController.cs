@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
+using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -10,10 +11,13 @@ namespace AutoLot.Mvc.Controllers
     public class CarsController : Controller
     {
         private readonly ICarRepo _repo;
+        private readonly IAppLogging<CarsController> _logging;
 
-        public CarsController(ICarRepo repo)
+        public CarsController(ICarRepo repo, IAppLogging<CarsController> logging)
         {
             _repo = repo;
+            _logging = logging;
+            _logging.LogAppError("Test error");
         }
 
         internal SelectList GetMakes(IMakeRepo makeRepo)

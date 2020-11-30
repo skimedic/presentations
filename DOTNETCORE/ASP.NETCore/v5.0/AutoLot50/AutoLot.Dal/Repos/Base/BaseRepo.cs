@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoLot.Dal.EfStructures;
 using AutoLot.Dal.Exceptions;
+using AutoLot.Models.Entities;
 using AutoLot.Models.Entities.Base;
 using Microsoft.EntityFrameworkCore;
 
@@ -55,12 +56,12 @@ namespace AutoLot.Dal.Repos.Base
             Dispose(false);
         }
 
-        public virtual T Find(int? id) => Table.Find(id);
-        public virtual T FindAsNoTracking(int id)
+        public virtual T? Find(int? id) => Table.Find(id);
+        public virtual T? FindAsNoTracking(int id)
         {
             return Table.AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
-        public T FindIgnoreQueryFilters(int id) 
+        public T? FindIgnoreQueryFilters(int id) 
             => Table.IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);
         
         public virtual IEnumerable<T> GetAll() => Table;

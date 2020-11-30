@@ -1,5 +1,5 @@
 ﻿using AutoLot.Mvc.Controllers;
-using AutoLot.Mvc.Extensions;
+using AutoLot.Services.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;

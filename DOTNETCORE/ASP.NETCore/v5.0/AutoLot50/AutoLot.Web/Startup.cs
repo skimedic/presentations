@@ -3,6 +3,7 @@ using AutoLot.Dal.Initialization;
 using AutoLot.Dal.Repos;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.ViewModels;
+using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -45,6 +46,7 @@ namespace AutoLot.Web
             services.AddDbContextPool<ApplicationDbContext>(
                 options => options.UseSqlServer(connectionString,
                     sqlOptions => sqlOptions.EnableRetryOnFailure().CommandTimeout(60)));
+            services.AddScoped(typeof(IAppLogging<>), typeof(AppLogging<>));
             services.AddScoped<ICarRepo, CarRepo>();
             services.AddScoped<ICreditRiskRepo, CreditRiskRepo>();
             services.AddScoped<ICustomerRepo, CustomerRepo>();

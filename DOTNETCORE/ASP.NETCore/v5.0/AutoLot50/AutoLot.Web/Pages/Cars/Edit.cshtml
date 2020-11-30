@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-page="Edit" asp-route-id="@Model.Car.Id">
-            @Html.EditorFor(x=>x.Car,new {Makes = Model.Makes})
+            @Html.EditorFor(x => x.Car, new { Makes = Model.Makes })
             <input type="hidden" asp-for="Car.Id" />
             <input type="hidden" asp-for="Car.TimeStamp" />
             <div class="form-group">

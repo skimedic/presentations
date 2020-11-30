@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoLot.Models.Entities;
 
 namespace AutoLot.Dal.Repos.Base
 {
@@ -12,9 +13,9 @@ namespace AutoLot.Dal.Repos.Base
         int Delete(int id, byte[] timeStamp, bool persist = true);
         int Delete(T entity, bool persist = true);
         int DeleteRange(IEnumerable<T> entities, bool persist = true);
-        T Find(int? id);
-        T FindAsNoTracking(int id);
-        T FindIgnoreQueryFilters(int id);
+        T? Find(int? id);
+        T? FindAsNoTracking(int id);
+        T? FindIgnoreQueryFilters(int id);
         IEnumerable<T> GetAll();
         IEnumerable<T> GetAllIgnoreQueryFilters();
         void ExecuteQuery(string sql, object[] sqlParametersObjects);

@@ -1,3 +1,4 @@
+using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -15,6 +16,7 @@ namespace AutoLot.Web
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+                .ConfigureSerilog();
     }
 }

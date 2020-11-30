@@ -70,16 +70,22 @@ namespace AutoLot.Dal.EfStructures
             }
         }
 
-
-        public DbSet<CreditRisk> CreditRisks { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Make> Makes { get; set; }
-        public DbSet<Car> Cars { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<CustomerOrderViewModel> CustomerOrderViewModels { get; set; }
+        public DbSet<SeriLogEntry>? LogEntries { get; set; }
+        public DbSet<CreditRisk>? CreditRisks { get; set; }
+        public DbSet<Customer>? Customers { get; set; }
+        public DbSet<Make>? Makes { get; set; }
+        public DbSet<Car>? Cars { get; set; }
+        public DbSet<Order>? Orders { get; set; }
+        public DbSet<CustomerOrderViewModel>? CustomerOrderViewModels { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<SeriLogEntry>(entity =>
+            {
+                entity.Property(e => e.Properties).HasColumnType("Xml");
+                entity.Property(e => e.TimeStamp).HasDefaultValueSql("GetDate()");
+            });
+
             modelBuilder.Entity<CustomerOrderViewModel>(entity =>
             {
                 entity.HasNoKey().ToView("CustomerOrderView", "dbo");
@@ -89,11 +95,11 @@ namespace AutoLot.Dal.EfStructures
                 entity.HasQueryFilter(c => c.MakeId == MakeId); 
             });
             //New in EF Core 5 - bi-directional query filters
-            modelBuilder.Entity<Order>().HasQueryFilter(e => e.CarNavigation.MakeId == MakeId);
+            modelBuilder.Entity<Order>().HasQueryFilter(e => e.CarNavigation!.MakeId == MakeId);
             modelBuilder.Entity<CreditRisk>(entity =>
             {
                 entity.HasOne(d => d.CustomerNavigation)
-                    .WithMany(p => p.CreditRisks)
+                    .WithMany(p => p!.CreditRisks)
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_CreditRisks_Customers");
 
@@ -135,7 +141,7 @@ namespace AutoLot.Dal.EfStructures
             modelBuilder.Entity<Make>(entity =>
             {
                 entity.HasMany(e => e.Cars)
-                    .WithOne(c => c.MakeNavigation)
+                    .WithOne(c => c.MakeNavigation!)
                     .HasForeignKey(k => k.MakeId)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_Make_Inventory");
@@ -144,13 +150,13 @@ namespace AutoLot.Dal.EfStructures
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasOne(d => d.CarNavigation)
-                    .WithMany(p => p.Orders)
+                    .WithMany(p => p!.Orders)
                     .HasForeignKey(d => d.CarId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Orders_Inventory");
 
                 entity.HasOne(d => d.CustomerNavigation)
-                    .WithMany(p => p.Orders)
+                    .WithMany(p => p!.Orders)
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Orders_Customers");

@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc223bba-71bd-403b-b0cd-c371158dbb74" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.API/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/AutoLot.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/AutoLot.Web.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/Controllers/CarsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/Controllers/CarsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/Views/Cars/Partials/_CarListPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/Views/Cars/Partials/_CarListPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/appsettings.Local.json" beforeDir="false" afterPath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v3.1/AutoLot/AutoLot.Web/appsettings.Local.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v5.0/AutoLot50/AutoLot.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v5.0/AutoLot50/AutoLot.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v5.0/AutoLot50/AutoLot.Web/Pages/Cars/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/DOTNETCORE/ASP.NETCore/v5.0/AutoLot50/AutoLot.Web/Pages/Cars/Edit.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,8 @@
       <workItem from="1600794902960" duration="65000" />
       <workItem from="1602451771888" duration="24000" />
       <workItem from="1602451822024" duration="20000" />
+      <workItem from="1605793688870" duration="20000" />
+      <workItem from="1605900597520" duration="8000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,16 @@
+[20-11-30 15:48:42 Error] AutoLot.Mvc.Controllers.CarsController
+Message:Test error
+in method .ctor at D:\Projects\presentations\DOTNETCORE\ASP.NETCore\v5.0\AutoLot50\AutoLot.Mvc\Controllers\CarsController.cs:20
+
+[20-11-30 16:53:11 Error] AutoLot.Mvc.Controllers.CarsController
+Message:Test error
+in method .ctor at D:\Projects\presentations\DOTNETCORE\ASP.NETCore\v5.0\AutoLot50\AutoLot.Mvc\Controllers\CarsController.cs:20
+
+[20-11-30 16:56:47 Error] AutoLot.Mvc.Controllers.CarsController
+Message:Test error
+in method .ctor at D:\Projects\presentations\DOTNETCORE\ASP.NETCore\v5.0\AutoLot50\AutoLot.Mvc\Controllers\CarsController.cs:20
+
+[20-11-30 18:47:13 Error] AutoLot.Mvc.Controllers.CarsController
+Message:Test error
+in method .ctor at D:\Projects\presentations\DOTNETCORE\ASP.NETCore\v5.0\AutoLot50\AutoLot.Mvc\Controllers\CarsController.cs:20
+

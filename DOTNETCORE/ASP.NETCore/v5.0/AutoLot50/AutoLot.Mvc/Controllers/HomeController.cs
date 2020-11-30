@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.ViewModels;
-using AutoLot.Mvc.Extensions;
 using AutoLot.Mvc.Models;
+using AutoLot.Services.Utilities;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

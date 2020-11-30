@@ -42,11 +42,11 @@ namespace AutoLot.Dal.Initialization
         {
             try
             {
-                ProcessInsert(context, context.Customers, SampleData.Customers);
-                ProcessInsert(context, context.Makes, SampleData.Makes);
-                ProcessInsert(context, context.Cars, SampleData.Inventory);
-                ProcessInsert(context, context.Orders, SampleData.Orders);
-                ProcessInsert(context, context.CreditRisks, SampleData.CreditRisks);
+                ProcessInsert(context, context.Customers!, SampleData.Customers);
+                ProcessInsert(context, context.Makes!, SampleData.Makes);
+                ProcessInsert(context, context.Cars!, SampleData.Inventory);
+                ProcessInsert(context, context.Orders!, SampleData.Orders);
+                ProcessInsert(context, context.CreditRisks!, SampleData.CreditRisks);
             }
             catch (Exception ex)
             {

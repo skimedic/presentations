@@ -29,7 +29,7 @@ namespace AutoLot.Dal.Repos
             return Table.Include(c => c.MakeNavigation).OrderBy(c => c.PetName);
         }
 
-        public override Car Find(int? id)
+        public override Car? Find(int? id)
             => Table.IgnoreQueryFilters().Where(x => x.Id == id).Include(m => m.MakeNavigation).FirstOrDefault();
     }
 }
