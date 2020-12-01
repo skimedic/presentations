@@ -3,6 +3,7 @@ using AutoLot.Dal.Initialization;
 using AutoLot.Dal.Repos;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.ViewModels;
+using AutoLot.Services.ApiWrapper;
 using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -53,6 +54,7 @@ namespace AutoLot.Web
             services.AddScoped<IMakeRepo, MakeRepo>();
             services.AddScoped<IOrderRepo, OrderRepo>();
             services.Configure<DealerInfo>(Configuration.GetSection(nameof(DealerInfo)));
+            services.ConfigureApiServiceWrapper(Configuration);
 
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
             services.AddHttpContextAccessor();

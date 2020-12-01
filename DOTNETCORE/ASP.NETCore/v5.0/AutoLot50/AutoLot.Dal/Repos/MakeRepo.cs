@@ -20,5 +20,8 @@ namespace AutoLot.Dal.Repos
 
         public override IEnumerable<Make> GetAll()
             => Table.OrderBy(m => m.Name);
+
+        public override IEnumerable<Make> GetAllIgnoreQueryFilters()
+            => Table.IgnoreQueryFilters().OrderBy(m => m.Name);
     }
 }

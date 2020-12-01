@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
+using AutoLot.Services.ApiWrapper;
 using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,16 +13,20 @@ namespace AutoLot.Mvc.Controllers
     {
         private readonly ICarRepo _repo;
         private readonly IAppLogging<CarsController> _logging;
+        private readonly IApiServiceWrapper _serviceWrapper;
 
-        public CarsController(ICarRepo repo, IAppLogging<CarsController> logging)
+        public CarsController(ICarRepo repo, IAppLogging<CarsController> logging, IApiServiceWrapper serviceWrapper)
         {
             _repo = repo;
             _logging = logging;
-            _logging.LogAppError("Test error");
+            _serviceWrapper = serviceWrapper;
+            //_logging.LogAppError("Test error");
         }
 
-        internal SelectList GetMakes(IMakeRepo makeRepo)
-            => new SelectList(makeRepo.GetAll(), nameof(Make.Id), nameof(Make.Name));
+        //internal SelectList GetMakes(IMakeRepo makeRepo)
+        //    => new SelectList(makeRepo.GetAll(), nameof(Make.Id), nameof(Make.Name));
+        internal async Task<SelectList> GetMakesFromService()
+            => new SelectList(await _serviceWrapper.GetMakesAsync(), nameof(Make.Id), nameof(Make.Name));
 
         internal Car GetOneCar(int? id)
         {
@@ -60,15 +65,18 @@ namespace AutoLot.Mvc.Controllers
 
         // GET: Cars/Create
         [HttpGet]
-        public IActionResult Create([FromServices] IMakeRepo makeRepo)
+        //public IActionResult Create([FromServices] IMakeRepo makeRepo)
+        public async Task<IActionResult> Create()
         {
-            ViewData["MakeId"] = GetMakes(makeRepo);
+            //ViewData["MakeId"] = GetMakes(makeRepo);
+            ViewData["MakeId"] = await GetMakesFromService();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([FromServices] IMakeRepo makeRepo, Car car)
+        //public IActionResult Create([FromServices] IMakeRepo makeRepo, Car car)
+        public async Task<IActionResult> Create(Car car)
         {
             if (ModelState.IsValid)
             {
@@ -76,27 +84,31 @@ namespace AutoLot.Mvc.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["MakeId"] = GetMakes(makeRepo);
+            //ViewData["MakeId"] = GetMakes(makeRepo);
+            ViewData["MakeId"] = await GetMakesFromService();
             return View(car);
         }
 
         // GET: Cars/Edit/5
         [HttpGet("{id?}")]
-        public IActionResult Edit([FromServices] IMakeRepo makeRepo, int? id)
+        //public IActionResult Edit([FromServices] IMakeRepo makeRepo, int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             var car = GetOneCar(id);
             if (car == null)
             {
                 return NotFound();
             }
-            ViewData["MakeId"] = GetMakes(makeRepo);
+            //ViewData["MakeId"] = GetMakes(makeRepo);
+            ViewData["MakeId"] = await GetMakesFromService();
             return View(car);
         }
 
         // POST: Cars/Edit/5
         [HttpPost("{id}")]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit([FromServices] IMakeRepo makeRepo, int id, Car car)
+        //public IActionResult Edit([FromServices] IMakeRepo makeRepo, int id, Car car)
+        public async Task<IActionResult> Edit(int id, Car car)
         {
             if (id != car.Id)
             {
@@ -105,11 +117,13 @@ namespace AutoLot.Mvc.Controllers
 
             if (ModelState.IsValid)
             {
-                _repo.Update(car);
+                var updatedCar = await _serviceWrapper.UpdateCar(id, car);
+                //_repo.Update(car);
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["MakeId"] = GetMakes(makeRepo);
+            //ViewData["MakeId"] = GetMakes(makeRepo);
+            ViewData["MakeId"] = await GetMakesFromService();
             return View(car);
         }
 
@@ -133,7 +147,8 @@ namespace AutoLot.Mvc.Controllers
             vm.Color = "Black";
             var valid1 = TryValidateModel(vm);
             var valid2 = ModelState.IsValid;
-            ViewData["MakeId"] = GetMakes(makeRepo);
+            //ViewData["MakeId"] = GetMakes(makeRepo);
+            ViewData["MakeId"] = await GetMakesFromService();
             return View("Edit", vm);
         }
 
