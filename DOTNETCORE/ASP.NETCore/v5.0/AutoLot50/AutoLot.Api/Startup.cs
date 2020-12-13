@@ -6,6 +6,7 @@ using AutoLot.Dal.EfStructures;
 using AutoLot.Dal.Initialization;
 using AutoLot.Dal.Repos;
 using AutoLot.Dal.Repos.Interfaces;
+using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -31,21 +32,22 @@ namespace AutoLot.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddControllers();
             services.AddControllers(
-                    config => config.Filters.Add(new CustomExceptionFilter(_env))
+                   config => config.Filters.Add(new CustomExceptionFilter(_env))
                 )
-                .ConfigureApiBehaviorOptions(options =>
-                {
-                    //options.SuppressConsumesConstraintForFormFileParameters = true;
-                    //options.SuppressInferBindingSourcesForParameters = true;
-                    options.SuppressModelStateInvalidFilter = true;
-                    //options.SuppressMapClientErrors = true;
-                    //options.ClientErrorMapping[StatusCodes.Status404NotFound].Link = "https://httpstatuses.com/404";
-                })
                 .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.PropertyNamingPolicy = null;
                     options.JsonSerializerOptions.WriteIndented = true;
+                })
+                .ConfigureApiBehaviorOptions(options =>
+                {
+                    //options.SuppressConsumesConstraintForFormFileParameters = true;
+                    //options.SuppressInferBindingSourcesForParameters = true;
+                    //options.SuppressModelStateInvalidFilter = true;
+                    //options.SuppressMapClientErrors = true;
+                    //options.ClientErrorMapping[StatusCodes.Status404NotFound].Link = "https://httpstatuses.com/404";
                 });
             services.AddCors(options =>
             {
@@ -61,6 +63,7 @@ namespace AutoLot.Api
             services.AddDbContextPool<ApplicationDbContext>(
                 options => options.UseSqlServer(connectionString,
                     sqlOptions => sqlOptions.EnableRetryOnFailure().CommandTimeout(60)));
+            services.AddScoped(typeof(IAppLogging<>), typeof(AppLogging<>));
             services.AddScoped<ICarRepo, CarRepo>();
             services.AddScoped<ICreditRiskRepo, CreditRiskRepo>();
             services.AddScoped<ICustomerRepo, CustomerRepo>();
@@ -81,8 +84,8 @@ namespace AutoLot.Api
                         Description = "Service to support the AutoLot dealer site",
                         License = new OpenApiLicense
                         {
-                            Name = "Apress Publishing",
-                            Url = new Uri("http://www.Apress.com")
+                            Name = "Skimedic Inc",
+                            Url = new Uri("http://www.skimedic.com")
                         }
                     });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -122,11 +125,8 @@ namespace AutoLot.Api
             //enable authorization checks
             app.UseAuthorization();
             //opt-in to using endpoint routing
-            app.UseEndpoints(endpoints =>
-            {
-                //use attribute routing on controllers
-                endpoints.MapControllers();
-            });
+			//use attribute routing on controllers
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

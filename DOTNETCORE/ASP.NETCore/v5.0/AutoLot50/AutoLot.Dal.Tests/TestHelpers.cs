@@ -22,7 +22,8 @@ namespace AutoLot.Dal.Tests
             return new ApplicationDbContext(optionsBuilder.Options);
         }
 
-        public static ApplicationDbContext GetSecondContext(ApplicationDbContext oldContext, IDbContextTransaction trans)
+        public static ApplicationDbContext GetSecondContext(ApplicationDbContext oldContext,
+            IDbContextTransaction trans)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionsBuilder.UseSqlServer(

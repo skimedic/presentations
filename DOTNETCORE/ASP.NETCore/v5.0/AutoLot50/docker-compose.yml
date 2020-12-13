@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    ports:
+      - "7433:1433"
+    environment:
+      SA_PASSWORD: "P@ssw0rd"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+
+  autolot.api:
+    image: ${DOCKER_REGISTRY-}autolotapi
+    ports:
+      - "5020:80"
+      - "5021:443"
+    build:
+      context: .
+      dockerfile: AutoLot.Api/Dockerfile
+    depends_on:
+      - "db"

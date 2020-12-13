@@ -1,4 +1,5 @@
 using AutoLot.Api;
+using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -10,4 +11,5 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
         {
             webBuilder.UseStartup<Startup>();
             //webBuilder.UseStartup(context => new Startup(configuration, env))
-        });
+        })
+		.ConfigureSerilog();

@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+using AutoLot.Dal.Exceptions;
 using AutoLot.Models.Entities.Base;
 using AutoLot.Dal.Repos.Base;
+using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace AutoLot.Api.Controllers.Base
 {
@@ -19,9 +15,9 @@ namespace AutoLot.Api.Controllers.Base
         where TController : BaseCrudController<T, TController>
     {
         protected readonly IRepo<T> MainRepo;
-        protected readonly ILogger<TController> Logger;
+        protected readonly IAppLogging<TController> Logger;
 
-        protected BaseCrudController(IRepo<T> repo, ILogger<TController> logger)
+        protected BaseCrudController(IRepo<T> repo, IAppLogging<TController> logger)
         {
             MainRepo = repo;
             Logger = logger;
@@ -87,7 +83,7 @@ namespace AutoLot.Api.Controllers.Base
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPut("{id}")]
-        public IActionResult UpdateOne(int id,[FromBody]T entity)
+        public IActionResult UpdateOne(int id,T entity)
         {
             if (id != entity.Id)
             {
@@ -98,8 +94,9 @@ namespace AutoLot.Api.Controllers.Base
             {
                 MainRepo.Update(entity);
             }
-            catch (DbUpdateConcurrencyException ex)
+            catch (CustomException ex)
             {
+                //This shows an example with the custom exception
                 //Should handle more gracefully
                 return BadRequest(ex);
             }

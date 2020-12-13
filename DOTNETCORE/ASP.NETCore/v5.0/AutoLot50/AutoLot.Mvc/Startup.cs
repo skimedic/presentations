@@ -45,11 +45,13 @@ namespace AutoLot.Mvc
             // so TempData is functional when tracking is disabled.
             services.Configure<CookieTempDataProviderOptions>(options => { options.Cookie.IsEssential = true; });
             services.AddSession(options => { options.Cookie.IsEssential = true; });
-            var connectionString = Configuration.GetConnectionString("AutoLot");
+            
+			var connectionString = Configuration.GetConnectionString("AutoLot");
             services.AddDbContextPool<ApplicationDbContext>(
                 options => options.UseSqlServer(connectionString,
                     sqlOptions => sqlOptions.EnableRetryOnFailure().CommandTimeout(60)));
-            services.AddScoped(typeof(IAppLogging<>), typeof(AppLogging<>));
+            
+			services.AddScoped(typeof(IAppLogging<>), typeof(AppLogging<>));
             services.AddScoped<ICarRepo, CarRepo>();
             services.AddScoped<ICreditRiskRepo, CreditRiskRepo>();
             services.AddScoped<ICustomerRepo, CustomerRepo>();
@@ -59,7 +61,8 @@ namespace AutoLot.Mvc
             services.ConfigureApiServiceWrapper(Configuration);
 
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
-            services.AddHttpContextAccessor();
+			services.AddHttpContextAccessor();
+			
             if (_env.IsDevelopment() || _env.IsEnvironment("Local"))
             {
                 //services.AddWebOptimizer(false,false);

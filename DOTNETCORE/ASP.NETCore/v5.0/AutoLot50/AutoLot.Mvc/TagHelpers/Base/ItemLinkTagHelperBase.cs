@@ -27,8 +27,6 @@ namespace AutoLot.Mvc.TagHelpers.Base
             output.Attributes.SetAttribute("href", target);
             output.Attributes.Add("class",className);
             output.Content.AppendHtml($@"{displayText} <i class=""fas fa-{fontAwesomeName}""></i>");
-
         }
-
     }
 }

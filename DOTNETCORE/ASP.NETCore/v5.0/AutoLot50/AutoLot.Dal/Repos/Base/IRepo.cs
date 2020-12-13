@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using AutoLot.Models.Entities;
 
 namespace AutoLot.Dal.Repos.Base
 {

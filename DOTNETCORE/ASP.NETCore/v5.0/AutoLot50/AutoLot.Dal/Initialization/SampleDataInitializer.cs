@@ -21,7 +21,8 @@ namespace AutoLot.Dal.Initialization
     {
         internal static void ClearData(ApplicationDbContext context)
         {
-            var entities = new[] {
+            var entities = new[]
+            {
                 typeof(Order).FullName,
                 typeof(Customer).FullName,
                 typeof(Car).FullName,
@@ -104,6 +105,5 @@ namespace AutoLot.Dal.Initialization
             ClearData(context);
             SeedData(context);
         }
-
     }
 }

@@ -1,4 +1,7 @@
-﻿using AutoLot.Dal.Repos.Interfaces;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using AutoLot.Dal.Repos.Interfaces;
+using AutoLot.Services.ApiWrapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 
@@ -12,24 +15,33 @@ namespace AutoLot.Mvc.ViewComponents
 
     public class MenuViewComponent : ViewComponent
     {
+        private readonly IApiServiceWrapper _serviceWrapper;
         private readonly IMakeRepo _makeRepo;
 
-        public MenuViewComponent(IMakeRepo makeRepo)
+        public MenuViewComponent(IApiServiceWrapper serviceWrapper, IMakeRepo makeRepo)
         {
+            _serviceWrapper = serviceWrapper;
             _makeRepo = makeRepo;
         }
 
-        //public async Task<IViewComponentResult> InvokeAsync()
         public IViewComponentResult Invoke()
         {
-            var makes = _makeRepo.GetAll();
-            if (makes == null)
+            var makes = _makeRepo.GetAll().ToList();
+            if (!makes.Any())
             {
                 return new ContentViewComponentResult("Unable to get the makes");
             }
 
             return View("MenuView", makes);
         }
-
+        //public async Task<IViewComponentResult> InvokeAsync()
+        //{
+        //    var makes = await _serviceWrapper.GetMakesAsync();
+        //    if (makes == null)
+        //    {
+        //        return new ContentViewComponentResult("Unable to get the makes");
+        //    }
+        //    return View("MenuView", makes);
+        //}
     }
 }

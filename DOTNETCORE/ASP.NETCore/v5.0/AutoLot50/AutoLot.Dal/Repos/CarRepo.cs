@@ -18,9 +18,10 @@ namespace AutoLot.Dal.Repos
         {
         }
 
-        public override IEnumerable<Car> GetAll() 
+        public override IEnumerable<Car> GetAll()
             => Table.Include(c => c.MakeNavigation).OrderBy(o => o.PetName);
-        public override IEnumerable<Car> GetAllIgnoreQueryFilters() 
+
+        public override IEnumerable<Car> GetAllIgnoreQueryFilters()
             => Table.Include(c => c.MakeNavigation).OrderBy(o => o.PetName).IgnoreQueryFilters();
 
         public IEnumerable<Car> GetAllBy(int makeId)

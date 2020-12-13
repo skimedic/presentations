@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AutoLot.Dal.EfStructures
 {
@@ -32,6 +29,7 @@ namespace AutoLot.Dal.EfStructures
                     INNER JOIN dbo.Makes ON dbo.Makes.Id = dbo.Inventory.MakeId
                 ')");
         }
+
         public static void DropCustomerOrderView(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql("EXEC (N' DROP VIEW [dbo].[CustomerOrderView] ')");

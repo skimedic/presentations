@@ -27,19 +27,20 @@ namespace AutoLot.Api.Filters
                 case DbUpdateConcurrencyException ce:
                     //Returns a 400
                     error = "Concurrency Issue.";
-                    actionResult = new BadRequestObjectResult(new { Error = error, Message = message, StackTrace = stackTrace });
+                    actionResult = new BadRequestObjectResult(new
+                        {Error = error, Message = message, StackTrace = stackTrace});
                     break;
                 default:
                     error = "General Error.";
-                    actionResult = new ObjectResult(new { Error = error, Message = message, StackTrace = stackTrace })
+                    actionResult = new ObjectResult(new {Error = error, Message = message, StackTrace = stackTrace})
                     {
                         StatusCode = 500
                     };
                     break;
             }
+
             //context.ExceptionHandled = true; //If this is uncommented, the exception is swallowed
             context.Result = actionResult;
         }
-
     }
 }

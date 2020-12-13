@@ -120,7 +120,7 @@ namespace AutoLot.Dal.Tests.ContextTests
             Assert.NotNull(car.MakeNavigation);
 
             Assert.Empty(car.Orders);
-            Context.Entry(car).Collection(c => c.Orders).Load();
+            Context.Entry(car).Collection(c => c.Orders).Query().IgnoreQueryFilters().Load();
             Assert.Single(car.Orders);
         }
 

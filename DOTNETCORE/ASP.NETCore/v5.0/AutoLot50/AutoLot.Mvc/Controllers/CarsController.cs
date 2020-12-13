@@ -9,53 +9,44 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace AutoLot.Mvc.Controllers
 {
     [Route("[controller]/[action]")]
+    //[Route("Cars/[action]")]
     public class CarsController : Controller
     {
-        private readonly ICarRepo _repo;
-        private readonly IAppLogging<CarsController> _logging;
         private readonly IApiServiceWrapper _serviceWrapper;
-
-        public CarsController(ICarRepo repo, IAppLogging<CarsController> logging, IApiServiceWrapper serviceWrapper)
+        private readonly IAppLogging<CarsController> _logging;
+        public CarsController(IApiServiceWrapper serviceWrapper, IAppLogging<CarsController> logging)
         {
-            _repo = repo;
-            _logging = logging;
             _serviceWrapper = serviceWrapper;
+            _logging = logging;
             //_logging.LogAppError("Test error");
         }
-
-        //internal SelectList GetMakes(IMakeRepo makeRepo)
-        //    => new SelectList(makeRepo.GetAll(), nameof(Make.Id), nameof(Make.Name));
-        internal async Task<SelectList> GetMakesFromService()
+        internal async Task<SelectList> GetMakesAsync()
             => new SelectList(await _serviceWrapper.GetMakesAsync(), nameof(Make.Id), nameof(Make.Name));
 
-        internal Car GetOneCar(int? id)
-        {
-            return id == null ? null :  _repo.Find(id.Value);
-        }
+        internal async Task<Car> GetOneCarAsync(int? id) 
+            => id == null ? null : await _serviceWrapper.GetCarAsync(id.Value);
 
         [Route("/[controller]")]
         [Route("/[controller]/[action]")]
-        public IActionResult Index()
-        {
-            return View(_repo.GetAllIgnoreQueryFilters());
-        }
+        public async Task<IActionResult> Index() 
+            => View(await _serviceWrapper.GetCarsAsync());
 
         [HttpGet("{makeId}/{makeName}")]
-        public IActionResult ByMake(int makeId, string makeName)
+        public async Task<IActionResult> ByMake(int makeId, string makeName)
         {
             ViewBag.MakeName = makeName;
-            return View(_repo.GetAllBy(makeId));
+            return View(await _serviceWrapper.GetCarsByMakeAsync(makeId));
         }
 
         // GET: Cars/Details/5
         [HttpGet("{id?}")]
-        public IActionResult Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (!id.HasValue)
             {
                 return BadRequest();
             }
-            var car = GetOneCar(id);
+            var car = await GetOneCarAsync(id);
             if (car == null)
             {
                 return NotFound();
@@ -65,65 +56,52 @@ namespace AutoLot.Mvc.Controllers
 
         // GET: Cars/Create
         [HttpGet]
-        //public IActionResult Create([FromServices] IMakeRepo makeRepo)
         public async Task<IActionResult> Create()
         {
-            //ViewData["MakeId"] = GetMakes(makeRepo);
-            ViewData["MakeId"] = await GetMakesFromService();
+            ViewData["MakeId"] = await GetMakesAsync();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public IActionResult Create([FromServices] IMakeRepo makeRepo, Car car)
         public async Task<IActionResult> Create(Car car)
         {
             if (ModelState.IsValid)
             {
-                _repo.Add(car);
+                await _serviceWrapper.AddCarAsync(car);
                 return RedirectToAction(nameof(Index));
             }
-
-            //ViewData["MakeId"] = GetMakes(makeRepo);
-            ViewData["MakeId"] = await GetMakesFromService();
+            ViewData["MakeId"] = await GetMakesAsync();
             return View(car);
         }
 
         // GET: Cars/Edit/5
         [HttpGet("{id?}")]
-        //public IActionResult Edit([FromServices] IMakeRepo makeRepo, int? id)
         public async Task<IActionResult> Edit(int? id)
         {
-            var car = GetOneCar(id);
+            var car = await GetOneCarAsync(id);
             if (car == null)
             {
                 return NotFound();
             }
-            //ViewData["MakeId"] = GetMakes(makeRepo);
-            ViewData["MakeId"] = await GetMakesFromService();
+            ViewData["MakeId"] = await GetMakesAsync();
             return View(car);
         }
 
-        // POST: Cars/Edit/5
         [HttpPost("{id}")]
         [ValidateAntiForgeryToken]
-        //public IActionResult Edit([FromServices] IMakeRepo makeRepo, int id, Car car)
         public async Task<IActionResult> Edit(int id, Car car)
         {
             if (id != car.Id)
             {
                 return BadRequest();
             }
-
             if (ModelState.IsValid)
             {
-                var updatedCar = await _serviceWrapper.UpdateCar(id, car);
-                //_repo.Update(car);
+                await _serviceWrapper.UpdateCarAsync(id,car);
                 return RedirectToAction(nameof(Index));
             }
-
-            //ViewData["MakeId"] = GetMakes(makeRepo);
-            ViewData["MakeId"] = await GetMakesFromService();
+            ViewData["MakeId"] = await GetMakesAsync();
             return View(car);
         }
 
@@ -148,29 +126,28 @@ namespace AutoLot.Mvc.Controllers
             var valid1 = TryValidateModel(vm);
             var valid2 = ModelState.IsValid;
             //ViewData["MakeId"] = GetMakes(makeRepo);
-            ViewData["MakeId"] = await GetMakesFromService();
+            ViewData["MakeId"] = await GetMakesAsynce();
             return View("Edit", vm);
         }
 
         // GET: Cars/Delete/5
         [HttpGet("{id?}")]
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            var car = GetOneCar(id);
+            var car = await GetOneCarAsync(id);
             if (car == null)
             {
                 return NotFound();
             }
-
             return View(car);
         }
 
         // POST: Cars/Delete/5
         [HttpPost("{id}")]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id, Car car)
+        public async Task<IActionResult> Delete(int id, Car car)
         {
-            _repo.Delete(car);
+            await _serviceWrapper.DeleteCarAsync(id,car);
             return RedirectToAction(nameof(Index));
         }
     }

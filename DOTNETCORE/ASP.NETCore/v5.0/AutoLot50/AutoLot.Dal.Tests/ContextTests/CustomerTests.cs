@@ -107,6 +107,23 @@ namespace AutoLot.Dal.Tests.ContextTests
             var customers = Context.Customers
                 .OrderBy(x => x.PersonalInformation.LastName)
                 .ThenBy(x => x.PersonalInformation.FirstName).ToList();
+            if (customers.Count <= 1)
+            {
+                return;
+            }
+
+            for (int x = 0; x < customers.Count - 1; x++)
+            {
+                var compareLastName = string.Compare(customers[x].PersonalInformation.LastName,
+                    customers[x + 1].PersonalInformation.LastName, StringComparison.CurrentCultureIgnoreCase);
+                Assert.True(compareLastName <= 0);
+                if (compareLastName == 0)
+                {
+                    var compareFirstName = string.Compare(customers[x].PersonalInformation.FirstName,
+                        customers[x + 1].PersonalInformation.FirstName, StringComparison.CurrentCultureIgnoreCase);
+                    Assert.True(compareLastName <= 0);
+                }
+            }
         }
     }
 }

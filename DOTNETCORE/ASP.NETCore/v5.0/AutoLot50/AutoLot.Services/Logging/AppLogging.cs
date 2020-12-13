@@ -87,19 +87,6 @@ namespace AutoLot.Services.Logging
             }
         }
 
-        public void LogAppDebug(Exception exception, string message,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0)
-        {
-            var list = PushProperties(memberName, sourceFilePath, sourceLineNumber);
-            _logger.LogDebug(exception, message);
-            foreach (var item in list)
-            {
-                item.Dispose();
-            }
-        }
-
         public void LogAppDebug(string message,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -107,19 +94,6 @@ namespace AutoLot.Services.Logging
         {
             var list = PushProperties(memberName, sourceFilePath, sourceLineNumber);
             _logger.LogDebug(message);
-            foreach (var item in list)
-            {
-                item.Dispose();
-            }
-        }
-
-        public void LogAppTrace(Exception exception, string message,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0)
-        {
-            var list = PushProperties(memberName, sourceFilePath, sourceLineNumber);
-            _logger.LogTrace(exception, message);
             foreach (var item in list)
             {
                 item.Dispose();
@@ -139,39 +113,13 @@ namespace AutoLot.Services.Logging
             }
         }
 
-        public void LogAppInformation(Exception exception, string message,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0)
-        {
-            var list = PushProperties(memberName, sourceFilePath, sourceLineNumber);
-            _logger.LogInformation(exception, message);
-            foreach (var item in list)
-            {
-                item.Dispose();
-            }
-        }
-
         public void LogAppInformation(string message,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0)
         {
             var list = PushProperties(memberName, sourceFilePath, sourceLineNumber);
-                _logger.LogInformation(message);
-            foreach (var item in list)
-            {
-                item.Dispose();
-            }
-        }
-
-        public void LogAppWarning(Exception exception, string message,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0)
-        {
-            var list = PushProperties(memberName, sourceFilePath, sourceLineNumber);
-            _logger.LogWarning(exception, message);
+            _logger.LogInformation(message);
             foreach (var item in list)
             {
                 item.Dispose();

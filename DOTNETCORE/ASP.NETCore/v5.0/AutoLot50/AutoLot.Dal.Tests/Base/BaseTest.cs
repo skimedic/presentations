@@ -11,13 +11,14 @@ namespace AutoLot.Dal.Tests.Base
     {
         protected readonly IConfiguration Configuration;
         protected readonly ApplicationDbContext Context;
+
         protected BaseTest()
         {
             Configuration = TestHelpers.GetConfiguration();
             Context = TestHelpers.GetContext(Configuration);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             Context.Dispose();
         }
@@ -43,8 +44,5 @@ namespace AutoLot.Dal.Tests.Base
                 trans.Rollback();
             });
         }
-
-
-
     }
 }

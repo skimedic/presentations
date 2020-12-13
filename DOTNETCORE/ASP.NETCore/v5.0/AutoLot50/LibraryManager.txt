@@ -1,0 +1,1 @@
+dotnet tool install --global Microsoft.Web.LibraryManager.Cli --version 2.1.113

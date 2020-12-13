@@ -52,6 +52,7 @@ namespace AutoLot.Dal.EfStructures
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
+
                     Console.WriteLine($"The object was {action}");
                     break;
                 case EntityState.Detached:
@@ -162,7 +163,6 @@ namespace AutoLot.Dal.EfStructures
                     .HasConstraintName("FK_Orders_Customers");
                 entity.HasIndex(cr => new {cr.CustomerId, cr.CarId}).IsUnique(true);
             });
-
             base.OnModelCreating(modelBuilder);
         }
 

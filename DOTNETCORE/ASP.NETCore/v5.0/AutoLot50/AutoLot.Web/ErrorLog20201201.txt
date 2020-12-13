@@ -1,0 +1,4 @@
+[20-12-01 16:21:36 Error] AutoLot.Web.Pages.Cars.IndexModel
+Message:Another Test
+in method .ctor at D:\Projects\presentations\DOTNETCORE\ASP.NETCore\v5.0\AutoLot50\AutoLot.Web\Pages\Cars\Index.cshtml.cs:21
+

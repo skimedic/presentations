@@ -1,4 +1,5 @@
-﻿using AutoLot.Mvc.TagHelpers.Base;
+﻿using AutoLot.Mvc.Controllers;
+using AutoLot.Mvc.TagHelpers.Base;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -12,7 +13,7 @@ namespace AutoLot.Mvc.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            BuildContent(output,"Index","text-default","Back to List","list");
+            BuildContent(output,nameof(CarsController.Index),"text-default","Back to List","list");
         }
     }
 }
