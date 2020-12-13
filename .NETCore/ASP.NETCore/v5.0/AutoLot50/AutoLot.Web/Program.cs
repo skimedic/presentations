@@ -1,0 +1,29 @@
+// Copyright Information
+// ==================================
+// AutoLot50 - AutoLot.Web - Program.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2020/12/13
+// ==================================
+
+using AutoLot.Services.Logging;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
+namespace AutoLot.Web
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                })
+                .ConfigureSerilog();
+    }
+}
