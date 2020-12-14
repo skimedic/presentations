@@ -1,6 +1,6 @@
 // Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Mvc - Startup.cs
+// AutoLot - AutoLot.Mvc - Startup.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================
@@ -107,7 +107,7 @@ namespace AutoLot.Mvc
                 //var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 if (Configuration.GetValue<bool>("RebuildDataBase"))
                 {
-                    SampleDataInitializer.InitializeData(context);
+                    SampleDataInitializer.ClearAndReseedDatabase(context);
                 }
             }
             else

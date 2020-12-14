@@ -1,6 +1,6 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Api - MakesController.cs
+// AutoLot - AutoLot.Api - MakesController.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================

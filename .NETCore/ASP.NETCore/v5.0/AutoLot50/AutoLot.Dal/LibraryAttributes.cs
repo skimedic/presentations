@@ -1,6 +1,6 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Dal - LibraryAttributes.cs
+// AutoLot - AutoLot.Dal - LibraryAttributes.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================

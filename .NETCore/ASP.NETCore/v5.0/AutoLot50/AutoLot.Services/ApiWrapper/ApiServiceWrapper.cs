@@ -1,6 +1,6 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Services - ApiServiceWrapper.cs
+// AutoLot - AutoLot.Services - ApiServiceWrapper.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================

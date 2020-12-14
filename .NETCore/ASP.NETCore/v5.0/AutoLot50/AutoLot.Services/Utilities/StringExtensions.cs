@@ -1,6 +1,6 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Services - StringExtensions.cs
+// AutoLot - AutoLot.Services - StringExtensions.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================

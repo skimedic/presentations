@@ -1,6 +1,6 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Dal - ApplicationDbContextFactory.cs
+// AutoLot - AutoLot.Dal - ApplicationDbContextFactory.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================

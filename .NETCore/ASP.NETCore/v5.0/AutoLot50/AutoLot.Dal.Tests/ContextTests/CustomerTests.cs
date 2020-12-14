@@ -1,6 +1,6 @@
 // Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Dal.Tests - CustomerTests.cs
+// AutoLot - AutoLot.Dal.Tests - CustomerTests.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================
@@ -10,6 +10,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using AutoLot.Models.Entities;
 using AutoLot.Dal.Tests.Base;
+using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace AutoLot.Dal.Tests.ContextTests
@@ -109,11 +110,13 @@ namespace AutoLot.Dal.Tests.ContextTests
         }
 
         [Fact]
-        public void ShouldSortByFirstNameThenLastName()
+        public void ShouldSortByLastNameThenFirstName()
         {
-            var customers = Context.Customers
+            var query = Context.Customers
                 .OrderBy(x => x.PersonalInformation.LastName)
-                .ThenBy(x => x.PersonalInformation.FirstName).ToList();
+                .ThenBy(x => x.PersonalInformation.FirstName);
+            var qs = query.ToQueryString();
+            var customers = query.ToList();
             if (customers.Count <= 1)
             {
                 return;
@@ -121,15 +124,41 @@ namespace AutoLot.Dal.Tests.ContextTests
 
             for (int x = 0; x < customers.Count - 1; x++)
             {
-                var compareLastName = string.Compare(customers[x].PersonalInformation.LastName,
-                    customers[x + 1].PersonalInformation.LastName, StringComparison.CurrentCultureIgnoreCase);
+                var pi = customers[x].PersonalInformation;
+                var pi2 = customers[x + 1].PersonalInformation;
+                var compareLastName = string.Compare(pi.LastName,
+                    pi2.LastName, StringComparison.CurrentCultureIgnoreCase);
                 Assert.True(compareLastName <= 0);
-                if (compareLastName == 0)
-                {
-                    var compareFirstName = string.Compare(customers[x].PersonalInformation.FirstName,
-                        customers[x + 1].PersonalInformation.FirstName, StringComparison.CurrentCultureIgnoreCase);
-                    Assert.True(compareLastName <= 0);
-                }
+                if (compareLastName != 0) continue;
+                var compareFirstName = string.Compare(pi.FirstName,
+                    pi2.FirstName, StringComparison.CurrentCultureIgnoreCase);
+                Assert.True(compareFirstName <= 0);
+            }
+        }
+        [Fact]
+        public void ShouldSortByFirstNameThenLastNameUsingReverse()
+        {
+            var query = Context.Customers
+                .OrderBy(x => x.PersonalInformation.LastName)
+                .ThenBy(x => x.PersonalInformation.FirstName).Reverse();
+            var qs = query.ToQueryString();
+            var customers = query.ToList();
+            if (customers.Count <= 1)
+            {
+                return;
+            }
+
+            for (int x = 0; x < customers.Count - 1; x++)
+            {
+                var pi1 = customers[x].PersonalInformation;
+                var pi2 = customers[x + 1].PersonalInformation;
+                var compareLastName = string.Compare(pi1.LastName,
+                    pi2.LastName, StringComparison.CurrentCultureIgnoreCase);
+                Assert.True(compareLastName >= 0);
+                if (compareLastName != 0) continue;
+                var compareFirstName = string.Compare(pi1.FirstName,
+                    pi2.FirstName, StringComparison.CurrentCultureIgnoreCase);
+                Assert.True(compareFirstName >= 0);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Mvc - MustBeGreaterThanZeroAttribute.cs
+// AutoLot - AutoLot.Mvc - MustBeGreaterThanZeroAttribute.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================

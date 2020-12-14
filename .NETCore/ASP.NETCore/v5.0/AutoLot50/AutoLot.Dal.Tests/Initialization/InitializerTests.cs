@@ -1,6 +1,6 @@
 // Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Dal.Tests - InitializerTests.cs
+// AutoLot - AutoLot.Dal.Tests - InitializerTests.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================
@@ -16,7 +16,6 @@ namespace AutoLot.Dal.Tests.Initialization
     [Collection("Integration Tests")]
     public class InitializerTests : BaseTest
     {
-
         [Fact]
         public void ShouldDropAndCreateTheDatabase()
         {
@@ -36,20 +35,25 @@ namespace AutoLot.Dal.Tests.Initialization
         [Fact]
         public void ShouldClearAndReseedTheDatabase()
         {
-            SampleDataInitializer.InitializeData(Context);
+            SampleDataInitializer.ClearAndReseedDatabase(Context);
             var cars = Context.Cars.IgnoreQueryFilters().ToList();
             Assert.NotNull(cars);
             Assert.Equal(9, cars.Count);
         }
+
         [Fact]
         public void ShouldClearTheData()
         {
             SampleDataInitializer.InitializeData(Context);
-            SampleDataInitializer.ClearData(Context);
-            var cars = Context.Cars.IgnoreQueryFilters();
+            var cars = Context.Cars.IgnoreQueryFilters().ToList();
             Assert.NotNull(cars);
-            Assert.Empty(cars);
+            Assert.Equal(9, cars.Count);
+            SampleDataInitializer.ClearData(Context);
+            var cars2 = Context.Cars.IgnoreQueryFilters();
+            Assert.NotNull(cars2);
+            Assert.Empty(cars2);
         }
+
         [Fact]
         public void ShouldReseedTheTables()
         {
@@ -58,6 +62,5 @@ namespace AutoLot.Dal.Tests.Initialization
             Assert.NotNull(cars);
             Assert.Equal(9, cars.Count);
         }
-
     }
 }

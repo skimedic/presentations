@@ -43,6 +43,40 @@ namespace PerformanceEfCore
                 })
                 .Take(100).ToList();
         }
+        public static void RunNonSplitQuery()
+        {
+            using var db = new AW2016Context();
+            var l = db.Product
+                .Include(x => x.TransactionHistory)
+                .Include(x => x.ProductSubcategory).ThenInclude(x=>x.ProductCategory)
+                .Include(x => x.ProductReview)
+                .Select(x => new ModelForTesting()
+                {
+                    ProductId = x.ProductId,
+                    Class = x.Class,
+                    ModifiedDate = x.TransactionHistory.Select(th => th.ModifiedDate).FirstOrDefault(),
+                    CategoryName = x.ProductSubcategory.ProductCategory.Name,
+                    Email = x.ProductReview.Select(pr => pr.EmailAddress).FirstOrDefault()
+                })
+                .Take(100).ToList();
+        }
+        public static void RunSplitQuery()
+        {
+            using var db = new AW2016Context();
+            var l = db.Product.AsSplitQuery()
+                .Include(x => x.TransactionHistory)
+                .Include(x => x.ProductSubcategory).ThenInclude(x=>x.ProductCategory)
+                .Include(x => x.ProductReview)
+                .Select(x => new ModelForTesting()
+                {
+                    ProductId = x.ProductId,
+                    Class = x.Class,
+                    ModifiedDate = x.TransactionHistory.Select(th => th.ModifiedDate).FirstOrDefault(),
+                    CategoryName = x.ProductSubcategory.ProductCategory.Name,
+                    Email = x.ProductReview.Select(pr => pr.EmailAddress).FirstOrDefault()
+                })
+                .Take(100).ToList();
+        }
 
         public static void AddRecordsAndSave()
         {
@@ -57,7 +91,7 @@ namespace PerformanceEfCore
         public static void AddRecordsAndSaveNoBatching()
         {
             var builder = new DbContextOptionsBuilder<AW2016Context>();
-            var connectionString = @"server=.\dev2019;Database=Adventureworks2016;Trusted_Connection=True;";
+            var connectionString = @"server=.\dev2019;Database=Adventureworks2019;Trusted_Connection=True;";
             builder.UseSqlServer(connectionString, options => options.MaxBatchSize(1));
 
             using var db = new AW2016Context(builder.Options);

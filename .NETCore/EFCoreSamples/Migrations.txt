@@ -2,8 +2,7 @@ Scaffold AW
 
 dotnet ef dbcontext scaffold "server=.\dev2019;Database=Adventureworks2016;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d -c AwDbContext --context-dir EfStructures -o Entities 
 
-
-C:\GitHub\presentations\DOTNETCORE\EntityFrameworkCore\EfCoreBasics>dotnet ef dbcontext scaffold -h
+dotnet ef dbcontext scaffold -h
 
 
 Usage: dotnet ef dbcontext scaffold [arguments] [options]
@@ -14,24 +13,27 @@ Arguments:
 
 Options:
   -d|--data-annotations                  Use attributes to configure the model (where possible). If omitted, only the fluent API is used.
-  -c|--context <NAME>                    The name of the DbContext.
-  --context-dir <PATH>                   The directory to put DbContext file in. Paths are relative to the project directory.
+  -c|--context <NAME>                    The name of the DbContext. Defaults to the database name.
+  --context-dir <PATH>                   The directory to put the DbContext file in. Paths are relative to the project directory.
   -f|--force                             Overwrite existing files.
   -o|--output-dir <PATH>                 The directory to put files in. Paths are relative to the project directory.
   --schema <SCHEMA_NAME>...              The schemas of tables to generate entity types for.
   -t|--table <TABLE_NAME>...             The tables to generate entity types for.
   --use-database-names                   Use table and column names directly from the database.
-  --json                                 Show JSON output.
-  -p|--project <PROJECT>                 The project to use.
-  -s|--startup-project <PROJECT>         The startup project to use.
-  --framework <FRAMEWORK>                The target framework.
+  --json                                 Show JSON output. Use with --prefix-output to parse programatically.
+  -n|--namespace <NAMESPACE>             The namespace to use. Matches the directory by default.
+  --context-namespace <NAMESPACE>        The namespace of the DbContext class. Matches the directory by default.
+  --no-onconfiguring                     Don't generate DbContext.OnConfiguring.
+  --no-pluralize                         Don't use the pluralizer.
+  -p|--project <PROJECT>                 The project to use. Defaults to the current working directory.
+  -s|--startup-project <PROJECT>         The startup project to use. Defaults to the current working directory.
+  --framework <FRAMEWORK>                The target framework. Defaults to the first one in the project.
   --configuration <CONFIGURATION>        The configuration to use.
   --runtime <RUNTIME_IDENTIFIER>         The runtime to use.
   --msbuildprojectextensionspath <PATH>  The MSBuild project extensions path. Defaults to "obj".
-  --no-build                             Don't build the project. Only use this when the build is up-to-date.
+  --no-build                             Don't build the project. Intended to be used when the build is up-to-date.
   -h|--help                              Show help information
   -v|--verbose                           Show verbose output.
   --no-color                             Don't colorize output.
   --prefix-output                        Prefix output with level.
 
-C:\GitHub\presentations\DOTNETCORE\EntityFrameworkCore\EfCoreBasics>

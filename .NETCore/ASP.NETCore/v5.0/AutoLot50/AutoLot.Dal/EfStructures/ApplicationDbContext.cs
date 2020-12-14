@@ -1,6 +1,6 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Dal - ApplicationDbContext.cs
+// AutoLot - AutoLot.Dal - ApplicationDbContext.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================
@@ -93,17 +93,26 @@ namespace AutoLot.Dal.EfStructures
                 entity.Property(e => e.Properties).HasColumnType("Xml");
                 entity.Property(e => e.TimeStamp).HasDefaultValueSql("GetDate()");
             });
+            //modelBuilder.Entity<SeriLogEntry>(entity =>
+            //{
+            //    entity.ToTable("Serilog", "Logging", t => t.ExcludeFromMigrations());
+            //});
 
-            modelBuilder.Entity<CustomerOrderViewModel>(entity =>
-            {
-                entity.HasNoKey().ToView("CustomerOrderView", "dbo");
-            });
-
-            modelBuilder.Entity<Car>(entity => { 
-                entity.HasQueryFilter(c => c.MakeId == MakeId); 
-            });
+            modelBuilder.Entity<Car>().HasQueryFilter(c => c.MakeId == MakeId); 
             //New in EF Core 5 - bi-directional query filters
             modelBuilder.Entity<Order>().HasQueryFilter(e => e.CarNavigation!.MakeId == MakeId);
+
+            modelBuilder.Entity<CustomerOrderViewModel>().HasNoKey().ToView("CustomerOrderView", "dbo");
+            //modelBuilder.Entity<CustomerOrderViewModel>(entity =>
+            //{
+            //    entity.HasNoKey().ToSqlQuery(@"SELECT c.FirstName, c.LastName, i.Color, i.PetName, m.Name AS Make
+            //            FROM   dbo.Orders o
+            //            INNER JOIN dbo.Customers c ON o.CustomerId = c.Id 
+            //            INNER JOIN dbo.Inventory  i ON o.CarId = i.Id
+            //            INNER JOIN dbo.Makes m ON m.Id = i.MakeId
+            //            ");
+            //});
+
             modelBuilder.Entity<CreditRisk>(entity =>
             {
                 entity.HasOne(d => d.CustomerNavigation)

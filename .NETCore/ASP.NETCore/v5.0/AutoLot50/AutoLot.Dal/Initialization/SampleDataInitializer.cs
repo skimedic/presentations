@@ -1,6 +1,6 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Dal - SampleDataInitializer.cs
+// AutoLot - AutoLot.Dal - SampleDataInitializer.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================
@@ -101,6 +101,7 @@ namespace AutoLot.Dal.Initialization
 
         public static void ClearAndReseedDatabase(ApplicationDbContext context)
         {
+            context.Database.Migrate();
             ClearData(context);
             SeedData(context);
         }

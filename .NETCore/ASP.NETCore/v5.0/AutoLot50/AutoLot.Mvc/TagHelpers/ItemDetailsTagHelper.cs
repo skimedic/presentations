@@ -1,6 +1,6 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Mvc - ItemDetailsTagHelper.cs
+// AutoLot - AutoLot.Mvc - ItemDetailsTagHelper.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================

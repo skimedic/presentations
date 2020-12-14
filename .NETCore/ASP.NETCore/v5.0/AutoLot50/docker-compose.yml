@@ -19,4 +19,4 @@ services:
       context: .
       dockerfile: AutoLot.Api/Dockerfile
     depends_on:
-      - "db"
+      - db

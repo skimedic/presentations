@@ -15,6 +15,7 @@ namespace Performance
             RunToListTestUntracked();
             RunToListTestQueryType();
             RunComplexQueryTest();
+            RunComplexQueryTest2();
             RunAddAndSaveChangesTest();
             RunAddAndSaveChangesTestNoBatching();
             Console.WriteLine("Demo complete");
@@ -53,6 +54,14 @@ namespace Performance
             RunTest(
                 ef6Test: TestEf6.RunComplexQuery,
                 ef7Test: TestEfCore.RunComplexQuery
+                );
+        }
+        private static void RunComplexQueryTest2()
+        {
+            Console.WriteLine("Split Query (Core vs Core)");
+            RunTest(
+                ef6Test: TestEfCore.RunNonSplitQuery,
+                ef7Test: TestEfCore.RunSplitQuery
                 );
         }
         private static void RunAddAndSaveChangesTest()

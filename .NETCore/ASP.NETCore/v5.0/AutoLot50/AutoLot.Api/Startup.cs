@@ -1,6 +1,6 @@
 // Copyright Information
 // ==================================
-// AutoLot50 - AutoLot.Api - Startup.cs
+// AutoLot - AutoLot.Api - Startup.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2020/12/13
 // ==================================
@@ -114,7 +114,7 @@ namespace AutoLot.Api
                 //Initialize the database
                 if (Configuration.GetValue<bool>("RebuildDataBase"))
                 {
-                    SampleDataInitializer.InitializeData(context);
+                    SampleDataInitializer.ClearAndReseedDatabase(context);
                 }
             }
 
