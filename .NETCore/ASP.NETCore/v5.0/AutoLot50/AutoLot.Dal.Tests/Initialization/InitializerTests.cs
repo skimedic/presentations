@@ -29,7 +29,7 @@ namespace AutoLot.Dal.Tests.Initialization
         {
             SampleDataInitializer.InitializeData(Context);
             var cars = Context.Cars.IgnoreQueryFilters().ToList();
-            Assert.Equal(9, cars.Count);
+            Assert.Equal(10, cars.Count);
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace AutoLot.Dal.Tests.Initialization
             SampleDataInitializer.ClearAndReseedDatabase(Context);
             var cars = Context.Cars.IgnoreQueryFilters().ToList();
             Assert.NotNull(cars);
-            Assert.Equal(9, cars.Count);
+            Assert.Equal(10, cars.Count);
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace AutoLot.Dal.Tests.Initialization
             SampleDataInitializer.InitializeData(Context);
             var cars = Context.Cars.IgnoreQueryFilters().ToList();
             Assert.NotNull(cars);
-            Assert.Equal(9, cars.Count);
+            Assert.Equal(10, cars.Count);
             SampleDataInitializer.ClearData(Context);
             var cars2 = Context.Cars.IgnoreQueryFilters();
             Assert.NotNull(cars2);
@@ -60,7 +60,7 @@ namespace AutoLot.Dal.Tests.Initialization
             SampleDataInitializer.ClearAndReseedDatabase(Context);
             var cars = Context.Cars.IgnoreQueryFilters().ToList();
             Assert.NotNull(cars);
-            Assert.Equal(9, cars.Count);
+            Assert.Equal(10, cars.Count);
         }
     }
 }

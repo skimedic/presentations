@@ -16,7 +16,8 @@ namespace AutoLot.Models.Entities
     [Table("Makes", Schema = "dbo")]
     public partial class Make : BaseEntity
     {
-        [StringLength(50), Required] public string Name { get; set; } = "Ford";
+        [StringLength(50), Required] 
+        public string Name { get; set; } = "Ford";
 
         [JsonIgnore]
         [InverseProperty(nameof(Car.MakeNavigation))]

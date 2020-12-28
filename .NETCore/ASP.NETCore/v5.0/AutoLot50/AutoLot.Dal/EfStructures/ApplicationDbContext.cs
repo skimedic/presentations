@@ -6,6 +6,8 @@
 // ==================================
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using AutoLot.Models.Entities;
 using AutoLot.Models.Entities.Owned;
 using AutoLot.Models.ViewModels;
@@ -23,9 +25,17 @@ namespace AutoLot.Dal.EfStructures
         {
             ChangeTracker.StateChanged += ChangeTracker_StateChanged;
             ChangeTracker.Tracked += ChangeTracker_Tracked;
-        }
+            SavingChanges += (sender, args) =>
+            {
+                Console.WriteLine($"Saving changes for {((DbContext)sender).Database.GetConnectionString()}");
+            };
 
-        public int MakeId { get; set; }
+            SavedChanges += (sender, args) =>
+            {
+                Console.WriteLine($"Saved {args.EntitiesSavedCount} changes for {((DbContext)sender).Database.GetConnectionString()}");
+            };                
+                
+        }
 
         private void ChangeTracker_StateChanged(object? sender, EntityStateChangedEventArgs e)
         {
@@ -88,6 +98,9 @@ namespace AutoLot.Dal.EfStructures
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Car>()
+            //    .ToTable("Inventory")
+            //    .ToView("InventoryWithMakesView");
             modelBuilder.Entity<SeriLogEntry>(entity =>
             {
                 entity.Property(e => e.Properties).HasColumnType("Xml");
@@ -98,20 +111,22 @@ namespace AutoLot.Dal.EfStructures
             //    entity.ToTable("Serilog", "Logging", t => t.ExcludeFromMigrations());
             //});
 
-            modelBuilder.Entity<Car>().HasQueryFilter(c => c.MakeId == MakeId); 
+            modelBuilder.Entity<Car>(entity =>
+            {
+                entity.HasQueryFilter(c => c.IsDriveable);
+                entity.Property(p => p.IsDriveable).HasField("_isDriveable").HasDefaultValue(true);
+            });
             //New in EF Core 5 - bi-directional query filters
-            modelBuilder.Entity<Order>().HasQueryFilter(e => e.CarNavigation!.MakeId == MakeId);
+            modelBuilder.Entity<Order>().HasQueryFilter(e => e.CarNavigation!.IsDriveable);
 
             modelBuilder.Entity<CustomerOrderViewModel>().HasNoKey().ToView("CustomerOrderView", "dbo");
-            //modelBuilder.Entity<CustomerOrderViewModel>(entity =>
-            //{
-            //    entity.HasNoKey().ToSqlQuery(@"SELECT c.FirstName, c.LastName, i.Color, i.PetName, m.Name AS Make
-            //            FROM   dbo.Orders o
-            //            INNER JOIN dbo.Customers c ON o.CustomerId = c.Id 
-            //            INNER JOIN dbo.Inventory  i ON o.CarId = i.Id
-            //            INNER JOIN dbo.Makes m ON m.Id = i.MakeId
-            //            ");
-            //});
+
+            //modelBuilder.Entity<CustomerOrderViewModel>().HasNoKey().ToSqlQuery(
+            //    @"SELECT c.FirstName, c.LastName, i.Color, i.PetName, m.Name AS Make
+            //      FROM   dbo.Orders o
+            //      INNER JOIN dbo.Customers c ON o.CustomerId = c.Id 
+            //      INNER JOIN dbo.Inventory  i ON o.CarId = i.Id
+            //      INNER JOIN dbo.Makes m ON m.Id = i.MakeId");
 
             modelBuilder.Entity<CreditRisk>(entity =>
             {
@@ -152,6 +167,9 @@ namespace AutoLot.Dal.EfStructures
                     {
                         pd.Property(p => p.FirstName).HasColumnName(nameof(Person.FirstName));
                         pd.Property(p => p.LastName).HasColumnName(nameof(Person.LastName));
+                        pd.Property(p => p.FullName)
+                            .HasColumnName(nameof(Person.FullName))
+                            .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
                     });
             });
 

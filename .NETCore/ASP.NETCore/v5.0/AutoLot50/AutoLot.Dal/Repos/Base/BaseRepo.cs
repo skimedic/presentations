@@ -66,7 +66,7 @@ namespace AutoLot.Dal.Repos.Base
 
         public virtual T? Find(int? id) => Table.Find(id);
         public virtual T? FindAsNoTracking(int id) 
-            => Table.AsNoTracking().FirstOrDefault(x => x.Id == id);
+            => Table.AsNoTrackingWithIdentityResolution().FirstOrDefault(x => x.Id == id);
 
         public T? FindIgnoreQueryFilters(int id)
             => Table.IgnoreQueryFilters().FirstOrDefault(x => x.Id == id);

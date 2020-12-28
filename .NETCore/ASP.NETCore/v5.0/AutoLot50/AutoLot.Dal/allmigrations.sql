@@ -103,7 +103,7 @@ GO
 IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20201024233322_Initial')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20201024233322_Initial', N'5.0.0-rc.2.20475.6');
+    VALUES (N'20201024233322_Initial', N'5.0.0');
 END;
 GO
 
@@ -131,7 +131,50 @@ GO
 IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20201024233510_CustomSql')
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20201024233510_CustomSql', N'5.0.0-rc.2.20475.6');
+    VALUES (N'20201024233510_CustomSql', N'5.0.0');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20201130233700_Logging')
+BEGIN
+    IF SCHEMA_ID(N'Logging') IS NULL EXEC(N'CREATE SCHEMA [Logging];');
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20201130233700_Logging')
+BEGIN
+    CREATE TABLE [Logging].[SeriLogs] (
+        [Id] int NOT NULL IDENTITY,
+        [Message] nvarchar(max) NULL,
+        [MessageTemplate] nvarchar(max) NULL,
+        [Level] nvarchar(128) NULL,
+        [TimeStamp] datetime2 NULL DEFAULT (GetDate()),
+        [Exception] nvarchar(max) NULL,
+        [Properties] Xml NULL,
+        [LogEvent] nvarchar(max) NULL,
+        [SourceContext] nvarchar(max) NULL,
+        [RequestPath] nvarchar(max) NULL,
+        [ActionName] nvarchar(max) NULL,
+        [ApplicationName] nvarchar(max) NULL,
+        [MachineName] nvarchar(max) NULL,
+        [FilePath] nvarchar(max) NULL,
+        [MemberName] nvarchar(max) NULL,
+        [LineNumber] int NULL,
+        CONSTRAINT [PK_SeriLogs] PRIMARY KEY ([Id])
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20201130233700_Logging')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20201130233700_Logging', N'5.0.0');
 END;
 GO
 

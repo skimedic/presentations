@@ -33,8 +33,7 @@ namespace AutoLot.Dal.Repos
 
         public IEnumerable<Car> GetAllBy(int makeId)
         {
-            Context.MakeId = makeId;
-            return Table.Include(c => c.MakeNavigation).OrderBy(c => c.PetName);
+            return Table.Where(x=>x.MakeId == makeId).Include(c => c.MakeNavigation).OrderBy(c => c.PetName);
         }
 
         public override Car? Find(int? id)

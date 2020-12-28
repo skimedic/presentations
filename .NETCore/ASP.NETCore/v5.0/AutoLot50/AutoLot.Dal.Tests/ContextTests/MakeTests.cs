@@ -9,6 +9,9 @@ using System.Linq;
 using AutoLot.Dal.Repos;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Dal.Tests.Base;
+using AutoLot.Models.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Xunit;
 
 namespace AutoLot.Dal.Tests.ContextTests
@@ -28,15 +31,67 @@ namespace AutoLot.Dal.Tests.ContextTests
         }
 
         [Fact]
-        public void ShouldGetMakesWithCarsThatHaveOrders()
+        public void ShouldGetAllMakesAndCarsThatAreYellow()
         {
-            var makes = _repo.GetOrderByMake().ToList();
+            var query = Context.Makes.IgnoreQueryFilters()
+                .Include(x => x.Cars.Where(x=>x.Color == "Yellow"));
+            var sq = query.ToQueryString();
+            var makes = query.ToList();
             Assert.NotNull(makes);
             Assert.NotEmpty(makes);
             Assert.NotEmpty(makes.Where(x=>x.Cars.Any()));
-            Assert.Equal(2,makes.First(m=>m.Id==5).Cars.Count());
-            Assert.Equal(1,makes.First(m=>m.Id==1).Cars.Count());
-            Assert.Equal(1,makes.First(m=>m.Id==4).Cars.Count());
+            Assert.Empty(makes.First(m=>m.Id==1).Cars);
+            Assert.Empty(makes.First(m=>m.Id==2).Cars);
+            Assert.Empty(makes.First(m=>m.Id==3).Cars);
+            Assert.Single(makes.First(m=>m.Id==4).Cars);
+            Assert.Empty(makes.First(m=>m.Id==5).Cars);
+
+        }
+        [Fact]
+        public void ShouldGetAllMakesAndCarsThatAreYellowAsSplitQuery()
+        {
+            var query = Context.Makes.AsSplitQuery().IgnoreQueryFilters()
+                .Include(x => x.Cars.Where(x=>x.Color == "Yellow"));
+            var sq = query.ToQueryString();
+            var makes = query.ToList();
+            Assert.NotNull(makes);
+            Assert.NotEmpty(makes);
+            Assert.NotEmpty(makes.Where(x=>x.Cars.Any()));
+            Assert.Empty(makes.First(m=>m.Id==1).Cars);
+            Assert.Empty(makes.First(m=>m.Id==2).Cars);
+            Assert.Empty(makes.First(m=>m.Id==3).Cars);
+            Assert.Single(makes.First(m=>m.Id==4).Cars);
+            Assert.Empty(makes.First(m=>m.Id==5).Cars);
+
+        }
+
+        [Theory]
+        [InlineData(1,2)]
+        [InlineData(2,1)]
+        [InlineData(3,1)]
+        [InlineData(4,2)]
+        [InlineData(5,3)]
+        [InlineData(6,1)]
+        public void ShouldGetAllCarsForAMakeExplicitly(int makeId, int carCount)
+        {
+            var make = Context.Makes.First(x => x.Id == makeId);
+            CollectionEntry<Make, Car> collectionEntry = Context.Entry(make).Collection(c=>c.Cars);
+            IQueryable<Car> queryable = collectionEntry.Query();
+            queryable.IgnoreQueryFilters().Load();
+            Assert.Equal(carCount,make.Cars.Count());
+        }
+        [Theory]
+        [InlineData(1,1)]
+        [InlineData(2,1)]
+        [InlineData(3,1)]
+        [InlineData(4,2)]
+        [InlineData(5,3)]
+        [InlineData(6,1)]
+        public void ShouldGetAllCarsForAMakeExplicitlyWithQueryFilters(int makeId, int carCount)
+        {
+            var make = Context.Makes.First(x => x.Id == makeId);
+            Context.Entry(make).Collection(c=>c.Cars).Load();
+            Assert.Equal(carCount,make.Cars.Count());
         }
     }
 }

@@ -7,10 +7,13 @@
 
 using System.ComponentModel.DataAnnotations.Schema;
 using AutoLot.Models.Entities.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace AutoLot.Models.Entities
 {
     [Table("Orders", Schema = "Dbo")]
+    [Index(nameof(CustomerId),IsUnique = true)]
+    [Index(nameof(CarId),IsUnique = true)]
     public partial class Order : BaseEntity
     {
         public int CustomerId { get; set; }

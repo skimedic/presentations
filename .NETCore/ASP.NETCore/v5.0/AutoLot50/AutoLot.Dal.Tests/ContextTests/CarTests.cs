@@ -21,17 +21,20 @@ namespace AutoLot.Dal.Tests.ContextTests
     public class CarTests : BaseTest, IClassFixture<EnsureAutoLotDatabaseTestFixture>
     {
         [Fact]
-        public void ShouldReturnNoCarsWithQueryFilterNotSet()
+        public void ShouldReturnDrivableCarsWithQueryFilterSet()
         {
-            var cars = Context.Cars.ToList();
-            Assert.Empty(cars);
+            var query = Context.Cars.AsQueryable();
+            var queryString = query.ToQueryString();
+            var cars = query.ToList();
+            Assert.NotEmpty(cars);
+            Assert.Equal(9,cars.Count);
         }
 
         [Fact]
         public void ShouldGetAllOfTheCars()
         {
             var cars = Context.Cars.IgnoreQueryFilters().ToList();
-            Assert.Equal(9, cars.Count);
+            Assert.Equal(10, cars.Count);
         }
 
         [Theory]
@@ -43,19 +46,18 @@ namespace AutoLot.Dal.Tests.ContextTests
         [InlineData(6, 1)]
         public void ShouldGetTheCarsByMake(int makeId, int expectedCount)
         {
-            Context.MakeId = makeId;
-            var cars = Context.Cars.ToList();
+            var cars = Context.Cars.Where(x=>x.MakeId == makeId).ToList();
             Assert.Equal(expectedCount, cars.Count);
         }
 
         [Fact]
-        public void ShouldNotGetTheCarsUsingFromSql()
+        public void ShouldNotGetTheLemonsUsingFromSql()
         {
             var entity = Context.Model.FindEntityType($"{typeof(Car).FullName}");
             var tableName = entity.GetTableName();
             var schemaName = entity.GetSchema();
             var cars = Context.Cars.FromSqlRaw($"Select * from {schemaName}.{tableName}").ToList();
-            Assert.Empty(cars);
+            Assert.Equal(9,cars.Count);
         }
 
         [Fact]
@@ -64,8 +66,9 @@ namespace AutoLot.Dal.Tests.ContextTests
             var entity = Context.Model.FindEntityType($"{typeof(Car).FullName}");
             var tableName = entity.GetTableName();
             var schemaName = entity.GetSchema();
-            var cars = Context.Cars.FromSqlRaw($"Select * from {schemaName}.{tableName}").IgnoreQueryFilters().ToList();
-            Assert.Equal(9, cars.Count);
+            var cars = Context.Cars.FromSqlRaw($"Select * from {schemaName}.{tableName}")
+                .IgnoreQueryFilters().ToList();
+            Assert.Equal(10, cars.Count);
         }
 
         [Fact]
@@ -75,7 +78,7 @@ namespace AutoLot.Dal.Tests.ContextTests
             var car = Context.Cars
                 .FromSqlInterpolated($"Select * from dbo.Inventory where Id = {carId}")
                 .Include(x => x.MakeNavigation)
-                .IgnoreQueryFilters().First();
+                .First();
             Assert.Equal("Black", car.Color);
             Assert.Equal("VW", car.MakeNavigation.Name);
         }
@@ -89,25 +92,27 @@ namespace AutoLot.Dal.Tests.ContextTests
         [InlineData(6, 1)]
         public void ShouldGetTheCarsByMakeUsingFromSql(int makeId, int expectedCount)
         {
-            Context.MakeId = makeId;
             var entity = Context.Model.FindEntityType($"{typeof(Car).FullName}");
             var tableName = entity.GetTableName();
             var schemaName = entity.GetSchema();
-            var cars = Context.Cars.FromSqlRaw($"Select * from {schemaName}.{tableName}").ToList();
+            var cars = Context.Cars.FromSqlRaw($"Select * from {schemaName}.{tableName}")
+                .Where(x=>x.MakeId == makeId).ToList();
             Assert.Equal(expectedCount, cars.Count);
         }
 
         [Fact]
         public void ShouldGetAllOfTheCarsWithMakes()
         {
-            var cars = Context.Cars.IgnoreQueryFilters().Include(c => c.MakeNavigation).ToList();
+            var queryable = Context.Cars.Include(c => c.MakeNavigation);
+            var queryString = queryable.ToQueryString();
+            var cars = queryable.ToList();
             Assert.Equal(9, cars.Count);
         }
 
         [Fact]
         public void ShouldGetCarsOnOrderWithRelatedProperties()
         {
-            var cars = Context.Cars.IgnoreQueryFilters().Where(c => c.Orders.Any())
+            var cars = Context.Cars.Where(c => c.Orders.Any())
                 .Include(c => c.MakeNavigation)
                 .Include(c => c.Orders).ThenInclude(o => o.CustomerNavigation).ToList();
             Assert.Equal(4, cars.Count);
@@ -121,13 +126,12 @@ namespace AutoLot.Dal.Tests.ContextTests
         [Fact]
         public void ShouldGetRelatedInformationExplicitly()
         {
-            var car = Context.Cars.IgnoreQueryFilters().First(x => x.Id == 1);
+            var car = Context.Cars.First(x => x.Id == 1);
             Assert.Null(car.MakeNavigation);
             Context.Entry(car).Reference(c => c.MakeNavigation).Load();
             Assert.NotNull(car.MakeNavigation);
-
             Assert.Empty(car.Orders);
-            Context.Entry(car).Collection(c => c.Orders).Query().IgnoreQueryFilters().Load();
+            Context.Entry(car).Collection(c => c.Orders).Load();
             Assert.Single(car.Orders);
         }
 
@@ -144,10 +148,10 @@ namespace AutoLot.Dal.Tests.ContextTests
                     MakeId = 1,
                     PetName = "Herbie"
                 };
-                var carCount = Context.Cars.IgnoreQueryFilters().Count();
+                var carCount = Context.Cars.Count();
                 Context.Cars.Add(car);
                 Context.SaveChanges();
-                var newCarCount = Context.Cars.IgnoreQueryFilters().Count();
+                var newCarCount = Context.Cars.Count();
                 Assert.Equal(carCount + 1, newCarCount);
             }
         }
@@ -159,6 +163,7 @@ namespace AutoLot.Dal.Tests.ContextTests
 
             void RunTheTest()
             {
+                //Have to add 4 to activate batching
                 var cars = new List<Car>
                 {
                     new Car
@@ -173,12 +178,24 @@ namespace AutoLot.Dal.Tests.ContextTests
                         MakeId = 2,
                         PetName = "Mach 5"
                     },
+                    new Car
+                    {
+                        Color = "Pink",
+                        MakeId = 3,
+                        PetName = "Avon"
+                    },
+                    new Car
+                    {
+                        Color = "Blue",
+                        MakeId = 4,
+                        PetName = "Blueberry"
+                    },
                 };
-                var carCount = Context.Cars.IgnoreQueryFilters().Count();
+                var carCount = Context.Cars.Count();
                 Context.Cars.AddRange(cars);
                 Context.SaveChanges();
-                var newCarCount = Context.Cars.IgnoreQueryFilters().Count();
-                Assert.Equal(carCount + 2, newCarCount);
+                var newCarCount = Context.Cars.Count();
+                Assert.Equal(carCount + 4, newCarCount);
             }
         }
 
@@ -198,11 +215,11 @@ namespace AutoLot.Dal.Tests.ContextTests
                 };
                 ((List<Car>)make.Cars).Add(car);
                 Context.Makes.Add(make);
-                var carCount = Context.Cars.IgnoreQueryFilters().Count();
-                var makeCount = Context.Makes.IgnoreQueryFilters().Count();
+                var carCount = Context.Cars.Count();
+                var makeCount = Context.Makes.Count();
                 Context.SaveChanges();
-                var newCarCount = Context.Cars.IgnoreQueryFilters().Count();
-                var newMakeCount = Context.Makes.IgnoreQueryFilters().Count();
+                var newCarCount = Context.Cars.Count();
+                var newMakeCount = Context.Makes.Count();
                 Assert.Equal(carCount + 1, newCarCount);
                 Assert.Equal(makeCount + 1, newMakeCount);
 
@@ -215,13 +232,13 @@ namespace AutoLot.Dal.Tests.ContextTests
 
             void RunTheTest(IDbContextTransaction trans)
             {
-                var car = Context.Cars.IgnoreQueryFilters().First(c => c.Id == 1);
+                var car = Context.Cars.First(c => c.Id == 1);
                 Assert.Equal("Black", car.Color);
                 car.Color = "White";
                 Context.SaveChanges();
                 Assert.Equal("White", car.Color);
                 var context2 = TestHelpers.GetSecondContext(Context, trans);
-                var car2 = context2.Cars.IgnoreQueryFilters().First(c => c.Id == 1);
+                var car2 = context2.Cars.First(c => c.Id == 1);
                 Assert.Equal("White", car2.Color);
             }
         }
@@ -232,7 +249,7 @@ namespace AutoLot.Dal.Tests.ContextTests
 
             void RunTheTest(IDbContextTransaction trans)
             {
-                var car = Context.Cars.IgnoreQueryFilters().AsNoTracking().First(c => c.Id == 1);
+                var car = Context.Cars.AsNoTracking().First(c => c.Id == 1);
                 Assert.Equal("Black", car.Color);
                 var updatedCar = new Car
                 {
@@ -240,14 +257,15 @@ namespace AutoLot.Dal.Tests.ContextTests
                     Id = car.Id,
                     MakeId = car.MakeId,
                     PetName = car.PetName,
-                    TimeStamp = car.TimeStamp
+                    TimeStamp = car.TimeStamp,
+                    IsDriveable = car.IsDriveable
                 };
                 var context2 = TestHelpers.GetSecondContext(Context, trans);
                 context2.Entry(updatedCar).State = EntityState.Modified;
                 //context2.Cars.Update(updatedCar);
                 context2.SaveChanges();
                 var context3 = TestHelpers.GetSecondContext(Context, trans);
-                var car2 = context3.Cars.IgnoreQueryFilters().First(c => c.Id == 1);
+                var car2 = context3.Cars.First(c => c.Id == 1);
                 Assert.Equal("White", car2.Color);
             }
         }
@@ -259,10 +277,13 @@ namespace AutoLot.Dal.Tests.ContextTests
 
             void RunTheTest()
             {
-                var car = Context.Cars.IgnoreQueryFilters().First();
+                //Get a car record (doesn’t matter which one)
+                var car = Context.Cars.First();
                 //Update the database outside of the context
                 Context.Database.ExecuteSqlInterpolated($"Update dbo.Inventory set Color='Pink' where Id = {car.Id}");
+                //update the car record in the change tracker
                 car.Color = "Yellow";
+                //Check for 
                 var ex = Assert.Throws<CustomConcurrencyException>(() => Context.SaveChanges());
                 var entry = ((DbUpdateConcurrencyException)ex.InnerException)?.Entries[0];
                 PropertyValues originalProps = entry.OriginalValues;
@@ -279,11 +300,11 @@ namespace AutoLot.Dal.Tests.ContextTests
 
             void RunTheTest()
             {
-                var carCount = Context.Cars.IgnoreQueryFilters().Count();
-                var car = Context.Cars.IgnoreQueryFilters().First(c => c.Id == 2);
+                var carCount = Context.Cars.Count();
+                var car = Context.Cars.First(c => c.Id == 2);
                 Context.Cars.Remove(car);
                 Context.SaveChanges();
-                var newCarCount = Context.Cars.IgnoreQueryFilters().Count();
+                var newCarCount = Context.Cars.Count();
                 Assert.Equal(carCount - 1, newCarCount);
                 Assert.Equal(EntityState.Detached,Context.Entry(car).State);
             }
@@ -296,7 +317,7 @@ namespace AutoLot.Dal.Tests.ContextTests
 
             void RunTheTest()
             {
-                var car = Context.Cars.IgnoreQueryFilters().First(c => c.Id == 1);
+                var car = Context.Cars.First(c => c.Id == 1);
                 Context.Cars.Remove(car);
                 Assert.Throws<CustomDbUpdateException>(()=>Context.SaveChanges());
             }
@@ -309,13 +330,13 @@ namespace AutoLot.Dal.Tests.ContextTests
 
             void RunTheTest(IDbContextTransaction trans)
             {
-                var carCount = Context.Cars.IgnoreQueryFilters().Count();
-                var car = Context.Cars.IgnoreQueryFilters().AsNoTracking().First(c => c.Id == 2);
+                var carCount = Context.Cars.Count();
+                var car = Context.Cars.AsNoTracking().First(c => c.Id == 2);
                 var context2 = TestHelpers.GetSecondContext(Context, trans);
                 //context2.Entry(car).State = EntityState.Deleted;
                 context2.Cars.Remove(car);
                 context2.SaveChanges();
-                var newCarCount = Context.Cars.IgnoreQueryFilters().Count();
+                var newCarCount = Context.Cars.Count();
                 Assert.Equal(carCount - 1, newCarCount);
                 Assert.Equal(EntityState.Detached, Context.Entry(car).State);
             }

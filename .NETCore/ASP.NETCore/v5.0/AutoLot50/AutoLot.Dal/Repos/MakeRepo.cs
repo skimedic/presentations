@@ -31,11 +31,5 @@ namespace AutoLot.Dal.Repos
         public override IEnumerable<Make> GetAllIgnoreQueryFilters()
             => Table.IgnoreQueryFilters().OrderBy(m => m.Name);
 
-        public IEnumerable<Make> GetOrderByMake()
-        {
-            var orderByMake = Table.IgnoreQueryFilters().Include(m => m.Cars.Where(c => c.Orders.Any()));
-            var q = orderByMake.ToQueryString();
-            return orderByMake;
-        }
     }
 }

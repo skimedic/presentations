@@ -29,7 +29,6 @@ namespace AutoLot.Api.Controllers
         /// <returns>All cars for a make</returns>
         /// <param name="id">Primary key of the make</param>
         /// <response code="200">Returns all cars by make</response>
-        /// <response code="200">Returns all cars by make</response>
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet("bymake/{id?}")]

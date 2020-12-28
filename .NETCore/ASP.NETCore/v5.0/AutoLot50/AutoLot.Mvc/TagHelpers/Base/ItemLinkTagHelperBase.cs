@@ -27,10 +27,10 @@ namespace AutoLot.Mvc.TagHelpers.Base
         protected void BuildContent(TagHelperOutput output, 
             string actionName, string className, string displayText, string fontAwesomeName)
         {
-            output.TagName = "a"; // Replaces <email> with <a> tag
+            output.TagName = "a"; // Replaces <item-list> with <a> tag
             var target = (ItemId.HasValue)
-                ? UrlHelper.Action(actionName, nameof(CarsController).RemoveController(), new {id = ItemId})
-                : UrlHelper.Action(actionName, nameof(CarsController).RemoveController());
+                ? UrlHelper.Action(actionName, nameof(CarsControllerApi).RemoveController(), new {id = ItemId})
+                : UrlHelper.Action(actionName, nameof(CarsControllerApi).RemoveController());
             output.Attributes.SetAttribute("href", target);
             output.Attributes.Add("class",className);
             output.Content.AppendHtml($@"{displayText} <i class=""fas fa-{fontAwesomeName}""></i>");

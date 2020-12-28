@@ -17,13 +17,23 @@ namespace AutoLot.Models.Entities
     [Table("Inventory", Schema = "Dbo")]
     public partial class Car : BaseEntity
     {
-        [Required] [DisplayName("Make")] public int MakeId { get; set; }
+        private bool? _isDriveable;
+
+        public bool IsDriveable
+        {
+            get => _isDriveable ?? false;
+            set => _isDriveable = value;
+        }
+
+        [Required] [DisplayName("Make")] 
+        public int MakeId { get; set; }
 
         [ForeignKey(nameof(MakeId))]
         [InverseProperty(nameof(Make.Cars))]
         public Make? MakeNavigation { get; set; }
 
-        [StringLength(50), Required] public string Color { get; set; } = "Gold";
+        [StringLength(50), Required]
+        public string Color { get; set; } = "Gold";
 
         [StringLength(50), Required]
         [DisplayName("Pet Name")]
@@ -33,7 +43,8 @@ namespace AutoLot.Models.Entities
         [InverseProperty(nameof(Order.CarNavigation))]
         public IEnumerable<Order> Orders { get; set; } = new List<Order>();
 
-        [NotMapped] public string MakeColor => $"{MakeNavigation?.Name} ({Color})";
+        [NotMapped] 
+        public string MakeColor => $"{MakeNavigation?.Name} ({Color})";
 
         public override string ToString()
         {

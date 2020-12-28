@@ -1,6 +1,10 @@
 dotnet tool uninstall --global dotnet-ef 
 dotnet tool install --global dotnet-ef --version 5.0.0
+
+STOP HERE
+========================================================================================================
 dotnet ef database drop -f
+dotnet ef database update 0
 
 dotnet ef dbcontext scaffold "server=.,5433;Database=AutoLot;User Id=sa;Password=P@ssw0rd;" Microsoft.EntityFrameworkCore.SqlServer -d -c ApplicationDbContext --context-dir EfStructures -o Models 
 
@@ -15,6 +19,19 @@ dotnet ef migrations remove
 dotnet ef migrations add Logging -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
 dotnet ef database update Logging -c AutoLot.Dal.EfStructures.ApplicationDbContext
 
+dotnet ef migrations remove
+
+dotnet ef migrations add Fullname -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
+dotnet ef database update Fullname -c AutoLot.Dal.EfStructures.ApplicationDbContext
+
+dotnet ef migrations remove
+
+dotnet ef migrations add Drivable -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
+dotnet ef database update Drivable -c AutoLot.Dal.EfStructures.ApplicationDbContext
+
+dotnet ef migrations remove
+
+dotnet ef migrations add Test -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
 dotnet ef migrations remove
 
 dotnet ef migrations script -o allmigrations.sql -i
