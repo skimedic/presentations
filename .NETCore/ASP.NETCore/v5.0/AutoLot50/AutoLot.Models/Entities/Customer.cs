@@ -26,6 +26,5 @@ namespace AutoLot.Models.Entities
         [InverseProperty(nameof(Order.CustomerNavigation))]
         public IEnumerable<Order> Orders { get; set; } = new List<Order>();
 
-        [NotMapped] public string FullName => $"{PersonalInformation?.FirstName} {PersonalInformation?.LastName}";
     }
 }

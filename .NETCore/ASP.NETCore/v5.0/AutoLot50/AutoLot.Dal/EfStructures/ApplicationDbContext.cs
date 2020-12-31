@@ -33,8 +33,12 @@ namespace AutoLot.Dal.EfStructures
             SavedChanges += (sender, args) =>
             {
                 Console.WriteLine($"Saved {args.EntitiesSavedCount} changes for {((DbContext)sender).Database.GetConnectionString()}");
-            };                
-                
+            };  
+            SaveChangesFailed += (sender, args) =>
+            {
+                Console.WriteLine($"An exception occurred! {args.Exception.Message} entities");
+            };
+               
         }
 
         private void ChangeTracker_StateChanged(object? sender, EntityStateChangedEventArgs e)
@@ -171,6 +175,7 @@ namespace AutoLot.Dal.EfStructures
                             .HasColumnName(nameof(Person.FullName))
                             .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
                     });
+                entity.Navigation(c => c.PersonalInformation).IsRequired(true);
             });
 
             modelBuilder.Entity<Make>(entity =>
