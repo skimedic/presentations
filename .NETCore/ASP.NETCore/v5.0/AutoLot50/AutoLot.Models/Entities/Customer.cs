@@ -1,10 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Models - Customer.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -25,6 +19,5 @@ namespace AutoLot.Models.Entities
         [JsonIgnore]
         [InverseProperty(nameof(Order.CustomerNavigation))]
         public IEnumerable<Order> Orders { get; set; } = new List<Order>();
-
     }
 }

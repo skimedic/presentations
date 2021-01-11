@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Mvc - HomeController.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.ViewModels;
 using AutoLot.Mvc.Models;
@@ -36,6 +29,7 @@ namespace AutoLot.Mvc.Controllers
         [HttpGet]
         public IActionResult Index([FromServices] IOptionsMonitor<DealerInfo> dealerMonitor)
         {
+            _logger.LogAppWarning("This is a test");
             var vm = dealerMonitor.CurrentValue;
             return View(vm);
         }

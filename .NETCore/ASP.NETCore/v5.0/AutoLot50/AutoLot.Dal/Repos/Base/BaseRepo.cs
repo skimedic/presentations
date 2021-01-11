@@ -77,7 +77,6 @@ namespace AutoLot.Dal.Repos.Base
         public void ExecuteQuery(string sql, object[] sqlParametersObjects)
             => Context.Database.ExecuteSqlRaw(sql, sqlParametersObjects);
 
-
         public virtual int Add(T entity, bool persist = true)
         {
             Table.Add(entity);
@@ -104,7 +103,8 @@ namespace AutoLot.Dal.Repos.Base
 
         public int Delete(int id, byte[] timeStamp, bool persist = true)
         {
-            Context.Entry(new T {Id = id, TimeStamp = timeStamp}).State = EntityState.Deleted;
+            var entity = new T {Id = id, TimeStamp = timeStamp};
+            Context.Entry(entity).State = EntityState.Deleted;
             return persist ? SaveChanges() : 0;
         }
 

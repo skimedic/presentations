@@ -1,14 +1,8 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Api - WeatherForecastController.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -23,9 +17,9 @@ namespace AutoLot.Api.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IAppLogging<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IAppLogging<WeatherForecastController> logger)
         {
             _logger = logger;
         }
@@ -33,6 +27,7 @@ namespace AutoLot.Api.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogAppWarning("This is a test");
             throw new Exception("Test Exception");
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

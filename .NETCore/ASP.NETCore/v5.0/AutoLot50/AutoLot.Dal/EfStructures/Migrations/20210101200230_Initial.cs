@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Dal - 20201024233322_Initial.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AutoLot.Dal.EfStructures.Migrations
@@ -20,6 +13,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
             migrationBuilder.EnsureSchema(
                 name: "dbo");
 
+            migrationBuilder.EnsureSchema(
+                name: "Logging");
+
             migrationBuilder.CreateTable(
                 name: "Customers",
                 schema: "Dbo",
@@ -29,6 +25,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true, computedColumnSql: "[LastName] + ', ' + [FirstName]"),
                     TimeStamp = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true)
                 },
                 constraints: table =>
@@ -52,6 +49,34 @@ namespace AutoLot.Dal.EfStructures.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SeriLogs",
+                schema: "Logging",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MessageTemplate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Level = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
+                    TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GetDate()"),
+                    Exception = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Properties = table.Column<string>(type: "Xml", nullable: true),
+                    LogEvent = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SourceContext = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RequestPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ActionName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ApplicationName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MachineName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MemberName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LineNumber = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SeriLogs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CreditRisks",
                 schema: "Dbo",
                 columns: table => new
@@ -60,6 +85,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: true, computedColumnSql: "[LastName] + ', ' + [FirstName]"),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     TimeStamp = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true)
                 },
@@ -77,11 +103,12 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Inventory",
-                schema: "Dbo",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    IsDrivable = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     MakeId = table.Column<int>(type: "int", nullable: false),
                     Color = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PetName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -123,7 +150,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     table.ForeignKey(
                         name: "FK_Orders_Inventory",
                         column: x => x.CarId,
-                        principalSchema: "Dbo",
+                        principalSchema: "dbo",
                         principalTable: "Inventory",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -137,7 +164,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Inventory_MakeId",
-                schema: "Dbo",
+                schema: "dbo",
                 table: "Inventory",
                 column: "MakeId");
 
@@ -166,12 +193,16 @@ namespace AutoLot.Dal.EfStructures.Migrations
                 schema: "Dbo");
 
             migrationBuilder.DropTable(
+                name: "SeriLogs",
+                schema: "Logging");
+
+            migrationBuilder.DropTable(
                 name: "Customers",
                 schema: "Dbo");
 
             migrationBuilder.DropTable(
                 name: "Inventory",
-                schema: "Dbo");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "Makes",

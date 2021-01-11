@@ -31,7 +31,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<bool>("IsDriveable")
+                    b.Property<bool>("IsDrivable")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
@@ -51,9 +51,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MakeId");
+                    b.HasIndex(new[] { "MakeId" }, "IX_Inventory_MakeId");
 
-                    b.ToTable("Inventory", "Dbo");
+                    b.ToTable("Inventory", "dbo");
                 });
 
             modelBuilder.Entity("AutoLot.Models.Entities.CreditRisk", b =>
@@ -137,13 +137,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CarId")
-                        .IsUnique();
+                    b.HasIndex(new[] { "CarId" }, "IX_Orders_CarId");
 
-                    b.HasIndex("CustomerId")
-                        .IsUnique();
-
-                    b.HasIndex("CustomerId", "CarId")
+                    b.HasIndex(new[] { "CustomerId", "CarId" }, "IX_Orders_CustomerId_CarId")
                         .IsUnique();
 
                     b.ToTable("Orders", "Dbo");
@@ -217,6 +213,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("IsDrivable")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
@@ -264,9 +263,10 @@ namespace AutoLot.Dal.EfStructures.Migrations
                                 .HasColumnName("FirstName");
 
                             b1.Property<string>("FullName")
-                                .IsRequired()
                                 .ValueGeneratedOnAddOrUpdate()
-                                .HasColumnType("nvarchar(max)");
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("FullName")
+                                .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
 
                             b1.Property<string>("LastName")
                                 .IsRequired()
@@ -304,7 +304,6 @@ namespace AutoLot.Dal.EfStructures.Migrations
                                 .HasColumnName("FirstName");
 
                             b1.Property<string>("FullName")
-                                .IsRequired()
                                 .ValueGeneratedOnAddOrUpdate()
                                 .HasColumnType("nvarchar(max)")
                                 .HasColumnName("FullName")

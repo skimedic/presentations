@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Services - LoggingConfiguration.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using Microsoft.Extensions.Configuration;
@@ -55,10 +48,22 @@ namespace AutoLot.Services.Logging
                     logLevel = LogEventLevel.Debug;
                 }
                 LogEventLevel level = (LogEventLevel)Enum.Parse(typeof(LogEventLevel), restrictedToMinimumLevel);
+                var sqlOptions = new MSSqlServerSinkOptions
+                {
+                    AutoCreateSqlTable = false,
+                    SchemaName = schema,
+                    TableName = tableName,
+                };
+                if (hostingContext.HostingEnvironment.IsDevelopment())
+                {
+                    sqlOptions.BatchPeriod = new TimeSpan(0, 0, 0, 1);
+                    sqlOptions.BatchPostingLimit = 1;
+                }
+
                 loggerConfiguration
                     .Enrich.FromLogContext()
                     .Enrich.WithMachineName()
-                    .ReadFrom.Configuration(hostingContext.Configuration)
+                    //.ReadFrom.Configuration(hostingContext.Configuration)
                     .WriteTo.File(
                         path: "ErrorLog.txt",
                         rollingInterval: RollingInterval.Day,
@@ -67,13 +72,7 @@ namespace AutoLot.Services.Logging
                     .WriteTo.Console(restrictedToMinimumLevel: logLevel)
                     .WriteTo.MSSqlServer(
                         connectionString: connectionString,
-                        new MSSqlServerSinkOptions
-                        {
-                            AutoCreateSqlTable = false,
-                            SchemaName = schema,
-                            TableName = tableName,
-                            BatchPeriod = new TimeSpan(0, 0, 0, 1)
-                        },
+                        sqlOptions,
                         restrictedToMinimumLevel: level,
                         columnOptions: ColumnOptions);
             });

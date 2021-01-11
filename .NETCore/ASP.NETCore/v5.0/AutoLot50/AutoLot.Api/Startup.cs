@@ -1,10 +1,3 @@
-// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Api - Startup.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
 using System;
 using System.IO;
 using System.Reflection;
@@ -50,9 +43,9 @@ namespace AutoLot.Api
                 })
                 .ConfigureApiBehaviorOptions(options =>
                 {
-                    //options.SuppressConsumesConstraintForFormFileParameters = true;
-                    //options.SuppressInferBindingSourcesForParameters = true;
                     //options.SuppressModelStateInvalidFilter = true;
+                    //options.SuppressInferBindingSourcesForParameters = true;
+                    //options.SuppressConsumesConstraintForFormFileParameters = true;
                     //options.SuppressMapClientErrors = true;
                     //options.ClientErrorMapping[StatusCodes.Status404NotFound].Link = "https://httpstatuses.com/404";
                 });
@@ -83,6 +76,7 @@ namespace AutoLot.Api
             //});
             services.AddSwaggerGen(c =>
             {
+                c.EnableAnnotations();
                 c.SwaggerDoc("v1",
                     new OpenApiInfo
                     {
@@ -118,7 +112,10 @@ namespace AutoLot.Api
                 }
             }
 
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "AutoLot Service v1"); });
 
             //redirect http traffic to https
@@ -132,8 +129,11 @@ namespace AutoLot.Api
             //enable authorization checks
             app.UseAuthorization();
             //opt-in to using endpoint routing
-			//use attribute routing on controllers
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            //use attribute routing on controllers
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

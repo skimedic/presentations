@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Dal - SampleData.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AutoLot.Models.Entities;
 using AutoLot.Models.Entities.Owned;
 
@@ -14,13 +7,13 @@ namespace AutoLot.Dal.Initialization
     public static class SampleData
     {
         public static List<Customer> Customers => new()
-            {
-                new() {Id = 1, PersonalInformation = new Person {FirstName = "Dave", LastName = "Brenner"}},
-                new() {Id = 2, PersonalInformation = new Person {FirstName = "Matt", LastName = "Walton"}},
-                new() {Id = 3, PersonalInformation = new Person {FirstName = "Steve", LastName = "Hagen"}},
-                new() {Id = 4, PersonalInformation = new Person {FirstName = "Pat", LastName = "Walton"}},
-                new() {Id = 5, PersonalInformation = new Person {FirstName = "Bad", LastName = "Customer"}},
-            };
+        {
+            new() {Id = 1, PersonalInformation = new() {FirstName = "Dave", LastName = "Brenner"}},
+            new() {Id = 2, PersonalInformation = new() {FirstName = "Matt", LastName = "Walton"}},
+            new() {Id = 3, PersonalInformation = new() {FirstName = "Steve", LastName = "Hagen"}},
+            new() {Id = 4, PersonalInformation = new() {FirstName = "Pat", LastName = "Walton"}},
+            new() {Id = 5, PersonalInformation = new() {FirstName = "Bad", LastName = "Customer"}},
+        };
 
         public static List<Make> Makes => new()
         {
@@ -43,7 +36,7 @@ namespace AutoLot.Dal.Initialization
             new() {Id = 7, MakeId = 5, Color = "Pink", PetName = "Pinky"},
             new() {Id = 8, MakeId = 6, Color = "Black", PetName = "Pete"},
             new() {Id = 9, MakeId = 4, Color = "Brown", PetName = "Brownie"},
-            new() {Id = 10, MakeId = 1, Color = "Rust", PetName = "Lemon", IsDriveable = false},
+            new() {Id = 10, MakeId = 1, Color = "Rust", PetName = "Lemon", IsDrivable = false},
         };
 
         public static List<Order> Orders => new()
@@ -61,9 +54,10 @@ namespace AutoLot.Dal.Initialization
             {
                 Id = 1,
                 CustomerId = Customers[4].Id,
-                PersonalInformation = new Person{
+                PersonalInformation = new()
+                {
                     FirstName = Customers[4].PersonalInformation.FirstName,
-                LastName = Customers[4].PersonalInformation.LastName
+                    LastName = Customers[4].PersonalInformation.LastName
                 }
             }
         };

@@ -1,50 +1,49 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Models - Car.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 using AutoLot.Models.Entities.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace AutoLot.Models.Entities
 {
-    [Table("Inventory", Schema = "Dbo")]
+    [Table("Inventory", Schema = "dbo")]
+    [Index(nameof(MakeId), Name = "IX_Inventory_MakeId")]
     public partial class Car : BaseEntity
     {
-        private bool? _isDriveable;
-
-        public bool IsDriveable
+        private bool? _isDrivable;
+        [DisplayName("Is Drivable")]
+        public bool IsDrivable
         {
-            get => _isDriveable ?? false;
-            set => _isDriveable = value;
+            get => _isDrivable ?? false;
+            set => _isDrivable = value;
         }
 
-        [Required] [DisplayName("Make")] 
+        [Required]
+		[DisplayName("Make")] 
         public int MakeId { get; set; }
+		
+        [Required]
+		[StringLength(50)]
+        public string Color { get; set; } = "Gold";
+
+        [Required]
+		[StringLength(50)]
+        [DisplayName("Pet Name")]
+        public string PetName { get; set; } = "My Precious";
 
         [ForeignKey(nameof(MakeId))]
         [InverseProperty(nameof(Make.Cars))]
         public Make? MakeNavigation { get; set; }
-
-        [StringLength(50), Required]
-        public string Color { get; set; } = "Gold";
-
-        [StringLength(50), Required]
-        [DisplayName("Pet Name")]
-        public string PetName { get; set; } = "My Precious";
 
         [JsonIgnore]
         [InverseProperty(nameof(Order.CarNavigation))]
         public IEnumerable<Order> Orders { get; set; } = new List<Order>();
 
         [NotMapped] 
-        public string MakeColor => $"{MakeNavigation?.Name} ({Color})";
+        public string MakeName => MakeNavigation?.Name ?? "Unknown";
 
         public override string ToString()
         {

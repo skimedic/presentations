@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Dal - ApplicationDbContext.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using AutoLot.Models.Entities;
@@ -18,23 +11,23 @@ using AutoLot.Dal.Exceptions;
 
 namespace AutoLot.Dal.EfStructures
 {
-    public sealed class ApplicationDbContext : DbContext
+    public sealed partial class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
             ChangeTracker.StateChanged += ChangeTracker_StateChanged;
             ChangeTracker.Tracked += ChangeTracker_Tracked;
-            SavingChanges += (sender, args) =>
+            base.SavingChanges += (sender, args) =>
             {
-                Console.WriteLine($"Saving changes for {((DbContext)sender).Database.GetConnectionString()}");
+                Console.WriteLine($"Saving changes for {((ApplicationDbContext)sender)!.Database!.GetConnectionString()}");
             };
 
-            SavedChanges += (sender, args) =>
+            base.SavedChanges += (sender, args) =>
             {
-                Console.WriteLine($"Saved {args.EntitiesSavedCount} changes for {((DbContext)sender).Database.GetConnectionString()}");
+                Console.WriteLine($"Saved {args!.EntitiesSavedCount} changes for {((ApplicationDbContext)sender)!.Database!.GetConnectionString()}");
             };  
-            SaveChangesFailed += (sender, args) =>
+            base.SaveChangesFailed += (sender, args) =>
             {
                 Console.WriteLine($"An exception occurred! {args.Exception.Message} entities");
             };
@@ -52,34 +45,21 @@ namespace AutoLot.Dal.EfStructures
             Console.WriteLine($"Car {c.PetName} was {e.OldState} before the state changed to {e.NewState}");
             switch (e.NewState)
             {
-                case EntityState.Added:
-                case EntityState.Deleted:
-                case EntityState.Modified:
                 case EntityState.Unchanged:
-                    switch (e.OldState)
+                    action = e.OldState switch
                     {
-                        case EntityState.Added:
-                            action = "Added";
-                            break;
-                        case EntityState.Deleted:
-                            action = "Deleted";
-                            break;
-                        case EntityState.Modified:
-                            action = "Edited";
-                            break;
-                        case EntityState.Detached:
-                        case EntityState.Unchanged:
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
+                        EntityState.Added => "Added",
+                        EntityState.Deleted => "Deleted",
+                        EntityState.Modified => "Edited",
+                        _ => action
+                    };
 
                     Console.WriteLine($"The object was {action}");
                     break;
-                case EntityState.Detached:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                //case EntityState.Detached:
+                //    break;
+                //default:
+                //    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -117,11 +97,16 @@ namespace AutoLot.Dal.EfStructures
 
             modelBuilder.Entity<Car>(entity =>
             {
-                entity.HasQueryFilter(c => c.IsDriveable);
-                entity.Property(p => p.IsDriveable).HasField("_isDriveable").HasDefaultValue(true);
+                entity.HasQueryFilter(c => c.IsDrivable);
+                entity.Property(p => p.IsDrivable).HasField("_isDrivable").HasDefaultValue(true);
+				
+				entity.HasOne(d => d.MakeNavigation)
+                    .WithMany(p => p!.Cars)
+                    .HasForeignKey(d => d.MakeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Make_Inventory");
+
             });
-            //New in EF Core 5 - bi-directional query filters
-            modelBuilder.Entity<Order>().HasQueryFilter(e => e.CarNavigation!.IsDriveable);
 
             modelBuilder.Entity<CustomerOrderViewModel>().HasNoKey().ToView("CustomerOrderView", "dbo");
 
@@ -160,6 +145,9 @@ namespace AutoLot.Dal.EfStructures
                         pd.Property<string>(nameof(Person.LastName))
                             .HasColumnName(nameof(Person.LastName))
                             .HasColumnType("nvarchar(50)");
+                        pd.Property(p => p.FullName)
+                            .HasColumnName(nameof(Person.FullName))
+                            .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
                     });
                 //entity.HasIndex(nameof(Person.FirstName), nameof(Person.LastName)).IsUnique(true);
             });
@@ -175,13 +163,13 @@ namespace AutoLot.Dal.EfStructures
                             .HasColumnName(nameof(Person.FullName))
                             .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
                     });
-                entity.Navigation(c => c.PersonalInformation).IsRequired(true);
+                //entity.Navigation(c => c.PersonalInformation).IsRequired(true);
             });
 
             modelBuilder.Entity<Make>(entity =>
             {
                 entity.HasMany(e => e.Cars)
-                    .WithOne(c => c.MakeNavigation!)
+                    .WithOne(c => c!.MakeNavigation)
                     .HasForeignKey(k => k.MakeId)
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK_Make_Inventory");
@@ -200,10 +188,14 @@ namespace AutoLot.Dal.EfStructures
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Orders_Customers");
-                entity.HasIndex(cr => new {cr.CustomerId, cr.CarId}).IsUnique(true);
+                //entity.HasIndex(cr => new {cr.CustomerId, cr.CarId}).IsUnique(true);
             });
-            base.OnModelCreating(modelBuilder);
+            //New in EF Core 5 - bi-directional query filters
+            modelBuilder.Entity<Order>().HasQueryFilter(e => e.CarNavigation!.IsDrivable);
+            OnModelCreatingPartial(modelBuilder);
         }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
         public override int SaveChanges()
         {

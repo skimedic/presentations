@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoLot.Dal.EfStructures.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201130233700_Logging")]
-    partial class Logging
+    [Migration("20210101200252_CustomSql")]
+    partial class CustomSql
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0-rc.2.20475.6");
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("AutoLot.Models.Entities.Car", b =>
                 {
@@ -32,6 +32,11 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsDrivable")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<int>("MakeId")
                         .HasColumnType("int");
@@ -48,9 +53,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MakeId");
+                    b.HasIndex(new[] { "MakeId" }, "IX_Inventory_MakeId");
 
-                    b.ToTable("Inventory", "Dbo");
+                    b.ToTable("Inventory", "dbo");
                 });
 
             modelBuilder.Entity("AutoLot.Models.Entities.CreditRisk", b =>
@@ -134,9 +139,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CarId");
+                    b.HasIndex(new[] { "CarId" }, "IX_Orders_CarId");
 
-                    b.HasIndex("CustomerId", "CarId")
+                    b.HasIndex(new[] { "CustomerId", "CarId" }, "IX_Orders_CustomerId_CarId")
                         .IsUnique();
 
                     b.ToTable("Orders", "Dbo");
@@ -210,6 +215,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("IsDrivable")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
@@ -256,6 +264,12 @@ namespace AutoLot.Dal.EfStructures.Migrations
                                 .HasColumnType("nvarchar(50)")
                                 .HasColumnName("FirstName");
 
+                            b1.Property<string>("FullName")
+                                .ValueGeneratedOnAddOrUpdate()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("FullName")
+                                .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
+
                             b1.Property<string>("LastName")
                                 .IsRequired()
                                 .HasMaxLength(50)
@@ -290,6 +304,12 @@ namespace AutoLot.Dal.EfStructures.Migrations
                                 .HasMaxLength(50)
                                 .HasColumnType("nvarchar(50)")
                                 .HasColumnName("FirstName");
+
+                            b1.Property<string>("FullName")
+                                .ValueGeneratedOnAddOrUpdate()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("FullName")
+                                .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
 
                             b1.Property<string>("LastName")
                                 .IsRequired()

@@ -31,6 +31,11 @@ dotnet ef database update Drivable -c AutoLot.Dal.EfStructures.ApplicationDbCont
 
 dotnet ef migrations remove
 
+dotnet ef migrations add BookTweaks -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
+dotnet ef database update BookTweaks -c AutoLot.Dal.EfStructures.ApplicationDbContext
+
+dotnet ef migrations remove
+
 dotnet ef migrations add Test -o EfStructures\Migrations -c AutoLot.Dal.EfStructures.ApplicationDbContext
 dotnet ef migrations remove
 

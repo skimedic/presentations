@@ -53,37 +53,38 @@ namespace AutoLot.Dal.Initialization
                 Console.WriteLine(ex);
                 throw;
             }
-        }
-
-        internal static void ProcessInsert<TEntity>(
-            ApplicationDbContext context, DbSet<TEntity> table, List<TEntity> records) where TEntity : BaseEntity
-        {
-            if (table.Any())
+            static void ProcessInsert<TEntity>(
+                ApplicationDbContext context, DbSet<TEntity> table, List<TEntity> records) where TEntity : BaseEntity
             {
-                return;
+                if (table.Any())
+                {
+                    return;
+                }
+
+                IExecutionStrategy strategy = context.Database.CreateExecutionStrategy();
+                strategy.Execute(() =>
+                {
+                    using var transaction = context.Database.BeginTransaction();
+                    try
+                    {
+                        var metaData = context.Model.FindEntityType(typeof(TEntity).FullName);
+                        context.Database.ExecuteSqlRaw(
+                            $"SET IDENTITY_INSERT {metaData.GetSchema()}.{metaData.GetTableName()} ON");
+                        table.AddRange(records);
+                        context.SaveChanges();
+                        context.Database.ExecuteSqlRaw(
+                            $"SET IDENTITY_INSERT {metaData.GetSchema()}.{metaData.GetTableName()} OFF");
+                        transaction.Commit();
+                    }
+                    catch (Exception)
+                    {
+                        transaction.Rollback();
+                    }
+                });
             }
 
-            IExecutionStrategy strategy = context.Database.CreateExecutionStrategy();
-            strategy.Execute(() =>
-            {
-                using var transaction = context.Database.BeginTransaction();
-                try
-                {
-                    var metaData = context.Model.FindEntityType(typeof(TEntity).FullName);
-                    context.Database.ExecuteSqlRaw(
-                        $"SET IDENTITY_INSERT {metaData.GetSchema()}.{metaData.GetTableName()} ON");
-                    table.AddRange(records);
-                    context.SaveChanges();
-                    context.Database.ExecuteSqlRaw(
-                        $"SET IDENTITY_INSERT {metaData.GetSchema()}.{metaData.GetTableName()} OFF");
-                    transaction.Commit();
-                }
-                catch (Exception)
-                {
-                    transaction.Rollback();
-                }
-            });
         }
+
 
         internal static void DropAndCreateDatabase(ApplicationDbContext context)
         {

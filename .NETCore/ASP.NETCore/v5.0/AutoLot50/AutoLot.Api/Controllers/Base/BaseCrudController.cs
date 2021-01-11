@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Api - BaseCrudController.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using AutoLot.Dal.Exceptions;
 using AutoLot.Models.Entities.Base;
@@ -13,6 +6,7 @@ using AutoLot.Dal.Repos.Base;
 using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace AutoLot.Api.Controllers.Base
 {
@@ -37,6 +31,8 @@ namespace AutoLot.Api.Controllers.Base
         /// <response code="200">Returns all items</response>
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [SwaggerResponse(200, "The execution was successful")]
+        [SwaggerResponse(400, "The request was invalid")]
         [HttpGet]
         public ActionResult<IEnumerable<T>> GetAll()
         {
@@ -53,6 +49,8 @@ namespace AutoLot.Api.Controllers.Base
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [SwaggerResponse(200, "The execution was successful")]
+        [SwaggerResponse(204, "No content")]
         [HttpGet("{id}")]
         public ActionResult<T> GetOne(int id)
         {
@@ -89,6 +87,8 @@ namespace AutoLot.Api.Controllers.Base
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [SwaggerResponse(200, "The execution was successful")]
+        [SwaggerResponse(400, "The request was invalid")]
         [HttpPut("{id}")]
         public IActionResult UpdateOne(int id,T entity)
         {
@@ -138,6 +138,8 @@ namespace AutoLot.Api.Controllers.Base
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [SwaggerResponse(201, "The execution was successful")]
+        [SwaggerResponse(400, "The request was invalid")]
         [HttpPost]
         public ActionResult<T> AddOne(T entity)
         {
@@ -171,6 +173,8 @@ namespace AutoLot.Api.Controllers.Base
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [SwaggerResponse(200, "The execution was successful")]
+        [SwaggerResponse(400, "The request was invalid")]
         [HttpDelete("{id}")]
         public ActionResult<T> DeleteOne(int id, T entity)
         {

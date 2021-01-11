@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Dal - MakeRepo.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AutoLot.Dal.EfStructures;
 using AutoLot.Models.Entities;

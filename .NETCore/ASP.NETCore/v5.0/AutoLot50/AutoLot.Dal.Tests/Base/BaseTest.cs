@@ -1,10 +1,3 @@
-// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Dal.Tests - BaseTest.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
 using System;
 using System.Data;
 using AutoLot.Dal.EfStructures;

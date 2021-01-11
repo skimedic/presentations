@@ -1,10 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Models - Make.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,7 +10,8 @@ namespace AutoLot.Models.Entities
     [Table("Makes", Schema = "dbo")]
     public partial class Make : BaseEntity
     {
-        [StringLength(50), Required] 
+        [Required]
+        [StringLength(50)]
         public string Name { get; set; } = "Ford";
 
         [JsonIgnore]

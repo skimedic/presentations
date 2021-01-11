@@ -1,17 +1,11 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Api - CarsController.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AutoLot.Api.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
 using AutoLot.Models.Entities;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Services.Logging;
 using Microsoft.AspNetCore.Http;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace AutoLot.Api.Controllers
 {
@@ -31,6 +25,10 @@ namespace AutoLot.Api.Controllers
         /// <response code="200">Returns all cars by make</response>
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [SwaggerResponse(200, "The execution was successful")]
+        [SwaggerResponse(204, "No content")]
+
         [HttpGet("bymake/{id?}")]
         public ActionResult<IEnumerable<Car>> GetCarsByMake(int? id)
         {

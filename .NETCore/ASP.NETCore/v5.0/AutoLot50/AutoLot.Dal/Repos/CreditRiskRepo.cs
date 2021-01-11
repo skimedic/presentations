@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Dal - CreditRiskRepo.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using AutoLot.Dal.EfStructures;
+﻿using AutoLot.Dal.EfStructures;
 using AutoLot.Models.Entities;
 using AutoLot.Dal.Repos.Base;
 using AutoLot.Dal.Repos.Interfaces;

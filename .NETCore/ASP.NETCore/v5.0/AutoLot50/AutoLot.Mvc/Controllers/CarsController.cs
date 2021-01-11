@@ -35,7 +35,7 @@ namespace AutoLot.Mvc.Controllers
         public IActionResult Index() 
             => View(_repo.GetAllIgnoreQueryFilters());
 
-        [HttpGet("{makeId}/{makeName}")]
+        [HttpGet("/[controller]/[action]/{makeId}/{makeName}")]
         public IActionResult ByMake(int makeId, string makeName)
         {
             ViewBag.MakeName = makeName;

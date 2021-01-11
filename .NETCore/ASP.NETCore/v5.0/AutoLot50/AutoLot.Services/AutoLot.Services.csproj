@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\AutoLot.Dal\AutoLot.Dal.csproj" />
     <ProjectReference Include="..\AutoLot.Models\AutoLot.Models.csproj" />
   </ItemGroup>
 

@@ -1,21 +1,16 @@
-// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Dal.Tests - CarTests.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
 using System.Collections.Generic;
 using System.Linq;
 using AutoLot.Dal.Exceptions;
-using AutoLot.Models.Entities;
+using AutoLot.Dal.Repos;
 using AutoLot.Dal.Tests.Base;
+using AutoLot.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Storage;
 using Xunit;
 
-namespace AutoLot.Dal.Tests.ContextTests
+namespace AutoLot.Dal.Tests.IntegrationTests
 {
     [Collection("Integration Tests")]
     public class CarTests : BaseTest, IClassFixture<EnsureAutoLotDatabaseTestFixture>
@@ -23,22 +18,87 @@ namespace AutoLot.Dal.Tests.ContextTests
         [Fact]
         public void ShouldReturnDrivableCarsWithQueryFilterSet()
         {
-            var query = Context.Cars.AsQueryable();
-            var queryString = query.ToQueryString();
+            IQueryable<Car> query = Context.Cars;
+            var qs = query.ToQueryString();
             var cars = query.ToList();
             Assert.NotEmpty(cars);
-            Assert.Equal(9,cars.Count);
+            Assert.Equal(9, cars.Count);
         }
 
         [Fact]
         public void ShouldGetAllOfTheCars()
         {
-            var cars = Context.Cars.IgnoreQueryFilters().ToList();
+            IQueryable<Car> query = Context.Cars.IgnoreQueryFilters();
+            var qs = query.ToQueryString();
+            var cars = query.ToList();
             Assert.Equal(10, cars.Count);
         }
 
+        [Fact]
+        public void ShouldGetAllOfTheCarsWithMakes()
+        {
+            IIncludableQueryable<Car, Make?> query = Context.Cars.Include(c => c.MakeNavigation);
+            var qs = query.ToQueryString();
+            var cars = query.ToList();
+            Assert.Equal(9, cars.Count);
+        }
+
+        [Fact]
+        public void ShouldGetCarsOnOrderWithRelatedProperties()
+        {
+            IIncludableQueryable<Car, Customer?> query = Context.Cars.Where(c => c.Orders.Any())
+                .Include(c => c.MakeNavigation)
+                .Include(c => c.Orders).ThenInclude(o => o.CustomerNavigation);
+            var qs = query.ToQueryString();
+            var cars = query.ToList();
+            Assert.Equal(4, cars.Count);
+            cars.ForEach(c =>
+            {
+                Assert.NotNull(c.MakeNavigation);
+                Assert.NotNull(c.Orders.ToList()[0].CustomerNavigation);
+            });
+        }
+
+        [Fact]
+        public void ShouldGetCarsOnOrderWithRelatedPropertiesAsSplitQuery()
+        {
+            IQueryable<Car> query = Context.Cars.Where(c => c.Orders.Any())
+                .Include(c => c.MakeNavigation)
+                .Include(c => c.Orders).ThenInclude(o => o.CustomerNavigation)
+                .AsSplitQuery();
+            var cars = query.ToList();
+            Assert.Equal(4, cars.Count);
+            cars.ForEach(c =>
+            {
+                Assert.NotNull(c.MakeNavigation);
+                Assert.NotNull(c.Orders.ToList()[0].CustomerNavigation);
+            });
+        }
+
+        [Fact]
+        public void ShouldGetReferenceRelatedInformationExplicitly()
+        {
+            var car = Context.Cars.First(x => x.Id == 1);
+            Assert.Null(car.MakeNavigation);
+            var query = Context.Entry(car).Reference(c => c.MakeNavigation).Query();
+            var qs = query.ToQueryString();
+            query.Load();
+            Assert.NotNull(car.MakeNavigation);
+        }
+
+        [Fact]
+        public void ShouldGetCollectionRelatedInformationExplicitly()
+        {
+            var car = Context.Cars.First(x => x.Id == 1);
+            Assert.Empty(car.Orders);
+            var query = Context.Entry(car).Collection(c => c.Orders).Query();
+            var qs = query.ToQueryString();
+            query.Load();
+            Assert.Single(car.Orders);
+        }
+
         [Theory]
-        [InlineData(1, 1)]
+        [InlineData(1, 2)]
         [InlineData(2, 1)]
         [InlineData(3, 1)]
         [InlineData(4, 2)]
@@ -46,7 +106,9 @@ namespace AutoLot.Dal.Tests.ContextTests
         [InlineData(6, 1)]
         public void ShouldGetTheCarsByMake(int makeId, int expectedCount)
         {
-            var cars = Context.Cars.Where(x=>x.MakeId == makeId).ToList();
+            IQueryable<Car> query = Context.Cars.IgnoreQueryFilters().Where(x => x.MakeId == makeId);
+            var qs = query.ToQueryString();
+            var cars = query.ToList();
             Assert.Equal(expectedCount, cars.Count);
         }
 
@@ -57,7 +119,7 @@ namespace AutoLot.Dal.Tests.ContextTests
             var tableName = entity.GetTableName();
             var schemaName = entity.GetSchema();
             var cars = Context.Cars.FromSqlRaw($"Select * from {schemaName}.{tableName}").ToList();
-            Assert.Equal(9,cars.Count);
+            Assert.Equal(9, cars.Count);
         }
 
         [Fact]
@@ -96,45 +158,119 @@ namespace AutoLot.Dal.Tests.ContextTests
             var tableName = entity.GetTableName();
             var schemaName = entity.GetSchema();
             var cars = Context.Cars.FromSqlRaw($"Select * from {schemaName}.{tableName}")
-                .Where(x=>x.MakeId == makeId).ToList();
+                .Where(x => x.MakeId == makeId).ToList();
             Assert.Equal(expectedCount, cars.Count);
         }
 
         [Fact]
-        public void ShouldGetAllOfTheCarsWithMakes()
+        public void ShouldGetTheCountOfCars()
         {
-            var queryable = Context.Cars.Include(c => c.MakeNavigation);
-            var queryString = queryable.ToQueryString();
-            var cars = queryable.ToList();
-            Assert.Equal(9, cars.Count);
+            var count = Context.Cars.Count();
+            Assert.Equal(9, count);
         }
 
         [Fact]
-        public void ShouldGetCarsOnOrderWithRelatedProperties()
+        public void ShouldGetTheCountOfCarsIgnoreQueryFilters()
         {
-            var cars = Context.Cars.Where(c => c.Orders.Any())
-                .Include(c => c.MakeNavigation)
-                .Include(c => c.Orders).ThenInclude(o => o.CustomerNavigation).ToList();
-            Assert.Equal(4, cars.Count);
-            cars.ForEach(c =>
+            var count = Context.Cars.IgnoreQueryFilters().Count();
+            Assert.Equal(10, count);
+        }
+
+        [Theory]
+        [InlineData(1, 1)]
+        [InlineData(2, 1)]
+        [InlineData(3, 1)]
+        [InlineData(4, 2)]
+        [InlineData(5, 3)]
+        [InlineData(6, 1)]
+        public void ShouldGetTheCountOfCarsByMakeP1(int makeId, int expectedCount)
+        {
+            var count = Context.Cars.Count(x=>x.MakeId == makeId);
+            Assert.Equal(expectedCount, count);
+        }
+
+        [Theory]
+        [InlineData(1, 1)]
+        [InlineData(2, 1)]
+        [InlineData(3, 1)]
+        [InlineData(4, 2)]
+        [InlineData(5, 3)]
+        [InlineData(6, 1)]
+        public void ShouldGetTheCountOfCarsByMakeP2(int makeId, int expectedCount)
+        {
+            var count = Context.Cars.Where(x => x.MakeId == makeId).Count();
+            Assert.Equal(expectedCount, count);
+        }
+
+        [Theory]
+        [InlineData(1, true)]
+        [InlineData(11, false)]
+        public void ShouldCheckForAnyCarsWithMake(int makeId, bool expectedResult)
+        {
+            var result = Context.Cars.Any(x => x.MakeId == makeId);
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Theory]
+        [InlineData(1, false)]
+        [InlineData(11, false)]
+        public void ShouldCheckForAllCarsWithMake(int makeId, bool expectedResult)
+        {
+            var result = Context.Cars.All(x => x.MakeId == makeId);
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Theory]
+        [InlineData(1, "Zippy")]
+        [InlineData(2, "Rusty")]
+        [InlineData(3, "Mel")]
+        [InlineData(4, "Clunker")]
+        [InlineData(5, "Bimmer")]
+        [InlineData(6, "Hank")]
+        [InlineData(7, "Pinky")]
+        [InlineData(8, "Pete")]
+        [InlineData(9, "Brownie")]
+        public void ShouldGetValueFromStoredProc(int id, string expectedName)
+        {
+            Assert.Equal(expectedName, new CarRepo(Context).GetPetName(id));
+        }
+
+        [Fact]
+        public void ShouldUpdateACarWithAttach()
+        {
+                var car = new Car
+                {
+                    Id = 3,
+                    Color = "Yellow",
+                    MakeId = 1,
+                    PetName = "Herbie"
+                };
+                var carCount = Context.Cars.Count();
+                Context.Cars.Attach(car);
+                Assert.Equal(EntityState.Unchanged, Context.Entry(car).State);
+        }
+
+        [Fact]
+        public void ShouldAddACarWithAttach()
+        {
+            ExecuteInATransaction(RunTheTest);
+
+            void RunTheTest()
             {
-                Assert.NotNull(c.MakeNavigation);
-                Assert.NotNull(c.Orders.ToList()[0].CustomerNavigation);
-            });
+                var car = new Car
+                {
+                    Color = "Yellow",
+                    MakeId = 1,
+                    PetName = "Herbie"
+                };
+                var carCount = Context.Cars.Count();
+                Context.Cars.Attach(car);
+                Assert.Equal(EntityState.Added, Context.Entry(car).State);
+                Context.SaveChanges();
+                var newCarCount = Context.Cars.Count();
+                Assert.Equal(carCount + 1, newCarCount);
+            }
         }
-
-        [Fact]
-        public void ShouldGetRelatedInformationExplicitly()
-        {
-            var car = Context.Cars.First(x => x.Id == 1);
-            Assert.Null(car.MakeNavigation);
-            Context.Entry(car).Reference(c => c.MakeNavigation).Load();
-            Assert.NotNull(car.MakeNavigation);
-            Assert.Empty(car.Orders);
-            Context.Entry(car).Collection(c => c.Orders).Load();
-            Assert.Single(car.Orders);
-        }
-
         [Fact]
         public void ShouldAddACar()
         {
@@ -166,25 +302,25 @@ namespace AutoLot.Dal.Tests.ContextTests
                 //Have to add 4 to activate batching
                 var cars = new List<Car>
                 {
-                    new Car
+                    new()
                     {
                         Color = "Yellow",
                         MakeId = 1,
                         PetName = "Herbie"
                     },
-                    new Car
+                    new()
                     {
                         Color = "White",
                         MakeId = 2,
                         PetName = "Mach 5"
                     },
-                    new Car
+                    new()
                     {
                         Color = "Pink",
                         MakeId = 3,
                         PetName = "Avon"
                     },
-                    new Car
+                    new()
                     {
                         Color = "Blue",
                         MakeId = 4,
@@ -206,14 +342,14 @@ namespace AutoLot.Dal.Tests.ContextTests
 
             void RunTheTest()
             {
-                var make = new Make { Name = "Honda" };
+                var make = new Make {Name = "Honda"};
                 var car = new Car
                 {
                     Color = "Yellow",
                     MakeId = 1,
                     PetName = "Herbie"
                 };
-                ((List<Car>)make.Cars).Add(car);
+                ((List<Car>) make.Cars).Add(car);
                 Context.Makes.Add(make);
                 var carCount = Context.Cars.Count();
                 var makeCount = Context.Makes.Count();
@@ -222,9 +358,9 @@ namespace AutoLot.Dal.Tests.ContextTests
                 var newMakeCount = Context.Makes.Count();
                 Assert.Equal(carCount + 1, newCarCount);
                 Assert.Equal(makeCount + 1, newMakeCount);
-
             }
         }
+
         [Fact]
         public void ShouldUpdateACar()
         {
@@ -235,6 +371,7 @@ namespace AutoLot.Dal.Tests.ContextTests
                 var car = Context.Cars.First(c => c.Id == 1);
                 Assert.Equal("Black", car.Color);
                 car.Color = "White";
+                //Context.Cars.Update(car);
                 Context.SaveChanges();
                 Assert.Equal("White", car.Color);
                 var context2 = TestHelpers.GetSecondContext(Context, trans);
@@ -242,6 +379,7 @@ namespace AutoLot.Dal.Tests.ContextTests
                 Assert.Equal("White", car2.Color);
             }
         }
+
         [Fact]
         public void ShouldUpdateACarUsingState()
         {
@@ -258,7 +396,7 @@ namespace AutoLot.Dal.Tests.ContextTests
                     MakeId = car.MakeId,
                     PetName = car.PetName,
                     TimeStamp = car.TimeStamp,
-                    IsDriveable = car.IsDriveable
+                    IsDrivable = car.IsDrivable
                 };
                 var context2 = TestHelpers.GetSecondContext(Context, trans);
                 context2.Entry(updatedCar).State = EntityState.Modified;
@@ -285,7 +423,7 @@ namespace AutoLot.Dal.Tests.ContextTests
                 car.Color = "Yellow";
                 //Check for 
                 var ex = Assert.Throws<CustomConcurrencyException>(() => Context.SaveChanges());
-                var entry = ((DbUpdateConcurrencyException)ex.InnerException)?.Entries[0];
+                var entry = ((DbUpdateConcurrencyException) ex.InnerException)?.Entries[0];
                 PropertyValues originalProps = entry.OriginalValues;
                 PropertyValues currentProps = entry.CurrentValues;
                 //This needs another database call
@@ -306,7 +444,7 @@ namespace AutoLot.Dal.Tests.ContextTests
                 Context.SaveChanges();
                 var newCarCount = Context.Cars.Count();
                 Assert.Equal(carCount - 1, newCarCount);
-                Assert.Equal(EntityState.Detached,Context.Entry(car).State);
+                Assert.Equal(EntityState.Detached, Context.Entry(car).State);
             }
         }
 
@@ -319,7 +457,7 @@ namespace AutoLot.Dal.Tests.ContextTests
             {
                 var car = Context.Cars.First(c => c.Id == 1);
                 Context.Cars.Remove(car);
-                Assert.Throws<CustomDbUpdateException>(()=>Context.SaveChanges());
+                Assert.Throws<CustomDbUpdateException>(() => Context.SaveChanges());
             }
         }
 

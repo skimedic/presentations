@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Models - Person.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +14,6 @@ namespace AutoLot.Models.Entities.Owned
         public string LastName { get; set; } = "Customer";
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
     }
 }
