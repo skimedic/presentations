@@ -30,7 +30,7 @@ namespace AutoLot.Dal.Repos
 
         public IQueryable<CustomerOrderViewModel> GetOrdersViewModel()
         {
-            return Context.CustomerOrderViewModels.AsQueryable();
+            return Context.CustomerOrderViewModels!.AsQueryable();
         }
     }
 }

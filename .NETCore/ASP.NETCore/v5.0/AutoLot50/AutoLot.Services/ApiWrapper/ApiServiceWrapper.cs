@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Services - ApiServiceWrapper.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -73,7 +66,6 @@ namespace AutoLot.Services.ApiWrapper
 
             return await response.Content.ReadFromJsonAsync<Car>();
         }
-
 
         public async Task<Car> UpdateCarAsync(int id, Car entity)
         {

@@ -61,7 +61,7 @@ namespace AutoLot.Mvc
             services.ConfigureApiServiceWrapper(Configuration);
 
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
-			services.AddHttpContextAccessor();
+			//services.AddHttpContextAccessor();
 			
             if (_env.IsDevelopment() || _env.IsEnvironment("Local"))
             {
@@ -70,10 +70,10 @@ namespace AutoLot.Mvc
                 {
                     options.MinifyCssFiles(); //Minifies all CSS files
                     //options.MinifyJsFiles(); //Minifies all JS files
-                //    options.MinifyJsFiles("js/site.js");
+                    //    options.MinifyJsFiles("js/site.js");
                     options.MinifyJsFiles("lib/**/*.js");
-                //    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/**/*.js");
-                //    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/validators.js", "js/validations/errorFormatting.js");
+                    //    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/**/*.js");
+                    //    //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/validators.js", "js/validations/errorFormatting.js");
                 });
             }
             else
@@ -83,6 +83,7 @@ namespace AutoLot.Mvc
                     options.MinifyCssFiles(); //Minifies all CSS files
                     //options.MinifyJsFiles(); //Minifies all JS files
                     options.MinifyJsFiles("js/site.js");
+                    options.MinifyJsFiles("lib/**/*.js");
                     options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/**/*.js");
                     //options.AddJavaScriptBundle("js/validations/validationCode.js", "js/validations/validators.js", "js/validations/errorFormatting.js");
                 });

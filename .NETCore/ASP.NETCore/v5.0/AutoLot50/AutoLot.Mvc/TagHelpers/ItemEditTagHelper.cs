@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Mvc - ItemEditTagHelper.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using AutoLot.Mvc.Controllers;
+﻿using AutoLot.Mvc.Controllers;
 using AutoLot.Mvc.TagHelpers.Base;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -20,7 +13,7 @@ namespace AutoLot.Mvc.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            BuildContent(output,nameof(CarsControllerApi.Edit),"text-warning","Edit","edit");
+            BuildContent(output,nameof(CarsController.Edit),"text-warning","Edit","edit");
         }
     }
 }

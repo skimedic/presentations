@@ -1,10 +1,14 @@
 ﻿@model Car
 @{
-    ViewData["Title"] = "RazorSyntax";
+    ViewData["Title"] = "Razor Syntax";
 }
 
 <h1>Razor Syntax</h1>
 
+@for (int i = 0; i < 15; i++)
+{
+  //do something
+}
 @{
     //Code Block
     var foo = "Foo";
@@ -14,11 +18,9 @@
 @foo<br />
 @htmlString<br />
 @foo.@bar<br />
+@foo.ToUpper()<br/>
 @Html.Raw(htmlString)
 <hr />
-@for (int i = 0; i < 15; i++)
-{
-}
 @{
     @:Straight Text
     <div>Value:@Model.Id</div>
@@ -35,6 +37,7 @@
 *@
 Email Address Handling:<br/>
 foo@foo.com = foo@foo.com<br/>
+@@foo<br/>
 test@foo = test@foo<br/>
 test@(foo) = testFoo<br/>
 <hr/>

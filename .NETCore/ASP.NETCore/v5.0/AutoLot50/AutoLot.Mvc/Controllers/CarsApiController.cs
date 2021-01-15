@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Mvc - CarsController.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 using AutoLot.Services.ApiWrapper;
@@ -17,11 +10,11 @@ namespace AutoLot.Mvc.Controllers
 {
     [Route("[controller]/[action]")]
     //[Route("Cars/[action]")]
-    public class CarsControllerApi : Controller
+    public class CarsApiController : Controller
     {
         private readonly IApiServiceWrapper _serviceWrapper;
-        private readonly IAppLogging<CarsControllerApi> _logging;
-        public CarsControllerApi(IApiServiceWrapper serviceWrapper, IAppLogging<CarsControllerApi> logging)
+        private readonly IAppLogging<CarsApiController> _logging;
+        public CarsApiController(IApiServiceWrapper serviceWrapper, IAppLogging<CarsApiController> logging)
         {
             _serviceWrapper = serviceWrapper;
             _logging = logging;
@@ -31,7 +24,7 @@ namespace AutoLot.Mvc.Controllers
             => new SelectList(await _serviceWrapper.GetMakesAsync(), nameof(Make.Id), nameof(Make.Name));
 
         internal async Task<Car> GetOneCarAsync(int? id) 
-            => id == null ? null : await _serviceWrapper.GetCarAsync(id.Value);
+            => !id.HasValue ? null : await _serviceWrapper.GetCarAsync(id.Value);
 
         [Route("/[controller]")]
         [Route("/[controller]/[action]")]

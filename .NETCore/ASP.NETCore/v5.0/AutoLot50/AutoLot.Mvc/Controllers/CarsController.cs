@@ -1,10 +1,3 @@
-// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Mvc - Cars2Controller.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
 using AutoLot.Dal.Repos.Interfaces;
 using AutoLot.Models.Entities;
 using AutoLot.Services.Logging;
@@ -17,8 +10,8 @@ namespace AutoLot.Mvc.Controllers
     public class CarsController : Controller
     {
         private readonly ICarRepo _repo;
-        private readonly IAppLogging<CarsControllerApi> _logging;
-        public CarsController(ICarRepo repo, IAppLogging<CarsControllerApi> logging)
+        private readonly IAppLogging<CarsController> _logging;
+        public CarsController(ICarRepo repo, IAppLogging<CarsController> logging)
         {
             _repo = repo;
             _logging = logging;
@@ -28,7 +21,7 @@ namespace AutoLot.Mvc.Controllers
             => new SelectList(makeRepo.GetAll(), nameof(Make.Id), nameof(Make.Name));
 
         internal Car GetOneCar(int? id) 
-            => id == null ? null : _repo.Find(id.Value);
+            => !id.HasValue ? null : _repo.Find(id.Value);
 
         [Route("/[controller]")]
         [Route("/[controller]/[action]")]
@@ -71,7 +64,7 @@ namespace AutoLot.Mvc.Controllers
             if (ModelState.IsValid)
             {
                 _repo.Add(car);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details),new {id = car.Id});
             }
             ViewData["MakeId"] = GetMakes(makeRepo);
             return View(car);
@@ -83,7 +76,7 @@ namespace AutoLot.Mvc.Controllers
             var car = GetOneCar(id);
             if (car == null)
             {
-                return NotFound();
+                return NoContent();
             }
             ViewData["MakeId"] = GetMakes(makeRepo);
             return View(car);
@@ -100,7 +93,7 @@ namespace AutoLot.Mvc.Controllers
             if (ModelState.IsValid)
             {
                 _repo.Update(car);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details),new {id = car.Id});
             }
             ViewData["MakeId"] = GetMakes(makeRepo);
             return View(car);
@@ -121,6 +114,10 @@ namespace AutoLot.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id, Car car)
         {
+            if (id != car.Id)
+            {
+                return BadRequest();
+            }
             _repo.Delete(car);
             return RedirectToAction(nameof(Index));
         }

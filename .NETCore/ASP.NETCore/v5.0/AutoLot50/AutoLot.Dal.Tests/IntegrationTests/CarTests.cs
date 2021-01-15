@@ -236,7 +236,7 @@ namespace AutoLot.Dal.Tests.IntegrationTests
         }
 
         [Fact]
-        public void ShouldUpdateACarWithAttach()
+        public void ShouldNotUpdateACarWithAttach()
         {
                 var car = new Car
                 {

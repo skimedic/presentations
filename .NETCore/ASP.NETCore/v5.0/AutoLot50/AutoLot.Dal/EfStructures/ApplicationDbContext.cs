@@ -49,7 +49,7 @@ namespace AutoLot.Dal.EfStructures
                     action = e.OldState switch
                     {
                         EntityState.Added => "Added",
-                        EntityState.Deleted => "Deleted",
+                        //EntityState.Deleted => "Deleted",
                         EntityState.Modified => "Edited",
                         _ => action
                     };

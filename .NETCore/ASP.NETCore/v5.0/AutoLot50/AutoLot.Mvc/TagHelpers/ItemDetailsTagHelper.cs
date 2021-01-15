@@ -1,11 +1,4 @@
-﻿// Copyright Information
-// ==================================
-// AutoLot - AutoLot.Mvc - ItemDetailsTagHelper.cs
-// All samples copyright Philip Japikse
-// http://www.skimedic.com 2020/12/13
-// ==================================
-
-using AutoLot.Mvc.Controllers;
+﻿using AutoLot.Mvc.Controllers;
 using AutoLot.Mvc.TagHelpers.Base;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -20,7 +13,7 @@ namespace AutoLot.Mvc.TagHelpers
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            BuildContent(output,nameof(CarsControllerApi.Details),"text-info","Details","info-circle");
+            BuildContent(output,nameof(CarsController.Details),"text-info","Details","info-circle");
         }
     }
 }
