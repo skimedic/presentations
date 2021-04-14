@@ -14,6 +14,8 @@ namespace FromSQLDbQuery
             SetupDatabase();
             using (var db = new BloggingContext())
             {
+                var query = db.Blogs.AsQueryable();
+                query = query.Where(x => x.BlogId == 5);
                 //db.Blogs.FromSql($"DELETE FROM SchemaName.{TableName}");
                 Console.WriteLine("Get data from function:");
                 var param = "Snake";

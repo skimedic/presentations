@@ -30,9 +30,10 @@ namespace PerformanceEfCore
             using var db = new AW2016Context();
             var l = db.Product
                 .Include(x => x.TransactionHistory)
-                .Include(x => x.ProductSubcategory)
-                .Include(x => x.ProductSubcategory.ProductCategory)
+                //.Include(x => x.ProductSubcategory)
+                .Include(x => x.ProductSubcategory).ThenInclude(x=>x.ProductCategory)
                 .Include(x => x.ProductReview)
+                .Take(100)
                 .Select(x => new ModelForTesting()
                 {
                     ProductId = x.ProductId,
@@ -41,7 +42,7 @@ namespace PerformanceEfCore
                     CategoryName = x.ProductSubcategory.ProductCategory.Name,
                     Email = x.ProductReview.Select(pr => pr.EmailAddress).FirstOrDefault()
                 })
-                .Take(100).ToList();
+                .ToList();
         }
         public static void RunNonSplitQuery()
         {

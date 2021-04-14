@@ -6,7 +6,7 @@ namespace GlobalQueryFilters.Context
     public class BloggingContext : DbContext
     {
         public DbSet<Blog> Blogs { get; set; }
-
+        public int TenantId { get;set; }
         public BloggingContext()
         {
         }

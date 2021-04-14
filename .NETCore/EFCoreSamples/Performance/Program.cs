@@ -12,12 +12,12 @@ namespace Performance
         {
             ResetAndWarmup();
             RunToListTest();
-            RunToListTestUntracked();
+            RunToListTestUnTracked();
             RunToListTestQueryType();
             RunComplexQueryTest();
             RunComplexQueryTest2();
             RunAddAndSaveChangesTest();
-            RunAddAndSaveChangesTestNoBatching();
+            //RunAddAndSaveChangesTestNoBatching();
             Console.WriteLine("Demo complete");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
@@ -31,7 +31,7 @@ namespace Performance
                 ef7Test: TestEfCore.GetAllCustomers
                 );
         }
-        private static void RunToListTestUntracked()
+        private static void RunToListTestUnTracked()
         {
             Console.WriteLine("Query 19K ToList UnTracked");
             RunTest(
@@ -41,7 +41,7 @@ namespace Performance
         }
         private static void RunToListTestQueryType()
         {
-            Console.WriteLine("Query 19K ToList Query Type v Untracked");
+            Console.WriteLine("Query 19K ToList Query Type v UnTracked");
             RunTest(
                 ef6Test: TestEfCore.GetAllCustomersQueryType,
                 firstLabel:"Query Type",
@@ -61,7 +61,8 @@ namespace Performance
             Console.WriteLine("Split Query (Core vs Core)");
             RunTest(
                 ef6Test: TestEfCore.RunNonSplitQuery,
-                ef7Test: TestEfCore.RunSplitQuery
+                ef7Test: TestEfCore.RunSplitQuery,
+                "NonSplit","Split"
                 );
         }
         private static void RunAddAndSaveChangesTest()
