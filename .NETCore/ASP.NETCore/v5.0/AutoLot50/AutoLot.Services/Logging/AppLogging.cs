@@ -10,13 +10,11 @@ namespace AutoLot.Services.Logging
     public class AppLogging<T> : IAppLogging<T>
     {
         private readonly ILogger<T> _logger;
-        private readonly IConfiguration _config;
         private readonly string _applicationName;
 
         public AppLogging(ILogger<T> logger, IConfiguration config)
         {
             _logger = logger;
-            _config = config;
             _applicationName = config.GetValue<string>("ApplicationName");
         }
 

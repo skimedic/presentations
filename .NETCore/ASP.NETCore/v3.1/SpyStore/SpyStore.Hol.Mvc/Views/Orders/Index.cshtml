@@ -1,0 +1,36 @@
+﻿@model IList<Order>
+<div class="page container">
+    <div class="card-body">
+        <h3>@ViewBag.Header</h3>
+        @for (int x = 0; x < Model.Count; x++)
+        {
+            var item = Model[x];
+            <div class="order-card-heading">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label>Order Number</label>
+                        <a asp-action="Details" asp-route-orderId="@item.Id">
+                            @Html.DisplayFor(model => item.Id)
+                        </a>
+                    </div>
+                    <div class="col-sm-2">
+                        <label asp-for="@item.OrderDate"></label><br />
+                        @Html.DisplayFor(model => item.OrderDate)
+                    </div>
+                    <div class="col-sm-2">
+                        <label asp-for="@item.ShipDate"></label><br />
+                        @Html.DisplayFor(model => item.ShipDate)
+                    </div>
+                    <div class="col-sm-2">
+                        <label asp-for="@item.OrderTotal"></label><br />
+                        @Html.DisplayFor(model => item.OrderTotal)
+                    </div>
+                    <div class="col-sm-2 order-actions">
+                        <a asp-action="Details" asp-route-orderId="@item.Id"
+                           class="btn btn-primary">Order Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

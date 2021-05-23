@@ -40,6 +40,7 @@ namespace AutoLot.Api
                 {
                     options.JsonSerializerOptions.PropertyNamingPolicy = null;
                     options.JsonSerializerOptions.WriteIndented = true;
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                 })
                 .ConfigureApiBehaviorOptions(options =>
                 {

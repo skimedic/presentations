@@ -13,7 +13,9 @@ namespace AutoLot.Dal.EfStructures
 {
     public sealed partial class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        //public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        //    : base(options)
+        public ApplicationDbContext(DbContextOptions options)
             : base(options)
         {
             ChangeTracker.StateChanged += ChangeTracker_StateChanged;

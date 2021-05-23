@@ -1,0 +1,9 @@
+<div><button (click)="login()">Login</button></div>
+<div><button (click)="callApiManualAuthHeader()">Call API - manual auth header set</button></div>
+<div><button (click)="callApiAutoAuthHeaderAuthHttp()">Call API - auto auth header set with AuthHttp wrapper</button></div>
+<div><button (click)="callApiAutoAuthHeaderHttpClientInterceptor()">Call API - HttpClient interceptor</button></div>
+<div><button (click)="logout()">Logout</button></div>
+<div *ngFor="let claim of claims">
+    {{claim.type}}: {{claim.value}}
+</div>
+
