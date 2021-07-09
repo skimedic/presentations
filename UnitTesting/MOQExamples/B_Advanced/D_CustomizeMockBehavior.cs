@@ -22,9 +22,9 @@ namespace MOQExamples.B_Advanced
             var mockRepo = new Mock<IRepo>(MockBehavior.Strict);
             var controller = new TestController(mockRepo.Object);
             var id = 12;
-            mockRepo.Setup(x => x.Find(12)).Returns(new Customer());
+            mockRepo.Setup(x => x.Find(14)).Returns(new Customer());
             var ex = Assert.Throws<MockException>(()=>controller.GetCustomer(id));
-            Assert.Equal($"IRepo.AddRecord(Customer) invocation failed with mock behavior Strict.\nAll invocations on the mock must have a corresponding setup.",ex.Message);
+            Assert.Equal($"IRepo.Find(12) invocation failed with mock behavior Strict.\nAll invocations on the mock must have a corresponding setup.",ex.Message);
 
         }
     }

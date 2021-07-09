@@ -30,7 +30,7 @@ namespace MOQExamples.A_Basics
 
             var controller = new TestController(mock.Object);
             var ex = Assert.Throws<ArgumentException>(() => controller.GetCustomer(id));
-            Assert.Equal($"{message}\r\nParameter name: {param}",ex.Message);
+            Assert.Equal($"{message} (Parameter '{param}')",ex.Message);
             Assert.Equal(param,ex.ParamName);
         }
     }
