@@ -34,7 +34,7 @@ namespace MachineSpecTestProject.A_Basics
         Because _of = () => _exception = Catch.Exception(() => _subject.Authenticate("", "password"));
 
         It Should_fail = () => _exception.ShouldBeOfExactType<ArgumentNullException>();
-        It Should_have_a_specific_reason = () => _exception.Message.ShouldEqual("Missing userName\r\nParameter name: userName");
+        It Should_have_a_specific_reason = () => _exception.Message.ShouldEqual("Missing userName (Parameter 'userName')");
         It Should_have_a_specific_argument = () => ((ArgumentNullException)_exception).ParamName.ShouldEqual("userName");
 
     }

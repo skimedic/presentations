@@ -13,7 +13,8 @@ using Xunit;
 namespace XUnitTestProject.A_Basics
 {
     /*
-    
+    NOTE: All classes should NOT be in one file. This is demo code, so we will allow it to slide.
+
     Put all test classes into a single test collection by default:
       [assembly: CollectionBehavior(CollectionBehavior.CollectionPerAssembly)]
     Default: CollectionBehavior.CollectionPerClass

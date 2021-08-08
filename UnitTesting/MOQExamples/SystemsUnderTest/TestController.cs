@@ -44,6 +44,7 @@ namespace MOQExamples.SystemsUnderTest
             }
             catch (Exception ex)
             {
+                //_logger.Debug("There was an exception");
                 throw;
             }
         }

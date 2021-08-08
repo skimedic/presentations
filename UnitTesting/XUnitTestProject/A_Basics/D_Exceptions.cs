@@ -9,7 +9,6 @@
 #endregion
 using System;
 using Xunit;
-using Xunit.Sdk;
 
 namespace XUnitTestProject.A_Basics
 {
