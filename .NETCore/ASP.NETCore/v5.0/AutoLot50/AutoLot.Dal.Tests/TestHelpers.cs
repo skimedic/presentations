@@ -22,6 +22,14 @@ namespace AutoLot.Dal.Tests
             return new ApplicationDbContext(optionsBuilder.Options);
         }
 
+        public static ApplicationDbContext GetLazyLoadContext(IConfiguration configuration)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            var connectionString = configuration.GetConnectionString("AutoLot");
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString, sqlOptions => sqlOptions.EnableRetryOnFailure());
+            return new ApplicationDbContext(optionsBuilder.Options);
+        }
+
         public static ApplicationDbContext GetSecondContext(ApplicationDbContext oldContext,
             IDbContextTransaction trans)
         {

@@ -14,10 +14,10 @@ namespace AutoLot.Models.Entities
 
         [JsonIgnore]
         [InverseProperty(nameof(CreditRisk.CustomerNavigation))]
-        public IEnumerable<CreditRisk> CreditRisks { get; set; } = new List<CreditRisk>();
+        public virtual IEnumerable<CreditRisk> CreditRisks { get; set; } = new List<CreditRisk>();
 
         [JsonIgnore]
         [InverseProperty(nameof(Order.CustomerNavigation))]
-        public IEnumerable<Order> Orders { get; set; } = new List<Order>();
+        public virtual IEnumerable<Order> Orders { get; set; } = new List<Order>();
     }
 }

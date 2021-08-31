@@ -58,7 +58,7 @@ namespace AutoLot.Mvc
             services.AddScoped<IMakeRepo, MakeRepo>();
             services.AddScoped<IOrderRepo, OrderRepo>();
             services.Configure<DealerInfo>(Configuration.GetSection(nameof(DealerInfo)));
-            services.ConfigureApiServiceWrapper(Configuration);
+            //services.ConfigureApiServiceWrapper(Configuration);
 
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 			//services.AddHttpContextAccessor();

@@ -36,11 +36,11 @@ namespace AutoLot.Models.Entities
 
         [ForeignKey(nameof(MakeId))]
         [InverseProperty(nameof(Make.Cars))]
-        public Make? MakeNavigation { get; set; }
+        public virtual Make? MakeNavigation { get; set; }
 
         [JsonIgnore]
         [InverseProperty(nameof(Order.CarNavigation))]
-        public IEnumerable<Order> Orders { get; set; } = new List<Order>();
+        public virtual IEnumerable<Order> Orders { get; set; } = new List<Order>();
 
         [NotMapped] 
         public string MakeName => MakeNavigation?.Name ?? "Unknown";

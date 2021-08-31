@@ -16,6 +16,6 @@ namespace AutoLot.Models.Entities
 
         [JsonIgnore]
         [InverseProperty(nameof(Car.MakeNavigation))]
-        public IEnumerable<Car> Cars { get; set; } = new List<Car>();
+        public virtual IEnumerable<Car> Cars { get; set; } = new List<Car>();
     }
 }

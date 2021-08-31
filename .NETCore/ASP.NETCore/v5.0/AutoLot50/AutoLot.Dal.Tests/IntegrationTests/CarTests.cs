@@ -44,6 +44,19 @@ namespace AutoLot.Dal.Tests.IntegrationTests
         }
 
         [Fact]
+        public void ShouldGetAllOfTheCarsAndLazyLoadTheMakes()
+        {
+            var lazyContext = TestHelpers.GetLazyLoadContext(Configuration); 
+            var query = lazyContext.Cars.AsQueryable();
+            var qs = query.ToQueryString();
+            var cars = query.ToList();
+            Assert.Equal(9, cars.Count);
+            var make = cars[0].MakeNavigation;
+
+        }
+
+
+        [Fact]
         public void ShouldGetCarsOnOrderWithRelatedProperties()
         {
             IIncludableQueryable<Car, Customer?> query = Context.Cars.Where(c => c.Orders.Any())
