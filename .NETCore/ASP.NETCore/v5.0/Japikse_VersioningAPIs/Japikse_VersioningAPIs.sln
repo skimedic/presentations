@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FullSwaggerSupport", "FullS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoProject", "DemoProject\DemoProject.csproj", "{80324B83-E022-4BCC-A262-245F5D7355DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderVersioning", "FolderVersioning\FolderVersioning.csproj", "{0CBE08B7-F221-45D4-A3D1-72A3E052B0BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{80324B83-E022-4BCC-A262-245F5D7355DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80324B83-E022-4BCC-A262-245F5D7355DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80324B83-E022-4BCC-A262-245F5D7355DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CBE08B7-F221-45D4-A3D1-72A3E052B0BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CBE08B7-F221-45D4-A3D1-72A3E052B0BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CBE08B7-F221-45D4-A3D1-72A3E052B0BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CBE08B7-F221-45D4-A3D1-72A3E052B0BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

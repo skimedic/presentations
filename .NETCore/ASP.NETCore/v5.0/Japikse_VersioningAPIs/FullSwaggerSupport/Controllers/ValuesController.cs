@@ -14,8 +14,8 @@ namespace FullSwaggerSupport.Controllers
     {
         [HttpGet]
         //[MapToApiVersion("2.0")]
-        [ApiVersion("1.0")]
-        [ApiVersion("2.0")]
+        //[ApiVersion("1.0")]
+        //[ApiVersion("2.0")]
         public string Get(ApiVersion apiVersion)
             => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
 
