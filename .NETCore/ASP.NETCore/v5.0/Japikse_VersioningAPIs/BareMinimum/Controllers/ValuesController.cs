@@ -3,18 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BareMinimum.Controllers
 {
-    [ApiVersion("1.0")]
+    //[ApiVersion("1.0")]
     //[ApiVersion("1.5",Deprecated=true)]
-    //[ApiVersion("2.0")]
+    [ApiVersion("2.0")]
     [ApiController]
     //[Route("api/[controller]")]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class ValuesController : ControllerBase
     {
+        [ApiVersion("1.0")]
         [HttpGet]
-        public string Get(ApiVersion apiVersion) 
+        public string Get([FromServices]ApiVersion apiVersion) 
             => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
 
+        [ApiVersion("1.5",Deprecated=true)]
         [HttpGet("{id}")]
         public string Get2(int id)
         {
@@ -22,10 +24,10 @@ namespace BareMinimum.Controllers
             return $"Controller = {GetType().Name}\nVersion = {version}";
         }
 
-        //[HttpGet]
+        [HttpGet]
         //[ApiVersion("1.5")]
-        //public string Get2(ApiVersion apiVersion)
-        //    => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
+        public string Get2(ApiVersion apiVersion)
+            => $"Controller = {GetType().Name}\nVersion = {apiVersion}";
 
         //[HttpGet]
         //[MapToApiVersion("3.0")]

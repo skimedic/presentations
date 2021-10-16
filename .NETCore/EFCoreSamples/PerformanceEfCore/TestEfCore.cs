@@ -50,6 +50,7 @@ namespace PerformanceEfCore
             var l = db.Product
                 .Include(x => x.TransactionHistory)
                 .Include(x => x.ProductSubcategory).ThenInclude(x=>x.ProductCategory)
+                //.Include(x => x.ProductSubcategory).ThenInclude(x=>x.Product)
                 .Include(x => x.ProductReview)
                 .Select(x => new ModelForTesting()
                 {

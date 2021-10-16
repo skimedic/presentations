@@ -13,6 +13,8 @@ using Microsoft.OpenApi.Models;
 
 using Swashbuckle.AspNetCore.SwaggerGen;
 
+using System.Linq;
+
 namespace FullSwaggerSupport
 {
     public class Startup
@@ -68,7 +70,7 @@ namespace FullSwaggerSupport
                 c.EnableAnnotations();
                 c.OperationFilter<SwaggerDefaultValues>();
                 // c.SwaggerDoc("v1", new OpenApiInfo { Title = "FullSwaggerSupport", Version = "v1" });
-                //c.ResolveConflictingActions(c=>c.First());
+                c.ResolveConflictingActions(c=>c.First());
             });
         }
 
