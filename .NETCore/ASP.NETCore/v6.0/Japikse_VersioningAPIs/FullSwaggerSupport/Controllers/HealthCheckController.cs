@@ -9,7 +9,7 @@ namespace FullSwaggerSupport.Controllers
     [ApiVersionNeutral]
     [ApiController]
     [Route("api/[controller]")]
-    //[Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class HealthCheckController : Controller
     {
         // OPTIONS ~/api/myservice?api-version=[1.0|1.5|2.0|3.0]

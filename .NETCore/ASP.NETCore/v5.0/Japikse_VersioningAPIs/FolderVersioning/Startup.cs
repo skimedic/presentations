@@ -24,8 +24,6 @@ namespace FolderVersioning
         {
 
             services.AddControllers();
-            services.AddEndpointsApiExplorer();
-
             services.AddApiVersioning(options =>
             {
                 // reporting api versions will return the headers "api-supported-versions"

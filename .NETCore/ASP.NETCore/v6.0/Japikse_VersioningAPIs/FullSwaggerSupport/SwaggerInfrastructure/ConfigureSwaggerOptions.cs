@@ -37,7 +37,7 @@ namespace FullSwaggerSupport.SwaggerInfrastructure
             };
             if (description.IsDeprecated)
             {
-                info.Description += "<span style=\"color:red\"> This API version has been deprecated.</span>";
+                info.Description += "<p><font color='red'>This API version has been deprecated.</font></p>";
             }
 
             return info;

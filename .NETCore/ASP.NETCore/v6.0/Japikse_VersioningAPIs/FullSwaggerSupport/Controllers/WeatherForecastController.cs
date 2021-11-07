@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace FullSwaggerSupport.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]

@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace FullSwaggerSupport.Controllers
 {
     [ApiVersion("1.0")]
-    [ApiVersion("1.5", Deprecated = true)]
     [ApiVersion("2.0")]
     [ApiController]
     [Route("api/[controller]")]
@@ -27,7 +26,7 @@ namespace FullSwaggerSupport.Controllers
         }
 
         [HttpGet]
-        [ApiVersion("1.5")]
+        [ApiVersion("1.5", Deprecated = true)]
         public string Get2(ApiVersion apiVersion)
             => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 
