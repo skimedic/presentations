@@ -12,13 +12,13 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0-rc.2.21511.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.3" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3" />
-		<PackageReference Include="System.Text.Json" Version="6.0.0-rc.2.21480.5" />
+		<PackageReference Include="System.Text.Json" Version="6.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Update="FullSwaggerSupport.xml">
