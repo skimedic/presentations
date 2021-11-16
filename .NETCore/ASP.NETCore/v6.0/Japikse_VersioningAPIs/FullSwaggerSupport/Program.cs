@@ -1,3 +1,7 @@
+using System.Reflection;
+using AutoLot.Api.Swagger;
+using FullSwaggerSupport.SwaggerInfrastructure.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,12 +15,11 @@ builder.Services.AddControllers()
     });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.EnableAnnotations();
-    options.OperationFilter<SwaggerDefaultValues>();
-    options.ResolveConflictingActions(c=>c.First());
-});
+builder.Services.Configure<SwaggerApplicationSettings>(builder.Configuration.GetSection(nameof(SwaggerApplicationSettings)));
+builder.Services.AddAndConfigureSwagger(
+    Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"),
+    false);
+var defaultApiVersion = new ApiVersion(2, 0); 
 builder.Services.AddApiVersioning(options =>
 {
     // reporting api versions will return the headers "api-supported-versions"
@@ -25,9 +28,10 @@ builder.Services.AddApiVersioning(options =>
     //Only version [ApiController] defaults to true in 3.1+
     options.UseApiBehavior = true;
     options.AssumeDefaultVersionWhenUnspecified = true;
-    options.DefaultApiVersion = new ApiVersion(2,0);
+    options.DefaultApiVersion = defaultApiVersion;
     //This sets the default svc? api-version = 2.0 and svc?v = 2.0
     options.ApiVersionReader = ApiVersionReader.Combine(
+        new UrlSegmentApiVersionReader(),
         new QueryStringApiVersionReader(), //defaults to "api-version"
         new QueryStringApiVersionReader("v"),
         new HeaderApiVersionReader("api-version"),
@@ -39,11 +43,16 @@ builder.Services.AddApiVersioning(options =>
 builder.Services.AddVersionedApiExplorer(
     options =>
     {
+        options.DefaultApiVersion = defaultApiVersion;
+        options.AssumeDefaultVersionWhenUnspecified = true;
+        // add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
+        // note: the specified format code will format the version as "'v'major[.minor][-status]"
+        options.GroupNameFormat = "'v'VVV";
+
         // note: this option is only necessary when versioning by url segment. the SubstitutionFormat
         // can also be used to control the format of the API version in route templates
         options.SubstituteApiVersionInUrl = true;
     });
-builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
 var app = builder.Build();
 

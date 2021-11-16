@@ -8,4 +8,3 @@ global using Swashbuckle.AspNetCore.SwaggerGen;
 global using Microsoft.AspNetCore.Mvc.ApiExplorer;
 global using FullSwaggerSupport.SwaggerInfrastructure;
 
-

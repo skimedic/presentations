@@ -35,5 +35,10 @@ namespace FullSwaggerSupport.Controllers
         public string Get3(ApiVersion apiVersion)
             => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 
+        [HttpGet]
+        [ApiVersion("3.0.Beta")]
+        public string Get4(ApiVersion apiVersion)
+            => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
+
     }
 }

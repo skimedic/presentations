@@ -1,46 +1,47 @@
-﻿
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+﻿using FullSwaggerSupport.SwaggerInfrastructure.Models;
 
-using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerGen;
+namespace FullSwaggerSupport.SwaggerInfrastructure;
 
-namespace FullSwaggerSupport.SwaggerInfrastructure
+public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
 {
-    public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
+    readonly IApiVersionDescriptionProvider _provider;
+    private readonly SwaggerApplicationSettings _settings;
+
+    public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider, IOptionsMonitor<SwaggerApplicationSettings> settingsMonitor)
     {
-        readonly IApiVersionDescriptionProvider provider;
+        _provider = provider;
+        _settings = settingsMonitor.CurrentValue;
+    }
 
-        public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider)
-            => this.provider = provider;
-
-        public void Configure(SwaggerGenOptions options)
+    public void Configure(SwaggerGenOptions options)
+    {
+        foreach (var description in _provider.ApiVersionDescriptions)
         {
-            foreach (var description in provider.ApiVersionDescriptions)
-            {
-                options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
-            }
+            options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description, _settings));
+        }
+    }
+
+    internal static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description, SwaggerApplicationSettings settings)
+    {
+
+        var versionDesc =
+            settings.Descriptions.FirstOrDefault(x => 
+                x.MajorVersion == (description.ApiVersion.MajorVersion??0) 
+                && x.MinorVersion == (description.ApiVersion.MinorVersion??0));
+        var info = new OpenApiInfo()
+        {
+            Title = settings.Title,
+            Version = description.ApiVersion.ToString(),
+            Description = $"A sample application with Swagger, Swashbuckle, and API versioning. {versionDesc?.Description}",
+            Contact = new OpenApiContact() { Name = settings.ContactName, Email = settings.ContactEmail },
+            TermsOfService = new System.Uri("https://www.linktotermsofservice.com"),
+            License = new OpenApiLicense() { Name = "MIT", Url = new System.Uri("https://opensource.org/licenses/MIT") }
+        };
+        if (description.IsDeprecated)
+        {
+            info.Description += "<p><font color='red'>This API version has been deprecated.</font></p>";
         }
 
-        static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
-        {
-            var info = new OpenApiInfo()
-            {
-                Title = "Sample API",
-                Version = description.ApiVersion.ToString(),
-                Description = "A sample application with Swagger, Swashbuckle, and API versioning.",
-                Contact = new OpenApiContact() { Name = "Phil Japikse", Email = "skimedic@outlook.com" },
-                TermsOfService = new System.Uri("https://www.linktotermsofservice.com"),
-                License = new OpenApiLicense() { Name = "MIT", Url = new System.Uri("https://opensource.org/licenses/MIT") }
-            };
-            if (description.IsDeprecated)
-            {
-                info.Description += "<p><font color='red'>This API version has been deprecated.</font></p>";
-            }
-
-            return info;
-        }
+        return info;
     }
 }

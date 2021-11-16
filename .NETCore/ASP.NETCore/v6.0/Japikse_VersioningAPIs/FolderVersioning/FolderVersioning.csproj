@@ -22,4 +22,8 @@
 		<PackageReference Include="System.Text.Json" Version="6.0.0-rc.2.21480.5" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\FullSwaggerSupport\FullSwaggerSupport.csproj" />
+	</ItemGroup>
+
 </Project>

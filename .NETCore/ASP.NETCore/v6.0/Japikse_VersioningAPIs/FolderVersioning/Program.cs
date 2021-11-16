@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoLot.Api.Swagger;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -67,13 +70,9 @@ builder.Services.AddVersionedApiExplorer(
                 options.SubstituteApiVersionInUrl = true;
             });
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.EnableAnnotations();
-    c.OperationFilter<SwaggerDefaultValues>();
-    // c.SwaggerDoc("v1", new OpenApiInfo { Title = "FullSwaggerSupport", Version = "v1" });
-    c.ResolveConflictingActions(c => c.Last());
-});
+builder.Services.AddAndConfigureSwagger(
+    Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"),
+    false);
 
 var app = builder.Build();
 
