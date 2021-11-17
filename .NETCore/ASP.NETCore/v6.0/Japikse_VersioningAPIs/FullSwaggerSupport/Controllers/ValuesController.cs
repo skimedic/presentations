@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FullSwaggerSupport.Controllers
 {
+    //It is not recommended to have multiple versions on the same controller-this is demo code
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]
     [ApiController]
