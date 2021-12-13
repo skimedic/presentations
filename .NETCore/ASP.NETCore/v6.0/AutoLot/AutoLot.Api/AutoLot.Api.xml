@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutoLot.Api</name>
+    </assembly>
+    <members>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`2.GetAllBad">
+            <summary>
+            Gets all records
+            </summary>
+            <returns>All records</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`2.GetAllFuture">
+            <summary>
+            Gets all records really fast (when it’s written)
+            </summary>
+            <returns>All records</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`2.GetAll">
+            <summary>
+            Gets all records
+            </summary>
+            <returns>All records</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`2.GetOne(System.Int32)">
+            <summary>
+            Gets a single record
+            </summary>
+            <param name="id">Primary key of the record</param>
+            <returns>Single record</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`2.UpdateOne(System.Int32,`0)">
+            <summary>
+            Updates a single record
+            </summary>
+            <remarks>
+            Sample body:
+            <pre>
+            {
+              "Id": 1,
+              "TimeStamp": "AAAAAAAAB+E="
+              "MakeId": 1,
+              "Color": "Black",
+              "PetName": "Zippy",
+              "MakeColor": "VW (Black)",
+            }
+            </pre>
+            </remarks>
+            <param name="id">Primary key of the record to update</param>
+            <param name="entity">Entity to update</param>
+            <returns>Single record</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`2.AddOne(`0)">
+            <summary>
+            Adds a single record
+            </summary>
+            <remarks>
+            Sample body:
+            <pre>
+            {
+              "Id": 1,
+              "TimeStamp": "AAAAAAAAB+E="
+              "MakeId": 1,
+              "Color": "Black",
+              "PetName": "Zippy",
+              "MakeColor": "VW (Black)",
+            }
+            </pre>
+            </remarks>
+            <returns>Added record</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`2.DeleteOne(System.Int32,`0)">
+            <summary>
+            Deletes a single record
+            </summary>
+            <remarks>
+            Sample body:
+            <pre>
+            {
+              "Id": 1,
+              "TimeStamp": "AAAAAAAAB+E="
+            }
+            </pre>
+            </remarks>
+            <returns>Nothing</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.CarsController.GetCarsByMake(System.Nullable{System.Int32})">
+            <summary>
+            Gets all cars by make
+            </summary>
+            <returns>All cars for a make</returns>
+            <param name="id">Primary key of the make</param>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.ValuesController.Get">
+            <summary>
+            This is an example Get method returning JSON
+            </summary>
+            <remarks>This is one of several examples for returning JSON:
+            <pre>
+            [
+              "value1",
+              "value2"
+            ]
+            </pre>
+            </remarks>
+            <returns>List of strings</returns>
+        </member>
+        <member name="T:AutoLot.Api.Swagger.SwaggerDefaultValues">
+            <summary>
+            Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.
+            </summary>
+            <remarks>This <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"/> is only required due to bugs in the <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator"/>.
+            Once they are fixed and published, this class can be removed.</remarks>
+        </member>
+        <member name="M:AutoLot.Api.Swagger.SwaggerDefaultValues.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies the filter to the specified operation using the given context.
+            </summary>
+            <param name="operation">The operation to apply the filter to.</param>
+            <param name="context">The current operation filter context.</param>
+        </member>
+    </members>
+</doc>

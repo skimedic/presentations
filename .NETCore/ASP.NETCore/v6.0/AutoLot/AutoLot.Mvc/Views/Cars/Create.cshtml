@@ -1,0 +1,27 @@
+﻿@model Car
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create a New Car</h1>
+<hr/>
+<form asp-controller="Cars" asp-action="Create">
+    <div class="row">
+        <div class="col-md-4">
+            @*        <form asp-controller="Cars" asp-action="Create" asp-antiforgery="false">
+            @Html.AntiForgeryToken()
+        </form> *@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.EditorForModel()
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3">
+        <button type="submit" class="btn btn-success">Create <i class="fas fa-plus"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <item-list></item-list>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

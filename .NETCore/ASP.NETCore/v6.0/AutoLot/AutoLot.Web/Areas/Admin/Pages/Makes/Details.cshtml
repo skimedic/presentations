@@ -1,0 +1,23 @@
+﻿@page "{id?}"
+@model AutoLot.Web.Areas.Admin.Pages.Makes.DetailsModel
+
+@{
+    //ViewData["Title"] = "Details";
+}
+
+<h1>Details for @Model.Entity.Name</h1>
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.Error
+    </div>
+}
+else
+{
+    @Html.DisplayFor(m => m.Entity)
+    <div>
+        <item-edit item-id="@Model.Entity.Id"></item-edit> |
+        <item-delete item-id="@Model.Entity.Id"></item-delete> |
+        <item-list></item-list>
+    </div>
+}

@@ -1,0 +1,25 @@
+﻿@page "{id?}"
+@model AutoLot.Web.Pages.Cars.DetailsModel
+
+@{
+    //ViewData["Title"] = "Details";
+}
+
+<h1>Details for @Model.Entity.PetName</h1>
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.Error
+    </div>
+}
+else
+{
+    @Html.DisplayFor(m => m.Entity)
+    @*@Html.DisplayFor(m => m.Entity, "CarWithColors")*@
+
+    <div>
+        <item-edit item-id="@Model.Entity.Id"></item-edit> |
+        <item-delete item-id="@Model.Entity.Id"></item-delete> |
+        <item-list></item-list>
+    </div>
+}

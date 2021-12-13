@@ -1,0 +1,32 @@
+﻿@model Make
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Make</h4>
+<hr/>
+<form asp-action="Edit">
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+            <label asp-for="Name" class="col-form-label"></label>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        <input type="hidden" asp-for="Id"/>
+            <input type="hidden" asp-for="TimeStamp"/>
+        </div>
+    </div>
+    <div class="d-flex flex-row mt-3">
+        <input type="submit" value="Save" class="btn btn-primary"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <item-list></item-list>
+    </div>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

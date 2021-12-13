@@ -1,0 +1,42 @@
+﻿@page
+@model AutoLot.Web.Pages.ValidationModel
+@{
+}
+<h1>Validation</h1>
+
+<h4>Add To Cart</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-page="/Validation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <label asp-for="Entity.Id" class="col-form-label"></label>
+                <input asp-for="Entity.Id" class="form-control" />
+                <span asp-validation-for="Entity.Id" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Entity.StockQuantity" class="col-form-label"></label>
+                <input asp-for="Entity.StockQuantity" class="form-control" />
+                <span asp-validation-for="Entity.StockQuantity" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Entity.ItemId" class="col-form-label"></label>
+                <input asp-for="Entity.ItemId" class="form-control" />
+                <span asp-validation-for="Entity.ItemId" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Entity.Quantity" class="col-form-label"></label>
+                <input asp-for="Entity.Quantity" class="form-control" />
+                <span asp-validation-for="Entity.Quantity" class="text-danger"></span>
+            </div>
+            <div style="margin-top:5px">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,86 @@
+﻿@page
+@model AutoLot.Web.Pages.RazorSyntaxModel
+@{
+    //ViewData["Title"] = "Razor Syntax";
+}
+<h1>Razor Syntax</h1>
+
+<form asp-area="" asp-page="RazorSyntaxModel" asp-route-id="1">
+    <input type="hidden" asp-for="@Model.Entity.Id"/>
+    <input type="hidden" asp-for="@Model.Entity.TimeStamp"/>
+    <input asp-for="@Model.Entity.PetName"/>
+    <input asp-for="@Model.Entity.Color"/>
+    <input asp-for="@Model.Entity.IsDrivable"/>
+    <input asp-for="@Model.Entity.MakeId"/>
+    <input asp-for="@Model.Entity.Price"/>
+    @*<input asp-for="@Model.Entity.DateBuilt"/>*@
+    <button type="submit">Submit</button>
+</form>
+@for (int i = 0; i < 15; i++)
+{
+    //do something
+}
+@{
+    //Code Block
+    var foo = "Foo";
+    var bar = "Bar";
+    var htmlString = "<ul><li>one</li><li>two</li></ul>";
+}
+@foo<br />
+@htmlString<br />
+@foo.@bar<br />
+@foo.ToUpper()<br/>
+@Html.Raw(htmlString)<br/>
+<hr />
+@{
+    @:Straight Text
+    <div>Value:@Model.Entity.Id</div>
+    <text>
+        Lines without HTML tag
+    </text>
+    <br />
+}
+
+<hr/>
+Email Address Handling:<br/>
+foo@foo.com<br />
+@@foo<br/>
+test@foo<br/>
+test@(foo)<br />
+@*
+    Multiline Comments
+    Hi.
+*@
+@functions {
+    public static IList<string> SortList(IList<string> strings)  {
+        var list = from s in strings orderby s select s;
+        return list.ToList();
+    }
+}
+@{
+    var myList = new List<string> {"C", "A", "Z", "F"};
+    var sortedList = SortList(myList); 
+}
+@foreach (string s in sortedList)
+{
+    @s@:&nbsp;
+}
+<hr/>
+@{
+    Func<dynamic, object> b = @<strong>@item</strong>;
+}
+This will be bold: @b("Foo")
+<hr/>
+The Car named @Model.Entity.PetName is a <span style="color:@Model.Entity.Color">@Model.Entity.Color</span> @Model.Entity.MakeNavigation.Name
+<hr/>
+Display For examples
+Make:
+@Html.DisplayFor(x=>x.Entity.MakeNavigation)
+Car:
+<div class="container">
+    @Html.DisplayFor(c=>c.Entity,"Cars/DisplayTemplates/CarWithColors.cshtml")
+</div>
+Car Editor:
+@Html.EditorFor(c=>c.Entity,"Cars/EditorTemplates/CarWithColors.cshtml")
+<hr/>
+<a asp-page="/Cars/Details" asp-route-id="@Model.Entity.Id">@Model.Entity.PetName</a>

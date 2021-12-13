@@ -1,0 +1,33 @@
+﻿@page
+@model AutoLot.Web.Pages.Cars.CreateModel
+
+@{
+    //ViewData["Title"] = "Create";
+}
+
+<h1>Create a New Car</h1>
+<hr/>
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.Error
+    </div>
+}
+else
+{
+    <form asp-page="Create" asp-page-handler="CreateNewCar">
+        <div class="row">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @Html.EditorFor(x => x.Entity, new { LookupValues = Model.LookupValues })
+            </div>
+        </div>
+        <div class="d-flex flex-row mt-3">
+            <button type="submit" class="btn btn-success">Create <i class="fas fa-plus"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <item-list></item-list>
+        </div>
+    </form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
+}

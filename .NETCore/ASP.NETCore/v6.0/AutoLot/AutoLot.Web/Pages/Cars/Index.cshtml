@@ -1,0 +1,18 @@
+﻿@page "{makeId?}/{makeName?}"
+@model AutoLot.Web.Pages.Cars.IndexModel
+@{
+    //ViewData["Title"] = "Inventory";
+}
+@{ 
+    if (Model.MakeId.HasValue)
+    {
+        <h1>Vehicle Inventory for @Model.MakeName</h1>
+        var mode = new ViewDataDictionary(ViewData) { { "ByMake", true } };
+        <partial name="Partials/_CarListPartial" model="@Model.CarRecords" view-data="@mode" />
+    }
+    else
+    {
+        <h1>Vehicle Inventory</h1>
+        <partial name="Partials/_CarListPartial" model="@Model.CarRecords" />
+    }
+}

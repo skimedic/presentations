@@ -1,0 +1,31 @@
+﻿@page 
+@model AutoLot.Web.Areas.Admin.Pages.Makes.IndexModel
+<h1>Vehicle Makes</h1>
+
+<p>
+    <item-create></item-create>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => ((List<Make>)model.MakeRecords)[0].Name)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.MakeRecords) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <item-edit item-id="@item.Id"></item-edit> |
+                <item-details item-id="@item.Id"></item-details> |
+                <item-delete item-id="@item.Id"></item-delete>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

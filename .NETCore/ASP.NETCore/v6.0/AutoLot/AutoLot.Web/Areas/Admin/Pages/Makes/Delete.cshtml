@@ -1,0 +1,27 @@
+﻿@page "{id?}"
+@model AutoLot.Web.Areas.Admin.Pages.Makes.DeleteModel
+
+@{
+    //ViewData["Title"] = "Delete";
+}
+
+<h1>Delete @Model.Entity.Name</h1>
+@if (!string.IsNullOrEmpty(Model.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        @Model.Error
+    </div>
+}
+else
+{
+    <h3>Are you sure you want to delete this car?</h3>
+    <div>
+        @Html.DisplayFor(c=>c.Entity)
+        <form asp-page="Delete" asp-route-id="@Model.Entity.Id">
+            <input type="hidden" asp-for="Entity.Id"/>
+            <input type="hidden" asp-for="Entity.TimeStamp"/>
+            <button type="submit" class="btn btn-danger">Delete <i class="fas fa-trash"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <item-list></item-list>
+        </form>
+    </div>
+}
