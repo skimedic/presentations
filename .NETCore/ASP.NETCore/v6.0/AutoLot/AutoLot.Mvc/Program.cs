@@ -6,7 +6,7 @@ builder.Services.RegisterLoggingInterfaces();
 //Enable CSS isolation in a non-deployed non-dev session
 if (!builder.Environment.IsDevelopment())
 {
-    builder.WebHost.UseWebRoot("wwwroot"); 
+    builder.WebHost.UseWebRoot("wwwroot");
     builder.WebHost.UseStaticWebAssets();
 }
 
