@@ -2,36 +2,40 @@
 // ==================================
 // DesignPatterns - CreationPatterns - CheesePizza.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
 
 namespace CreationPatterns.Factory.Entities.Base;
 
-public class CheesePizza : IPizza
+public class CheesePizza : Pizza
 {
-    public CheesePizza()
+    public CheesePizza(IIngredientFactory ingredientFactory) : base(ingredientFactory)
+    {
+    }
+
+    public CheesePizza() : this(new BasicIngredientFactory())
     {
         Toppings = new List<string> { "Cheese" };
     }
 
-    public IList<string> Toppings { get; init; }
-    public DoughTypeEnum Dough { get; init; }
-    public virtual void Prepare()
+    public sealed override void Prepare()
     {
-        //Do some prep
+        IngredientFactory.MakeDough();
+        IngredientFactory.MakeSauce();
+        IngredientFactory.MakeCheese();
     }
 
-    public virtual void Bake()
+    public override void Bake()
     {
         //Bake it
     }
 
-    public virtual void Cut()
+    public override void Cut()
     {
         //Slice it
     }
 
-    public virtual void Box()
+    public override void Box()
     {
         //Box it
     }

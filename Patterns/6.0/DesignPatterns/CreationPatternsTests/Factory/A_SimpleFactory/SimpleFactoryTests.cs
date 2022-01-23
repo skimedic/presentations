@@ -1,13 +1,9 @@
 ﻿// Copyright Information
-// =============================
-// CreationalPatternsTests - SimpleFactoryTests.cs
-// All samples copyright Philip Japikse 
-// http://www.skimedic.com 20/06/2017
-// See License.txt for more information
-// =============================
-
-using CreationPatterns.Factory.Entities.Base;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.Utilities;
+// ==================================
+// DesignPatterns - CreationPatternsTests - SimpleFactoryTests.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/01/23
+// ==================================
 
 namespace CreationPatternsTests.Factory.A_SimpleFactory;
 
@@ -19,9 +15,9 @@ public class SimpleFactoryTests
     [InlineData(PizzaTypeEnum.Cheese,typeof(CheesePizza))]
     [InlineData(PizzaTypeEnum.Pepperoni,typeof(PepperoniPizza))]
     [InlineData(PizzaTypeEnum.Sausage,typeof(SausagePizza))]
-    public void ShouldCreateSpecificPizza(PizzaTypeEnum pizzatype, Type instanceType)
+    public void ShouldCreateSpecificPizza(PizzaTypeEnum pizzaType, Type instanceType)
     {
-        var pizza = new SimplePizzaFactory().CreatePizza(pizzatype);
+        var pizza = new SimplePizzaFactory().CreatePizza(pizzaType);
         Assert.Equal(instanceType, pizza.GetType());
     }
 }

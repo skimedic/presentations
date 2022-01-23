@@ -1,4 +1,11 @@
-﻿namespace BehaviorPatterns.Command.Commands;
+﻿// Copyright Information
+// ==================================
+// DesignPatterns - BehaviorPatterns - AddTextCommand.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/01/23
+// ==================================
+
+namespace BehaviorPatterns.Command.Commands;
 
 public class AddTextCommand : BaseCommand<string>
 {

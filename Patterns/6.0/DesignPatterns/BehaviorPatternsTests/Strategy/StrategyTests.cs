@@ -1,4 +1,11 @@
-﻿namespace BehaviorPatternsTests.Strategy;
+﻿// Copyright Information
+// ==================================
+// DesignPatterns - BehaviorPatternsTests - StrategyTests.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/01/23
+// ==================================
+
+namespace BehaviorPatternsTests.Strategy;
 
 [Collection("StategyTests")]
 public class StrategyTests

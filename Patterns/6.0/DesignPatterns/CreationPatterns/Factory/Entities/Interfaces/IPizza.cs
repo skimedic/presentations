@@ -1,10 +1,9 @@
 ﻿// Copyright Information
-// =============================
-// CreationalPatterns - IPizza.cs
-// All samples copyright Philip Japikse 
-// http://www.skimedic.com 20/06/2017
-// See License.txt for more information
-// =============================
+// ==================================
+// DesignPatterns - CreationPatterns - IPizza.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/01/23
+// ==================================
 
 namespace CreationPatterns.Factory.Entities.Interfaces;
 

@@ -1,4 +1,9 @@
-﻿using CreationPatterns.Factory.A_Simple;
+﻿// Copyright Information
+// ==================================
+// DesignPatterns - CreationPatterns - NewYorkPizzaFactory.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/01/23
+// ==================================
 
 namespace CreationPatterns.Factory.Entities.NewYork.Factory;
 

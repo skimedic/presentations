@@ -2,10 +2,8 @@
 // ==================================
 // DesignPatterns - CreationPatterns - CaliforniaPizzaFactory.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
-
-using CreationPatterns.Factory.A_Simple;
 
 namespace CreationPatterns.Factory.Entities.California.Factory;
 

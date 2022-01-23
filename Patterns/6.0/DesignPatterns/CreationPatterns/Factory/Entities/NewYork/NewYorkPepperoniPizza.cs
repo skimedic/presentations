@@ -2,16 +2,18 @@
 // ==================================
 // DesignPatterns - CreationPatterns - NewYorkPepperoniPizza.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
-
-using CreationPatterns.Factory.Entities.Base;
 
 namespace CreationPatterns.Factory.Entities.NewYork;
 
 public class NewYorkPepperoniPizza : PepperoniPizza
 {
-    public NewYorkPepperoniPizza()
+    public NewYorkPepperoniPizza(IIngredientFactory ingredientFactory) : base(ingredientFactory)
+    {
+    }
+
+    public NewYorkPepperoniPizza(): this(new NewYorkIngredientFactory())
     {
         Dough = DoughTypeEnum.Thin;
     }

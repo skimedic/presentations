@@ -1,17 +1,19 @@
 ﻿// Copyright Information
 // ==================================
-// DesignPatterns - CreationPatterns - CaliforniaPizza.cs
+// DesignPatterns - CreationPatterns - CaliforniaSausagePizza.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
-
-using CreationPatterns.Factory.Entities.Base;
 
 namespace CreationPatterns.Factory.Entities.California;
 
 public class CaliforniaSausagePizza : SausagePizza
 {
-    public CaliforniaSausagePizza()
+    public CaliforniaSausagePizza(IIngredientFactory ingredientFactory) : base(ingredientFactory)
+    {
+    }
+
+    public CaliforniaSausagePizza() : this(new CaliforniaIngredientFactory())
     {
         Dough = DoughTypeEnum.None;
     }

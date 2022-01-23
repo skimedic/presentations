@@ -1,14 +1,9 @@
 ﻿// Copyright Information
 // ==================================
-// DesignPatterns - CreationPatterns - ChicagoPizzaStore.cs
+// DesignPatterns - CreationPatterns - SimpleChicagoPizzaStore.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
-
-using CreationPatterns.Factory.A_Simple;
-using CreationPatterns.Factory.B_FactoryMethod.Base;
-using CreationPatterns.Factory.Entities.California.Factory;
-using CreationPatterns.Factory.Entities.Chicago.Factory;
 
 namespace CreationPatterns.Factory.B_FactoryMethod;
 

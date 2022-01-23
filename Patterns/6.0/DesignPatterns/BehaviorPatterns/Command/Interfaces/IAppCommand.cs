@@ -2,7 +2,7 @@
 // ==================================
 // DesignPatterns - BehaviorPatterns - IAppCommand.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/17
+// http://www.skimedic.com 2022/01/23
 // ==================================
 
 namespace BehaviorPatterns.Command.Interfaces;

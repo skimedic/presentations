@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// DesignPatterns - CreationPatterns - PizzaStoreBase.cs
+// DesignPatterns - CreationPatterns - SimplePizzaStoreBase.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
 
 namespace CreationPatterns.Factory.B_FactoryMethod.Base;
@@ -19,5 +19,6 @@ public abstract class SimplePizzaStoreBase
         return pizza;
     }
 
+    //This is the factory method
     public abstract IPizza CreatePizza(PizzaTypeEnum pizzaType);
 }

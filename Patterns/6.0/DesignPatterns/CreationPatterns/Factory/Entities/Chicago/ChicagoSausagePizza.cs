@@ -2,16 +2,18 @@
 // ==================================
 // DesignPatterns - CreationPatterns - ChicagoSausagePizza.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
-
-using CreationPatterns.Factory.Entities.Base;
 
 namespace CreationPatterns.Factory.Entities.Chicago;
 
 public class ChicagoSausagePizza : SausagePizza
 {
-    public ChicagoSausagePizza()
+    public ChicagoSausagePizza(IIngredientFactory ingredientFactory) : base(ingredientFactory)
+    {
+    }
+
+    public ChicagoSausagePizza(): this(new ChicagoIngredientFactory())
     {
         Dough = DoughTypeEnum.DeepDish;
     }

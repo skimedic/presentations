@@ -2,36 +2,41 @@
 // ==================================
 // DesignPatterns - CreationPatterns - PepperoniPizza.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
 
 namespace CreationPatterns.Factory.Entities.Base;
 
-public class PepperoniPizza : IPizza
+public class PepperoniPizza : Pizza
 {
-    public PepperoniPizza()
+    public PepperoniPizza(IIngredientFactory ingredientFactory) : base(ingredientFactory)
+    {
+    }
+
+    public PepperoniPizza() : this(new BasicIngredientFactory())
     {
         Toppings = new List<string> { "Pepperoni" };
     }
 
-    public IList<string> Toppings { get; init; }
-    public DoughTypeEnum Dough { get; init; }
-    public virtual void Prepare()
+    public sealed override void Prepare()
     {
-        //Do some prep
+        IngredientFactory.MakeDough();
+        IngredientFactory.MakeSauce();
+        IngredientFactory.MakeCheese();
+        IngredientFactory.MakePepperoni();
     }
 
-    public virtual void Bake()
+    public override void Bake()
     {
         //Bake it
     }
 
-    public virtual void Cut()
+    public override void Cut()
     {
         //Slice it
     }
 
-    public virtual void Box()
+    public override void Box()
     {
         //Box it
     }

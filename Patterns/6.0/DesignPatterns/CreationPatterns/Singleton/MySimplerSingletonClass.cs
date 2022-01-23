@@ -2,7 +2,7 @@
 // ==================================
 // DesignPatterns - CreationPatterns - MySimplerSingletonClass.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/17
+// http://www.skimedic.com 2022/01/23
 // ==================================
 
 namespace CreationPatterns.Singleton;
@@ -16,6 +16,6 @@ public sealed class MySimplerSingletonClass
 
     //This doesn't work, despite several SO posts
     //public static MySimplerSingletonClass Instance => new MySimplerSingletonClass();
-    
+
     public int SomeValue { get; set; }
 }

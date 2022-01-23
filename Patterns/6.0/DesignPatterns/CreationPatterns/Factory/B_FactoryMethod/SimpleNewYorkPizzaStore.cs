@@ -1,13 +1,9 @@
 ﻿// Copyright Information
 // ==================================
-// DesignPatterns - CreationPatterns - NewYorkPizzaStore.cs
+// DesignPatterns - CreationPatterns - SimpleNewYorkPizzaStore.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
-
-using CreationPatterns.Factory.A_Simple;
-using CreationPatterns.Factory.B_FactoryMethod.Base;
-using CreationPatterns.Factory.Entities.NewYork.Factory;
 
 namespace CreationPatterns.Factory.B_FactoryMethod;
 

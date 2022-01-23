@@ -1,4 +1,11 @@
-﻿namespace CreationPatterns.Singleton;
+﻿// Copyright Information
+// ==================================
+// DesignPatterns - CreationPatterns - MySingletonClass.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/01/23
+// ==================================
+
+namespace CreationPatterns.Singleton;
 
 /*
 This approach ensures that only one instance is created and only when the instance is needed.
@@ -18,6 +25,7 @@ public sealed class MySingletonClass
     //before it can be accessed further helping with thread safety.
     private static volatile MySingletonClass _instance;
     private static readonly object SyncLock = new();
+
     private MySingletonClass()
     {
     }

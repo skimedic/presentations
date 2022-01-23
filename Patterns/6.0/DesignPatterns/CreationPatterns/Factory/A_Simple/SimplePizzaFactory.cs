@@ -1,4 +1,9 @@
-﻿using CreationPatterns.Factory.Entities.Base;
+﻿// Copyright Information
+// ==================================
+// DesignPatterns - CreationPatterns - SimplePizzaFactory.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/01/23
+// ==================================
 
 namespace CreationPatterns.Factory.A_Simple;
 

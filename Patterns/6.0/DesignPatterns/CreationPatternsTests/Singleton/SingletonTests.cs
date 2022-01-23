@@ -1,4 +1,11 @@
-﻿namespace CreationPatternsTests.Singleton;
+﻿// Copyright Information
+// ==================================
+// DesignPatterns - CreationPatternsTests - SingletonTests.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/01/23
+// ==================================
+
+namespace CreationPatternsTests.Singleton;
 
 [Collection("CreationalPatternsTests")]
 public class SingletonTests

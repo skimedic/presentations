@@ -2,16 +2,25 @@
 // ==================================
 // DesignPatterns - CreationPatterns - ChicagoPizzaStore.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2022/01/20
+// http://www.skimedic.com 2022/01/23
 // ==================================
 
 namespace CreationPatterns.Factory.C_Abstract;
 
-public class ChicagoPizzaStore : PizzaStoreBase
+public class ChicagoPizzaStore : SimplePizzaStoreBase
 {
-    //public override IPizza CreatePizza(IList<string> ingredients)
-    //{
-    //    //This is tied to a specific pizza implementation
-    //    return new ChicagoPizza(ingredients);
-    //}
+    private readonly IPizzaFactory _factory;
+
+
+    public ChicagoPizzaStore() : this(new AbstractChicagoPizzaFactory(new ChicagoIngredientFactory()))
+    {
+    }
+
+    public ChicagoPizzaStore(IPizzaFactory factory)
+    {
+        _factory = factory;
+    }
+
+    public override IPizza CreatePizza(PizzaTypeEnum pizzaType) 
+        => _factory.CreatePizza(pizzaType);
 }

@@ -1,3 +1,9 @@
+// Copyright Information
+// ==================================
+// DesignPatterns - BehaviorPatternsTests - CommandTests.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/01/23
+// ==================================
 
 namespace BehaviorPatternsTests.Command;
 
