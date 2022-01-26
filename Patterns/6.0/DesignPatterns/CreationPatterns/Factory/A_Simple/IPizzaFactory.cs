@@ -10,5 +10,4 @@ namespace CreationPatterns.Factory.A_Simple;
 public interface IPizzaFactory
 {
     IPizza CreatePizza(PizzaTypeEnum type);
-    //IPizza CreatePizza(PizzaStyleEnum type, IList<string> ingredients);
 }

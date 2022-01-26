@@ -19,14 +19,4 @@ public class SimplePizzaFactory : IPizzaFactory
             _ => null
         };
     }
-    //public IPizza CreatePizza(PizzaStyleEnum type, IList<string> ingredients)
-    //{
-    //    return type switch
-    //    {
-    //        PizzaStyleEnum.NewYork => new NewYorkPizza(ingredients),
-    //        PizzaStyleEnum.Chicago => new ChicagoPizza(ingredients),
-    //        PizzaStyleEnum.California => new CaliforniaPizza(ingredients),
-    //        _ => null
-    //    };
-    //}
 }

@@ -25,15 +25,15 @@ public class BetterApi : IBetterApi
         _overdone = overdone;
     }
 
-    public int AddThreeNumbers(int firstParam, int secondParam, 
-        int thirdParam) => 
-        _confusing.Execute(firstParam, secondParam, thirdParam);
+    public int AddThreeNumbers(int firstParam, int secondParam, int thirdParam) 
+        => _confusing.Execute(firstParam, secondParam, thirdParam);
 
-    public int AddThenMultiply(int addend1, int factor) => 
-        _overdone.DoSomething(addend1, factor);
+    public int AddThenMultiply(int addend1, int factor) 
+        => _overdone.DoSomething(addend1, factor);
 
-    public int AddThenMultiply(int addend1, int addend2, int factor) => 
-        _overdone.DoSomethingElse(addend1, addend2, factor);
+    public int AddThenMultiply(int addend1, int addend2, int factor) 
+        => _overdone.DoSomethingElse(addend1, addend2, factor);
 
-    public int AddThenMultiply(int addend1, int addend2, int addend3, int factor) => _overdone.DoSomethingAgain(addend1, addend2, addend3, factor);
+    public int AddThenMultiply(int addend1, int addend2, int addend3, int factor) 
+        => _overdone.DoSomethingAgain(addend1, addend2, addend3, factor);
 }
