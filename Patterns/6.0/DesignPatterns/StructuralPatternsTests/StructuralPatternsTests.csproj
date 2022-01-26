@@ -21,10 +21,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Decorator\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\StructuralPatterns\StructuralPatterns.csproj" />
 	</ItemGroup>
 
