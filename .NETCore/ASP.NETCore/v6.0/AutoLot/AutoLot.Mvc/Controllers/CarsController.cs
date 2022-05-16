@@ -4,7 +4,10 @@ public class CarsController : BaseCrudController<Car, CarsController>
 {
     private readonly IMakeDataService _lookupDataService;
 
-    public CarsController(IAppLogging<CarsController> appLogging, ICarDataService mainDataService, IMakeDataService lookupDataService) : base(appLogging, mainDataService)
+    public CarsController(
+	IAppLogging<CarsController> appLogging, 
+	ICarDataService mainDataService, 
+	IMakeDataService lookupDataService) : base(appLogging, mainDataService)
     {
         _lookupDataService = lookupDataService;
     }

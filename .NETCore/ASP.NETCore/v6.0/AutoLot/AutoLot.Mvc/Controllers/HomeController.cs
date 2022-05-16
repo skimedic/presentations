@@ -1,4 +1,6 @@
-﻿namespace AutoLot.Mvc.Controllers;
+﻿using Microsoft.AspNetCore.Authorization;
+
+namespace AutoLot.Mvc.Controllers;
 
 [Route("[controller]/[action]")]
 public class HomeController : Controller
@@ -40,6 +42,14 @@ public class HomeController : Controller
         HttpContext.Features.Get<ITrackingConsentFeature>().GrantConsent();
         return RedirectToAction(nameof(Index), nameof(HomeController).RemoveControllerSuffix(),
             new { area = "" });
+    }
+
+    [HttpGet]
+    [AllowAnonymous]
+    public string GrantConsentFromAjax()
+    {
+        HttpContext.Features.Get<ITrackingConsentFeature>().GrantConsent();
+        return "Success";
     }
 
     [HttpGet]

@@ -19,8 +19,8 @@ public class CarsController : BaseCrudController<Car, CarsController>
     [SwaggerResponse(200, "The execution was successful")]
     [SwaggerResponse(400, "The request was invalid")]
     [SwaggerResponse(401, "Unauthorized access attempted")]
-    [ApiVersion("1.0")]
     [HttpGet("bymake/{id?}")]
+    [ApiVersion("1.0")]
     public ActionResult<IEnumerable<Car>> GetCarsByMake(int? id)
     {
         if (id.HasValue && id.Value > 0)

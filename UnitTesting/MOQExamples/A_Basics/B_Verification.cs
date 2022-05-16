@@ -12,7 +12,7 @@ namespace MOQExamples.A_Basics
         public void Should_Verify_Mock_Functions_Executed_Marked_Verifiable()
         {
             var id = 12;
-            var name = "Fred Flinstone";
+            var name = "Fred Flintstone";
             var customer = new Customer { Id = id, Name = name };
             var mock = new Mock<IRepo>();
             Expression<Func<IRepo, Customer>> call = x => x.Find(id);
@@ -25,6 +25,8 @@ namespace MOQExamples.A_Basics
             mock.Verify(call);
         }
 
+
+        //String mocks = new (MockBehavior.Strict)
         [Fact]
         public void Should_Verify_Times_Executed()
         {

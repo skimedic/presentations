@@ -1,7 +1,24 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseWebRoot("wwwroot").ConfigureAppConfiguration((builderContext, config) =>
+{
+    config.AddJsonFile("appsettings.json").AddJsonFile($@"appsettings.{builder.Environment.EnvironmentName}.json");
+});
+builder.Host.UseDefaultServiceProvider(o =>
+{
+    o.ValidateOnBuild = true;
+    o.ValidateScopes = true;
+});
+
+
 //Configure logging
 builder.ConfigureSerilog();
 builder.Services.RegisterLoggingInterfaces();
+
+builder.Host.UseDefaultServiceProvider(o =>
+{
+    o.ValidateOnBuild = true;
+    o.ValidateScopes = true;
+});
 
 //Enable CSS isolation in a non-deployed non-dev session
 if (!builder.Environment.IsDevelopment())

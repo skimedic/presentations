@@ -3,6 +3,9 @@
     var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
     var showBanner = !consentFeature?.CanTrack ?? false;
     var cookieString = consentFeature?.CreateConsentCookie();
+    var url = Url.Action(nameof(HomeController.GrantConsentFromAjax), nameof(HomeController).RemoveControllerSuffix());
+    var homeUrl = Url.Action(nameof(HomeController.Index), nameof(HomeController).RemoveControllerSuffix());
+
 }
 
 @if (showBanner)
@@ -14,12 +17,27 @@
         </button>
     </div>
     <script>
-        (function () {
-            var button = document.querySelector("#cookieConsent button[data-cookie-string]");
-            button.addEventListener("click", function (event) {
-                document.cookie = button.dataset.cookieString;
-                window.location = '@Url.Action(nameof(HomeController.Index),nameof(HomeController).RemoveControllerSuffix())';
-            }, false);
+        (function() {
+            var button = document.querySelector("#consentButton");
+            button.addEventListener("click",
+                function(event) {
+                    accept();
+                },
+                false);
         })();
+
+        function accept() {
+            $.ajax({
+                url: '@url',
+                type: 'GET',
+                async: false,
+                success: function(data) {
+                    window.location = '@homeUrl';
+                },
+                error: function(data, message) {
+                    alert("Unable to accept policy.");
+                }
+            });
+        }
     </script>
 }

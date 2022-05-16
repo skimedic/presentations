@@ -39,8 +39,8 @@ namespace MOQExamples.SystemsUnderTest
             {
                 //_repo.AddRecord(new Customer());
                 //var c = _repo.Find(id);
-                return _repo.Find(id);
-
+                //return new Customer { Id = 12, Name = "Fred Flinstone" };
+                return _repo.Find(12);
             }
             catch (Exception ex)
             {

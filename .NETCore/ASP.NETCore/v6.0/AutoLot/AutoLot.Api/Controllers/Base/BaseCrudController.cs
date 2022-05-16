@@ -123,8 +123,8 @@ public abstract class BaseCrudController<TEntity, TController> : ControllerBase
     [SwaggerResponse(200, "The execution was successful")]
     [SwaggerResponse(400, "The request was invalid")]
     [SwaggerResponse(401, "Unauthorized access attempted")]
-    [ApiVersion("1.0")]
     [HttpPut("{id}")]
+    [ApiVersion("1.0")]
 	//public IActionResult UpdateOne(int id,[FromBody]TEntity entity)
     public IActionResult UpdateOne(int id, TEntity entity)
     {
@@ -181,8 +181,8 @@ public abstract class BaseCrudController<TEntity, TController> : ControllerBase
     [SwaggerResponse(201, "The execution was successful")]
     [SwaggerResponse(400, "The request was invalid")]
     [SwaggerResponse(401, "Unauthorized access attempted")]
-    [ApiVersion("1.0")]
     [HttpPost]
+    [ApiVersion("1.0")]
     public ActionResult<TEntity> AddOne(TEntity entity)
     {
         if (!ModelState.IsValid)
@@ -222,8 +222,8 @@ public abstract class BaseCrudController<TEntity, TController> : ControllerBase
     [SwaggerResponse(200, "The execution was successful")]
     [SwaggerResponse(400, "The request was invalid")]
     [SwaggerResponse(401, "Unauthorized access attempted")]
-    [ApiVersion("1.0")]
     [HttpDelete("{id}")]
+    [ApiVersion("1.0")]
     public ActionResult<TEntity> DeleteOne(int id, TEntity entity)
     {
         if (id != entity.Id)

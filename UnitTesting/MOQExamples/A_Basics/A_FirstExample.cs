@@ -18,10 +18,10 @@ namespace MOQExamples.A_Basics
             var id = 12;
             var name = "Fred Flinstone";
             var customer = new Customer {Id = id, Name = name};
-            var mock = new Mock<IRepo>();
-            mock.Setup(x => x.Find(id)).Returns(customer);
+            var mockRepo = new Mock<IRepo>();
+            mockRepo.Setup(x => x.Find(id)).Returns(customer);
 
-            var controller = new TestController(mock.Object);
+            var controller = new TestController(mockRepo.Object);
             //Act
             var actual = controller.GetCustomer(id);
             //Assert
