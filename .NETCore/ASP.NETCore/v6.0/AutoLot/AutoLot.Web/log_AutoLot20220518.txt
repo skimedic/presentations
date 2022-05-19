@@ -1,0 +1,564 @@
+[22-05-18 06:24:48 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 06:25:04 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 06:52:14 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:03:37 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:03:39 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:10:27 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:10:45 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:10:51 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:11:25 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:19:34 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:20:37 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:43:32 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:45:03 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:46:49 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 07:47:02 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 11:45:27 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 11:45:31 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 11:45:33 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 11:59:40 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:01:05 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:07:38 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:07:43 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:07:45 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:07:47 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:07:49 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:16:50 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:16:53 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:17:46 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:21:56 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:22:01 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:22:14 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-05-18 12:23:34 Error]AutoLot.Web:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Web\wwwroot\AutoLot.Web.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+

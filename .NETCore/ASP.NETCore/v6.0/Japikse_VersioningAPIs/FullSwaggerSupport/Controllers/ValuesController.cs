@@ -1,45 +1,15 @@
-﻿using System.Collections.Generic;
+﻿namespace FullSwaggerSupport.Controllers;
 
-using Microsoft.AspNetCore.Mvc;
-
-namespace FullSwaggerSupport.Controllers
+[ApiController]
+[Route("api/[controller]")]
+//[Route("api/v{version:apiVersion}/[controller]")]
+public class ValuesController : ControllerBase
 {
-    //It is not recommended to have multiple versions on the same controller-this is demo code
+    [HttpGet]
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]
-    [ApiController]
-    [Route("api/[controller]")]
-    [Route("api/v{version:apiVersion}/[controller]")]
-    public class ValuesController : ControllerBase
-    {
-        [HttpGet]
-        //[MapToApiVersion("2.0")]
-        //[ApiVersion("1.0")]
-        //[ApiVersion("2.0")]
-        public string Get(ApiVersion apiVersion)
-            => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
+    public string Get(ApiVersion apiVersion)
+        => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 
-        [HttpGet("{id}")]
-        public string Get2(int id)
-        {
-            ApiVersion version = HttpContext.GetRequestedApiVersion();
-            return $"Controller = {GetType().Name}{Environment.NewLine}Version = {version}{Environment.NewLine}id = {id}";
-        }
 
-        [HttpGet]
-        [ApiVersion("1.5", Deprecated = true)]
-        public string Get2(ApiVersion apiVersion)
-            => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
-
-        [HttpGet]
-        [MapToApiVersion("3.0")]
-        public string Get3(ApiVersion apiVersion)
-            => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
-
-        [HttpGet]
-        [ApiVersion("3.0.Beta")]
-        public string Get4(ApiVersion apiVersion)
-            => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
-
-    }
 }

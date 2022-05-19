@@ -6,6 +6,7 @@ public class AddToCartViewModel
     [DisplayName("Stock Quantity")]
     public int StockQuantity { get; set; }
     public int ItemId { get; set; }
-    [MustBeGreaterThanZero][MustNotBeGreaterThan(nameof(StockQuantity))]
+    [MustBeGreaterThanZero]
+    [MustNotBeGreaterThan(nameof(StockQuantity))]
     public int Quantity { get; set; }
 }

@@ -17,8 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Web", "AutoLot.Web\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C111A965-4A1A-4BF9-9ACF-F7D82650CF16}"
 	ProjectSection(SolutionItems) = preProject
-		Chapter34.txt = Chapter34.txt
+		Docker.txt = Docker.txt
 		nuget.config = nuget.config
+		PresentationFolder.txt = PresentationFolder.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Dal.Tests", "AutoLot.Dal.Tests\AutoLot.Dal.Tests.csproj", "{9AEBD196-3944-4CAF-AEE6-9C1755B01949}"
