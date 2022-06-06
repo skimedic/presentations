@@ -30,7 +30,7 @@ namespace GlobalQueryFilters.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Blog>().HasQueryFilter(p => !p.IsDeleted);
+            modelBuilder.Entity<Blog>().HasQueryFilter(p => !p.IsDeleted && p.BlogId == TenantId);
         }
     }
 }

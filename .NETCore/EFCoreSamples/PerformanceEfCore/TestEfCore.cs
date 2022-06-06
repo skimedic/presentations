@@ -17,7 +17,7 @@ namespace PerformanceEfCore
         public static void GetAllCustomersAsNoTracking()
         {
             using var db = new AW2016Context();
-            db.Customer.AsNoTracking().ToList();
+            db.Customer.AsNoTrackingWithIdentityResolution().ToList();
         }
 
         public static void GetAllCustomersQueryType()
