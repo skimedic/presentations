@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Migrations.EFStructures;
 
+#nullable disable
+
 namespace Migrations.EfStructures.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
@@ -15,16 +17,18 @@ namespace Migrations.EfStructures.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.4")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "3.1.4")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("Migrations.Models.Car", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Color")
                         .IsRequired()
@@ -55,8 +59,9 @@ namespace Migrations.EfStructures.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -89,8 +94,9 @@ namespace Migrations.EfStructures.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(50)
@@ -114,8 +120,9 @@ namespace Migrations.EfStructures.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .HasMaxLength(50)
@@ -135,8 +142,9 @@ namespace Migrations.EfStructures.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CarId")
                         .HasColumnType("int");
@@ -158,34 +166,14 @@ namespace Migrations.EfStructures.Migrations
                     b.ToTable("Orders", "Dbo");
                 });
 
-            modelBuilder.Entity("Migrations.ViewModels.CustomOrderViewModel", b =>
-                {
-                    b.Property<string>("Color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Make")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PetName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToView("CustomerOrderView", "dbo");
-                });
-
             modelBuilder.Entity("Migrations.Models.Car", b =>
                 {
                     b.HasOne("Migrations.Models.Make", "MakeNavigation")
                         .WithMany("Cars")
                         .HasForeignKey("MakeId")
-                        .HasConstraintName("FK_Make_Inventory")
                         .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_Make_Inventory");
 
                     b.Navigation("MakeNavigation");
                 });
@@ -195,9 +183,9 @@ namespace Migrations.EfStructures.Migrations
                     b.HasOne("Migrations.Models.Customer", "CustomerNavigation")
                         .WithMany("CreditRisks")
                         .HasForeignKey("CustomerId")
-                        .HasConstraintName("FK_CreditRisks_Customers")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_CreditRisks_Customers");
 
                     b.Navigation("CustomerNavigation");
                 });
@@ -207,15 +195,15 @@ namespace Migrations.EfStructures.Migrations
                     b.HasOne("Migrations.Models.Car", "CarNavigation")
                         .WithMany("Orders")
                         .HasForeignKey("CarId")
-                        .HasConstraintName("FK_Orders_Inventory")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_Orders_Inventory");
 
                     b.HasOne("Migrations.Models.Customer", "CustomerNavigation")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerId")
-                        .HasConstraintName("FK_Orders_Customers")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_Orders_Customers");
 
                     b.Navigation("CarNavigation");
 
