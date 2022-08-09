@@ -10,7 +10,7 @@ namespace MOQExamples.A_Basics
         public void Should_Return_Null_When_No_Argument_Match()
         {
             var id = 12;
-            var name = "Fred Flinstone";
+            var name = "Fred FlintStone";
             var customer = new Customer { Id = id, Name = name };
             var mock = new Mock<IRepo>();
             mock.Setup(x => x.Find(id)).Returns(customer);
@@ -23,7 +23,7 @@ namespace MOQExamples.A_Basics
         public void Should_Return_When_Arguments_Match()
         {
             var id = 12;
-            var name = "Fred Flinstone";
+            var name = "Fred FlintStone";
             var customer = new Customer { Id = id, Name = name };
             var mock = new Mock<IRepo>();
             mock.Setup(x => x.Find(It.IsAny<int>())).Returns(customer);

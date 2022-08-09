@@ -20,7 +20,7 @@ namespace MOQExamples.B_Advanced
         [Fact]
         public void Should_Replace_Concrete_Implementation()
         {
-            var skimedic = "Fred Flinstone";
+            var skimedic = "Fred FlintStone";
             var cust = new Customer { Id = 12, Name = skimedic };
             var mockRepo = new Mock<FakeRepo>();
             var mock = new Mock<IRepo>();

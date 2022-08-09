@@ -16,7 +16,7 @@ namespace MOQExamples.A_Basics
         {
             //Arrange
             var id = 12;
-            var name = "Fred Flinstone";
+            var name = "Fred FlintStone";
             var customer = new Customer {Id = id, Name = name};
             var mockRepo = new Mock<IRepo>();
             mockRepo.Setup(x => x.Find(id)).Returns(customer);
@@ -34,10 +34,10 @@ namespace MOQExamples.A_Basics
         public void Should_Mock_Repetitive_Function_Calls_With_Return_Values()
         {
             var id1 = 12;
-            var name1 = "Fred Flinstone";
+            var name1 = "Fred FlintStone";
             var customer1 = new Customer {Id = id1, Name = name1};
             var id2 = 1;
-            var name2 = "Wilma Flinstone";
+            var name2 = "Wilma FlintStone";
             var customer2 = new Customer {Id = id2, Name = name2};
             var mock = new Mock<IRepo>();
             mock.SetupSequence(x => x.Find(It.IsAny<int>()))
@@ -59,7 +59,7 @@ namespace MOQExamples.A_Basics
         public void Should_Mock_Function_With_Void_Return()
         {
             var id = 12;
-            var name = "Fred Flinstone";
+            var name = "Fred FlintStone";
             var customer = new Customer {Id = id, Name = name};
             var mock = new Mock<IRepo>();
             mock.Setup(x => x.AddRecord(customer));
