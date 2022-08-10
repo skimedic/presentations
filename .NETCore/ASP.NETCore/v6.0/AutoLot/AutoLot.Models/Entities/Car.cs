@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Models.Entities;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Models - Car.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Models.Entities;
 
 [Table("Inventory", Schema = "dbo")]
 [Index(nameof(MakeId), Name = "IX_Inventory_MakeId")]

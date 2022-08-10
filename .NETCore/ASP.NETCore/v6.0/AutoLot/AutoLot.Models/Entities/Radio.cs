@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Models.Entities;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Models - Radio.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Models.Entities;
 
 [Table("Radios", Schema = "dbo")]
 [EntityTypeConfiguration(typeof(RadioConfiguration))]

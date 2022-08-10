@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Dal.EfStructures;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Dal - ApplicationDbContext.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Dal.EfStructures;
 
 public partial class ApplicationDbContext : DbContext
 {

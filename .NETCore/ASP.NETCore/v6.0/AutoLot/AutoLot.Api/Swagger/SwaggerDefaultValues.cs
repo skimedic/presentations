@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Api.Swagger;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Api - SwaggerDefaultValues.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Api.Swagger;
 
 /// <summary>
 /// Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.

@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Mvc.Controllers.Base;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Mvc - BaseCrudWithBindingPropertyController.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Mvc.Controllers.Base;
 
 [Route("[controller]/[action]")]
 public abstract class BaseCrudWithBindingPropertyController<TEntity, TController> : Controller

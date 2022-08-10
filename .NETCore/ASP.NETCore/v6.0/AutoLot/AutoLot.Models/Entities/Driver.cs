@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Models.Entities;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Models - Driver.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Models.Entities;
 
 [Table("Drivers", Schema = "dbo")]
 [EntityTypeConfiguration(typeof(DriverConfiguration))]

@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Mvc.ViewComponents;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Mvc - MenuViewComponent.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Mvc.ViewComponents;
 
 //https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components
 //The runtime searches for the view in the following paths:

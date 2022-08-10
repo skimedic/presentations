@@ -1,4 +1,11 @@
-﻿global using AutoLot.Models.Entities.Base;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Models - GlobalUsings.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+global using AutoLot.Models.Entities.Base;
 global using AutoLot.Models.Entities.Configuration;
 global using AutoLot.Models.Entities.Owned;
 

@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Services.ApiWrapper;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Services - CarApiServiceWrapper.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Services.ApiWrapper;
 
 public class CarApiServiceWrapper : ApiServiceWrapperBase<Car>, ICarApiServiceWrapper
 {

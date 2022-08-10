@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Dal.Exceptions;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Dal - CustomException.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Dal.Exceptions;
 
 public class CustomException : Exception
 {

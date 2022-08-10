@@ -1,3 +1,10 @@
+// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Web - Error.cshtml.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
 using System.Diagnostics;
 
 namespace AutoLot.Web.Pages;

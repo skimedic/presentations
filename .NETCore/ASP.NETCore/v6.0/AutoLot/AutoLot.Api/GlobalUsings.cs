@@ -1,4 +1,11 @@
-﻿global using AutoLot.Api.ApiVersionSupport;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Api - GlobalUsings.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+global using AutoLot.Api.ApiVersionSupport;
 global using AutoLot.Api.Controllers.Base;
 global using AutoLot.Api.Filters;
 global using AutoLot.Api.Security;

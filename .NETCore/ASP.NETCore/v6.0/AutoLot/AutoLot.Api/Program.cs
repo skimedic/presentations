@@ -1,3 +1,10 @@
+// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Api - Program.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
 //[assembly: ApiController]
 var builder = WebApplication.CreateBuilder(args);
 

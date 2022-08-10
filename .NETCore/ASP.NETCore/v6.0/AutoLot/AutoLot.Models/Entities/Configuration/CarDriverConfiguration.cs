@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Models.Entities.Configuration;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Models - CarDriverConfiguration.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Models.Entities.Configuration;
 
 public class CarDriverConfiguration : IEntityTypeConfiguration<CarDriver>
 {

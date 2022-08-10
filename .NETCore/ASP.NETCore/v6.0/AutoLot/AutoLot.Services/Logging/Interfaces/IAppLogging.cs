@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Services.Logging.Interfaces;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Services - IAppLogging.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Services.Logging.Interfaces;
 
 public interface IAppLogging<T>
 {

@@ -1,4 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Mvc - HomeController.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+using Microsoft.AspNetCore.Authorization;
 
 namespace AutoLot.Mvc.Controllers;
 
@@ -16,7 +23,8 @@ public class HomeController : Controller
     [Route("/")]
     [Route("/[controller]")]
     [Route("/[controller]/[action]")]
-    public IActionResult Index([FromServices] IOptionsMonitor<DealerInfo> dealerMonitor)
+    public IActionResult Index(
+        [FromServices] IOptionsMonitor<DealerInfo> dealerMonitor)
     {
         //_logger.LogAppError("Test error");
         var vm = dealerMonitor.CurrentValue;

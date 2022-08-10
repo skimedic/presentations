@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Models.Entities;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Models - Order.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Models.Entities;
 
 [Table("Orders", Schema = "dbo")]
 [Index(nameof(CarId), Name = "IX_Orders_CarId")]

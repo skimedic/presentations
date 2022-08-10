@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Services.Logging.Configuration;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Services - LoggingConfiguration.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Services.Logging.Configuration;
 
 public static class LoggingConfiguration
 {

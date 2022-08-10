@@ -1,3 +1,10 @@
+// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Dal.Tests - BaseTest.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
 namespace AutoLot.Dal.Tests.Base;
 
 public abstract class BaseTest : IDisposable

@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Dal.Repos.Base;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Dal - BaseViewRepo.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Dal.Repos.Base;
 
 public abstract class BaseViewRepo<T> : IBaseViewRepo<T> where T : class, new()
 {

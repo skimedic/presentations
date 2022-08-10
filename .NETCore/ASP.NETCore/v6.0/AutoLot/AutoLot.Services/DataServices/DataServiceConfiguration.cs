@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Services.DataServices;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Services - DataServiceConfiguration.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Services.DataServices;
 
 public static class DataServiceConfiguration
 {

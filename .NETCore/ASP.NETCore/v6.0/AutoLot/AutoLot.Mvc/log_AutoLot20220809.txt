@@ -223,3 +223,278 @@ File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.
    at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 
+[22-08-09 12:50:14 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 12:50:14 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 12:50:17 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+Microsoft.AspNetCore.Routing.Matching.AmbiguousMatchException: The request matched multiple endpoints. Matches: 
+
+AutoLot.Mvc.Controllers.HomeController.Index (AutoLot.Mvc)
+AutoLot.Mvc.Controllers.HomeController.Privacy (AutoLot.Mvc)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ReportAmbiguity(CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.ProcessFinalCandidates(HttpContext httpContext, CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DefaultEndpointSelector.Select(HttpContext httpContext, CandidateState[] candidateState)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.MatchAsync(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.CookiePolicy.CookiePolicyMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at WebOptimizer.AssetMiddleware.InvokeAsync(HttpContext context, IOptionsSnapshot`1 options)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass5_1.<UseMiddleware>b__2(HttpContext context)
+   at Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 12:50:29 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 12:51:46 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 12:51:46 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 12:51:49 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 12:51:58 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 12:57:05 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 12:57:05 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 12:57:08 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 12:57:12 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 12:57:14 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 12:57:17 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 13:15:43 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 13:15:43 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 13:15:46 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 13:15:58 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 13:16:06 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 13:39:44 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 13:39:44 Warning]AutoLot.Mvc:Microsoft.EntityFrameworkCore.Model.Validation
+Message:The 'bool' property '"IsDrivable"' on entity type '"Car"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+in method  at :
+
+[22-08-09 13:39:48 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+[22-08-09 13:39:51 Error]AutoLot.Mvc:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware
+Message:An unhandled exception has occurred while executing the request.
+in method  at :
+System.IO.FileNotFoundException: Could not find file 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'.
+File name: 'D:\Projects\presentations\.NETCore\ASP.NETCore\v6.0\AutoLot\AutoLot.Mvc\wwwroot\AutoLot.Mvc.styles.css'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at Microsoft.Extensions.FileProviders.Physical.PhysicalFileInfo.CreateReadStream()
+   at WebOptimizer.Asset.LoadFileContentAsync(IFileProvider fileProvider, AssetContext config, String sourceFile)
+   at WebOptimizer.Asset.ExecuteAsync(HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetBuilder.BuildAsync(IAsset asset, HttpContext context, IWebOptimizerOptions options)
+   at WebOptimizer.AssetMiddleware.HandleAssetAsync(HttpContext context, IAsset asset, WebOptimizerOptions options)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+

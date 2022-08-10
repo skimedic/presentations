@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Dal.Tests.IntegrationTests;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Dal.Tests - CustomerOrderViewModelTests.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Dal.Tests.IntegrationTests;
 
 [Collection("Integration Tests")]
 public class CustomerOrderViewModelTests : BaseTest, IClassFixture<EnsureAutoLotDatabaseTestFixture>

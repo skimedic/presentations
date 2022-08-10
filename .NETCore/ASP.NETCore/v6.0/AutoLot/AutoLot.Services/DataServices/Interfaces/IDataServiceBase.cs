@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Services.DataServices.Interfaces;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Services - IDataServiceBase.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Services.DataServices.Interfaces;
 
 public interface IDataServiceBase<TEntity> where TEntity : BaseEntity, new()
 {

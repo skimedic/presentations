@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Mvc.Controllers;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Mvc - CarsController.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Mvc.Controllers;
 
 public class CarsController : BaseCrudController<Car, CarsController>
 {

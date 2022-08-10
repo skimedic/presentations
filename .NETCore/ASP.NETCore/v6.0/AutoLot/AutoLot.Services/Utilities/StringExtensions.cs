@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Services.Utilities;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Services - StringExtensions.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Services.Utilities;
 
 public static class StringExtensions
 {

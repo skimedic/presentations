@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Models.ViewModels;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Models - CustomerOrderViewModel.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Models.ViewModels;
 
 [Keyless]
 [EntityTypeConfiguration(typeof(CustomerOrderViewModelConfiguration))]

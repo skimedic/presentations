@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Api.Swagger.Models;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Api - SwaggerVersionDescription.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Api.Swagger.Models;
 
 public class SwaggerVersionDescription
 {

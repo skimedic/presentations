@@ -1,4 +1,11 @@
-﻿namespace AutoLot.Dal.EfStructures;
+﻿// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Dal - MigrationHelpers.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
+namespace AutoLot.Dal.EfStructures;
 
 /*
     protected override void Up(MigrationBuilder migrationBuilder)

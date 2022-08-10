@@ -1,3 +1,10 @@
+// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Web - Program.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseWebRoot("wwwroot").ConfigureAppConfiguration((builderContext, config) =>
 {

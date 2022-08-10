@@ -1,3 +1,10 @@
+// Copyright Information
+// ==================================
+// AutoLot - AutoLot.Models - CarDriver.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2022/08/09
+// ==================================
+
 namespace AutoLot.Models.Entities;
 
 [Table("InventoryToDrivers", Schema = "dbo")]
