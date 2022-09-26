@@ -29,6 +29,7 @@ builder.Services.AddApiVersioning(options =>
     options.UseApiBehavior = true;
     options.AssumeDefaultVersionWhenUnspecified = true;
     options.DefaultApiVersion = defaultApiVersion;
+    options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(new ApiVersioningOptions());
     //This sets the default svc? api-version = 2.0 and svc?v = 2.0
     options.ApiVersionReader = ApiVersionReader.Combine(
         new UrlSegmentApiVersionReader(),

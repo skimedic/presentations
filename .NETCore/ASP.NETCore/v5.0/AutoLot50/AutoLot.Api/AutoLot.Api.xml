@@ -88,5 +88,19 @@
             <param name="id">Primary key of the make</param>
             <response code="200">Returns all cars by make</response>
         </member>
+        <member name="M:AutoLot.Api.Controllers.ValuesController.Get">
+            <summary>
+            This is an example Get method returning JSON
+            </summary>
+            <remarks>This is one of several examples for returning JSON:
+            <pre>
+            [
+              "value1",
+              "value2"
+            ]
+            </pre>
+            </remarks>
+            <returns>List of strings</returns>
+        </member>
     </members>
 </doc>

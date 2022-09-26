@@ -119,6 +119,7 @@ public static class SampleDataInitializer
 
     public static void ClearAndReseedDatabase(ApplicationDbContext context)
     {
+        context.Database.Migrate();
         ClearData(context);
         SeedData(context);
     }
