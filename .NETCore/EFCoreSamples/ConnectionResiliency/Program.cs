@@ -61,10 +61,12 @@ namespace ConnectionResiliency
             var contextOptionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
             var connectionString =
                 @"Server=.\dev2019;Database=SpyStore;user id=foo;password=bar;MultipleActiveResultSets=true;";
-            //contextOptionsBuilder.UseSqlServer(connectionString,
-            //    o => o.EnableRetryOnFailure());
+            //contextOptionsBuilder.UseSqlServer(connectionString, o => o.EnableRetryOnFailure());
             contextOptionsBuilder.UseSqlServer(connectionString,
-                o => o.ExecutionStrategy(c => new CustomExecutionStrategy(c, 5, new TimeSpan(0, 0, 0, 0, 30))));
+                o => 
+                    o.ExecutionStrategy(c => 
+                        new CustomExecutionStrategy(c, 5, 
+                            new TimeSpan(0, 0, 0, 0, 30))));
             return new BloggingContext(contextOptionsBuilder.Options);
         }
 

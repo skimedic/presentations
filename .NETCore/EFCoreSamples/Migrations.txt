@@ -1,5 +1,8 @@
 Scaffold AW
 
+dotnet ef database update -0
+
+
 dotnet ef dbcontext scaffold "server=.\dev2019;Database=Adventureworks2016;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d -c AwDbContext --context-dir EfStructures -o Entities 
 
 dotnet ef dbcontext scaffold -h

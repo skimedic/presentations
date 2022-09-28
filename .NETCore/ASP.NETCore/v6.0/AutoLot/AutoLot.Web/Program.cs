@@ -5,6 +5,8 @@
 // http://www.skimedic.com 2022/08/09
 // ==================================
 
+using Microsoft.EntityFrameworkCore.Diagnostics;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseWebRoot("wwwroot").ConfigureAppConfiguration((builderContext, config) =>
 {
@@ -84,8 +86,8 @@ else
 
 var connectionString = builder.Configuration.GetConnectionString("AutoLot");
 builder.Services.AddDbContextPool<ApplicationDbContext>(
-    options => options.UseSqlServer(connectionString,
-        sqlOptions => sqlOptions.EnableRetryOnFailure().CommandTimeout(60)));
+    options => options.ConfigureWarnings(x=>x.Ignore(RelationalEventId.BoolWithDefaultWarning))
+        .UseSqlServer(connectionString, sqlOptions => sqlOptions.EnableRetryOnFailure().CommandTimeout(60)));
 
 builder.Services.AddRepositories();
 builder.Services.AddDataServices(builder.Configuration);
