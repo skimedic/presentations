@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28714.193
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33103.201
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_FieldMapping", "FieldMapping\08_FieldMapping.csproj", "{53F797EF-D203-4314-8A90-B8811D354CFD}"
 EndProject
@@ -38,6 +38,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "12_Repositories", "Repositories\12_Repositories.csproj", "{B9AF2D6D-87BF-472D-8A48-D5038CF72CE9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "00_EfCoreBasics", "EfCoreBasics\00_EfCoreBasics.csproj", "{ACC159A1-C343-41CB-AD96-E7B7A9DB64D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_JsonColumns", "JsonColumns\13_JsonColumns.csproj", "{0FA842F3-43F1-4420-BBD5-710FED2D92E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -229,6 +231,18 @@ Global
 		{ACC159A1-C343-41CB-AD96-E7B7A9DB64D3}.Release|x64.Build.0 = Release|Any CPU
 		{ACC159A1-C343-41CB-AD96-E7B7A9DB64D3}.Release|x86.ActiveCfg = Release|Any CPU
 		{ACC159A1-C343-41CB-AD96-E7B7A9DB64D3}.Release|x86.Build.0 = Release|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Debug|x64.Build.0 = Debug|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Debug|x86.Build.0 = Debug|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Release|x64.ActiveCfg = Release|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Release|x64.Build.0 = Release|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Release|x86.ActiveCfg = Release|Any CPU
+		{0FA842F3-43F1-4420-BBD5-710FED2D92E3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
