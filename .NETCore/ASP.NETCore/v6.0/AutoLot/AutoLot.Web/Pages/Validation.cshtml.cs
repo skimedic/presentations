@@ -12,10 +12,20 @@ public class ValidationModel : PageModel
     public string Title => "Validation Example";
 
     [BindProperty]
-    public AddToCartViewModel Entity { get; set; }
+    public AddToCartViewModel PropertyThatIsBoundInThePageModel { get; set; }
+    //public AddToCartViewModel OnGet()
+    //{
+    //    return new AddToCartViewModel
+    //    {
+    //        Id = 1,
+    //        ItemId = 1,
+    //        StockQuantity = 2,
+    //        Quantity = 0
+    //    };
+    //}
     public void OnGet()
     {
-        Entity = new AddToCartViewModel
+        PropertyThatIsBoundInThePageModel = new AddToCartViewModel
         {
             Id = 1,
             ItemId = 1,
@@ -24,6 +34,7 @@ public class ValidationModel : PageModel
         };
     }
 
+    //public IActionResult OnPost(AddToCartViewModel Entity)
     public IActionResult OnPost()
     {
         if (!ModelState.IsValid)

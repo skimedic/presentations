@@ -116,7 +116,7 @@ namespace PerformanceEfCore.EfStructures
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"server=.\dev2019;Database=Adventureworks2019;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(@"server=.\dev2019;Database=Adventureworks2019;Trusted_Connection=True;Encrypt=false;");
             }
         }
 

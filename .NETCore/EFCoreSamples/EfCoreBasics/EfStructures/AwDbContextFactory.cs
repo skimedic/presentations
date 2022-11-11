@@ -21,7 +21,7 @@ namespace EfCoreBasics.EfStructures
         {
             var optionsBuilder = new DbContextOptionsBuilder<AwDbContext>();
             var connectionString =
-                @"Server=.\dev2019;Database=Adventureworks2016;Trusted_Connection=true;";
+                @"Server=.\dev2019;Database=Adventureworks2016;Trusted_Connection=True;Encrypt=false;";
             optionsBuilder
                 .UseSqlServer(connectionString, 
                     options => options.EnableRetryOnFailure().CommandTimeout(60));

@@ -16,7 +16,7 @@ namespace AutoLot.Web.ViewComponents;
 public class MenuViewComponent : ViewComponent
 {
     private readonly IMakeDataService _dataService;
-
+    public string IWantToPassInData { get; set; }
     public MenuViewComponent(IMakeDataService dataService)
     {
         _dataService = dataService;

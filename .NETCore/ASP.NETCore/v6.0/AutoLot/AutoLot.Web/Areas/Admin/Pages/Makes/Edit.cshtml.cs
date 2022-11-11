@@ -15,7 +15,7 @@ public class EditModel : BasePageModel<Make,EditModel>
         : base(appLogging, makeService, "Edit")
     {
     }
-    
+
     public async Task OnGetAsync(int? id)
     {
         await GetOneAsync(id);

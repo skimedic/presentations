@@ -5,6 +5,8 @@
 // http://www.skimedic.com 2022/08/09
 // ==================================
 
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 namespace AutoLot.Web.Pages;
 
 public class RazorSyntaxModel : PageModel

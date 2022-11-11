@@ -34,6 +34,12 @@ public abstract class BasePageModel<TEntity, TPageModel> : PageModel
     {
         LookupValues = new(await lookupService.GetAllAsync(), lookupKey, lookupDisplay);
     }
+    //public async Task OnGetAsync(int? id)
+    //{
+    //    var foo = "foo";
+    //    //await GetLookupValuesAsync(_makeService, nameof(Make.Id), nameof(Make.Name));
+    //    //await GetOneAsync(id);
+    //}
 
     protected async Task GetOneAsync(int? id)
     {

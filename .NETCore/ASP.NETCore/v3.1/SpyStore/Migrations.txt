@@ -1,8 +1,0 @@
-dotnet ef migrations add Initial -o EfStructures\Migrations -c SpyStore.Hol.Dal.EfStructures.StoreContext 
-dotnet ef database update -c SpyStore.Hol.Dal.EfStructures.StoreContext
-
-dotnet ef migrations add TSQL -c SpyStore.Hol.Dal.EfStructures.StoreContext 
-dotnet ef database update -c SpyStore.Hol.Dal.EfStructures.StoreContext
-
-dotnet ef migrations add Final -c SpyStore.Hol.Dal.EfStructures.StoreContext 
-dotnet ef database update -c SpyStore.Hol.Dal.EfStructures.StoreContext

@@ -123,7 +123,7 @@ namespace EfCoreBasics.EfStructures
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http: //go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer(
-                    @"server=.\dev2019;Database=Adventureworks2016;Trusted_Connection=True;");
+                    @"server=.\dev2019;Database=Adventureworks2016;Trusted_Connection=True;Encrypt=false;");
             }
         }
 

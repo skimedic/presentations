@@ -18,9 +18,10 @@ public class EditModel : BasePageModel<Car,EditModel>
     {
         _makeService = makeService;
     }
-    
+
     public async Task OnGetAsync(int? id)
     {
+
         await GetLookupValuesAsync(_makeService, nameof(Make.Id), nameof(Make.Name));
         await GetOneAsync(id);
     }

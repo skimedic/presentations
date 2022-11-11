@@ -93,7 +93,7 @@ namespace PerformanceEfCore
         public static void AddRecordsAndSaveNoBatching()
         {
             var builder = new DbContextOptionsBuilder<AW2016Context>();
-            var connectionString = @"server=.\dev2019;Database=Adventureworks2019;Trusted_Connection=True;";
+            var connectionString = @"server=.\dev2019;Database=Adventureworks2019;Trusted_Connection=True;Encrypt=false;";
             builder.UseSqlServer(connectionString, options => options.MaxBatchSize(1));
 
             using var db = new AW2016Context(builder.Options);

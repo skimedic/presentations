@@ -28,7 +28,7 @@ builder.Services.RegisterLoggingInterfaces();
 if (!builder.Environment.IsDevelopment())
 {
     builder.WebHost.UseWebRoot("wwwroot"); 
-    builder.WebHost.UseStaticWebAssets();
+    //builder.WebHost.UseStaticWebAssets();
 }
 
 // Add services to the container.
@@ -53,7 +53,7 @@ if (builder.Environment.IsDevelopment() || builder.Environment.IsEnvironment("Lo
     //builder.Services.AddWebOptimizer(false,false);
     builder.Services.AddWebOptimizer(options =>
     {
-        options.MinifyCssFiles("AutoLot.Web.styles.css");
+        //options.MinifyCssFiles("AutoLot.Web.styles.css");
         options.MinifyCssFiles("/css/site.css"); 
         options.MinifyJsFiles("/js/site.js"); 
 

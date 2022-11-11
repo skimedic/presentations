@@ -1,7 +1,7 @@
 ﻿dotnet tool uninstall --global dotnet-ef
 dotnet tool install --global dotnet-ef
 
-dotnet ef dbcontext scaffold "Server=.\dev2019;Database=Demo.Migrations;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -d -c ApplicationDbContext --context-dir EfStructures -o Models 
+dotnet ef dbcontext scaffold "Server=.\dev2019;Database=Demo.Migrations;Trusted_Connection=True;Encrypt=false;" Microsoft.EntityFrameworkCore.SqlServer -d -c ApplicationDbContext --context-dir EfStructures -o Models 
 
 dotnet ef migrations add Initial -o EfStructures\Migrations -c Migrations.EfStructures.ApplicationDbContext
 dotnet ef database update Initial -c Migrations.EfStructures.ApplicationDbContext
