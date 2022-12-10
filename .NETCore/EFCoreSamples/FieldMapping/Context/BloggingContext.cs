@@ -12,7 +12,7 @@ namespace FieldMapping.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlServer(@"Server=.\dev2019;Database=Demo.FieldMapping;Integrated Security=true;");
+                .UseSqlServer(@"Server=.\dev2019;Database=Demo.FieldMapping;Integrated Security=true;Encrypt=false;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

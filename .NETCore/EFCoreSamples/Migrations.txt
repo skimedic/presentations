@@ -40,3 +40,4 @@ Options:
   --no-color                             Don't colorize output.
   --prefix-output                        Prefix output with level.
 
+  dotnet efcore migrations remove

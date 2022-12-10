@@ -26,7 +26,7 @@ namespace FromSQLDbQuery.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = @"Server=.\dev2019;Database=Demo.FromSQL;Integrated Security=true;";
+            var connectionString = @"Server=.\dev2019;Database=Demo.FromSQL;Integrated Security=true;Encrypt=false;";
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(connectionString);

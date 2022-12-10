@@ -19,7 +19,7 @@ namespace ConnectionResiliency.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString =
-                @"Server=.\dev2019;Database=Demo.ConnectionResiliency;Integrated Security=true;";
+                @"Server=.\dev2019;Database=Demo.ConnectionResiliency;Integrated Security=true;Encrypt=false;";
             // EnablesRetryOnFailure adds default SqlServerRetryingExecutionStrategy
             if (!optionsBuilder.IsConfigured)
             {
