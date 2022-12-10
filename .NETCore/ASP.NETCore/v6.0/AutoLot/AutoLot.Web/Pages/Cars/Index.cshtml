@@ -1,8 +1,10 @@
 ﻿@page "{makeId?}/{makeName?}"
+@inject IWebHostEnvironment Env
 @model AutoLot.Web.Pages.Cars.IndexModel
 @{
     //ViewData["Title"] = "Inventory";
 }
+@Env.EnvironmentName
 @{ 
     if (Model.MakeId.HasValue)
     {
