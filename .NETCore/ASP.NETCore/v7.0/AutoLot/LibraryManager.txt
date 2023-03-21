@@ -1,0 +1,6 @@
+dotnet tool install --global Microsoft.Web.LibraryManager.Cli --version 2.1.113
+
+libman init
+
+libman clean      Deletes all library files defined in libman.json from the project
+libman restore    Downloads all files from provider and saves them to specified destination

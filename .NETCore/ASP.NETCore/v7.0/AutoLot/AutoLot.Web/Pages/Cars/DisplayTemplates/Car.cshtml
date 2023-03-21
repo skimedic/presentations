@@ -1,0 +1,39 @@
+﻿@model AutoLot.Models.Entities.Car
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.MakeId)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.MakeNavigation.Name)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Color)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Color)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.PetName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.PetName)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Price)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DateBuilt)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DateBuilt)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.IsDrivable)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.IsDrivable)
+    </dd>
+</dl>

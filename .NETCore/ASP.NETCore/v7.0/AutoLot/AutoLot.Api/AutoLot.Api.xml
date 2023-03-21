@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutoLot.Api</name>
+    </assembly>
+    <members>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`2.GetAllBad">
+            <summary>
+            Gets all records
+            </summary>
+            <returns>All records</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.CarsController.GetCarsByMake(System.Nullable{System.Int32})">
+            <summary>
+            Gets all cars by make
+            </summary>
+            <returns>All cars for a make</returns>
+            <param name="id">Primary key of the make</param>
+        </member>
+    </members>
+</doc>
