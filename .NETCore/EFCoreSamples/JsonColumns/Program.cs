@@ -1,7 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using Context;
+﻿using Context;
 using Microsoft.EntityFrameworkCore;
+
+// See https://aka.ms/new-console-template for more information
 
 Console.WriteLine("Hello, World!");
 

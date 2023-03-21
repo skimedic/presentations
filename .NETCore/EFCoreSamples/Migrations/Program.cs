@@ -13,6 +13,12 @@ namespace Migrations
         {
             using var context = new ApplicationDbContextFactory().CreateDbContext(new string[0]);
             SampleDataInitializer.InitializeData(context);
+            List<Task> ts = new List<Task>();
+            //ts.Add(context.Cars.ToListAsync());
+            //ts.Add(context.Cars.ToListAsync());
+            //ts.Add(context.Cars.ToListAsync());
+            //ts.Add(context.Cars.ToListAsync());
+            //Task.WaitAll(ts.ToArray());
             var orders = context.CustomOrderViewModels.ToList();
             foreach (var order in orders)
             {

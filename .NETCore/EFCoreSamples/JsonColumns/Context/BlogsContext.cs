@@ -33,7 +33,7 @@ public class BlogsContext : DbContext
     public DbSet<Author> Authors => Set<Author>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(@$"Server=(localdb)\mssqllocaldb;Database={GetType().Name}");
+        => optionsBuilder.UseSqlServer(@$"Server=(localdb)\mssqllocaldb;Database=Demo.Json");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<FeaturedPost>();
