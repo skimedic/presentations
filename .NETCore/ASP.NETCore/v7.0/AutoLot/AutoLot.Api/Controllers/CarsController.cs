@@ -7,6 +7,13 @@ public class CarsController : BaseCrudController<Car, CarsController>
     {
     }
 
+
+    [ApiVersionNeutral]
+    [HttpGet("/[controller]/[action]/throwError")]
+    public ActionResult ThrowError()
+    {
+        return NotFound();
+    }
     /// <summary>
     /// Gets all cars by make
     /// </summary>
