@@ -6,7 +6,7 @@
 [ApiController]
 //[Route("api/[controller]")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class ValuesController : ControllerBase
+public class Values11Controller : ControllerBase
 {
     [ApiVersion("1.0")]
     [HttpGet]

@@ -1,4 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.ConfigureSerilog();
@@ -26,7 +26,8 @@ builder.Services.AddScoped<IRadioRepo, RadioRepo>();
 builder.Services.AddAutoLotApiVersionConfiguration(new ApiVersion(1, 0));
 
 builder.Services.AddControllers(
-        config => config.Filters.Add(new CustomExceptionFilterAttribute(builder.Environment))
+        config => config.Filters.Add(
+            new CustomExceptionFilterAttribute(builder.Environment))
     )
     .AddJsonOptions(options =>
     {
@@ -67,7 +68,7 @@ builder.Services.AddAndConfigureSwagger(
     builder.Configuration,
     Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 app.UseCors("AllowAll");
 

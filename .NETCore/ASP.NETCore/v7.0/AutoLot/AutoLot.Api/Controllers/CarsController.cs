@@ -10,9 +10,15 @@ public class CarsController : BaseCrudController<Car, CarsController>
 
     [ApiVersionNeutral]
     [HttpGet("/[controller]/[action]/throwError")]
-    public ActionResult ThrowError()
+    public ActionResult ThrowError([FromServices]ICustomerRepo custRepo)
     {
         return NotFound();
+    }
+    [ApiVersionNeutral]
+    [HttpGet("/[controller]/[action]/environ")]
+    public ActionResult ThrowError([FromServices]IWebHostEnvironment environment)
+    {
+        return new OkObjectResult(environment);
     }
     /// <summary>
     /// Gets all cars by make

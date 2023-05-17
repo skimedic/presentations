@@ -7,9 +7,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.4" />
-		<PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.5.22">
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+		<PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.6.40">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
