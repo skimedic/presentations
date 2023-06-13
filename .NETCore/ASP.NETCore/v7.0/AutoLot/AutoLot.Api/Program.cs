@@ -34,14 +34,15 @@ builder.Services.AddControllers(
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
         options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
         options.JsonSerializerOptions.WriteIndented = true;
-        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.ReferenceHandler = 
+            ReferenceHandler.IgnoreCycles;
     })
     .ConfigureApiBehaviorOptions(options =>
     {
         //suppress automatic model state binding errors
         options.SuppressModelStateInvalidFilter = true;
         //suppress all binding inference
-        //options.SuppressInferBindingSourcesForParameters= true;
+        //options.SuppressInferBindingSourcesForParameters = true;
         //suppress multipart/form-data content type inference
         //options.SuppressConsumesConstraintForFormFileParameters = true;
         //Don't create a problem details error object if set to true
@@ -73,7 +74,7 @@ WebApplication app = builder.Build();
 app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Local"))
 {
     //app.UseSwagger();
     //app.UseSwaggerUI();

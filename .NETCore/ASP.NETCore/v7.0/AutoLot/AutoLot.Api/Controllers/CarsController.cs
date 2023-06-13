@@ -10,6 +10,7 @@ public class CarsController : BaseCrudController<Car, CarsController>
 
     [ApiVersionNeutral]
     [HttpGet("/[controller]/[action]/throwError")]
+    //public ActionResult ThrowError(ICustomerRepo custRepo)
     public ActionResult ThrowError([FromServices]ICustomerRepo custRepo)
     {
         return NotFound();
