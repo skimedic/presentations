@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FolderVersioning", "FolderV
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FullSwaggerSupport", "FullSwaggerSupport\FullSwaggerSupport.csproj", "{BE5C4104-86B1-4941-B239-542D7B53C28B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{BD095F7B-9DFD-49B0-BB0B-C85E35AB1926}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{BE5C4104-86B1-4941-B239-542D7B53C28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE5C4104-86B1-4941-B239-542D7B53C28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE5C4104-86B1-4941-B239-542D7B53C28B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD095F7B-9DFD-49B0-BB0B-C85E35AB1926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD095F7B-9DFD-49B0-BB0B-C85E35AB1926}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD095F7B-9DFD-49B0-BB0B-C85E35AB1926}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD095F7B-9DFD-49B0-BB0B-C85E35AB1926}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

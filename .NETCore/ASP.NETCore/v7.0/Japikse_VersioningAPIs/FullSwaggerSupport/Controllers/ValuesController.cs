@@ -13,13 +13,13 @@ public class ValuesController : ControllerBase
 }
 
 [ApiController]
-[ApiVersion("4.0")]
+[ApiVersion("400.0")]
 [Route("api/[controller]")]
 //[Route("api/v{version:apiVersion}/[controller]")]
-public class Values4Controller : ValuesController
+public class Values400Controller : ValuesController
 {
     [HttpGet("{id}/{name}")]
-    [ApiVersion("4.0-beta")]
+    //[ApiVersion("4.0-beta")]
     public string Get(ApiVersion apiVersion, int id, string name )
         => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 }
