@@ -5,8 +5,8 @@
 log_*.txt
 WhatsNewInDotNetCore3/
 
-Patterns/6.0
-Patterns/AllPatterns_Old
+Patterns/6.0/
+Patterns/AllPatterns_Old/
 
 # User-specific files
 *.suo
