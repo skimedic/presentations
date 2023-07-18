@@ -1,6 +1,4 @@
-using System.Text.Json;
-
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -17,7 +15,6 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "BareMinimum", Version = "v1" });
     options.ResolveConflictingActions(c=>c.First());
-
 });
 builder.Services.AddApiVersioning(options =>
 {

@@ -6,14 +6,14 @@
 public class ValuesController : ControllerBase
 {
     [HttpGet]
-    [ApiVersion("2.0")]
-    [ApiVersion("3.0")]
+    //[ApiVersion("2.0")]
+    //[ApiVersion("3.0")]
     public virtual string Get(ApiVersion apiVersion)
         => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 }
 
 [ApiController]
-[ApiVersion("400.0")]
+//[ApiVersion("400.0")]
 [Route("api/[controller]")]
 //[Route("api/v{version:apiVersion}/[controller]")]
 public class Values400Controller : ValuesController

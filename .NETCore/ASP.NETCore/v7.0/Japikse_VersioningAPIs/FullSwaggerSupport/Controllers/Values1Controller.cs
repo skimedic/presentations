@@ -9,7 +9,7 @@ namespace FullSwaggerSupport.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class Values1_1Controller : ValuesController
+public class Values1Controller : ValuesController
 {
     ////[MapToApiVersion("2.0")]
     ////[ApiVersion("1.0")]

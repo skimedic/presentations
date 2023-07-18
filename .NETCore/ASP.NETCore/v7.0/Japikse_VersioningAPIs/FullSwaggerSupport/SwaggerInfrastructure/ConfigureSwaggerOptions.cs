@@ -24,7 +24,7 @@ public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     internal static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description, SwaggerApplicationSettings settings)
     {
 
-        var versionDesc =
+        SwaggerVersionDescription versionDesc =
             settings.Descriptions.FirstOrDefault(x => 
                 x.MajorVersion == (description.ApiVersion.MajorVersion??0) 
                 && x.MinorVersion == (description.ApiVersion.MinorVersion??0));

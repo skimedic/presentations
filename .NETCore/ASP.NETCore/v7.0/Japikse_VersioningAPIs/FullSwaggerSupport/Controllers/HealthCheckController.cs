@@ -32,6 +32,10 @@ public class HealthCheckController : Controller
     public string Get([FromServices]ApiVersion apiVersion) 
         => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 
+    /// <summary>
+    /// This is the health check get method
+    /// </summary>
+    /// <returns>Current API Version</returns>
     [HttpGet("{id}")]
     public string Get()
     {

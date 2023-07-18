@@ -4,6 +4,12 @@
         <name>FullSwaggerSupport</name>
     </assembly>
     <members>
+        <member name="M:FullSwaggerSupport.Controllers.HealthCheckController.Get">
+            <summary>
+            This is the health check get method
+            </summary>
+            <returns>Current API Version</returns>
+        </member>
         <member name="T:FullSwaggerSupport.SwaggerInfrastructure.SwaggerDefaultValues">
             <summary>
             Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.
