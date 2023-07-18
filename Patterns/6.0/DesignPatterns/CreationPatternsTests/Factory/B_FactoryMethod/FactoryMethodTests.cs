@@ -17,7 +17,4 @@ public class FactoryMethodTests
         Assert.NotNull(pizza as NewYorkCheesePizza);
         Assert.Equal(DoughTypeEnum.Thin, pizza.Dough);
     }
-
-
-
 }
