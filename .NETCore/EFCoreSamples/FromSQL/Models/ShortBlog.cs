@@ -1,8 +1,7 @@
-﻿namespace FromSQLDbQuery.Models
+﻿namespace FromSQLDbQuery.Models;
+
+public class ShortBlog
 {
-    public class ShortBlog
-    {
-        public int BlogId { get; set; }
-        public string Url { get; set; }
-    }
+    public int BlogId { get; set; }
+    public string Url { get; set; }
 }

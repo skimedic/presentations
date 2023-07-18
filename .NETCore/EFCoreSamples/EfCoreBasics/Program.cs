@@ -8,23 +8,22 @@
 
 using System;
 
-namespace EfCoreBasics
+namespace EfCoreBasics;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("****** Fun with EF Core ******");
-            //Console.WriteLine("\r\n****** Change Tracking ******");
-            //new ChangeTracking().RunSamples();
-            //Console.WriteLine("\r\n****** Querying ******");
-            //new SimpleQueries().RunSamples();
-            //Console.WriteLine("\r\n****** Related Data and Projections ******");
-            //new RelatedDataAndProjections().RunSamples();
-            Console.WriteLine("\r\n****** Persisting Data ******");
-            new PersistingData().RunSamples();
-            Console.WriteLine("Complete");
-            Console.ReadLine();
-        }
+        Console.WriteLine("****** Fun with EF Core ******");
+        //Console.WriteLine("\r\n****** Change Tracking ******");
+        //new ChangeTracking().RunSamples();
+        //Console.WriteLine("\r\n****** Querying ******");
+        //new SimpleQueries().RunSamples();
+        //Console.WriteLine("\r\n****** Related Data and Projections ******");
+        //new RelatedDataAndProjections().RunSamples();
+        Console.WriteLine("\r\n****** Persisting Data ******");
+        new PersistingData().RunSamples();
+        Console.WriteLine("Complete");
+        Console.ReadLine();
     }
 }

@@ -11,30 +11,29 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EfCoreBasics.Entities
+namespace EfCoreBasics.Entities;
+
+[Table("Culture", Schema = "Production")]
+public partial class Culture
 {
-    [Table("Culture", Schema = "Production")]
-    public partial class Culture
+    public Culture()
     {
-        public Culture()
-        {
-            ProductModelProductDescriptionCulture = new HashSet<ProductModelProductDescriptionCulture>();
-        }
+        ProductModelProductDescriptionCulture = new HashSet<ProductModelProductDescriptionCulture>();
+    }
 
-        [Key]
-        [Column("CultureID")]
-        [StringLength(6)]
-        public string CultureId { get; set; }
+    [Key]
+    [Column("CultureID")]
+    [StringLength(6)]
+    public string CultureId { get; set; }
 
-        [Required] [StringLength(50)] public string Name { get; set; }
+    [Required] [StringLength(50)] public string Name { get; set; }
 
-        [Column(TypeName = "datetime")] public DateTime ModifiedDate { get; set; }
+    [Column(TypeName = "datetime")] public DateTime ModifiedDate { get; set; }
 
-        [InverseProperty("Culture")]
-        public virtual ICollection<ProductModelProductDescriptionCulture> ProductModelProductDescriptionCulture
-        {
-            get;
-            set;
-        }
+    [InverseProperty("Culture")]
+    public virtual ICollection<ProductModelProductDescriptionCulture> ProductModelProductDescriptionCulture
+    {
+        get;
+        set;
     }
 }

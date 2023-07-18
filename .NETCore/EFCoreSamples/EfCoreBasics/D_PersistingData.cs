@@ -12,100 +12,99 @@ using System.Linq;
 using EfCoreBasics.EfStructures;
 using EfCoreBasics.Entities;
 
-namespace EfCoreBasics
+namespace EfCoreBasics;
+
+public class PersistingData
 {
-    public class PersistingData
+    private AwDbContext _context = null;
+
+    public PersistingData()
     {
-        private AwDbContext _context = null;
+        ResetContext();
+    }
 
-        public PersistingData()
+    public void RunSamples()
+    {
+        AddAnItem();
+        AddItems();
+        AddAnObjectGraph();
+    }
+    public void AddAnItem()
+    {
+        ShouldExecuteInATransaction(AddNewPerson);
+        void AddNewPerson()
         {
-            ResetContext();
-        }
-
-        public void RunSamples()
-        {
-            AddAnItem();
-            AddItems();
-            AddAnObjectGraph();
-        }
-        public void AddAnItem()
-        {
-            ShouldExecuteInATransaction(AddNewPerson);
-            void AddNewPerson()
+            var person = new Person
             {
-                var person = new Person
+                AdditionalContactInfo = "Home",
+                FirstName = "Barney",
+                LastName = "Rubble",
+                Title = "Neighbor"
+            };
+            _context.Person.Add(person);
+            _context.SaveChanges();
+        }
+    }
+
+    public void AddAnObjectGraph()
+    {
+        ShouldExecuteInATransaction(AddNewPerson);
+
+        void AddNewPerson()
+        {
+            var person = new Person
+            {
+                AdditionalContactInfo = "Home",
+                FirstName = "Barney",
+                LastName = "Rubble",
+                Title = "Neighbor"
+            };
+            person.EmailAddress.Add(new EmailAddress
+            {
+                EmailAddress1 = "foo@foo.com"
+            });
+            _context.Person.Add(person);
+        }
+    }
+
+    public void AddItems()
+    {
+        ShouldExecuteInATransaction(AddNewPerson);
+
+        void AddNewPerson()
+        {
+            var list = new List<Person>
+            {
+                new Person
                 {
                     AdditionalContactInfo = "Home",
                     FirstName = "Barney",
                     LastName = "Rubble",
                     Title = "Neighbor"
-                };
-                _context.Person.Add(person);
-                _context.SaveChanges();
-            }
-        }
-
-        public void AddAnObjectGraph()
-        {
-            ShouldExecuteInATransaction(AddNewPerson);
-
-            void AddNewPerson()
-            {
-                var person = new Person
+                },
+                new Person
                 {
                     AdditionalContactInfo = "Home",
                     FirstName = "Barney",
                     LastName = "Rubble",
                     Title = "Neighbor"
-                };
-                person.EmailAddress.Add(new EmailAddress
-                {
-                    EmailAddress1 = "foo@foo.com"
-                });
-                _context.Person.Add(person);
-            }
+                }
+            };
+            _context.Person.AddRange(list);
         }
+    }
 
-        public void AddItems()
+    public void ShouldExecuteInATransaction(Action actionToExecute)
+    {
+        using (var transaction = _context.Database.BeginTransaction())
         {
-            ShouldExecuteInATransaction(AddNewPerson);
-
-            void AddNewPerson()
-            {
-                var list = new List<Person>
-                {
-                    new Person
-                    {
-                        AdditionalContactInfo = "Home",
-                        FirstName = "Barney",
-                        LastName = "Rubble",
-                        Title = "Neighbor"
-                    },
-                    new Person
-                    {
-                        AdditionalContactInfo = "Home",
-                        FirstName = "Barney",
-                        LastName = "Rubble",
-                        Title = "Neighbor"
-                    }
-                };
-                _context.Person.AddRange(list);
-            }
+            actionToExecute();
+            transaction.Rollback();
         }
+    }
 
-        public void ShouldExecuteInATransaction(Action actionToExecute)
-        {
-            using (var transaction = _context.Database.BeginTransaction())
-            {
-                actionToExecute();
-                transaction.Rollback();
-            }
-        }
-
-        private void ResetContext()
-        {
-            _context = new AwDbContextFactory().CreateDbContext(null);
-        }
+    private void ResetContext()
+    {
+        _context = new AwDbContextFactory().CreateDbContext(null);
     }
 }

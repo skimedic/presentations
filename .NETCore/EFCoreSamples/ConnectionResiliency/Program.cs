@@ -4,79 +4,78 @@ using ConnectionResiliency.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace ConnectionResiliency
+namespace ConnectionResiliency;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        SetupDatabase();
+        BloggingContext db = SetUpContext();
+        using (db)
         {
-            SetupDatabase();
-            BloggingContext db = SetUpContext();
-            using (db)
+            var blog = new Blog { Name = "Skimedic's Blog", Url = "http://skimedic.com" };
+            db.Add(blog);
+            try
             {
-                var blog = new Blog { Name = "Skimedic's Blog", Url = "http://skimedic.com" };
-                db.Add(blog);
-                try
-                {
-                    db.SaveChanges();
-                }
-                catch (RetryLimitExceededException ex)
-                {
-                    //A retry limit error occurred
-                    //Should handle intelligently
-                    Console.WriteLine($"Retry limit exceeded! {ex.Message}");
-                }
-                catch (Exception ex)
-                {
-                    //Should handle intelligently
-                    Console.WriteLine(ex);
-                    throw;
-                }
+                db.SaveChanges();
             }
-
-            Console.WriteLine("Press any key to continue");
-            Console.ReadKey();
-        }
-
-        private static void ExecuteInATransaction(BloggingContext context)
-        {
-            IExecutionStrategy strategy = context.Database.CreateExecutionStrategy();
-            strategy.Execute(() =>
+            catch (RetryLimitExceededException ex)
             {
-                using var transaction = context.Database.BeginTransaction();
-                try
-                {
-                    //Do Work
-                    transaction.Commit();
-                }
-                catch (Exception)
-                {
-                    transaction.Rollback();
-                }
-            });
-        }
-
-        private static BloggingContext SetUpContext()
-        {
-            var contextOptionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
-            var connectionString =
-                @"Server=.\dev2019;Database=SpyStore;user id=foo;password=bar;MultipleActiveResultSets=true;";
-            //contextOptionsBuilder.UseSqlServer(connectionString, o => o.EnableRetryOnFailure());
-            contextOptionsBuilder.UseSqlServer(connectionString,
-                o => 
-                    o.ExecutionStrategy(c => 
-                        new CustomExecutionStrategy(c, 5, 
-                            new TimeSpan(0, 0, 0, 0, 30))));
-            return new BloggingContext(contextOptionsBuilder.Options);
-        }
-
-        private static void SetupDatabase()
-        {
-            using (var db = new BloggingContext())
-            {
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
+                //A retry limit error occurred
+                //Should handle intelligently
+                Console.WriteLine($"Retry limit exceeded! {ex.Message}");
             }
+            catch (Exception ex)
+            {
+                //Should handle intelligently
+                Console.WriteLine(ex);
+                throw;
+            }
+        }
+
+        Console.WriteLine("Press any key to continue");
+        Console.ReadKey();
+    }
+
+    private static void ExecuteInATransaction(BloggingContext context)
+    {
+        IExecutionStrategy strategy = context.Database.CreateExecutionStrategy();
+        strategy.Execute(() =>
+        {
+            using var transaction = context.Database.BeginTransaction();
+            try
+            {
+                //Do Work
+                transaction.Commit();
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+            }
+        });
+    }
+
+    private static BloggingContext SetUpContext()
+    {
+        var contextOptionsBuilder = new DbContextOptionsBuilder<BloggingContext>();
+        var connectionString =
+            @"Server=.\dev2019;Database=SpyStore;user id=foo;password=bar;MultipleActiveResultSets=true;";
+        //contextOptionsBuilder.UseSqlServer(connectionString, o => o.EnableRetryOnFailure());
+        contextOptionsBuilder.UseSqlServer(connectionString,
+            o => 
+                o.ExecutionStrategy(c => 
+                    new CustomExecutionStrategy(c, 5, 
+                        new TimeSpan(0, 0, 0, 0, 30))));
+        return new BloggingContext(contextOptionsBuilder.Options);
+    }
+
+    private static void SetupDatabase()
+    {
+        using (var db = new BloggingContext())
+        {
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
         }
     }
 }

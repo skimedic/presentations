@@ -2,33 +2,32 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PerformanceEf6.Models
+namespace PerformanceEf6.Models;
+
+[Table("Production.TransactionHistory")]
+public partial class TransactionHistory
 {
-    [Table("Production.TransactionHistory")]
-    public partial class TransactionHistory
-    {
-        [Key]
-        public int TransactionID { get; set; }
+    [Key]
+    public int TransactionID { get; set; }
 
-        public int ProductID { get; set; }
+    public int ProductID { get; set; }
 
-        public int ReferenceOrderID { get; set; }
+    public int ReferenceOrderID { get; set; }
 
-        public int ReferenceOrderLineID { get; set; }
+    public int ReferenceOrderLineID { get; set; }
 
-        public DateTime TransactionDate { get; set; }
+    public DateTime TransactionDate { get; set; }
 
-        [Required]
-        [StringLength(1)]
-        public string TransactionType { get; set; }
+    [Required]
+    [StringLength(1)]
+    public string TransactionType { get; set; }
 
-        public int Quantity { get; set; }
+    public int Quantity { get; set; }
 
-        [Column(TypeName = "money")]
-        public decimal ActualCost { get; set; }
+    [Column(TypeName = "money")]
+    public decimal ActualCost { get; set; }
 
-        public DateTime ModifiedDate { get; set; }
+    public DateTime ModifiedDate { get; set; }
 
-        public virtual Product Product { get; set; }
-    }
+    public virtual Product Product { get; set; }
 }

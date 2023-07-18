@@ -2,27 +2,26 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PerformanceEf6.Models
+namespace PerformanceEf6.Models;
+
+[Table("Person.Password")]
+public partial class Password
 {
-    [Table("Person.Password")]
-    public partial class Password
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int BusinessEntityID { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
+    public int BusinessEntityID { get; set; }
 
-        [Required]
-        [StringLength(128)]
-        public string PasswordHash { get; set; }
+    [Required]
+    [StringLength(128)]
+    public string PasswordHash { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string PasswordSalt { get; set; }
+    [Required]
+    [StringLength(10)]
+    public string PasswordSalt { get; set; }
 
-        public Guid rowguid { get; set; }
+    public Guid rowguid { get; set; }
 
-        public DateTime ModifiedDate { get; set; }
+    public DateTime ModifiedDate { get; set; }
 
-        public virtual Person Person { get; set; }
-    }
+    public virtual Person Person { get; set; }
 }

@@ -43,9 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "13_JsonColumns", "JsonColum
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "14_BulkUpdatesAndDeletes", "BulkUpdatesAndDeletes\14_BulkUpdatesAndDeletes.csproj", "{2F8BE224-482D-4E02-BDB6-CBB49D621FB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{F9ABA610-97C7-485C-8C33-986566BECFE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{F9ABA610-97C7-485C-8C33-986566BECFE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{21B99CE7-7352-452B-B042-ED2C06470EFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{21B99CE7-7352-452B-B042-ED2C06470EFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "ConsoleApp3\ConsoleApp3.csproj", "{0840383E-8C88-413A-993E-92EFD7D95951}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -285,6 +287,18 @@ Global
 		{21B99CE7-7352-452B-B042-ED2C06470EFA}.Release|x64.Build.0 = Release|Any CPU
 		{21B99CE7-7352-452B-B042-ED2C06470EFA}.Release|x86.ActiveCfg = Release|Any CPU
 		{21B99CE7-7352-452B-B042-ED2C06470EFA}.Release|x86.Build.0 = Release|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Debug|x64.Build.0 = Debug|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Debug|x86.Build.0 = Debug|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Release|x64.ActiveCfg = Release|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Release|x64.Build.0 = Release|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Release|x86.ActiveCfg = Release|Any CPU
+		{0840383E-8C88-413A-993E-92EFD7D95951}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

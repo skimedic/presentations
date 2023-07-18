@@ -4,40 +4,39 @@ using System.Linq;
 using FieldMapping.Context;
 using FieldMapping.Models;
 
-namespace FieldMapping
+namespace FieldMapping;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        SetupDatabase();
+
+        using (var db = new BloggingContext())
         {
-            SetupDatabase();
+            Console.WriteLine("Setting properties through C#");
+            var blog = new Blog {Name = ".NET Musings"};
+            blog.Url = "http://www.skimedic.com";
 
-            using (var db = new BloggingContext())
+            db.Blogs.Add(blog);
+            db.SaveChanges();
+            Console.WriteLine("Setting properties through EF materialization");
+            var blogs = db.Blogs.OrderBy(b => b.Url).ToList();
+            foreach (var b in blogs)
             {
-                Console.WriteLine("Setting properties through C#");
-                var blog = new Blog {Name = ".NET Musings"};
-                blog.Url = "http://www.skimedic.com";
-
-                db.Blogs.Add(blog);
-                db.SaveChanges();
-                Console.WriteLine("Setting properties through EF materialization");
-                var blogs = db.Blogs.OrderBy(b => b.Url).ToList();
-                foreach (var b in blogs)
-                {
-                    Console.WriteLine($"{b.Name} ({b.Url})");
-                }
-                Console.WriteLine("Press any key to continue");
-                Console.ReadKey();
+                Console.WriteLine($"{b.Name} ({b.Url})");
             }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
         }
+    }
 
-        private static void SetupDatabase()
+    private static void SetupDatabase()
+    {
+        using (var db = new BloggingContext())
         {
-            using (var db = new BloggingContext())
-            {
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
-            }
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
         }
     }
 }

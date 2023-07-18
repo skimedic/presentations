@@ -1,11 +1,10 @@
 using System.Net.Http;
 
-namespace ConnectionResiliency.Models
+namespace ConnectionResiliency.Models;
+
+public class Blog
 {
-    public class Blog
-    {
-        public int BlogId { get; set; }
-        public string Name { get; set; }
-        public string Url { get; set; }
-    }
+    public int BlogId { get; set; }
+    public string Name { get; set; }
+    public string Url { get; set; }
 }

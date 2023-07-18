@@ -5,25 +5,24 @@ using Microsoft.EntityFrameworkCore;
 using Migrations.EFStructures;
 using Migrations.Initialization;
 
-namespace Migrations
+namespace Migrations;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        using var context = new ApplicationDbContextFactory().CreateDbContext(new string[0]);
+        SampleDataInitializer.InitializeData(context);
+        List<Task> ts = new List<Task>();
+        //ts.Add(context.Cars.ToListAsync());
+        //ts.Add(context.Cars.ToListAsync());
+        //ts.Add(context.Cars.ToListAsync());
+        //ts.Add(context.Cars.ToListAsync());
+        //Task.WaitAll(ts.ToArray());
+        var orders = context.CustomOrderViewModels.ToList();
+        foreach (var order in orders)
         {
-            using var context = new ApplicationDbContextFactory().CreateDbContext(new string[0]);
-            SampleDataInitializer.InitializeData(context);
-            List<Task> ts = new List<Task>();
-            //ts.Add(context.Cars.ToListAsync());
-            //ts.Add(context.Cars.ToListAsync());
-            //ts.Add(context.Cars.ToListAsync());
-            //ts.Add(context.Cars.ToListAsync());
-            //Task.WaitAll(ts.ToArray());
-            var orders = context.CustomOrderViewModels.ToList();
-            foreach (var order in orders)
-            {
-                Console.WriteLine(order.ToString());
-            }
+            Console.WriteLine(order.ToString());
         }
     }
 }

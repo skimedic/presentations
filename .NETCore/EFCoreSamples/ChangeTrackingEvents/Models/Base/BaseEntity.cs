@@ -1,15 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ChangeTrackingEvents.Models.Base
+namespace ChangeTrackingEvents.Models.Base;
+
+public abstract class BaseEntity
 {
-    public abstract class BaseEntity
-    {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
 
-        [Timestamp]
-        public byte[] TimeStamp { get; set; }
+    [Timestamp]
+    public byte[] TimeStamp { get; set; }
 
-    }
 }

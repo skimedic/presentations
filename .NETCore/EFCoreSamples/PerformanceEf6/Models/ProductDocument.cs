@@ -2,17 +2,16 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PerformanceEf6.Models
+namespace PerformanceEf6.Models;
+
+[Table("Production.ProductDocument")]
+public partial class ProductDocument
 {
-    [Table("Production.ProductDocument")]
-    public partial class ProductDocument
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ProductID { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
+    public int ProductID { get; set; }
 
-        public DateTime ModifiedDate { get; set; }
+    public DateTime ModifiedDate { get; set; }
 
-        public virtual Product Product { get; set; }
-    }
+    public virtual Product Product { get; set; }
 }

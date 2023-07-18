@@ -1,13 +1,12 @@
 ﻿using System.Data.Common;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace ChangeTrackingEvents.Interceptors
+namespace ChangeTrackingEvents.Interceptors;
+
+public class ConnectionInterceptor : DbConnectionInterceptor
 {
-    public class ConnectionInterceptor : DbConnectionInterceptor
+    public override void ConnectionOpened(DbConnection connection, ConnectionEndEventData eventData)
     {
-        public override void ConnectionOpened(DbConnection connection, ConnectionEndEventData eventData)
-        {
-            base.ConnectionOpened(connection, eventData);
-        }
+        base.ConnectionOpened(connection, eventData);
     }
 }
