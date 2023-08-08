@@ -6,7 +6,7 @@ SetupDatabase();
 
 using (var db = new BloggingContext())
 {
-    Console.WriteLine("Adding SOme Records");
+    Console.WriteLine("Adding Some Records");
 
     db.Blogs.Add(new Blog
     {
@@ -26,8 +26,8 @@ using (var db = new BloggingContext())
     //db.Blogs.ExecuteUpdate(b => b.SetProperty(p => p.Name, p => $"{p.Name} Updated"));
     //This one does
     db.Blogs.Where(b=>b.Name==".NET Musings")
-        .ExecuteUpdate(b => 
-            b.SetProperty(p => p.Name, p => p.Name + " Updated"));
+        .ExecuteUpdate(b => b.SetProperty(p => p.Name, p => p.Name + " Updated"));
+        //.ExecuteUpdate(b => b.SetProperty(p => p.Name, "New Name"));
     
     Console.WriteLine("Change Tracker still has the old value");
     foreach (var b in db.Blogs)

@@ -16,14 +16,14 @@ public class HealthCheckController : Controller
         {
             Content = new StringContent(string.Empty),
             StatusCode = HttpStatusCode.OK,
-            Version = new Version(version?.MajorVersion??0, version?.MinorVersion??0)
+            Version = new Version(version?.MajorVersion ?? 0, version?.MinorVersion ?? 0)
         };
         response.Content.Headers.Add("Allow", new[] { "GET", "POST", "OPTIONS" });
         response.Content.Headers.ContentType = null;
         return Ok(response);
     }
     [HttpGet]
-    public string Get([FromServices]ApiVersion apiVersion) 
+    public string Get([FromServices] ApiVersion apiVersion)
         => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 
     [HttpGet("{id}")]

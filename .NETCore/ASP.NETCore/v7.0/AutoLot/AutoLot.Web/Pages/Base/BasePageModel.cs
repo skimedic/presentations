@@ -1,4 +1,6 @@
-﻿namespace AutoLot.Web.Pages.Base;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+namespace AutoLot.Web.Pages.Base;
 
 public abstract class BasePageModel<TEntity, TPageModel> : PageModel
     where TEntity : BaseEntity, new()
@@ -35,7 +37,6 @@ public abstract class BasePageModel<TEntity, TPageModel> : PageModel
             Entity = null;
             return;
         }
-
         Entity = await DataService.FindAsync(id.Value);
         if (Entity == null)
         {

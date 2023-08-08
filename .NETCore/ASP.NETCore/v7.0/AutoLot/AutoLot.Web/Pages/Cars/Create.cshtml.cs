@@ -11,7 +11,6 @@ public class CreateModel : BasePageModel<Car,CreateModel>
     {
         _makeService = makeService;
     }
-
     public async Task OnGetAsync()
     {
         await GetLookupValuesAsync(_makeService, nameof(Make.Id), nameof(Make.Name));

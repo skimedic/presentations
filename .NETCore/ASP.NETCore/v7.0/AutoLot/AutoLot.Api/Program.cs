@@ -33,7 +33,7 @@ builder.Services.AddControllers(
     {
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
         options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-        options.JsonSerializerOptions.WriteIndented = true;
+        //options.JsonSerializerOptions.WriteIndented = true;
         options.JsonSerializerOptions.ReferenceHandler = 
             ReferenceHandler.IgnoreCycles;
     })

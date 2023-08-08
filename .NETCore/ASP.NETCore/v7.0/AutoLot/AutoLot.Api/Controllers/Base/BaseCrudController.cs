@@ -33,6 +33,7 @@ public abstract class BaseCrudController<TEntity, TController> : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<TEntity>> GetAllBad()
     {
+        Logger.LogAppInformation("Foo");
         throw new Exception("I said not to use this one");
     }
 
@@ -65,7 +66,7 @@ public abstract class BaseCrudController<TEntity, TController> : ControllerBase
 
     [ApiVersion("1.0")]
     [HttpPut("{id}")]
-    public IActionResult UpdateOne(int id, TEntity entity)
+    public IActionResult UpdateOne(int? id, TEntity entity)
     {
         if (id != entity.Id)
         {

@@ -38,7 +38,6 @@ builder.Services.AddApiVersioning(options =>
         new HeaderApiVersionReader("v"),
         new MediaTypeApiVersionReader(), //defaults to "v"
         new MediaTypeApiVersionReader("api-version"));
-
 });
 builder.Services.AddVersionedApiExplorer(
     options =>

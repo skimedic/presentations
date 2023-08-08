@@ -6,7 +6,7 @@
   "defaultDestination": "wwwroot/lib",
   "libraries": [
     {
-      "library": "jquery@3.6.1",
+      "library": "jquery@3.6.4",
       "destination": "wwwroot/lib/jquery",
       "files": [ "jquery.js", "jquery.min.js" ]
     },

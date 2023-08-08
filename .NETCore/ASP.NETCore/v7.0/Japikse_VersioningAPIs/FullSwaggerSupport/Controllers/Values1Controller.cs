@@ -5,21 +5,11 @@ namespace FullSwaggerSupport.Controllers;
 //It is not recommended to have multiple versions on the same
 // controller-this is demo code
 [ApiVersion("1.0")]
-//[ApiVersion("2.0")]
 [ApiController]
 [Route("api/[controller]")]
 [Route("api/v{version:apiVersion}/[controller]")]
 public class Values1Controller : ValuesController
 {
-    ////[MapToApiVersion("2.0")]
-    ////[ApiVersion("1.0")]
-    ////[ApiVersion("2.0")]
-    //[ApiVersion("3.0")]
-    ////[ApiVersionNeutral]
-    [HttpGet]
-    public string Get(ApiVersion apiVersion)
-        => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
-
     [HttpGet("{id}")]
     [ApiVersion("1.0")]
     public string Get2(int id)
@@ -45,4 +35,3 @@ public class Values1Controller : ValuesController
         => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 
 }
-//[ApiVersion("2.0")]

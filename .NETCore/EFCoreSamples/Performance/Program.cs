@@ -76,7 +76,7 @@ class Program
 
     private static void RunAddAndSaveChangesTestNoBatching()
     {
-        Console.WriteLine("Add 1K & SaveChanges");
+        Console.WriteLine("Add 1K & SaveChanges No Batching");
         RunTest(
             TestEf6.AddRecordsAndSave,
             TestEfCore.AddRecordsAndSaveNoBatching

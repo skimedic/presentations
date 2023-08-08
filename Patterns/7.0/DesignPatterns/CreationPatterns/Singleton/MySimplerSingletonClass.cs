@@ -12,8 +12,7 @@ public sealed class MySimplerSingletonClass
     static MySimplerSingletonClass() { }
     private MySimplerSingletonClass() { }
 
-    public static MySimplerSingletonClass Instance { get; } 
-        = new MySimplerSingletonClass();
+    public static MySimplerSingletonClass Instance { get; } = new MySimplerSingletonClass();
 
     //This doesn't work, despite several SO posts
     //public static MySimplerSingletonClass Instance => new MySimplerSingletonClass();

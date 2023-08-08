@@ -3,8 +3,9 @@
 //[ApiVersion("1.0")]
 //[ApiVersion("1.5", Deprecated = true)]
 [ApiVersion("2.0")]
+//[ApiVersionNeutral]
 [ApiController]
-//[Route("api/[controller]")]
+[Route("api/[controller]")]
 [Route("api/v{version:apiVersion}/[controller]")]
 public class Values1Controller : ControllerBase
 {
@@ -13,6 +14,7 @@ public class Values1Controller : ControllerBase
     public string Get([FromServices]ApiVersion apiVersion) 
         => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 
+    //[ApiVersion("1.0")]
     [ApiVersion("1.5",Deprecated=true)]
     [HttpGet("{id}")]
     public string Get2(int id)
