@@ -1,4 +1,9 @@
-﻿//https://github.com/dotnet/aspnet-api-versioning/blob/master/samples/aspnetcore/SwaggerODataSample/SwaggerDefaultValues.cs
+﻿// Copyright Information
+// ==================================
+// Japikse_VersioningAPIs_7.0 - FullSwaggerSupport - SwaggerDefaultValues.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2023/08/09
+// ==================================
 
 namespace FullSwaggerSupport.SwaggerInfrastructure;
 

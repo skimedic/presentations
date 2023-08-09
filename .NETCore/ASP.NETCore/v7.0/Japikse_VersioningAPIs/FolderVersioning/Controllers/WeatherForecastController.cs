@@ -1,4 +1,11 @@
-﻿namespace FolderVersioning.Controllers;
+﻿// Copyright Information
+// ==================================
+// Japikse_VersioningAPIs_7.0 - FolderVersioning - WeatherForecastController.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2023/08/09
+// ==================================
+
+namespace FolderVersioning.Controllers;
 
 [ApiController]
 [Route("[controller]")]

@@ -1,3 +1,10 @@
+// Copyright Information
+// ==================================
+// Japikse_VersioningAPIs_7.0 - FullSwaggerSupport - Program.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2023/08/09
+// ==================================
+
 using System.Reflection;
 using FullSwaggerSupport.SwaggerInfrastructure.Models;
 

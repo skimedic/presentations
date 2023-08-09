@@ -1,4 +1,11 @@
-﻿using System.Net;
+﻿// Copyright Information
+// ==================================
+// Japikse_VersioningAPIs_7.0 - FullSwaggerSupport - HealthCheckController.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2023/08/09
+// ==================================
+
+using System.Net;
 using System.Net.Http;
 
 using Microsoft.AspNetCore.Mvc;

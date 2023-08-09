@@ -1,4 +1,11 @@
-﻿namespace FolderVersioning.Controllers.V2._1;
+﻿// Copyright Information
+// ==================================
+// Japikse_VersioningAPIs_7.0 - FolderVersioning - ValuesController.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2023/08/09
+// ==================================
+
+namespace FolderVersioning.Controllers.V2._1;
 
 [ApiController]
 [Obsolete("Use another version")]

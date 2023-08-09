@@ -1,4 +1,11 @@
-﻿namespace BareMinimum.Controllers;
+﻿// Copyright Information
+// ==================================
+// Japikse_VersioningAPIs_7.0 - BareMinimum - ValuesController.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2023/08/09
+// ==================================
+
+namespace BareMinimum.Controllers;
 
 //[ApiVersion("1.0")]
 //[ApiVersion("1.5", Deprecated = true)]

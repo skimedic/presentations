@@ -1,4 +1,11 @@
-﻿namespace FolderVersioning.SwaggerInfrastructure;
+﻿// Copyright Information
+// ==================================
+// Japikse_VersioningAPIs_7.0 - FolderVersioning - ConfigureSwaggerOptions.cs
+// All samples copyright Philip Japikse
+// http://www.skimedic.com 2023/08/09
+// ==================================
+
+namespace FolderVersioning.SwaggerInfrastructure;
 
 public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
 {
