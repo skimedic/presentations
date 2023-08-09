@@ -6,6 +6,7 @@
 // ==================================
 
 using Microsoft.AspNetCore.Authorization;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace FullSwaggerSupport.Controllers;
 
@@ -13,6 +14,18 @@ namespace FullSwaggerSupport.Controllers;
 //[ApiController]
 public class Values1Controller : BaseValuesController
 {
+    /// <summary>
+    /// Show the version (1.0) and controller name
+    /// </summary>
+    /// <param name="apiVersion">The version of the API</param>
+    /// <returns>Version and Controller Name</returns>
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [SwaggerResponse(200, "The execution was successful")]
+    [SwaggerResponse(400, "The request was invalid")]
+    [SwaggerResponse(401, "Unauthorized access attempted")]
     [HttpGet]
     public virtual string Get(ApiVersion apiVersion)
         => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";

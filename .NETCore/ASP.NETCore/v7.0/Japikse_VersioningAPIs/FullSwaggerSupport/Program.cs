@@ -24,7 +24,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.Configure<SwaggerApplicationSettings>(builder.Configuration.GetSection(nameof(SwaggerApplicationSettings)));
 builder.Services.AddAndConfigureSwagger(
     Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"),
-    false);
+    true);
 var defaultApiVersion = new ApiVersion(2, 0); 
 builder.Services.AddApiVersioning(options =>
 {

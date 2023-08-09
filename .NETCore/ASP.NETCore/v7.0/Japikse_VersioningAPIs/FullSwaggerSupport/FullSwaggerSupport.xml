@@ -10,6 +10,27 @@
             </summary>
             <returns>Current API Version</returns>
         </member>
+        <member name="M:FullSwaggerSupport.Controllers.Values1Controller.Get(Microsoft.AspNetCore.Mvc.ApiVersion)">
+            <summary>
+            Show the version (1.0) and controller name
+            </summary>
+            <param name="apiVersion">The version of the API</param>
+            <returns>Version and Controller Name</returns>
+        </member>
+        <member name="M:FullSwaggerSupport.Controllers.Values2Controller.Get(Microsoft.AspNetCore.Mvc.ApiVersion)">
+            <summary>
+            Show the version (2.0) and controller name
+            </summary>
+            <param name="apiVersion">The version of the API</param>
+            <returns>Version and Controller Name</returns>
+        </member>
+        <member name="M:FullSwaggerSupport.Controllers.Values3Controller.Get(Microsoft.AspNetCore.Mvc.ApiVersion)">
+            <summary>
+            Show the version (3.0) and controller name
+            </summary>
+            <param name="apiVersion">The version of the API</param>
+            <returns>Version and Controller Name</returns>
+        </member>
         <member name="T:FullSwaggerSupport.SwaggerInfrastructure.SwaggerDefaultValues">
             <summary>
             Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.
