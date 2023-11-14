@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FullSwaggerSupport</name>
+    </assembly>
+    <members>
+        <member name="M:FullSwaggerSupport.Controllers.HealthCheckController.Get">
+            <summary>
+            This is the health check get method
+            </summary>
+            <returns>Current API Version</returns>
+        </member>
+        <member name="M:FullSwaggerSupport.Controllers.Values1Controller.Get(Asp.Versioning.ApiVersion)">
+            <summary>
+            Show the version (1.0) and controller name
+            </summary>
+            <param name="apiVersion">The version of the API</param>
+            <returns>Version and Controller Name</returns>
+        </member>
+        <member name="M:FullSwaggerSupport.Controllers.Values2Controller.Get(Asp.Versioning.ApiVersion)">
+            <summary>
+            Show the version (2.0) and controller name
+            </summary>
+            <param name="apiVersion">The version of the API</param>
+            <returns>Version and Controller Name</returns>
+        </member>
+        <member name="M:FullSwaggerSupport.Controllers.Values3Controller.Get(Asp.Versioning.ApiVersion)">
+            <summary>
+            Show the version (3.0) and controller name
+            </summary>
+            <param name="apiVersion">The version of the API</param>
+            <returns>Version and Controller Name</returns>
+        </member>
+        <member name="T:FullSwaggerSupport.SwaggerInfrastructure.SwaggerDefaultValues">
+            <summary>
+            Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.
+            </summary>
+            <remarks>This <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"/> is only required due to bugs in the <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator"/>.
+            Once they are fixed and published, this class can be removed.</remarks>
+        </member>
+        <member name="M:FullSwaggerSupport.SwaggerInfrastructure.SwaggerDefaultValues.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Applies the filter to the specified operation using the given context.
+            </summary>
+            <param name="operation">The operation to apply the filter to.</param>
+            <param name="context">The current operation filter context.</param>
+        </member>
+    </members>
+</doc>
