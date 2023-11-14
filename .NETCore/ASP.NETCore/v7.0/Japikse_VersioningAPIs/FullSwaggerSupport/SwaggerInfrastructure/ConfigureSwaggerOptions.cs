@@ -14,7 +14,8 @@ public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     readonly IApiVersionDescriptionProvider _provider;
     private readonly SwaggerApplicationSettings _settings;
 
-    public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider, IOptionsMonitor<SwaggerApplicationSettings> settingsMonitor)
+    public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider, 
+        IOptionsMonitor<SwaggerApplicationSettings> settingsMonitor)
     {
         _provider = provider;
         _settings = settingsMonitor.CurrentValue;

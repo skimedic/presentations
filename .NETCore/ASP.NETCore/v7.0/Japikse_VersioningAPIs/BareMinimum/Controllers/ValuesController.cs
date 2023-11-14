@@ -14,7 +14,7 @@ namespace BareMinimum.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class Values1Controller : ControllerBase
+public class ValuesController : ControllerBase
 {
     [ApiVersion("1.0")]
     [HttpGet]
