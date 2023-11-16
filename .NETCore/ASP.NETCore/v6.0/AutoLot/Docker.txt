@@ -1,4 +1,0 @@
-docker pull mcr.microsoft.com/mssql/server:2019-latest
-
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@ssw0rd" -p 5433:1433 --name AutoLot -h AutoLotHost -d mcr.microsoft.com/mssql/server:2019-latest
-
