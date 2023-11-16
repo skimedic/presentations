@@ -11,14 +11,16 @@ namespace AutoLot.Mvc.Controllers;
 //[Route("Home/[action]")]
 public class HomeController(
     IAppLogging<HomeController> logger,
-    [FromKeyedServices(nameof(SimpleServiceTwo))] ISimpleService service) : Controller
+    [FromKeyedServices(nameof(SimpleServiceTwo))] ISimpleService service) 
+    : Controller
 {
     //[Route("/MyHomePage")]
     [Route("/")]
     [Route("/[controller]")]
     [Route("/[controller]/[action]")]
     [HttpGet]
-    public IActionResult Index([FromServices] IOptionsMonitor<DealerInfo> dealerOptionsMonitor)
+    public IActionResult Index(
+        [FromServices] IOptionsMonitor<DealerInfo> dealerOptionsMonitor)
     {
         logger.LogAppError("Test error");
         return View(dealerOptionsMonitor.CurrentValue);

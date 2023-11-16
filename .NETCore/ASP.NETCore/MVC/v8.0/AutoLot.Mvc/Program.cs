@@ -5,7 +5,7 @@
 // http://www.skimedic.com 2023/07/31
 // ==================================
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.ConfigureSerilog();
 builder.Services.RegisterLoggingInterfaces();
 
@@ -49,7 +49,8 @@ builder.Services.AddKeyedScoped<
 builder.Services.AddKeyedScoped<
     ISimpleService, SimpleServiceTwo>(nameof(SimpleServiceTwo));
 
-builder.Services.Configure<DealerInfo>(builder.Configuration.GetSection(nameof(DealerInfo)));
+builder.Services.Configure<DealerInfo>(
+    builder.Configuration.GetSection(nameof(DealerInfo)));
 
 builder.Services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 builder.Services.AddHttpContextAccessor();

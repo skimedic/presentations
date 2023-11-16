@@ -13,7 +13,8 @@ public abstract class BaseCrudController<TEntity, TController> : Controller wher
     protected readonly IAppLogging<TController> AppLoggingInstance;
     protected readonly IBaseRepo<TEntity> BaseRepoInstance;
 
-    protected BaseCrudController(IAppLogging<TController> appLogging, IBaseRepo<TEntity> baseRepo)
+    protected BaseCrudController(
+        IAppLogging<TController> appLogging, IBaseRepo<TEntity> baseRepo)
     {
         AppLoggingInstance = appLogging;
         BaseRepoInstance = baseRepo;
