@@ -37,6 +37,19 @@ public class HomeController(
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    [HttpGet]
+    public IActionResult GetServiceOne([FromKeyedServices(nameof(SimpleServiceOne))] ISimpleService service)
+    {
+        return View("SimpleService",service.SayHello());
+    }
+
+    [HttpGet]
+    public IActionResult GetServiceTwo()
+    {
+        return View("SimpleService",service.SayHello());
+    }
+
     [HttpGet]
     public IActionResult GrantConsent()
     {
@@ -56,19 +69,6 @@ public class HomeController(
     {
         var car = carRepo.Find(1);
         return View(car);
-    }
-
-    [HttpGet]
-    public IActionResult GetServiceOne(
-        [FromKeyedServices(nameof(SimpleServiceOne))] ISimpleService service)
-    {
-        return View("SimpleService",service.SayHello());
-    }
-
-    [HttpGet]
-    public IActionResult GetServiceTwo()
-    {
-        return View("SimpleService",service.SayHello());
     }
 
     [HttpGet]
