@@ -36,6 +36,12 @@ public class Values1Controller : BaseValuesController
         return $"Controller = {GetType().Name}{Environment.NewLine}Version = {version}{Environment.NewLine}id = {id}";
     }
 
+    [HttpGet("/problem")]
+    public IActionResult Problem()
+    {
+        return NotFound();
+    }
+
     [HttpGet("{id}")]
     [ApiVersion("1.5", Deprecated = true)]
     public virtual string Get(int id, ApiVersion apiVersion)
