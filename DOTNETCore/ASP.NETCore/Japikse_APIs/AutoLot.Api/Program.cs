@@ -69,10 +69,9 @@ builder.Services.AddAndConfigureSwagger(
     Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 
 var app = builder.Build();
-
+// Configure the HTTP request pipeline.
 app.UseCors("AllowAll");
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

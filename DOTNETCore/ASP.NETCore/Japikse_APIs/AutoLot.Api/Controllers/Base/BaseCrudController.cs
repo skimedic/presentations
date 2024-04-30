@@ -18,6 +18,8 @@ public abstract class BaseCrudController<TEntity, TController>(IAppLogging<TCont
     protected readonly IBaseRepo<TEntity> MainRepo = repo;
     protected readonly IAppLogging<TController> Logger = logger;
 
+    //[BindProperty]
+    //public Car Entity { get;set;}
     /// <summary>
     /// Gets all records
     /// </summary>

@@ -23,6 +23,7 @@ public class CarsController(IAppLogging<CarsController> logger, ICarRepo repo)
     [SwaggerResponse(400, "The request was invalid")] 
     [ApiVersion("1.0")]
     [HttpGet("bymake/{id?}")]
+    //[Route("api/foo/[controller]")]
     public ActionResult<IEnumerable<Car>> GetCarsByMake(int? id)
     {
         if (id.HasValue && id.Value > 0)

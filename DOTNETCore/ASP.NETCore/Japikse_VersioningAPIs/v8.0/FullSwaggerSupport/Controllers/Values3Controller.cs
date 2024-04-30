@@ -9,7 +9,9 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace FullSwaggerSupport.Controllers;
 
-[ControllerName("Values")]
+//[ControllerName("Values")]
+//[Route("api/values")]
+//[Route("api/v{version:apiVersion}/value")]
 [ApiVersion("3.0")]
 [ApiController]
 public class Values3Controller : Values2Controller

@@ -30,7 +30,9 @@ public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
         }
     }
 
-    internal static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description, SwaggerApplicationSettings settings)
+    internal static OpenApiInfo CreateInfoForApiVersion(
+        ApiVersionDescription description, 
+        SwaggerApplicationSettings settings)
     {
 
         SwaggerVersionDescription versionDesc =
