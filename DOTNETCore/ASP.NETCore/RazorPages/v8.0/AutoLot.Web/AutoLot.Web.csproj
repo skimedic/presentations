@@ -7,7 +7,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="[12.0.*,13.0)" />
 		<PackageReference Include="LigerShark.WebOptimizer.Core" Version="[3.0.*,4)" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="[8.0.*,9.0)">
 			<!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
