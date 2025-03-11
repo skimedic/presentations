@@ -1,8 +1,8 @@
 // Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Dal.Tests - BaseTest.cs
+// AutoLot8 - AutoLot.Dal.Tests - BaseTest.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/05/27
 // ==================================
 
 namespace AutoLot.Dal.Tests.Base;

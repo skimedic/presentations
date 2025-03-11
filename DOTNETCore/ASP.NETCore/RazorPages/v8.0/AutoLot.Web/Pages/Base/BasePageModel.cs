@@ -1,34 +1,25 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Web - BasePageModel.cs
+// AutoLot8 - AutoLot.Web - BasePageModel.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/05/27
 // ==================================
 
 namespace AutoLot.Web.Pages.Base;
 
-public abstract class BasePageModel<TEntity, TPageModel> : PageModel
-    where TEntity : BaseEntity, new()
+public abstract class BasePageModel<TEntity, TPageModel>(
+    IAppLogging<TPageModel> appLoggingInstance,
+    IBaseRepo<TEntity> baseRepoInstance,
+    string pageTitle) : PageModel where TEntity : BaseEntity, new()
 {
-    protected readonly IAppLogging<TPageModel> AppLoggingInstance;
-    protected readonly IBaseRepo<TEntity> BaseRepoInstance;
+    protected readonly IAppLogging<TPageModel> AppLoggingInstance = appLoggingInstance;
+    protected readonly IBaseRepo<TEntity> BaseRepoInstance = baseRepoInstance;
 
     [ViewData]
-    public string Title { get; init; }
-
-    protected BasePageModel(
-        IAppLogging<TPageModel> appLoggingInstance, 
-        IBaseRepo<TEntity> baseRepoInstance, 
-        string pageTitle)
-    {
-        AppLoggingInstance = appLoggingInstance;
-        BaseRepoInstance = baseRepoInstance;
-        Title = pageTitle;
-    }
+    public string Title { get; init; } = pageTitle;
 
     [BindProperty]
     public TEntity Entity { get; set; }
-	
     public SelectList LookupValues { get; set; }
     public string Error { get; set; }
 
@@ -54,8 +45,7 @@ public abstract class BasePageModel<TEntity, TPageModel> : PageModel
         Error = string.Empty;
     }
 
-    protected virtual IActionResult SaveOne(
-        Func<TEntity,bool,int> persistenceFunction)
+    protected virtual IActionResult SaveOne(Func<TEntity,bool,int> saveFunction)
     {
         if (!ModelState.IsValid)
         {
@@ -63,40 +53,35 @@ public abstract class BasePageModel<TEntity, TPageModel> : PageModel
         }
         try
         {
-            persistenceFunction(Entity, true);
+            saveFunction(Entity, true);
             return RedirectToPage("./Details", new { id = Entity.Id });
         }
         catch (Exception ex)
         {
-            Error = ex.Message;
             ModelState.AddModelError(string.Empty, ex.Message);
-            AppLoggingInstance.LogAppError(ex, "An error occurred");
+            return HandleErrorReturnPage(ex);
+        }
+    }
+    protected virtual IActionResult SaveWithLookup(Func<TEntity,bool,int> saveFunction)
+    {
+        if (!ModelState.IsValid)
+        {
+            GetLookupValues();
             return Page();
+        }
+        try
+        {
+            saveFunction(Entity, true);
+            return RedirectToPage("./Details", new { id = Entity.Id });
+        }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError(string.Empty, ex.Message);
+            GetLookupValues();
+            return HandleErrorReturnPage(ex);
         }
     }
 
-    protected virtual IActionResult SaveWithLookup(
-        Func<TEntity,bool,int> persistenceFunction)
-    {
-        if (!ModelState.IsValid)
-        {
-            GetLookupValues();
-            return Page();
-        }
-        try
-        {
-            persistenceFunction(Entity, true);
-            return RedirectToPage("./Details", new { id = Entity.Id });
-        }
-        catch (Exception ex)
-        {
-            Error = ex.Message;
-            ModelState.AddModelError(string.Empty, ex.Message);
-            GetLookupValues();
-            AppLoggingInstance.LogAppError(ex, "An error occurred");
-            return Page();
-        }
-    }
     protected virtual IActionResult DeleteOne(int id)
     {
         try
@@ -107,11 +92,16 @@ public abstract class BasePageModel<TEntity, TPageModel> : PageModel
         }
         catch (Exception ex)
         {
-            ModelState.Clear();
             Entity = BaseRepoInstance.Find(id);
-            Error = ex.Message;
-            AppLoggingInstance.LogAppError(ex, "An error occurred");
-            return Page();
+            ModelState.Clear();
+            return HandleErrorReturnPage(ex);
         }
+    }
+
+    internal IActionResult HandleErrorReturnPage(Exception ex)
+    {
+        Error = ex.Message;
+        AppLoggingInstance.LogAppError(ex, "An error occurred");
+        return Page();
     }
 }

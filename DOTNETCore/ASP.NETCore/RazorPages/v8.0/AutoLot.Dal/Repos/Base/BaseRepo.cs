@@ -1,24 +1,39 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Dal - BaseRepo.cs
+// AutoLot8 - AutoLot.Dal - BaseRepo.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/06/29
 // ==================================
 
 namespace AutoLot.Dal.Repos.Base;
 
-public abstract class BaseRepo<T> : BaseViewRepo<T>, IBaseRepo<T> where T : BaseEntity, new()
+public abstract class BaseRepo<T>(ApplicationDbContext context)
+    : BaseViewRepo<T>(context), IBaseRepo<T> where T : BaseEntity, new() 
 {
-    protected BaseRepo(ApplicationDbContext context) : base(context) { }
+    protected BaseRepo(DbContextOptions<ApplicationDbContext> options) 
+        : this(new ApplicationDbContext(options)) { }
 
-    protected BaseRepo(DbContextOptions<ApplicationDbContext> options) : this(new ApplicationDbContext(options))
+    public int SaveChanges()
     {
+        try
+        {
+            return Context.SaveChanges();
+        }
+        catch (CustomException)
+        {
+            //Should handle intelligently - already logged
+            throw;
+        }
+        catch (Exception ex)
+        {
+            //Should log and handle intelligently
+            throw new CustomException("An error occurred updating the database", ex);
+        }
     }
 
-    public virtual T Find(int? id)
-        => Table.Find(id);
+    public virtual T Find(int? id) => Table.Find(id);
 
-    public virtual T FindAsNoTracking(int id)
+    public virtual T FindAsNoTracking(int id) 
         => Table.AsNoTrackingWithIdentityResolution().FirstOrDefault(x => x.Id == id);
 
     public virtual T FindIgnoreQueryFilters(int id)
@@ -51,13 +66,6 @@ public abstract class BaseRepo<T> : BaseViewRepo<T>, IBaseRepo<T> where T : Base
         return persist ? SaveChanges() : 0;
     }
 
-    public int Delete(int id, byte[] timeStamp, bool persist = true)
-    {
-        var entity = new T { Id = id, TimeStamp = timeStamp };
-        Context.Entry(entity).State = EntityState.Deleted;
-        return persist ? SaveChanges() : 0;
-    }
-
     public virtual int Delete(T entity, bool persist = true)
     {
         Table.Remove(entity);
@@ -70,27 +78,17 @@ public abstract class BaseRepo<T> : BaseViewRepo<T>, IBaseRepo<T> where T : Base
         return persist ? SaveChanges() : 0;
     }
 
-    public int ExecuteBulkUpdate(Expression<Func<T,bool>> whereClause, Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls) 
+    public int Delete(int id, long timeStamp, bool persist = true)
+    {
+        var entity = new T { Id = id, TimeStamp = timeStamp };
+        Context.Entry(entity).State = EntityState.Deleted;
+        return persist ? SaveChanges() : 0;
+    }
+
+    public int ExecuteBulkUpdate(Expression<Func<T,bool>> whereClause, 
+        Expression<Func<SetPropertyCalls<T>, SetPropertyCalls<T>>> setPropertyCalls)
         => Table.IgnoreQueryFilters().Where(whereClause).ExecuteUpdate(setPropertyCalls);
 
-    public int ExecuteBulkDelete(Expression<Func<T,bool>> whereClause) 
+    public int ExecuteBulkDelete(Expression<Func<T,bool>> whereClause)
         => Table.IgnoreQueryFilters().Where(whereClause).ExecuteDelete();
-
-    public int SaveChanges()
-    {
-        try
-        {
-            return Context.SaveChanges();
-        }
-        catch (CustomException ex)
-        {
-            //Should handle intelligently - already logged
-            throw;
-        }
-        catch (Exception ex)
-        {
-            //Should log and handle intelligently
-            throw new CustomException("An error occurred updating the database", ex);
-        }
-    }
 }

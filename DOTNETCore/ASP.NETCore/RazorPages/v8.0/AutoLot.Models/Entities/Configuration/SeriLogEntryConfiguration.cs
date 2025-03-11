@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Models - SeriLogEntryConfiguration.cs
+// AutoLot8 - AutoLot.Models - SeriLogEntryConfiguration.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/06/29
 // ==================================
 
 namespace AutoLot.Models.Entities.Configuration;
@@ -13,5 +13,6 @@ public class SeriLogEntryConfiguration : IEntityTypeConfiguration<SeriLogEntry>
     {
         builder.Property(e => e.Properties).HasColumnType("Xml");
         builder.Property(e => e.TimeStamp).HasDefaultValueSql("GetDate()");
+        builder.Property(p => p.LineNumber).HasDefaultValue(0).HasSentinel(-1);
     }
 }

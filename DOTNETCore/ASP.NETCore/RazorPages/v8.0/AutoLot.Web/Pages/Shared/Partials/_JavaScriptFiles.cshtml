@@ -1,20 +1,25 @@
 ﻿<environment include="Development,Local">
     <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.bundle.js" asp-append-version="true"></script>
+    <script src="~/lib/popper.js/umd/popper.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js" asp-append-version="true"></script>
+    <script src="~/lib/font-awesome/js/all.js" asp-append-version="true"></script>
 </environment>
-<environment exclude="Development,Local">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+<environment
+    exclude="Development">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
             asp-fallback-src="~/lib/jquery/jquery.min.js" asp-fallback-test="window.jQuery"
-            integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-  </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" 
+            asp-fallback-src="~/lib/popper.js/umd/popper.min.js"
+            asp-fallback-test="window.Popper"
+            integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.min.js" 
             asp-fallback-src="~/lib/bootstrap/js/bootstrap.bundle.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-            crossorigin="anonymous">
-  </script>
+            asp-fallback-test="window.bootstrap"
+            integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/lib/font-awesome/js/all.min.js" asp-append-version="true"></script>
 </environment>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/js/validations/validators.js" asp-append-version="true"></script>
-<script src="~/js/validations/errorFormatting.js" asp-append-version="true"></script>

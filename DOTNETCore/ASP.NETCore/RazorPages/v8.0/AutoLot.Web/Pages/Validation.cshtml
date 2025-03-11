@@ -14,7 +14,7 @@
             </div>
             <div>
                 <label asp-for="Entity.StockQuantity" class="col-form-label"></label>
-                <input asp-for="Entity.StockQuantity" class="form-control" />
+                <input asp-for="Entity.StockQuantity" class="form-control" onchange="reValidate(this)" />
                 <span asp-validation-for="Entity.StockQuantity" class="text-danger"></span>
             </div>
             <div>

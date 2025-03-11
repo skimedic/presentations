@@ -1,12 +1,11 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Services - IAppLogging.cs
+// AutoLot8 - AutoLot.Services - IAppLogging.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/05/27
 // ==================================
 
 namespace AutoLot.Services.Logging.Interfaces;
-
 public interface IAppLogging<T>
 {
     void LogAppError(Exception exception, 
@@ -44,5 +43,4 @@ public interface IAppLogging<T>
         [CallerMemberName] string memberName = "",
         [CallerFilePath] string sourceFilePath = "",
         [CallerLineNumber] int sourceLineNumber = 0);
-
 }

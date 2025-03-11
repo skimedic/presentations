@@ -1,7 +1,7 @@
 ﻿@page "{id?}"
 @model AutoLot.Web.Pages.Cars.DeleteModel
 
-<h1>Delete @Model.Entity?.PetName</h1>
+<h1>Delete @Model.Entity.PetName</h1>
 @if (!string.IsNullOrEmpty(Model.Error))
 {
     <div class="alert alert-danger" role="alert">
@@ -16,7 +16,8 @@ else
         <form asp-page="Delete" asp-route-id="@Model.Entity.Id">
             <input type="hidden" asp-for="Entity.Id"/>
             <input type="hidden" asp-for="Entity.TimeStamp"/>
-            <button type="submit" class="btn btn-danger">Delete <i class="fas fa-trash"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <button type="submit" class="btn btn-danger">Delete <i class="fa-solid fa-trash"></i></button>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
             <item-list></item-list>
         </form>
     </div>

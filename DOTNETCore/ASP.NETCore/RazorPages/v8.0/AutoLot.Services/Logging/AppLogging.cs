@@ -1,26 +1,16 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Services - AppLogging.cs
+// AutoLot8 - AutoLot.Services - AppLogging.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/05/27
 // ==================================
 
 namespace AutoLot.Services.Logging;
 
-public class AppLogging<T> : IAppLogging<T>
+public class AppLogging<T>(ILogger<T> logger) : IAppLogging<T>
 {
-    private readonly ILogger<T> _logger;
-
-    public AppLogging(ILogger<T> logger)
-    {
-        _logger = logger;
-    }
-
-    internal static void LogWithException(string memberName, 
-        string sourceFilePath,
-        int sourceLineNumber,
-        Exception ex, 
-        string message,
+    internal static void LogWithException(string memberName, string sourceFilePath,
+        int sourceLineNumber, Exception ex, string message,
         Action<Exception, string, object[]> logAction)
     {
         var list = new List<IDisposable>
@@ -36,11 +26,8 @@ public class AppLogging<T> : IAppLogging<T>
         }
     }
 
-    internal static void LogWithoutException(string memberName, 
-        string sourceFilePath,
-        int sourceLineNumber, 
-        string message, 
-        Action<string, object[]> logAction)
+    internal static void LogWithoutException(string memberName, string sourceFilePath,
+        int sourceLineNumber, string message, Action<string, object[]> logAction)
     {
         var list = new List<IDisposable>
         {
@@ -55,69 +42,56 @@ public class AppLogging<T> : IAppLogging<T>
         }
     }
 
-    public void LogAppError(Exception exception, 
-        string message,
-        [CallerMemberName] string memberName = "", 
-        [CallerFilePath] string sourceFilePath = "",
+    public void LogAppError(Exception exception, string message,
+        [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "",
         [CallerLineNumber] int sourceLineNumber = 0)
     {
-        LogWithException(memberName, sourceFilePath, sourceLineNumber, exception, message, _logger.LogError);
+        LogWithException(memberName, sourceFilePath, sourceLineNumber,
+            exception, message, logger.LogError);
     }
 
-    public void LogAppError(string message, 
-        [CallerMemberName] string memberName = "",
-        [CallerFilePath] string sourceFilePath = "", 
-        [CallerLineNumber] int sourceLineNumber = 0)
+    public void LogAppError(string message, [CallerMemberName] string memberName = "",
+        [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
     {
-        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, _logger.LogError);
+        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, logger.LogError);
     }
 
-    public void LogAppCritical(Exception exception, 
-        string message,
-        [CallerMemberName] string memberName = "", 
-        [CallerFilePath] string sourceFilePath = "",
+    public void LogAppCritical(Exception exception, string message,
+        [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "",
         [CallerLineNumber] int sourceLineNumber = 0)
     {
-        LogWithException(memberName, sourceFilePath, sourceLineNumber, exception, message, _logger.LogCritical);
+        LogWithException(memberName, sourceFilePath, sourceLineNumber, exception, message,
+            logger.LogCritical);
     }
 
-    public void LogAppCritical(string message, 
-        [CallerMemberName] string memberName = "",
-        [CallerFilePath] string sourceFilePath = "", 
-        [CallerLineNumber] int sourceLineNumber = 0)
+    public void LogAppCritical(string message, [CallerMemberName] string memberName = "",
+        [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
     {
-        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, _logger.LogCritical);
+        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, logger.LogCritical);
     }
 
-    public void LogAppDebug(string message, 
-        [CallerMemberName] string memberName = "",
-        [CallerFilePath] string sourceFilePath = "", 
-        [CallerLineNumber] int sourceLineNumber = 0)
+    public void LogAppDebug(string message, [CallerMemberName] string memberName = "",
+        [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
     {
-        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, _logger.LogDebug);
+        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, logger.LogDebug);
     }
 
-    public void LogAppTrace(string message, 
-        [CallerMemberName] string memberName = "",
-        [CallerFilePath] string sourceFilePath = "", 
-        [CallerLineNumber] int sourceLineNumber = 0)
+    public void LogAppTrace(string message, [CallerMemberName] string memberName = "",
+        [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
     {
-        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, _logger.LogTrace);
+        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, logger.LogTrace);
     }
 
-    public void LogAppInformation(string message,
-        [CallerMemberName] string memberName = "",
-        [CallerFilePath] string sourceFilePath = "", 
-        [CallerLineNumber] int sourceLineNumber = 0)
+    public void LogAppInformation(string message, [CallerMemberName] string memberName = "",
+        [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
     {
-        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, _logger.LogInformation);
+        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message,
+            logger.LogInformation);
     }
 
-    public void LogAppWarning(string message, 
-        [CallerMemberName] string memberName = "",
-        [CallerFilePath] string sourceFilePath = "", 
-        [CallerLineNumber] int sourceLineNumber = 0)
+    public void LogAppWarning(string message, [CallerMemberName] string memberName = "",
+        [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
     {
-        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, _logger.LogWarning);
+        LogWithoutException(memberName, sourceFilePath, sourceLineNumber, message, logger.LogWarning);
     }
 }

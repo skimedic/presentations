@@ -1,27 +1,19 @@
-﻿// Copyright Information
+// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Web - Index.cshtml.cs
+// AutoLot8 - AutoLot.Web - Index.cshtml.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/05/27
 // ==================================
-
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AutoLot.Web.Pages;
 
-public class IndexModel : PageModel
+public class IndexModel(IAppLogging<IndexModel> logger, IOptionsMonitor<DealerInfo> dealerOptionsMonitor) : PageModel
 {
-    private readonly IAppLogging<IndexModel> _logger;
-    public DealerInfo Entity { get; set; }
-    public IndexModel(IAppLogging<IndexModel> logger, 
-        IOptionsMonitor<DealerInfo> dealerOptionsMonitor)
-    {
-        _logger = logger;
-        Entity = dealerOptionsMonitor.CurrentValue;
-    }
+    [BindProperty]
+    public DealerInfo Entity { get; } = dealerOptionsMonitor.CurrentValue;
+
     public void OnGet()
     {
-        _logger.LogAppError("Test Error");
+        //logger.LogAppError("Test Error");
     }
 }

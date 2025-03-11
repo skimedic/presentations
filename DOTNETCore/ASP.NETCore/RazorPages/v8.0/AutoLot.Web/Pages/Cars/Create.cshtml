@@ -1,7 +1,7 @@
 ﻿@page
 @model AutoLot.Web.Pages.Cars.CreateModel
 <h1>Create a New Car</h1>
-<hr/>
+<hr />
 @if (!string.IsNullOrEmpty(Model.Error))
 {
     <div class="alert alert-danger" role="alert"> @Model.Error </div>
@@ -16,14 +16,12 @@ else
             </div>
         </div>
         <div class="d-flex flex-row mt-3">
-            <button type="submit" class="btn btn-success">
-                Create
-                <i class="fas fa-plus"></i>
-            </button>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <button type="submit" class="btn btn-success">Create 
+                <i class="fa-solid fa-plus"></i></button>&nbsp;&nbsp;|&nbsp;&nbsp;
             <item-list></item-list>
         </div>
     </form>
     @section Scripts {
-        <partial name="_ValidationScriptsPartial"/>
+        <partial name="_ValidationScriptsPartial" />
     }
 }

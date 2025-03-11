@@ -1,28 +1,22 @@
 // Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Web - Validation.cshtml.cs
+// AutoLot8 - AutoLot.Web - Validation.cshtml.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/05/27
 // ==================================
 
-using AutoLot.Web.Models;
-
 namespace AutoLot.Web.Pages;
-
 public class ValidationModel : PageModel
 {
     [ViewData]
     public string Title => "Validation Example";
     [BindProperty]
-    public AddToCartViewModel Entity { get; set; }
+    public AddToCartViewModelRp Entity { get; set; }
     public void OnGet()
     {
-        Entity = new AddToCartViewModel
+        Entity = new AddToCartViewModelRp
         {
-            Id = 1,
-            ItemId = 1,
-            StockQuantity = 2,
-            Quantity = 0
+            Id = 1, ItemId = 1, StockQuantity = 2, Quantity = 0
         };
     }
     public IActionResult OnPost()

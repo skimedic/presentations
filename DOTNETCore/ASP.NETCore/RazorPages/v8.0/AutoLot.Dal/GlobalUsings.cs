@@ -1,15 +1,17 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Dal - GlobalUsings.cs
+// AutoLot8 - AutoLot.Dal - GlobalUsings.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/06/29
 // ==================================
 
 global using AutoLot.Dal.EfStructures;
 global using AutoLot.Dal.Exceptions;
+global using AutoLot.Dal.Exceptions.Base;
 global using AutoLot.Dal.Repos;
 global using AutoLot.Dal.Repos.Base;
 global using AutoLot.Dal.Repos.Interfaces;
+global using AutoLot.Dal.Repos.Interfaces.Base;
 
 global using AutoLot.Models.Entities;
 global using AutoLot.Models.Entities.Base;

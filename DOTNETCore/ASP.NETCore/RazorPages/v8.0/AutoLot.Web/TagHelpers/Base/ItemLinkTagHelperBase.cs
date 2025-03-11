@@ -1,34 +1,31 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Web - ItemLinkTagHelperBase.cs
+// AutoLot8 - AutoLot.Web - ItemLinkTagHelperBase.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/08/20
+// http://www.skimedic.com 2024/05/27
 // ==================================
 
 namespace AutoLot.Web.TagHelpers.Base;
 
-public abstract class ItemLinkTagHelperBase : TagHelper
+public abstract class ItemLinkTagHelperBase(
+    IActionContextAccessor contextAccessor, IUrlHelperFactory urlHelperFactory) : TagHelper
 {
-    protected readonly IUrlHelper UrlHelper;
+    protected readonly IUrlHelper UrlHelper = urlHelperFactory.GetUrlHelper(contextAccessor.ActionContext);
     public int? ItemId { get; set; }
-    private readonly string _pageName;
+    private readonly string _pageName = 
+        contextAccessor.ActionContext.ActionDescriptor
+            .RouteValues["page"]?.Split("/",StringSplitOptions.RemoveEmptyEntries)[0];
     protected string ActionName { get; set; }
-    protected ItemLinkTagHelperBase(
-        IActionContextAccessor contextAccessor, IUrlHelperFactory urlHelperFactory)
-    {
-        UrlHelper = urlHelperFactory.GetUrlHelper(contextAccessor.ActionContext);
-        _pageName = contextAccessor.ActionContext.ActionDescriptor.RouteValues["page"]?
-            .Split("/",StringSplitOptions.RemoveEmptyEntries)[0];
-    }
+
     protected void BuildContent(TagHelperOutput output,
         string cssClassName, string displayText, string fontAwesomeName)
     {
         output.TagName = "a"; 
-        var target = (ItemId.HasValue) 
+        var target = ItemId.HasValue
             ? UrlHelper.Page($"/{_pageName}/{ActionName}", new { id = ItemId }) 
             : UrlHelper.Page($"/{_pageName}/{ActionName}");
         output.Attributes.SetAttribute("href", target);
         output.Attributes.Add("class", cssClassName);
-        output.Content.AppendHtml($@"{displayText} <i class=""fas fa-{fontAwesomeName}""></i>");
+        output.Content.AppendHtml($@"{displayText} <i class=""fa-solid fa-{fontAwesomeName}""></i>");
     }
 }
