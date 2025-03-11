@@ -9,7 +9,6 @@ global using Asp.Versioning;
 global using Asp.Versioning.ApiExplorer;
 global using Asp.Versioning.ApplicationModels;
 
-global using FullSwaggerSupport.Controllers.Base;
 global using FullSwaggerSupport.SwaggerInfrastructure;
 global using FullSwaggerSupport.SwaggerInfrastructure.Models;
 

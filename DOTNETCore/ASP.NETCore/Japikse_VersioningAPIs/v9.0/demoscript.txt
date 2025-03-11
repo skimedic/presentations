@@ -1,0 +1,205 @@
+Versioning script
+
+Run cmd, make solution folder, add items to solution folder, change implicit usings
+
+Examine projects added.
+
+Update Controllers for JSON options
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
+
+Add Global Usings, base values, values 1 controller to project
+Update global usings
+global using KitchenSink.Controllers.Base;
+
+Bruno/Swagger (Values1) problem statement 
+
+Add versioning
+var defaultApiVersion = new ApiVersion(1, 0);
+builder.Services.AddApiVersioning(options =>
+    {
+        // reporting api versions will return the headers "api-supported-versions"
+        // and "api-deprecated-versions"
+        options.ReportApiVersions = true;
+        options.AssumeDefaultVersionWhenUnspecified = true;
+        options.DefaultApiVersion = defaultApiVersion;
+        //options.ApiVersionSelector = new CurrentImplementationApiVersionSelector(new ApiVersioningOptions());
+        //This sets the default svc? api-version = 2.0 and svc?v = 2.0
+        options.ApiVersionReader = ApiVersionReader.Combine(
+            new UrlSegmentApiVersionReader(),
+            new QueryStringApiVersionReader(), //defaults to "api-version"
+            new QueryStringApiVersionReader("v"),
+            new HeaderApiVersionReader("api-version"),
+            new HeaderApiVersionReader("v"),
+            new MediaTypeApiVersionReader(), //defaults to "v"
+            new MediaTypeApiVersionReader("api-version"));
+    })
+    .AddApiExplorer(
+        options =>
+        {
+            options.DefaultApiVersion = defaultApiVersion;
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            // add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
+            // note: the specified format code will format the version as "'v'major[.minor][-status]"
+            options.GroupNameFormat = "'v'VVV";
+
+            // note: this option is only necessary when versioning by url segment. the SubstitutionFormat
+            // can also be used to control the format of the API version in route templates
+            options.SubstituteApiVersionInUrl = true;
+        });
+
+builder.Services.TryAddEnumerable(
+    ServiceDescriptor.Transient<IApiControllerSpecification, ApiBehaviorSpecification>());
+
+add version neutral info to weather forecast controller
+add version 1 to values controller
+[Route("api/v{version:apiVersion}/[controller]")]
+
+add values controllers to project, run project, see it fail on swagger, but succeed with bruno
+
+Add Get Methods to demo getting the version
+
+    [HttpGet]
+    public virtual string Get(ApiVersion apiVersion)
+        => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
+
+    [HttpGet("{id}")]
+    public virtual string Get(int id)
+    {
+        ApiVersion version = HttpContext.GetRequestedApiVersion();
+        return $"Controller = {GetType().Name}{Environment.NewLine}Version = {version}{Environment.NewLine}id = {id}";
+    }
+
+add version 2, 3 controllers. demo with bruno, api supported versions, etc.
+show deprecated version
+
+
+Add healthcheck controller
+demo
+
+//Fix documentation
+
+Add XML documentation
+Build, Output Path
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>KitchenSink.xml</DocumentationFile>
+		<NoWarn>1701;1702;1591;1573</NoWarn>
+	</PropertyGroup>
+	<ItemGroup>
+	  <None Update="KitchenSink.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+Add swagger files
+update global usings
+global using KitchenSink.SwaggerInfrastructure;
+global using KitchenSink.SwaggerInfrastructure.Models;
+
+
+update program.cs
+
+builder.Services.Configure<SwaggerApplicationSettings>(
+    builder.Configuration.GetSection(nameof(SwaggerApplicationSettings)));
+
+builder.Services.AddAndConfigureSwagger(
+    Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"),
+    true);
+
+update json
+  "SwaggerApplicationSettings": {
+   "Title": "Skimedic's versioning examples",
+    "Descriptions": [
+      {
+        "MajorVersion": 0,
+        "MinorVersion": 0,
+        "Description": "Unable to obtain version description."
+      },
+      {
+        "MajorVersion": 1,
+        "MinorVersion": 0,
+        "Description": "Version 1.0"
+      },
+      {
+        "MajorVersion": 1,
+        "MinorVersion": 5,
+        "Description": "Version 1.5"
+      },
+      {
+        "MajorVersion": 2,
+        "MinorVersion": 0,
+        "Description": "Version 2.0"
+      },
+      {
+        "MajorVersion": 3,
+        "MinorVersion": 0,
+        "Description": "Version 3.0"
+      }
+    ],
+  "ContactName":  "Phil Japikse",
+  "ContactEmail":  "skimedic@outlook.com"
+  }
+  
+  $(MSBuildProjectName.Replace(" ", "_"))
+
+update program.cs
+
+    app.UseSwaggerUI(
+        options =>
+        {
+            var descriptions = app.DescribeApiVersions();
+            foreach (var description in app.DescribeApiVersions())
+            {
+                var url = $"/swagger/{description.GroupName}/swagger.json";
+                var name = description.GroupName.ToUpperInvariant();
+                options.SwaggerEndpoint(url, name);
+            }
+        });
+
+Update documenatation for end points
+values 1
+getting    
+/// <summary>
+    /// Show the version (1.0) and controller name
+    /// </summary>
+    /// <param name="apiVersion">The version of the API</param>
+    /// <returns>Version and Controller Name</returns>
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [SwaggerResponse(200, "The execution was successful")]
+    [SwaggerResponse(400, "The request was invalid")]
+    [SwaggerResponse(401, "Unauthorized access attempted")]
+
+values 2
+    /// <summary>
+    /// Show the version (2.0) and controller name
+    /// </summary>
+    /// <param name="apiVersion">The version of the API</param>
+    /// <returns>Version and Controller Name</returns>
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [SwaggerResponse(200, "The execution was successful (2.0)")]
+    [SwaggerResponse(400, "The request was invalid (2.0)")]
+    [SwaggerResponse(401, "Unauthorized access attempted (2.0)")]
+
+values 3
+    /// <summary>
+    /// Show the version (3.0) and controller name
+    /// </summary>
+    /// <param name="apiVersion">The version of the API</param>
+    /// <returns>Version and Controller Name</returns>
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [SwaggerResponse(200, "The execution was successful (3.0)")]
+    [SwaggerResponse(400, "The request was invalid (3.0)")]
+    [SwaggerResponse(401, "Unauthorized access attempted (3.0)")]

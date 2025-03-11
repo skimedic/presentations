@@ -1,13 +1,12 @@
 ﻿// Copyright Information
 // ==================================
-// Japikse_VersioningAPIs_7.0 - FullSwaggerSupport - HealthCheckController.cs
+// Japikse_VersioningAPIs_7.0 - BareMinimum - HealthCheckController.cs
 // All samples copyright Philip Japikse
 // http://www.skimedic.com 2023/08/09
 // ==================================
 
-namespace FullSwaggerSupport.Controllers;
+namespace BareMinimum.Controllers;
 
-//Demo: 1B. Version Neutral
 [ApiVersionNeutral]
 [ApiController]
 [Route("api/[controller]")]
@@ -24,24 +23,21 @@ public class HealthCheckController : Controller
         {
             Content = new StringContent(string.Empty),
             StatusCode = HttpStatusCode.OK,
-            Version = new Version(version?.MajorVersion??0, version?.MinorVersion??0)
+            Version = new Version(version?.MajorVersion ?? 0, version?.MinorVersion ?? 0)
         };
         response.Content.Headers.Add("Allow", new[] { "GET", "POST", "OPTIONS" });
         response.Content.Headers.ContentType = null;
         return Ok(response);
     }
     [HttpGet]
-    public string Get([FromServices]ApiVersion apiVersion) 
+    public string Get([FromServices] ApiVersion apiVersion)
         => $"Controller = {GetType().Name}{Environment.NewLine}Version = {apiVersion}";
 
-    /// <summary>
-    /// This is the health check get method
-    /// </summary>
-    /// <returns>Current API Version</returns>
     [HttpGet("{id}")]
     public string Get()
     {
         ApiVersion version = HttpContext.GetRequestedApiVersion();
         return $"Controller = {GetType().Name}{Environment.NewLine}Version = {version}";
     }
+
 }
