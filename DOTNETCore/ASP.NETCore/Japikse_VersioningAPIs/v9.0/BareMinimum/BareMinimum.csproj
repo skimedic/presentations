@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
-    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+    <PackageReference Include="Asp.Versioning.Mvc" Version="[8.*,10.0)" />
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="[8.*,10.0)" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="[9.0.*,10.0)" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="[7.*,8.0)" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="[7.*,8.0)" />

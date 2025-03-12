@@ -21,6 +21,15 @@ public class Values1Controller : BaseValuesController
     /// <summary>
     /// Show the version (1.0) and controller name
     /// </summary>
+    /// <remarks>
+    /// <pre>
+    /// Inputs:
+    ///     none
+    /// Returns:
+    ///     string (varchar(max)):
+    ///     Controller = Values1Controller  Version = (version number)
+    /// </pre>
+    /// </remarks>
     /// <param name="apiVersion">The version of the API</param>
     /// <returns>Version and Controller Name</returns>
     [Produces("application/json")]
