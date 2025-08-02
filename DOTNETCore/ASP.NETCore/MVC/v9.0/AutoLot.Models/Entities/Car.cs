@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Models - Car.cs
+// AutoLot9 - AutoLot.Models - Car.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Models.Entities;
@@ -12,19 +12,21 @@ namespace AutoLot.Models.Entities;
 [EntityTypeConfiguration(typeof(CarConfiguration))]
 public class Car : BaseEntity
 {
-    [Required, StringLength(50)]
+    [Required,StringLength(50)]
     public string Color { get; set; }
-
     public string Price { get; set; }
 
-    private bool? _isDrivable;
-
+    //EF  <=7
+    //private bool? _isDrivable;
+    //[DisplayName("Is Drivable")]
+    //public bool IsDrivable
+    //{
+    //    get => _isDrivable ?? true;
+    //    set => _isDrivable = value;
+    //}
+    //EF 8+
     [DisplayName("Is Drivable")]
-    public bool IsDrivable
-    {
-        get => _isDrivable ?? true;
-        set => _isDrivable = value;
-    }
+    public bool IsDrivable { get; set; } = true;
 
     public DateTime? DateBuilt { get; set; }
 
@@ -50,13 +52,10 @@ public class Car : BaseEntity
     [InverseProperty(nameof(CarDriver.CarNavigation))]
     public IEnumerable<CarDriver> CarDrivers { get; set; } = new List<CarDriver>();
 
-    [InverseProperty(nameof(Order.CarNavigation))]
-    public IEnumerable<Order> Orders { get; set; } = new List<Order>();
-
     [NotMapped]
     public string MakeName => MakeNavigation?.Name ?? "Unknown";
-
-    public override string ToString()
+    
+	public override string ToString()
     {
         // Since the PetName column could be empty, supply
         // the default name of **No Name**.

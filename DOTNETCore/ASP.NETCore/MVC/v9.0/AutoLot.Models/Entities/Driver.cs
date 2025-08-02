@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Models - Driver.cs
+// AutoLot9 - AutoLot.Models - Driver.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Models.Entities;
@@ -12,7 +12,6 @@ namespace AutoLot.Models.Entities;
 public class Driver : BaseEntity
 {
     public Person PersonInformation { get; set; } = new Person();
-
     [InverseProperty(nameof(Car.Drivers))]
     public IEnumerable<Car> Cars { get; set; } = new List<Car>();
 

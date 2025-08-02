@@ -1,11 +1,9 @@
 ﻿@model Car
-
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit"; 
 }
-
 <h1>Edit @Model.PetName</h1>
-<hr/>
+<hr />
 <form asp-area="" asp-controller="Cars" asp-action="Edit" asp-route-id="@Model.Id">
     <div class="row">
         <div class="col-md-4">@Html.EditorForModel()</div>
@@ -17,7 +15,6 @@
         <item-list></item-list>
     </div>
 </form>
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

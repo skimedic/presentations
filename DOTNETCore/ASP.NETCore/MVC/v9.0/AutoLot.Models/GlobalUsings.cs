@@ -1,13 +1,14 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Models - GlobalUsings.cs
+// AutoLot9 - AutoLot.Models - GlobalUsings.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
+global using AutoLot.Models.Entities;
 global using AutoLot.Models.Entities.Base;
+global using AutoLot.Models.Entities.ComplexTypes;
 global using AutoLot.Models.Entities.Configuration;
-global using AutoLot.Models.Entities.Owned;
 global using AutoLot.Models.ViewModels;
 global using AutoLot.Models.ViewModels.Configuration;
 global using Microsoft.EntityFrameworkCore;

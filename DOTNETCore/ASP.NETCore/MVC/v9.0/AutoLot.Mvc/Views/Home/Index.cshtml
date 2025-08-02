@@ -1,8 +1,6 @@
 ﻿@model AutoLot.Services.ViewModels.DealerInfo
-@inject IOptionsMonitor<DealerInfo> _dealerInfoMonitor
 @{
     ViewData["Title"] = "Home Page";
-    var dealerInfo = _dealerInfoMonitor.CurrentValue;
 }
 
 <div class="text-center">

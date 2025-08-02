@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Mvc - ItemDeleteTagHelper.cs
+// AutoLot9 - AutoLot.Mvc - ItemDeleteTagHelper.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/10/30
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Mvc.TagHelpers;

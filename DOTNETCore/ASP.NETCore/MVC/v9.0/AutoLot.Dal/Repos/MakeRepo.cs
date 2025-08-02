@@ -1,13 +1,13 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Dal - MakeRepo.cs
+// AutoLot9 - AutoLot.Dal - MakeRepo.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Dal.Repos;
 
-public class MakeRepo : TemporalTableBaseRepo<Make>, IMakeRepo
+public class MakeRepo : BaseRepo<Make>, IMakeRepo
 {
     public MakeRepo(ApplicationDbContext context) : base(context)
     {
@@ -18,9 +18,9 @@ public class MakeRepo : TemporalTableBaseRepo<Make>, IMakeRepo
     }
 
     internal IOrderedQueryable<Make> BuildQuery() => Table.OrderBy(m => m.Name);
+
     public override IEnumerable<Make> GetAll() => BuildQuery();
 
     public override IEnumerable<Make> GetAllIgnoreQueryFilters()
         => BuildQuery().IgnoreQueryFilters();
-
 }

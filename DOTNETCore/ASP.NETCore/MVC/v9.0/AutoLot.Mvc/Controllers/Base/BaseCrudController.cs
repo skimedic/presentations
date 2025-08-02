@@ -1,26 +1,23 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Mvc - BaseCrudController.cs
+// AutoLot9 - AutoLot.Mvc - BaseCrudController.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Mvc.Controllers.Base;
 
 [Route("[controller]/[action]")]
-public abstract class BaseCrudController<TEntity, TController> : Controller where TEntity : BaseEntity, new()
+public abstract class BaseCrudController<TEntity, TController>(
+    IAppLogging<TController> appLogging,
+    IBaseRepo<TEntity> baseRepo) : Controller
+    where TEntity : BaseEntity, new()
 {
-    protected readonly IAppLogging<TController> AppLoggingInstance;
-    protected readonly IBaseRepo<TEntity> BaseRepoInstance;
-
-    protected BaseCrudController(
-        IAppLogging<TController> appLogging, IBaseRepo<TEntity> baseRepo)
-    {
-        AppLoggingInstance = appLogging;
-        BaseRepoInstance = baseRepo;
-    }
+    protected readonly IAppLogging<TController> AppLoggingInstance = appLogging;
+    protected readonly IBaseRepo<TEntity> BaseRepoInstance = baseRepo;
 
     protected abstract SelectList GetLookupValues();
+    
     protected TEntity GetOneEntity(int? id) => id == null ? null : BaseRepoInstance.Find(id.Value);
 
     [Route("/[controller]")]
@@ -29,21 +26,17 @@ public abstract class BaseCrudController<TEntity, TController> : Controller wher
     public virtual IActionResult Index() => View(BaseRepoInstance.GetAllIgnoreQueryFilters());
 
     [HttpGet("{id?}")]
-    //[HttpGet("/[controller]/[action]/{id?}")]
-    //[HttpGet("foo/bar/{id?}")]
     public virtual IActionResult Details(int? id)
     {
         if (!id.HasValue)
         {
             return BadRequest();
         }
-
         var entity = GetOneEntity(id);
         if (entity == null)
         {
             return NotFound();
         }
-
         return View(entity);
     }
 
@@ -61,7 +54,7 @@ public abstract class BaseCrudController<TEntity, TController> : Controller wher
         if (ModelState.IsValid)
         {
             BaseRepoInstance.Add(entity);
-            return RedirectToAction(nameof(Details),new {entity.Id});
+            return RedirectToAction(nameof(Details), new {entity.Id});
         }
         ViewData["LookupValues"] = GetLookupValues();
         return View(entity);
@@ -106,7 +99,6 @@ public abstract class BaseCrudController<TEntity, TController> : Controller wher
         }
         return View(entity);
     }
-
     [HttpPost("{id}")]
     [ValidateAntiForgeryToken]
     public virtual IActionResult Delete(int id, TEntity entity)
@@ -114,4 +106,5 @@ public abstract class BaseCrudController<TEntity, TController> : Controller wher
         BaseRepoInstance.Delete(entity);
         return RedirectToAction(nameof(Index));
     }
+
 }

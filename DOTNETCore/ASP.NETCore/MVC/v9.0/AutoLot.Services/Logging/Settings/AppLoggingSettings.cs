@@ -1,12 +1,11 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Services - AppLoggingSettings.cs
+// AutoLot9 - AutoLot.Services - AppLoggingSettings.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Services.Logging.Settings;
-
 public class AppLoggingSettings
 {
     public GeneralSettings General { get; set; }
@@ -17,7 +16,6 @@ public class AppLoggingSettings
     {
         public string RestrictedToMinimumLevel { get; set; }
     }
-
     public class SqlServerSettings
     {
         public string TableName { get; set; }
@@ -30,7 +28,6 @@ public class AppLoggingSettings
         public string Drive { get; set; }
         public string FilePath { get; set; }
         public string FileName { get; set; }
-
         public string FullLogPathAndFileName =>
             $"{Drive}{Path.VolumeSeparatorChar}{Path.DirectorySeparatorChar}{FilePath}{Path.DirectorySeparatorChar}{FileName}";
     }

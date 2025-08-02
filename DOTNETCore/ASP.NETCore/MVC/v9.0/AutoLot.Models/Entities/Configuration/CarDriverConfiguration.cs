@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Models - CarDriverConfiguration.cs
+// AutoLot9 - AutoLot.Models - CarDriverConfiguration.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Models.Entities.Configuration;
@@ -11,12 +11,9 @@ public class CarDriverConfiguration : IEntityTypeConfiguration<CarDriver>
 {
     public void Configure(EntityTypeBuilder<CarDriver> builder)
     {
-        builder.ToTable(b => b.IsTemporal(t =>
-        {
-            t.HasPeriodEnd("ValidTo");
-            t.HasPeriodStart("ValidFrom");
-            t.UseHistoryTable("InventoryToDriversAudit");
-        }));
+        builder
+            .Property(e => e.TimeStamp)
+            .HasConversion<byte[]>();
 
         builder.HasQueryFilter(cd => cd.CarNavigation.IsDrivable);
     }

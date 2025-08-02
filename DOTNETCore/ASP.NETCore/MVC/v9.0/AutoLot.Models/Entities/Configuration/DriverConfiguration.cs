@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Models - DriverConfiguration.cs
+// AutoLot9 - AutoLot.Models - DriverConfiguration.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Models.Entities.Configuration;
@@ -11,14 +11,11 @@ public class DriverConfiguration : IEntityTypeConfiguration<Driver>
 {
     public void Configure(EntityTypeBuilder<Driver> builder)
     {
-        // builder.ToTable(b => b.IsTemporal(t =>
-        //{
-        //    t.HasPeriodEnd("ValidTo");
-        //    t.HasPeriodStart("ValidFrom");
-        //    t.UseHistoryTable("DriverAudit");
-        //}));
+        builder
+            .Property(e => e.TimeStamp)
+            .HasConversion<byte[]>();
 
-        builder.OwnsOne(o => o.PersonInformation,
+        builder.ComplexProperty(cp => cp.PersonInformation,
             pd =>
             {
                 pd.Property<string>(nameof(Person.FirstName))
@@ -30,7 +27,7 @@ public class DriverConfiguration : IEntityTypeConfiguration<Driver>
                 pd.Property(p => p.FullName)
                     .HasColumnName(nameof(Person.FullName))
                     .HasComputedColumnSql("[LastName] + ', ' + [FirstName]");
+                pd.IsRequired(true);
             });
-        builder.Navigation(d => d.PersonInformation).IsRequired(true);
     }
 }

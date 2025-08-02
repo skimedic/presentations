@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Dal - MigrationHelpers.cs
+// AutoLot9 - AutoLot.Dal - MigrationHelpers.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Dal.EfStructures;
@@ -10,14 +10,12 @@ namespace AutoLot.Dal.EfStructures;
 /*
     protected override void Up(MigrationBuilder migrationBuilder)
     {
-        MigrationHelpers.CreateCustomerOrderView(migrationBuilder);
         MigrationHelpers.CreateSproc(migrationBuilder);
         MigrationHelpers.CreateFunctions(migrationBuilder);
     }
 
     protected override void Down(MigrationBuilder migrationBuilder)
     {
-        MigrationHelpers.DropCustomerOrderView(migrationBuilder);
         MigrationHelpers.DropSproc(migrationBuilder);
         MigrationHelpers.DropFunctions(migrationBuilder);
     }
@@ -25,32 +23,16 @@ namespace AutoLot.Dal.EfStructures;
  */
 public static class MigrationHelpers
 {
-    public static void CreateCustomerOrderView(MigrationBuilder migrationBuilder)
-    {
-        migrationBuilder.Sql(@"exec (N' 
-                CREATE VIEW [dbo].[CustomerOrderView]
-                AS
-                SELECT c.FirstName, c.LastName, i.Color, i.PetName, 
-                    i.DateBuilt, i.IsDrivable, i.Price, i.Display, m.Name AS Make
-                FROM dbo.Orders o
-                INNER JOIN dbo.Customers c ON c.Id = o.CustomerId
-                INNER JOIN dbo.Inventory i ON i.Id = o.CarId
-                INNER JOIN dbo.Makes m ON m.Id = i.MakeId')");
-    }
-
-    public static void DropCustomerOrderView(MigrationBuilder migrationBuilder)
-    {
-        migrationBuilder.Sql("EXEC (N' DROP VIEW [dbo].[CustomerOrderView] ')");
-    }
 
     public static void CreateSproc(MigrationBuilder migrationBuilder)
     {
         migrationBuilder.Sql(@"exec (N' 
-                CREATE PROCEDURE [dbo].[GetPetName]
-                    @carID int,
-                    @petName nvarchar(50) output
-                AS
-                    SELECT @petName = PetName from dbo.Inventory where Id = @carID')");
+            CREATE PROCEDURE [dbo].[GetPetName] 
+              @carID int, 
+              @petName nvarchar(50) output
+            AS
+            SELECT @petName = PetName from dbo.Inventory where Id = @carID')"
+        );
     }
 
     public static void DropSproc(MigrationBuilder migrationBuilder)
@@ -61,23 +43,26 @@ public static class MigrationHelpers
     public static void CreateFunctions(MigrationBuilder migrationBuilder)
     {
         migrationBuilder.Sql(@"exec (N'
-                CREATE FUNCTION [dbo].[udtf_GetCarsForMake] ( @makeId int )
-                RETURNS TABLE 
-                AS
-                RETURN 
-                (
-                    SELECT Id, IsDrivable, DateBuilt, Color, PetName, MakeId, TimeStamp, Display, Price
-                    FROM Inventory WHERE MakeId = @makeId
-                )')");
+            CREATE FUNCTION [dbo].[udtf_GetCarsForMake] ( @makeId int )
+            RETURNS TABLE 
+            AS
+            RETURN 
+              (
+                SELECT Id, IsDrivable, DateBuilt, Color, PetName, MakeId, TimeStamp, Display, Price
+                FROM Inventory WHERE MakeId = @makeId
+              )')"
+        );
+
         migrationBuilder.Sql(@"exec (N'
-                CREATE FUNCTION [dbo].[udf_CountOfMakes] ( @makeid int )
-                RETURNS int
-                AS
-                BEGIN
-                    DECLARE @Result int
-                    SELECT @Result = COUNT(makeid) FROM dbo.Inventory WHERE makeid = @makeid
-                    RETURN @Result
-                END')");
+            CREATE FUNCTION [dbo].[udf_CountOfMakes] ( @makeid int )
+            RETURNS int
+            AS
+            BEGIN
+              DECLARE @Result int
+              SELECT @Result = COUNT(makeid) FROM dbo.Inventory WHERE makeid = @makeid
+              RETURN @Result
+            END')"
+        );
     }
 
     public static void DropFunctions(MigrationBuilder migrationBuilder)

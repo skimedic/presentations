@@ -1,9 +1,9 @@
 dotnet tool uninstall --global dotnet-ef 
-dotnet tool install --global dotnet-ef --version 7.0.0
+dotnet tool install --global dotnet-ef --version 9.0.0
 dotnet tool update --global dotnet-ef --prerelease
 
 dotnet ef database drop -f
-dotnet ef database update -0
+dotnet ef database update 0
 
 dotnet ef dbcontext scaffold "server=.,5433;Database=AutoLot;User Id=sa;Password=P@ssw0rd;" Microsoft.EntityFrameworkCore.SqlServer -d -c ApplicationDbContext --context-dir EfStructures -o Models 
 

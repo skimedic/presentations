@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Models - BaseEntity.cs
+// AutoLot9 - AutoLot.Models - BaseEntity.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Models.Entities.Base;
@@ -13,5 +13,5 @@ public abstract class BaseEntity
     public int Id { get; set; }
 
     [Timestamp]
-    public byte[] TimeStamp { get; set; }
+    public long TimeStamp { get; set; }
 }

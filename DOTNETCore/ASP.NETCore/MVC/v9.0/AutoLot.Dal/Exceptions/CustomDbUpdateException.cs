@@ -1,24 +1,16 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Dal - CustomDbUpdateException.cs
+// AutoLot9 - AutoLot.Dal - CustomDbUpdateException.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Dal.Exceptions;
 
 public class CustomDbUpdateException : CustomException
 {
-    public CustomDbUpdateException()
-    {
-    }
-
-    public CustomDbUpdateException(string message) : base(message)
-    {
-    }
-
+    public CustomDbUpdateException() { }
+    public CustomDbUpdateException(string message) : base(message) { }
     public CustomDbUpdateException(string message, DbUpdateException innerException)
-        : base(message, innerException)
-    {
-    }
+        : base(message, innerException) { }
 }

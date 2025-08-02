@@ -1,9 +1,7 @@
 ﻿@model Car
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create"; 
 }
-
 <h1>Create a New Car</h1>
 <hr/>
 <form asp-controller="Cars" asp-action="Create">
@@ -18,7 +16,6 @@
         <item-list></item-list>
     </div>
 </form>
-
 @section Scripts {
-    <partial name="_ValidationScriptsPartial"/>
+    <partial name="_ValidationScriptsPartial" />
 }

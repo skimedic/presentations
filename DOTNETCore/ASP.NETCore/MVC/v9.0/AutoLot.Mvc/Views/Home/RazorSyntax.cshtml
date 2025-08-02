@@ -7,7 +7,7 @@
 
 @for (int i = 0; i < 15; i++)
 {
-  //do something
+    //do something
 }
 @{
     //Code Block
@@ -15,19 +15,23 @@
     var bar = "Bar";
     var htmlString = "<ul><li>one</li><li>two</li></ul>";
 }
-@foo<br />
-@htmlString<br />
-@foo.@bar<br />
-@foo.ToUpper()<br/>
+@foo
+<br/>
+@htmlString
+<br/>
+@foo.@bar
+<br/>
+@foo.ToUpper()
+<br/>
 @Html.Raw(htmlString)
-<hr />
+<hr/>
 @{
     @:Straight Text
     <div>Value:@Model.Id</div>
     <text>
         Lines without HTML tag
     </text>
-    <br />
+    <br/>
 }
 
 <hr/>
@@ -35,36 +39,49 @@
     Multiline Comments
     Hi.
 *@
-Email Address Handling:<br/>
-foo@foo.com = foo@foo.com<br/>
-@@foo<br/>
-test@foo = test@foo<br/>
-test@(foo) = testFoo<br/>
+Email Address Handling:
+<br/>
+foo@foo.com = foo@foo.com
+<br/>
+@@foo
+<br/>
+test@foo = test@foo
+<br/>
+test@(foo) = testFoo
+<br/>
 <hr/>
+
 @functions {
-    public static IList<string> SortList(IList<string> strings)  {
+
+    public static IList<string> SortList(IList<string> strings)
+    {
         var list = from s in strings orderby s select s;
         return list.ToList();
     }
+
 }
+
 --------------------------------------------------------------
 @{
-    var myList = new List<string> {"C", "A", "Z", "F"};
+    var myList = new List<string> { "C", "A", "Z", "F" };
     var sortedList = SortList(myList); //MyFunctions.SortList(myList)
 }
 @foreach (string s in sortedList)
 {
-    @s@:&nbsp;
+    @s
+
+    @:&nbsp;
 }
 <hr/>
 @{
     Func<dynamic, object> b = @<strong>@item</strong>;
 }
 This will be bold: @b("Foo")
-
-@Html.DisplayForModel()
-@Html.DisplayForModel("CarWithColors")
+<hr />
+@* If the templates were in the shared folder, you wouldn't need the full path listed*@
+@Html.DisplayForModel("../Cars/DisplayTemplates/Car.cshtml")
+@Html.DisplayForModel("../Cars/DisplayTemplates/CarWithColors.cshtml")
 <hr/>
-@Html.EditorForModel()
+@Html.EditorForModel("../Cars/EditorTemplates/Car.cshtml")
 <hr/>
 <a asp-controller="Cars" asp-action="Details" asp-route-id="@Model.Id">@Model.PetName</a>

@@ -1,13 +1,13 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Dal - CarDriverRepo.cs
+// AutoLot9 - AutoLot.Dal - CarDriverRepo.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Dal.Repos;
 
-public class CarDriverRepo : TemporalTableBaseRepo<CarDriver>, ICarDriverRepo
+public class CarDriverRepo : BaseRepo<CarDriver>, ICarDriverRepo
 {
     public CarDriverRepo(ApplicationDbContext context) : base(context)
     {
@@ -18,10 +18,9 @@ public class CarDriverRepo : TemporalTableBaseRepo<CarDriver>, ICarDriverRepo
     }
 
     internal IIncludableQueryable<CarDriver, Driver> BuildBaseQuery()
-         => Table.Include(c => c.CarNavigation).Include(d => d.DriverNavigation);
+        => Table.Include(c => c.CarNavigation).Include(d => d.DriverNavigation);
 
-    public override IEnumerable<CarDriver> GetAll()
-        => BuildBaseQuery();
+    public override IEnumerable<CarDriver> GetAll() => BuildBaseQuery();
 
     public override IEnumerable<CarDriver> GetAllIgnoreQueryFilters()
         => BuildBaseQuery().IgnoreQueryFilters();

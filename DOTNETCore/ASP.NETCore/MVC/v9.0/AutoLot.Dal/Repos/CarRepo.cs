@@ -1,13 +1,13 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Dal - CarRepo.cs
+// AutoLot9 - AutoLot.Dal - CarRepo.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Dal.Repos;
 
-public class CarRepo : TemporalTableBaseRepo<Car>, ICarRepo
+public class CarRepo : BaseRepo<Car>, ICarRepo
 {
     public CarRepo(ApplicationDbContext context) : base(context)
     {
@@ -20,14 +20,10 @@ public class CarRepo : TemporalTableBaseRepo<Car>, ICarRepo
     internal IOrderedQueryable<Car> BuildBaseQuery()
         => Table.Include(x => x.MakeNavigation).OrderBy(p => p.PetName);
 
-    public override IEnumerable<Car> GetAll()
-        => BuildBaseQuery();
+    public override IEnumerable<Car> GetAll() => BuildBaseQuery();
 
     public override IEnumerable<Car> GetAllIgnoreQueryFilters()
         => BuildBaseQuery().IgnoreQueryFilters();
-
-    public IEnumerable<Car> GetAllBy(int makeId)
-        => BuildBaseQuery().Where(x => x.MakeId == makeId);
 
     public override Car Find(int? id)
         => Table
@@ -35,6 +31,14 @@ public class CarRepo : TemporalTableBaseRepo<Car>, ICarRepo
             .Where(x => x.Id == id)
             .Include(m => m.MakeNavigation)
             .FirstOrDefault();
+    public IEnumerable<Car> GetAllBy(int makeId)
+        => BuildBaseQuery().Where(x => x.MakeId == makeId);
+
+    public int SetAllDrivableCarsColorAndMakeId(string color, int makeId)
+        => ExecuteBulkUpdate(x => x.IsDrivable,
+            c => c.SetProperty(x => x.Color, color).SetProperty(x => x.MakeId, makeId));
+
+    public int DeleteNonDrivableCars() => ExecuteBulkDelete(x => !x.IsDrivable);
 
     public string GetPetName(int id)
     {
@@ -53,13 +57,8 @@ public class CarRepo : TemporalTableBaseRepo<Car>, ICarRepo
             Direction = ParameterDirection.Output
         };
         ExecuteParameterizedQuery("EXEC [dbo].[GetPetName] @carId, @petName OUTPUT",
-            new[] { parameterId, parameterName });
+            [parameterId, parameterName]);
         //_ = Context.Database.ExecuteSqlRaw("EXEC [dbo].[GetPetName] @carId, @petName OUTPUT",parameterId, parameterName);
         return (string)parameterName.Value;
     }
-
-    public int SetAllDrivableCarsColorAndMakeId(string color, int makeId) 
-        => ExecuteBulkUpdate(x => x.IsDrivable, c => c.SetProperty(x => x.Color, color).SetProperty(x=>x.MakeId,makeId));
-
-    public int DeleteNonDrivableCars() => ExecuteBulkDelete(x => !x.IsDrivable);
 }

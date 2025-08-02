@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Services - LoggingConfiguration.cs
+// AutoLot9 - AutoLot.Services - LoggingConfiguration.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Services.Logging.Configuration;
@@ -43,7 +43,6 @@ public static class LoggingConfiguration
         var tableName = settings.MSSqlServer.TableName;
         var schema = settings.MSSqlServer.Schema;
         string restrictedToMinimumLevel = settings.General.RestrictedToMinimumLevel;
-        //config["Logging:MSSqlServer:restrictedToMinimumLevel"].ToString();
         if (!Enum.TryParse<LogEventLevel>(restrictedToMinimumLevel, out var logLevel))
         {
             logLevel = LogEventLevel.Debug;
@@ -60,8 +59,10 @@ public static class LoggingConfiguration
             sqlOptions.BatchPeriod = new TimeSpan(0, 0, 0, 1);
             sqlOptions.BatchPostingLimit = 1;
         }
+
         var log = new LoggerConfiguration()
             .MinimumLevel.Is(logLevel)
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Error)
             .Enrich.FromLogContext()
             .Enrich.With(new PropertyEnricher(
                 "ApplicationName", config.GetValue<string>("ApplicationName")))
@@ -79,6 +80,14 @@ public static class LoggingConfiguration
                 sqlOptions,
                 restrictedToMinimumLevel: logLevel,
                 columnOptions: ColumnOptions);
+        if (builder.Environment.IsDevelopment())
+        {
+            Serilog.Debugging.SelfLog.Enable(msg =>
+            {
+                Debug.Print(msg);
+                Debugger.Break();
+            });
+        }
         builder.Logging.AddSerilog(log.CreateLogger(), false);
     }
 }

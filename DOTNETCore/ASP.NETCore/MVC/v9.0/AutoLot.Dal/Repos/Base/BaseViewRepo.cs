@@ -1,16 +1,16 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot70 - AutoLot.Dal - BaseViewRepo.cs
+// AutoLot9 - AutoLot.Dal - BaseViewRepo.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/07/31
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Dal.Repos.Base;
 
-public abstract class BaseViewRepo<T> : IBaseViewRepo<T> where T : class, new()
+public abstract class BaseViewRepo<T> : IBaseViewRepo<T> where T : class, new() 
 {
     private readonly bool _disposeContext;
-    public DbSet<T> Table { get; }
+    public DbSet<T> Table {get;}
     public ApplicationDbContext Context { get; }
 
     protected BaseViewRepo(ApplicationDbContext context)
@@ -19,8 +19,8 @@ public abstract class BaseViewRepo<T> : IBaseViewRepo<T> where T : class, new()
         Table = Context.Set<T>();
         _disposeContext = false;
     }
-
-    protected BaseViewRepo(DbContextOptions<ApplicationDbContext> options) : this(new ApplicationDbContext(options))
+    protected BaseViewRepo(DbContextOptions<ApplicationDbContext> options) 
+        : this(new ApplicationDbContext(options))
     {
         _disposeContext = true;
     }
@@ -32,14 +32,12 @@ public abstract class BaseViewRepo<T> : IBaseViewRepo<T> where T : class, new()
     }
 
     private bool _isDisposed;
-
     protected virtual void Dispose(bool disposing)
     {
         if (_isDisposed)
         {
             return;
         }
-
         if (disposing)
         {
             if (_disposeContext)
@@ -47,7 +45,6 @@ public abstract class BaseViewRepo<T> : IBaseViewRepo<T> where T : class, new()
                 Context.Dispose();
             }
         }
-
         _isDisposed = true;
     }
 
@@ -56,12 +53,7 @@ public abstract class BaseViewRepo<T> : IBaseViewRepo<T> where T : class, new()
         Dispose(false);
     }
 
-    public virtual IEnumerable<T> GetAll()
-        => Table.AsQueryable();
-
-    public virtual IEnumerable<T> GetAllIgnoreQueryFilters()
-        => Table.IgnoreQueryFilters();
-
+    public virtual IEnumerable<T> GetAll() => Table.AsQueryable();
+    public virtual IEnumerable<T> GetAllIgnoreQueryFilters() => Table.IgnoreQueryFilters();
     public IEnumerable<T> ExecuteSqlString(string sql) => Table.FromSqlRaw(sql);
-
 }
