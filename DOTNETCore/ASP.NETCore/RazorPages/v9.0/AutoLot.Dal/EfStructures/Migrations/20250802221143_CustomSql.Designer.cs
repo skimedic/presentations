@@ -13,15 +13,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoLot.Dal.EfStructures.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240520032907_Initial")]
-    partial class Initial
+    [Migration("20250802221143_CustomSql")]
+    partial class CustomSql
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "9.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

@@ -15,7 +15,6 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     public DbSet<Driver> Drivers { get; set; }
     public DbSet<CarDriver> CarsToDrivers { get; set; }
     public DbSet<Make> Makes { get; set; }
-    public DbSet<Order> Orders { get; set; }
     public DbSet<Radio> Radios { get; set; }
     public DbSet<SeriLogEntry> SeriLogEntries { get; set; }
 

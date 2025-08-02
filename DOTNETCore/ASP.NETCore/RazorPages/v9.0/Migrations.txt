@@ -3,7 +3,7 @@ dotnet tool install --global dotnet-ef --version 9.0.0
 dotnet tool update --global dotnet-ef --prerelease
 
 dotnet ef database drop -f
-dotnet ef database update -0
+dotnet ef database update 0
 
 dotnet ef dbcontext scaffold "server=.,5433;Database=AutoLot;User Id=sa;Password=P@ssw0rd;" Microsoft.EntityFrameworkCore.SqlServer -d -c ApplicationDbContext --context-dir EfStructures -o Models 
 
@@ -12,6 +12,8 @@ dotnet ef database update Initial -c AutoLot.Dal.EfStructures.ApplicationDbConte
 
 dotnet ef migrations add CustomSql -c AutoLot.Dal.EfStructures.ApplicationDbContext -o EfStructures\Migrations 
 dotnet ef database update CustomSql -c AutoLot.Dal.EfStructures.ApplicationDbContext
+
+dotnet ef database update -c AutoLot.Dal.EfStructures.ApplicationDbContext
 
 dotnet ef migrations remove
 
