@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot8 - AutoLot.Dal - LibraryAttributes.cs
+// AutoLot9 - AutoLot.Dal - LibraryAttributes.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/06/29
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 using System.Runtime.CompilerServices;

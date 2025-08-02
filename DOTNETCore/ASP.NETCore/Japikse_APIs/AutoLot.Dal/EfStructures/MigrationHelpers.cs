@@ -2,7 +2,7 @@
 // ==================================
 // AutoLot8 - AutoLot.Dal - MigrationHelpers.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/2/4
+// http://www.skimedic.com 2024/06/29
 // ==================================
 
 namespace AutoLot.Dal.EfStructures;

@@ -21,7 +21,7 @@
       "files": ["jquery.validate.unobtrusive.js", "jquery.validate.unobtrusive.min.js"]
     },
     {
-      "library": "twitter-bootstrap@5.3.3",
+      "library": "twitter-bootstrap@5.3.7",
       "destination": "wwwroot/lib/bootstrap",
       "files": [
         "css/bootstrap.css",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "library": "font-awesome@6.7.1",
+      "library": "font-awesome@6.7.2",
       "destination": "wwwroot/lib/font-awesome/",
       "files": [
         "css/all.min.css",

@@ -4,24 +4,11 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<InvariantGlobalization>false</InvariantGlobalization>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<DocumentationFile>AutoLot.Api.xml</DocumentationFile>
-		<NoWarn>1701;1702;1591;1573</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Update="AutoLot.Api.xml">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Asp.Versioning.Mvc" Version="[8.0.*,9.0)" />
-		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="[8.0.*,9.0)" />
-		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="[8.0.*,9.0)" />
+		<PackageReference Include="Asp.Versioning.Mvc" Version="[8.*,9.0)" />
+		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="[8.*,9.0)" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="[8.0.*,9.0)">
 			<!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
 			<PrivateAssets>all</PrivateAssets>
@@ -32,11 +19,11 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="[8.0.*,9.0)" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="[6.5.*,7.0)" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="[6.5.*,7.0)" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="[6.5.*,7.0)" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="[6.5.*,7.0)" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="[6.5.*,7.0)" />
 		<PackageReference Include="System.Text.Json" Version="[8.0.*,9.0)" />
 	</ItemGroup>
 

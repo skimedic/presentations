@@ -7,8 +7,8 @@
 
 namespace BareMinimum.Controllers;
 
-//[ApiVersion("1.0")]
-//[ApiVersion("1.5", Deprecated = true)]
+[ApiVersion("1.0")]
+[ApiVersion("1.5", Deprecated = true)]
 [ApiVersion("2.0")]
 //[ApiVersionNeutral]
 [ApiController]

@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot8 - AutoLot.Dal.Tests - MakeTests.cs
+// AutoLot9 - AutoLot.Dal.Tests - MakeTests.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/05/27
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Dal.Tests.IntegrationTests;
@@ -112,6 +112,7 @@ public class MakeTests : BaseTest, IClassFixture<EnsureAutoLotDatabaseTestFixtur
         var query =
             Context.Makes
                 .Where(x => ApplicationDbContext.InventoryCountFor(x.Id) > 2);
+        string qs = query.ToQueryString();
         var list = query.ToList();
         Assert.Single(list);
     }

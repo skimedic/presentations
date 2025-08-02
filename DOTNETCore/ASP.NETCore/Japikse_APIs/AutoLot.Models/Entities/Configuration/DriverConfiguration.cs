@@ -2,7 +2,7 @@
 // ==================================
 // AutoLot8 - AutoLot.Models - DriverConfiguration.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/2/4
+// http://www.skimedic.com 2024/06/29
 // ==================================
 
 namespace AutoLot.Models.Entities.Configuration;
@@ -14,13 +14,6 @@ public class DriverConfiguration : IEntityTypeConfiguration<Driver>
         builder
             .Property(e => e.TimeStamp)
             .HasConversion<byte[]>();
-
-        builder.ToTable(b => b.IsTemporal(t =>
-        {
-            t.HasPeriodEnd("ValidTo");
-            t.HasPeriodStart("ValidFrom");
-            t.UseHistoryTable("DriverAudit");
-        }));
 
         builder.ComplexProperty(cp => cp.PersonInformation,
             pd =>

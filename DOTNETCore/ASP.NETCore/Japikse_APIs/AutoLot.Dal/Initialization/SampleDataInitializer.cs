@@ -1,22 +1,14 @@
-// Copyright Information
+﻿// Copyright Information
 // ==================================
 // AutoLot8 - AutoLot.Dal - SampleDataInitializer.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/2/4
+// http://www.skimedic.com 2024/06/29
 // ==================================
 
 namespace AutoLot.Dal.Initialization;
 
 public static class SampleDataInitializer
 {
-    internal static void DropAndCreateDatabase(ApplicationDbContext context)
-    {
-        context.Database.EnsureDeleted();
-        //DON'T USE THIS! EnsureCreated() doesn't run the migrations, so SQL objects will be missing
-        //context.Database.EnsureCreated();
-        context.Database.Migrate();
-    }
-
     internal static void ClearData(ApplicationDbContext context)
     {
         var entities = new[]
@@ -27,34 +19,15 @@ public static class SampleDataInitializer
             typeof(Car).FullName,
             typeof(Make).FullName,
         };
-        var serviceCollection = new ServiceCollection();
-        serviceCollection.AddDbContextDesignTimeServices(context);
-        var serviceProvider = serviceCollection.BuildServiceProvider();
-        var designTimeModel = serviceProvider.GetService<IModel>();
         foreach (var entityName in entities)
         {
             var entity = context.Model.FindEntityType(entityName);
             var tableName = entity.GetTableName();
             var schemaName = entity.GetSchema();
+#pragma warning disable EF1002 // Risk of vulnerability to SQL injection.
             context.Database.ExecuteSqlRaw($"DELETE FROM {schemaName}.{tableName}");
             context.Database.ExecuteSqlRaw($"DBCC CHECKIDENT (\"{schemaName}.{tableName}\", RESEED, 1);");
-            if (entity.IsTemporal())
-            {
-                var strategy = context.Database.CreateExecutionStrategy();
-                strategy.Execute(() =>
-                {
-                    using var trans = context.Database.BeginTransaction();
-                    var designTimeEntity = designTimeModel.FindEntityType(entityName);
-                    var historySchema = designTimeEntity.GetHistoryTableSchema();
-                    var historyTable = designTimeEntity.GetHistoryTableName();
-                    context.Database.ExecuteSqlRaw(
-                        $"ALTER TABLE {schemaName}.{tableName} SET (SYSTEM_VERSIONING = OFF)");
-                    context.Database.ExecuteSqlRaw($"DELETE FROM {historySchema}.{historyTable}");
-                    context.Database.ExecuteSqlRaw(
-                        $"ALTER TABLE {schemaName}.{tableName} SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE={historySchema}.{historyTable}))");
-                    trans.Commit();
-                });
-            }
+#pragma warning restore EF1002 // Risk of vulnerability to SQL injection.
         }
     }
 
@@ -66,16 +39,15 @@ public static class SampleDataInitializer
         ProcessInsert(context, context.Radios, SampleData.Radios);
         ProcessInsert(context, context.CarsToDrivers, SampleData.CarsAndDrivers);
 
-        static void ProcessInsert<TEntity>(
+        static void ProcessInsert<TEntity>( 
             ApplicationDbContext context,
-            DbSet<TEntity> table,
+            DbSet<TEntity> table, 
             List<TEntity> records) where TEntity : BaseEntity
         {
             if (table.Any())
             {
                 return;
             }
-
             IExecutionStrategy strategy = context.Database.CreateExecutionStrategy();
             strategy.Execute(() =>
             {
@@ -83,12 +55,14 @@ public static class SampleDataInitializer
                 try
                 {
                     var metaData = context.Model.FindEntityType(typeof(TEntity).FullName);
+#pragma warning disable EF1002 // Risk of vulnerability to SQL injection.
                     context.Database.ExecuteSqlRaw(
                         $"SET IDENTITY_INSERT {metaData.GetSchema()}.{metaData.GetTableName()} ON");
                     table.AddRange(records);
                     context.SaveChanges();
                     context.Database.ExecuteSqlRaw(
                         $"SET IDENTITY_INSERT {metaData.GetSchema()}.{metaData.GetTableName()} OFF");
+#pragma warning restore EF1002 // Risk of vulnerability to SQL injection.
                     transaction.Commit();
                 }
                 catch (Exception)

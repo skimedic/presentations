@@ -1,8 +1,8 @@
 // Copyright Information
 // ==================================
-// AutoLot8 - AutoLot.Web - Program.cs
+// AutoLot9 - AutoLot.Web - Program.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/05/27
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 var builder = WebApplication.CreateBuilder(args);
@@ -47,8 +47,7 @@ builder.Services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>(
 builder.Services.AddHttpContextAccessor();
 
 var connectionString = builder.Configuration.GetConnectionString("AutoLot");
-builder.Services.AddDbContextPool<ApplicationDbContext>(
-    options =>
+builder.Services.AddDbContextPool<ApplicationDbContext>(options =>
     {
         options.ConfigureWarnings(wc => wc.Ignore(RelationalEventId.BoolWithDefaultWarning));
         options.UseSqlServer(connectionString,
@@ -84,8 +83,7 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
 });
 // The TempData provider cookie is not essential. Make it essential
 // so TempData is functional when tracking is disabled.
-builder.Services.Configure<CookieTempDataProviderOptions>(
-    options => { options.Cookie.IsEssential = true; });
+builder.Services.Configure<CookieTempDataProviderOptions>(options => { options.Cookie.IsEssential = true; });
 builder.Services.AddSession(options => { options.Cookie.IsEssential = true; });
 
 var app = builder.Build();

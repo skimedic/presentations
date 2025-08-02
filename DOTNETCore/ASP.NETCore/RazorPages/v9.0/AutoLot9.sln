@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.10828.68 main
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoLot.Models", "AutoLot.Models\AutoLot.Models.csproj", "{7260CC5F-3463-4F14-A9C8-F5120B4A192B}"
 EndProject
@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		global.json = global.json
 		Migrations.txt = Migrations.txt
 		nuget.config = nuget.config
+		ReadMe.md = ReadMe.md
 		Readme.txt = Readme.txt
 	EndProjectSection
 EndProject

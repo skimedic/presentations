@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviorPatterns", "BehaviorPatterns\BehaviorPatterns.csproj", "{2620C404-8BFC-49A8-A491-9FBCF7B2F0DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviorPatternsTests", "BehaviorPatternsTests\BehaviorPatternsTests.csproj", "{E4CBC64C-FEB3-47BE-9855-31C6F5670480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationPatterns", "CreationPatterns\CreationPatterns.csproj", "{CAB0C564-D64D-445D-A255-300A2B19BA63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationPatternsTests", "CreationPatternsTests\CreationPatternsTests.csproj", "{66A994DE-F361-44A4-B72F-000E0D39ABB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructuralPatterns", "StructuralPatterns\StructuralPatterns.csproj", "{9DF8F213-F21E-4A7A-8654-DD672A47909F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructuralPatternsTests", "StructuralPatternsTests\StructuralPatternsTests.csproj", "{89A8ECA5-38D3-4D5D-98EC-7A1B29EA2EDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		createsolutionandprojects.cmd = createsolutionandprojects.cmd
+		global.json = global.json
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2620C404-8BFC-49A8-A491-9FBCF7B2F0DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2620C404-8BFC-49A8-A491-9FBCF7B2F0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2620C404-8BFC-49A8-A491-9FBCF7B2F0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2620C404-8BFC-49A8-A491-9FBCF7B2F0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4CBC64C-FEB3-47BE-9855-31C6F5670480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4CBC64C-FEB3-47BE-9855-31C6F5670480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4CBC64C-FEB3-47BE-9855-31C6F5670480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4CBC64C-FEB3-47BE-9855-31C6F5670480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAB0C564-D64D-445D-A255-300A2B19BA63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAB0C564-D64D-445D-A255-300A2B19BA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAB0C564-D64D-445D-A255-300A2B19BA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAB0C564-D64D-445D-A255-300A2B19BA63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A994DE-F361-44A4-B72F-000E0D39ABB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A994DE-F361-44A4-B72F-000E0D39ABB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A994DE-F361-44A4-B72F-000E0D39ABB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A994DE-F361-44A4-B72F-000E0D39ABB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DF8F213-F21E-4A7A-8654-DD672A47909F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF8F213-F21E-4A7A-8654-DD672A47909F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF8F213-F21E-4A7A-8654-DD672A47909F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF8F213-F21E-4A7A-8654-DD672A47909F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A8ECA5-38D3-4D5D-98EC-7A1B29EA2EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A8ECA5-38D3-4D5D-98EC-7A1B29EA2EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A8ECA5-38D3-4D5D-98EC-7A1B29EA2EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A8ECA5-38D3-4D5D-98EC-7A1B29EA2EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23EA052D-7857-4792-B6C8-68E10833CD16}
+	EndGlobalSection
+EndGlobal

@@ -1,8 +1,8 @@
 // Copyright Information
 // ==================================
-// AutoLot8 - AutoLot.Services - AddToCartViewModelBase.cs
+// AutoLot9 - AutoLot.Services - AddToCartViewModelBase.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/05/27
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Services.ViewModels.Base;

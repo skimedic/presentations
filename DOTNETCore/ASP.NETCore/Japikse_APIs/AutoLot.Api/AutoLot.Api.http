@@ -1,6 +1,7 @@
-@AutoLot.Api_HostAddress = http://localhost:5206
+@AutoLot.Api_HostAddress = https://localhost:5011
 
-GET {{AutoLot.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+GET {{AutoLot.Api_HostAddress}}/logging
+###
+GET {{AutoLot.Api_HostAddress}}/problem
 
 ###

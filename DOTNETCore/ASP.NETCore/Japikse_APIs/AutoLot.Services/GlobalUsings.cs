@@ -2,7 +2,7 @@
 // ==================================
 // AutoLot8 - AutoLot.Services - GlobalUsings.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2023/11/26
+// http://www.skimedic.com 2024/06/29
 // ==================================
 
 global using AutoLot.Dal.Repos;
@@ -11,6 +11,8 @@ global using AutoLot.Dal.Repos.Interfaces;
 global using AutoLot.Services.Logging;
 global using AutoLot.Services.Logging.Interfaces;
 global using AutoLot.Services.Logging.Settings;
+global using AutoLot.Services.Simple;
+global using AutoLot.Services.Simple.Interfaces;
 
 global using Microsoft.AspNetCore.Builder;
 global using Microsoft.Extensions.DependencyInjection;

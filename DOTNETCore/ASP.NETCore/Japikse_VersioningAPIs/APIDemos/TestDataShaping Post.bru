@@ -1,0 +1,22 @@
+meta {
+  name: TestDataShaping Post
+  type: http
+  seq: 14
+}
+
+post {
+  url: https://localhost:5011/api/DataShaping/1?v=1.0&values={"FirstName":"Mister","LastName":"Slate"}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  v: 1.0
+  values: {"FirstName":"Mister","LastName":"Slate"}
+}
+
+body:text {
+    {"FirstName","Fred"},
+    {"LasttName","Flintstone"}
+    
+}

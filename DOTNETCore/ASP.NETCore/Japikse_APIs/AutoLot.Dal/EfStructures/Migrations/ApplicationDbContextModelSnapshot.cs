@@ -18,7 +18,7 @@ namespace AutoLot.Dal.EfStructures.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.1")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -68,32 +68,11 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
-                    b.Property<DateTime>("ValidFrom")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidFrom");
-
-                    b.Property<DateTime>("ValidTo")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidTo");
-
                     b.HasKey("Id");
 
                     b.HasIndex(new[] { "MakeId" }, "IX_Inventory_MakeId");
 
                     b.ToTable("Inventory", "dbo");
-
-                    b.ToTable(tb => tb.IsTemporal(ttb =>
-                            {
-                                ttb.UseHistoryTable("InventoryAudit");
-                                ttb
-                                    .HasPeriodStart("ValidFrom")
-                                    .HasColumnName("ValidFrom");
-                                ttb
-                                    .HasPeriodEnd("ValidTo")
-                                    .HasColumnName("ValidTo");
-                            }));
                 });
 
             modelBuilder.Entity("AutoLot.Models.Entities.CarDriver", b =>
@@ -117,16 +96,6 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
-                    b.Property<DateTime>("ValidFrom")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidFrom");
-
-                    b.Property<DateTime>("ValidTo")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidTo");
-
                     b.HasKey("Id");
 
                     b.HasIndex("DriverId");
@@ -135,17 +104,6 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .IsUnique();
 
                     b.ToTable("InventoryToDrivers", "dbo");
-
-                    b.ToTable(tb => tb.IsTemporal(ttb =>
-                            {
-                                ttb.UseHistoryTable("InventoryToDriversAudit");
-                                ttb
-                                    .HasPeriodStart("ValidFrom")
-                                    .HasColumnName("ValidFrom");
-                                ttb
-                                    .HasPeriodEnd("ValidTo")
-                                    .HasColumnName("ValidTo");
-                            }));
                 });
 
             modelBuilder.Entity("AutoLot.Models.Entities.Driver", b =>
@@ -161,16 +119,6 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
-
-                    b.Property<DateTime>("ValidFrom")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidFrom");
-
-                    b.Property<DateTime>("ValidTo")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidTo");
 
                     b.ComplexProperty<Dictionary<string, object>>("PersonInformation", "AutoLot.Models.Entities.Driver.PersonInformation#Person", b1 =>
                         {
@@ -198,17 +146,6 @@ namespace AutoLot.Dal.EfStructures.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Drivers", "dbo");
-
-                    b.ToTable(tb => tb.IsTemporal(ttb =>
-                            {
-                                ttb.UseHistoryTable("DriverAudit");
-                                ttb
-                                    .HasPeriodStart("ValidFrom")
-                                    .HasColumnName("ValidFrom");
-                                ttb
-                                    .HasPeriodEnd("ValidTo")
-                                    .HasColumnName("ValidTo");
-                            }));
                 });
 
             modelBuilder.Entity("AutoLot.Models.Entities.Make", b =>
@@ -230,30 +167,9 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
-                    b.Property<DateTime>("ValidFrom")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidFrom");
-
-                    b.Property<DateTime>("ValidTo")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidTo");
-
                     b.HasKey("Id");
 
                     b.ToTable("Makes", "dbo");
-
-                    b.ToTable(tb => tb.IsTemporal(ttb =>
-                            {
-                                ttb.UseHistoryTable("MakesAudit");
-                                ttb
-                                    .HasPeriodStart("ValidFrom")
-                                    .HasColumnName("ValidFrom");
-                                ttb
-                                    .HasPeriodEnd("ValidTo")
-                                    .HasColumnName("ValidTo");
-                            }));
                 });
 
             modelBuilder.Entity("AutoLot.Models.Entities.Radio", b =>
@@ -285,33 +201,12 @@ namespace AutoLot.Dal.EfStructures.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
-                    b.Property<DateTime>("ValidFrom")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidFrom");
-
-                    b.Property<DateTime>("ValidTo")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("ValidTo");
-
                     b.HasKey("Id");
 
                     b.HasIndex(new[] { "CarId" }, "IX_Radios_CarId")
                         .IsUnique();
 
                     b.ToTable("Radios", "dbo");
-
-                    b.ToTable(tb => tb.IsTemporal(ttb =>
-                            {
-                                ttb.UseHistoryTable("RadiosAudit");
-                                ttb
-                                    .HasPeriodStart("ValidFrom")
-                                    .HasColumnName("ValidFrom");
-                                ttb
-                                    .HasPeriodEnd("ValidTo")
-                                    .HasColumnName("ValidTo");
-                            }));
                 });
 
             modelBuilder.Entity("AutoLot.Models.Entities.SeriLogEntry", b =>

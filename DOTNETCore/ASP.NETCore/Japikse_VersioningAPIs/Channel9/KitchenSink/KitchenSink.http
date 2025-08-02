@@ -1,0 +1,6 @@
+@KitchenSink_HostAddress = http://localhost:5254
+
+GET {{KitchenSink_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

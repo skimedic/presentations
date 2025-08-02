@@ -6,11 +6,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="[8.0.*,9.0)">
-			<!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="[8.0.*,9.0)" />
-		<PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="[17.*,)">
+		<PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="[17.*,18.0)">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>

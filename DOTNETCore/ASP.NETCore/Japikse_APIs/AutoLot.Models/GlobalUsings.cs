@@ -2,9 +2,10 @@
 // ==================================
 // AutoLot8 - AutoLot.Models - GlobalUsings.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/2/4
+// http://www.skimedic.com 2024/06/29
 // ==================================
 
+global using AutoLot.Models.Entities;
 global using AutoLot.Models.Entities.Base;
 global using AutoLot.Models.Entities.ComplexTypes;
 global using AutoLot.Models.Entities.Configuration;

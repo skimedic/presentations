@@ -1,8 +1,8 @@
 ﻿// Copyright Information
 // ==================================
-// AutoLot8 - AutoLot.Dal - ApplicationDbContext.cs
+// AutoLot9 - AutoLot.Dal - ApplicationDbContext.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/06/29
+// http://www.skimedic.com 2025/08/02
 // ==================================
 
 namespace AutoLot.Dal.EfStructures;
@@ -43,8 +43,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
         //Kept in DbChangeTracker
         PropertyValues originalValues = entryEntity.OriginalValues;
         PropertyValues currentValues = entryEntity.CurrentValues;
-        IEnumerable<PropertyEntry> modifiedEntries = 
-            entryEntity.Properties.Where(e => e.IsModified);
+        IEnumerable<PropertyEntry> modifiedEntries = entryEntity.Properties.Where(e => e.IsModified);
         foreach (var itm in modifiedEntries)
         {
             //Console.WriteLine($"{itm.Metadata.Name},");

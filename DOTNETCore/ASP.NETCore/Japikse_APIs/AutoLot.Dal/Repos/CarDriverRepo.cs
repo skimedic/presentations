@@ -2,12 +2,12 @@
 // ==================================
 // AutoLot8 - AutoLot.Dal - CarDriverRepo.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2024/2/4
+// http://www.skimedic.com 2024/06/29
 // ==================================
 
 namespace AutoLot.Dal.Repos;
 
-public class CarDriverRepo : TemporalTableBaseRepo<CarDriver>, ICarDriverRepo
+public class CarDriverRepo : BaseRepo<CarDriver>, ICarDriverRepo
 {
     public CarDriverRepo(ApplicationDbContext context) : base(context)
     {
@@ -20,8 +20,7 @@ public class CarDriverRepo : TemporalTableBaseRepo<CarDriver>, ICarDriverRepo
     internal IIncludableQueryable<CarDriver, Driver> BuildBaseQuery()
         => Table.Include(c => c.CarNavigation).Include(d => d.DriverNavigation);
 
-    public override IEnumerable<CarDriver> GetAll()
-        => BuildBaseQuery();
+    public override IEnumerable<CarDriver> GetAll() => BuildBaseQuery();
 
     public override IEnumerable<CarDriver> GetAllIgnoreQueryFilters()
         => BuildBaseQuery().IgnoreQueryFilters();

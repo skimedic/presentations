@@ -1,0 +1,15 @@
+meta {
+  name: Weather
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://localhost:7294/WeatherForecast?v=1.5-Beta
+  body: none
+  auth: none
+}
+
+query {
+  v: 1.5-Beta
+}
