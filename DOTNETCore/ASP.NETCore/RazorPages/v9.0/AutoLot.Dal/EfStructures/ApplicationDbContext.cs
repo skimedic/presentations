@@ -6,13 +6,16 @@
 // ==================================
 
 namespace AutoLot.Dal.EfStructures;
+
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
     : DbContext(options)
 {
+
     public DbSet<Car> Cars { get; set; }
     public DbSet<Driver> Drivers { get; set; }
     public DbSet<CarDriver> CarsToDrivers { get; set; }
     public DbSet<Make> Makes { get; set; }
+    public DbSet<Order> Orders { get; set; }
     public DbSet<Radio> Radios { get; set; }
     public DbSet<SeriLogEntry> SeriLogEntries { get; set; }
 
