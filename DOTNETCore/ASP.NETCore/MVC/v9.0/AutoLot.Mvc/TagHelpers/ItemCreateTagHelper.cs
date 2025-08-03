@@ -2,7 +2,7 @@
 // ==================================
 // AutoLot9 - AutoLot.Mvc - ItemCreateTagHelper.cs
 // All samples copyright Philip Japikse
-// http://www.skimedic.com 2025/08/02
+// http://www.skimedic.com 2025/08/03
 // ==================================
 
 namespace AutoLot.Mvc.TagHelpers;
