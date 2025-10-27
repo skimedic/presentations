@@ -25,7 +25,6 @@ builder.Services.AddScoped<IMakeRepo, MakeRepo>();
 builder.Services.AddScoped<IRadioRepo, RadioRepo>();
 builder.Services.AddScoped(typeof(IDataShaper<>), typeof(DataShaper<>));
 
-
 builder.Services.AddControllers(config =>
     {
         config.Filters.Add(new CustomExceptionFilterAttribute(builder.Environment));
