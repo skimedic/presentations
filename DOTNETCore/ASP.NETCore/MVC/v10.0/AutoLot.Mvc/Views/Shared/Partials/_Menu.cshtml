@@ -1,0 +1,64 @@
+﻿@inject IOptionsMonitor<DealerInfo> _dealerInfoMonitor
+@{
+    var dealerInfo = _dealerInfoMonitor.CurrentValue;
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+    var showBanner = !consentFeature?.CanTrack ?? false;
+}
+<nav class="navbar navbar-expand-sm bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+            @dealerInfo.DealerName
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown">
+                        Inventory <i class="fa fa-car" style="color: #63E6BE;"></i>
+                    </a>
+                    <vc:menu/>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RazorSyntax">Razor Syntax <i class="fas fa-cut"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Validation" title="Validation Example">Validation<i class="fas fa-check"></i></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown">
+                        DI <i class="fa fa-syringe"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-dark" asp-controller="Home" asp-action="GetServiceOne">
+                            Service One
+                        </a>
+                        <a class="dropdown-item text-dark" asp-controller="Home" asp-action="GetServiceTwo">
+                            Service Two
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">
+                        Privacy <i class="fa-solid fa-user-secret" style="color: #aba0a0;"></i>
+                    </a>
+                </li>
+                @if (showBanner)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Home" asp-action="GrantConsent" title="Accept Cookie Policy">Accept Cookie Policy <i class="fas fa-cookie-bite"></i></a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Home" asp-action="WithdrawConsent" title="Revoke Cookie Policy">Revoke Cookie Policy <i class="fas fa-cookie"></i></a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

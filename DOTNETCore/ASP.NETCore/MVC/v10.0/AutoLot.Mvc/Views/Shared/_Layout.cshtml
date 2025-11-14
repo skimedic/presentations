@@ -1,0 +1,27 @@
+﻿@inject IWebHostEnvironment _env
+
+<!DOCTYPE html>
+<html lang="en">
+    <partial name="Partials/_Head"/>
+<body>
+<header>
+    <partial name="Partials/_Menu"/>
+</header>
+<div class="container">
+    <partial name="Partials/_CookieConsent"/>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2024 - AutoLot.Mvc - @_env.EnvironmentName 
+        <a asp-area="" asp-controller="Home" asp-action="Privacy">
+            Privacy <i class="fa-solid fa-user-secret" style="color: #aba0a0;"></i>
+        </a>
+    </div>
+</footer>
+<partial name="Partials/_JavaScriptFiles"/>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

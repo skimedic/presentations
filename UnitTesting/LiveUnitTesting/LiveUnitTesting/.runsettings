@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://learn.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=visualstudio -->
+<!-- https://xunit.net/docs/config-runsettings -->
+<RunSettings>
+	<RunConfiguration>
+		<MaxCpuCount>1</MaxCpuCount>
+		<ResultsDirectory>.\TestResults</ResultsDirectory>
+		<TargetPlatform>x86</TargetPlatform>
+		<TargetFrameworkVersion>net8.0</TargetFrameworkVersion>
+		<TreatTestAdapterErrorsAsWarnings>false</TreatTestAdapterErrorsAsWarnings>
+		<TestSessionTimeout>10000</TestSessionTimeout>
+		<TreatNoTestsAsError>true</TreatNoTestsAsError>
+	</RunConfiguration>
+</RunSettings>

@@ -1,0 +1,59 @@
+{
+  //https://api.cdnjs.com/libraries?output=human
+  //https://api.cdnjs.com/libraries/jquery?output=human
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "defaultDestination": "wwwroot/lib",
+  "libraries": [
+    {
+      "library": "jquery@3.7.1",
+      "destination": "wwwroot/lib/jquery",
+      "files": ["jquery.js", "jquery.min.js"]
+    },
+    {
+      "library": "jquery-validate@1.21.0",
+      "destination": "wwwroot/lib/jquery-validation",
+      "files": ["jquery.validate.js", "jquery.validate.min.js", "additional-methods.js", "additional-methods.min.js"]
+    },
+    {
+      "library": "jquery-validation-unobtrusive@4.0.0",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive",
+      "files": ["jquery.validate.unobtrusive.js", "jquery.validate.unobtrusive.min.js"]
+    },
+    {
+      "library": "twitter-bootstrap@5.3.7",
+      "destination": "wwwroot/lib/bootstrap",
+      "files": [
+        "css/bootstrap.css",
+        "css/bootstrap.min.css",
+        "js/bootstrap.js",
+        "js/bootstrap.min.js"
+      ]
+    },
+    {
+      "library": "font-awesome@6.7.2",
+      "destination": "wwwroot/lib/font-awesome/",
+      "files": [
+        "css/all.min.css",
+        "css/all.css",
+        "js/all.js",
+        "js/all.min.js",
+        "sprites/regular.svg",
+        "sprites/solid.svg",
+        "webfonts/fa-solid-900.ttf",
+        "webfonts/fa-solid-900.woff2",
+        "webfonts/fa-regular-400.ttf",
+        "webfonts/fa-regular-400.woff2"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "popper.js@2.11.8",
+      "destination": "wwwroot/lib/popper.js/",
+      "files": [
+        "umd/popper.min.js",
+        "umd/popper.js"
+      ]
+    }
+  ]
+}

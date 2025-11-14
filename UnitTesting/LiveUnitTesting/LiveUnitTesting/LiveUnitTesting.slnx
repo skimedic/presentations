@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/SolutionItems/">
+    <File Path=".runsettings" />
+  </Folder>
+  <Project Path="CalculatorTests/CalculatorTests.csproj" />
+  <Project Path="LiveUnitTesting/LiveUnitTesting.csproj" />
+</Solution>

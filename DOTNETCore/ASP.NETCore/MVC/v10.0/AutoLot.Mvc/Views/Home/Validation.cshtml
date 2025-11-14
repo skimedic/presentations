@@ -1,0 +1,67 @@
+﻿@model AddToCartViewModelMvc
+@{
+    ViewData["Title"] = "Validation";
+}
+<h1>Validation</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form id="validationForm" asp-action="Validation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <label asp-for="Id" class="col-form-label"></label>
+                <input asp-for="Id" class="form-control"/>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="StockQuantity" class="col-form-label"></label>
+                <input asp-for="StockQuantity" oninput="reValidate(this)" class="form-control" onchange="reValidate(this)" />
+                <span asp-validation-for="StockQuantity" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="ItemId" class="col-form-label"></label>
+                <input asp-for="ItemId" class="form-control"/>
+                <span asp-validation-for="ItemId" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Quantity" class="col-form-label"></label>
+                <input asp-for="Quantity" oninput="reValidate(this)" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div style="margin-top: 5px">
+                <button id="submitEditForm" type="submit" class="btn btn-primary">
+                    Save <i class="fas fa-save"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+    <script type="text/javascript" language="javascript">
+        function reValidate(input) {
+            const form = $("#validationForm");
+            var input1 = $("#Quantity");
+            var input2 = $("#StockQuantity");
+            form.validate().element(input1);
+            form.validate().element(input2);
+        }
+
+        $(document).ready(function() {
+            $("#validationForm").on("submit",
+                function(e) {
+                    e.preventDefault(); // Prevent the default form submission
+                    const form = $(this);
+                    const validator = form.validate();
+                    if (form.valid()) {
+                        const submitButton = document.getElementById("submitEditForm");
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = 'Submitting...';
+                        this.submit(); // Submit the form programmatically
+                    } else {
+                        validator.resetForm();
+                    }
+                });
+        });
+    </script>
+}

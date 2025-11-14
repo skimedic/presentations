@@ -5,7 +5,6 @@
 // http://www.skimedic.com 2025/07/13
 // ==================================
 
-using BehaviorPatterns.Observer.A_FromScratch;
 using BehaviorPatterns.Observer.A1_WeakReferences;
 
 namespace BehaviorPatternsTests.Observer.A1_WeakReferences;

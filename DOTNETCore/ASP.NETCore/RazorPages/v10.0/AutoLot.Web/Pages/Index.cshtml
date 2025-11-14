@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@inject IServiceProvider serviceProvider
+@{
+    ViewData["Title"] = "Home page";
+    var service = serviceProvider.GetKeyedService<ISimpleService>(nameof(SimpleServiceOne));
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to @Model.Entity.DealerName</h1>
+    <p class="lead">Located in @Model.Entity.City, @Model.Entity.State</p>
+</div>
+<div>
+    @if (service != null)
+    {
+        <p>@service.SayHello()</p>
+    }
+</div>
