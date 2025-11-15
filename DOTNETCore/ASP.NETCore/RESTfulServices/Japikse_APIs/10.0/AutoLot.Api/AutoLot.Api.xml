@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutoLot.Api</name>
+    </assembly>
+    <members>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`1.GetAll">
+            <summary>
+            Gets all records
+            </summary>
+            <returns>All records</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`1.GetOne(System.Int32)">
+            <summary>
+            Gets a single record
+            </summary>
+            <param name="id">Primary key of the record</param>
+            <returns>Single record</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`1.UpdateOne(System.Int32,`0)">
+            <summary>
+            Updates a single record
+            </summary>
+            <remarks>
+            Sample body:
+            <pre>
+            {
+              "Id": 1,
+              "TimeStamp": "AAAAAAAAB+E="
+              "MakeId": 1,
+              "Color": "Black",
+              "PetName": "Zippy",
+              "MakeColor": "VW (Black)",
+            }
+            </pre>
+            </remarks>
+            <param name="id">Primary key of the record to update</param>
+            <param name="entity">Entity to update</param>
+            <returns>Single record</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`1.AddOne(`0)">
+            <summary>
+            Adds a single record
+            </summary>
+            <remarks>
+            Sample body:
+            <pre>
+            {
+              "Id": 1,
+              "TimeStamp": "AAAAAAAAB+E="
+              "MakeId": 1,
+              "Color": "Black",
+              "PetName": "Zippy",
+              "MakeColor": "VW (Black)",
+            }
+            </pre>
+            </remarks>
+            <returns>Added record</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Base.BaseCrudController`1.DeleteOne(System.Int32,`0)">
+            <summary>
+            Deletes a single record
+            </summary>
+            <remarks>
+            Sample body:
+            <pre>
+            {
+              "Id": 1,
+              "TimeStamp": "AAAAAAAAB+E="
+            }
+            </pre>
+            </remarks>
+            <returns>Nothing</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.Cars2Controller.GetAllFuture">
+            <summary>
+            Gets all records really fast (when it’s written)
+            </summary>
+            <returns>All records</returns>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.CarsController.GetCarsByMake(System.Nullable{System.Int32})">
+            <summary>
+            Gets all cars by make
+            </summary>
+            <returns>All cars for a make</returns>
+            <param name="id">Primary key of the make</param>
+        </member>
+        <member name="M:AutoLot.Api.Controllers.CarsController.GetAllBad">
+            <summary>
+            Gets all records
+            </summary>
+            <returns>All records</returns>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Type)">
+            <summary>
+            Generates a documentation comment ID for a type.
+            Example: T:Namespace.Outer+Inner`1 becomes T:Namespace.Outer.Inner`1
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Reflection.PropertyInfo)">
+            <summary>
+            Generates a documentation comment ID for a property.
+            Example: P:Namespace.ContainingType.PropertyName or for an indexer P:Namespace.ContainingType.Item(System.Int32)
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Type,System.String)">
+            <summary>
+            Generates a documentation comment ID for a property given its container type and property name.
+            Example: P:Namespace.ContainingType.PropertyName
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Reflection.MethodInfo)">
+            <summary>
+            Generates a documentation comment ID for a method (or constructor).
+            For example:
+              M:Namespace.ContainingType.MethodName(ParamType1,ParamType2)~ReturnType
+              M:Namespace.ContainingType.#ctor(ParamType)
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.GetTypeDocId(System.Type,System.Boolean,System.Boolean)">
+            <summary>
+            Generates a documentation ID string for a type.
+            This method handles nested types (replacing '+' with '.'),
+            generic types, arrays, pointers, by-ref types, and generic parameters.
+            The <paramref name="includeGenericArguments"/> flag controls whether
+            constructed generic type arguments are emitted, while <paramref name="omitGenericArity"/>
+            controls whether the generic arity marker (e.g. "`1") is appended.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.NormalizeDocId(System.String)">
+            <summary>
+            Normalizes a documentation comment ID to match the compiler-style format.
+            Strips the return type suffix for ordinary methods but retains it for conversion operators.
+            </summary>
+            <param name="docId">The documentation comment ID to normalize.</param>
+            <returns>The normalized documentation comment ID.</returns>
+        </member>
+    </members>
+</doc>
