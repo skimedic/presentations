@@ -1,9 +1,16 @@
 ﻿@model AutoLot.Services.ViewModels.DealerInfo
+@inject IServiceProvider serviceProvider
 @{
     ViewData["Title"] = "Home Page";
+    var service = serviceProvider.GetKeyedService<ISimpleService>(nameof(SimpleServiceOne));
 }
-
 <div class="text-center">
     <h1 class="display-4">Welcome to @Model.DealerName</h1>
     <p class="lead">Located in @Model.City, @Model.State</p>
+</div>
+<div>
+    @if (service != null)
+    {
+        <p>@service.SayHello()</p>
+    }
 </div>
